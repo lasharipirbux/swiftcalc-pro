@@ -26,17 +26,17 @@ export const StaticPage: React.FC<StaticPageProps> = ({ page, onBack }) => {
               <Info className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">About SwiftCalc Pro</h1>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">About CalcVault Pro</h1>
               <p className="text-sm text-slate-500">The Ultimate Multi-Category Calculator Portal</p>
             </div>
           </div>
           <div className="prose dark:prose-invert max-w-none text-sm text-slate-600 dark:text-slate-300 space-y-4">
             <p>
-              SwiftCalc Pro is a comprehensive, lightning-fast web calculator portal designed for professionals, students, engineers, business owners, and everyday users. Our platform offers a vast suite of specialized calculators spanning Math, Finance, Business, Construction, Health & Fitness, Date & Time, Education, Electrical, Automotive, Internet & Technology, and Cooking.
+              CalcVault Pro is a comprehensive, lightning-fast web calculator portal designed for professionals, students, engineers, business owners, and everyday users. Our platform offers a vast suite of specialized calculators spanning Math, Finance, Business, Construction, Health & Fitness, Date & Time, Education, Electrical, Automotive, Internet & Technology, and Cooking.
             </p>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-6">Our Mission</h3>
             <p>
-              We believe complex calculations should be instantaneous, transparent, and accessible to everyone without clutter or intrusive ads. Every calculator on SwiftCalc Pro features clear step-by-step formulas, intuitive inputs, and instant results optimized for both desktop and mobile devices.
+              We believe complex calculations should be instantaneous, transparent, and accessible to everyone without clutter or intrusive ads. Every calculator on CalcVault Pro features clear step-by-step formulas, intuitive inputs, and instant results optimized for both desktop and mobile devices.
             </p>
           </div>
         </div>
@@ -79,7 +79,7 @@ export const StaticPage: React.FC<StaticPageProps> = ({ page, onBack }) => {
           </div>
           <div className="prose dark:prose-invert max-w-none text-sm text-slate-600 dark:text-slate-300 space-y-4">
             <p>
-              At SwiftCalc Pro, your privacy is our top priority. All calculations and sensitive inputs (such as passwords, financial figures, or health metrics) are executed entirely client-side within your browser. We never store, transmit, or share your personal calculation inputs on external servers.
+              At CalcVault Pro, your privacy is our top priority. All calculations and sensitive inputs (such as passwords, financial figures, or health metrics) are executed entirely client-side within your browser. We never store, transmit, or share your personal calculation inputs on external servers.
             </p>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-6">Local Storage</h3>
             <p>
@@ -102,11 +102,11 @@ export const StaticPage: React.FC<StaticPageProps> = ({ page, onBack }) => {
           </div>
           <div className="prose dark:prose-invert max-w-none text-sm text-slate-600 dark:text-slate-300 space-y-4">
             <p>
-              By accessing and using SwiftCalc Pro, you agree to comply with and be bound by these Terms of Service.
+              By accessing and using CalcVault Pro, you agree to comply with and be bound by these Terms of Service.
             </p>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-6">Disclaimer</h3>
             <p>
-              Calculators provided on SwiftCalc Pro are for estimation, informational, and educational purposes only. Financial, construction, electrical, and health calculators should be verified with licensed professionals before making critical real-world decisions.
+              Calculators provided on CalcVault Pro are for estimation, informational, and educational purposes only. Financial, construction, electrical, and health calculators should be verified with licensed professionals before making critical real-world decisions.
             </p>
           </div>
         </div>

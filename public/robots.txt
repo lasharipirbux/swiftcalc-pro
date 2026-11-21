@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://swiftcalc.pro/sitemap.xml
+Sitemap: https://YOURDOMAIN.com/sitemap.xml

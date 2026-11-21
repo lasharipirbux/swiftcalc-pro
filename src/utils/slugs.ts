@@ -5,6 +5,6 @@ export const getCalculatorSlug = (calc: CalculatorItem): string => {
 };
 
 export const findCalculatorBySlug = (slug: string, allCalculators: CalculatorItem[]): CalculatorItem | undefined => {
-  const cleanSlug = slug.startsWith('/') ? slug : '/' + slug;
-  return allCalculators.find(c => getCalculatorSlug(c) === cleanSlug);
+  const normalized = (slug.startsWith('/') ? slug : '/' + slug).replace(/\/+$/, '');
+  return allCalculators.find(c => getCalculatorSlug(c) === normalized);
 };

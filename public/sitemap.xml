@@ -1,2097 +1,2516 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://swiftcalc.pro/</loc>
+    <loc>https://YOURDOMAIN.com/</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/about</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://YOURDOMAIN.com/about</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/contact</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://YOURDOMAIN.com/contact</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/privacy</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://YOURDOMAIN.com/privacy</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/terms</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://YOURDOMAIN.com/terms</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/math</loc>
+    <loc>https://YOURDOMAIN.com/category/math</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/finance</loc>
+    <loc>https://YOURDOMAIN.com/category/finance</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/business</loc>
+    <loc>https://YOURDOMAIN.com/category/business</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/construction</loc>
+    <loc>https://YOURDOMAIN.com/category/construction</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/health</loc>
+    <loc>https://YOURDOMAIN.com/category/health</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/datetime</loc>
+    <loc>https://YOURDOMAIN.com/category/datetime</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/electrical</loc>
+    <loc>https://YOURDOMAIN.com/category/electrical</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/education</loc>
+    <loc>https://YOURDOMAIN.com/category/education</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/engineering</loc>
+    <loc>https://YOURDOMAIN.com/category/engineering</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/realestate</loc>
+    <loc>https://YOURDOMAIN.com/category/realestate</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/automotive</loc>
+    <loc>https://YOURDOMAIN.com/category/automotive</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/cooking</loc>
+    <loc>https://YOURDOMAIN.com/category/cooking</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/statistics</loc>
+    <loc>https://YOURDOMAIN.com/category/statistics</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/category/tech</loc>
+    <loc>https://YOURDOMAIN.com/category/tech</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/basic-calculator</loc>
+    <loc>https://YOURDOMAIN.com/basic-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/scientific-calculator</loc>
+    <loc>https://YOURDOMAIN.com/scientific-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/fraction-calculator</loc>
+    <loc>https://YOURDOMAIN.com/fraction-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/decimal-to-fraction-calculator</loc>
+    <loc>https://YOURDOMAIN.com/decimal-to-fraction-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/percentage-calculator</loc>
+    <loc>https://YOURDOMAIN.com/percentage-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/average-mean-calculator</loc>
+    <loc>https://YOURDOMAIN.com/average-mean-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/square-cube-root-calculator</loc>
+    <loc>https://YOURDOMAIN.com/square-cube-root-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/power-exponent-calculator</loc>
+    <loc>https://YOURDOMAIN.com/power-exponent-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/lcm-gcd-calculator</loc>
+    <loc>https://YOURDOMAIN.com/lcm-gcd-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/prime-number-checker</loc>
+    <loc>https://YOURDOMAIN.com/prime-number-checker</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/factorial-calculator</loc>
+    <loc>https://YOURDOMAIN.com/factorial-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/quadratic-equation-solver</loc>
+    <loc>https://YOURDOMAIN.com/quadratic-equation-solver</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/matrix-determinant-addition</loc>
+    <loc>https://YOURDOMAIN.com/matrix-determinant-addition</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/pythagorean-theorem-calculator</loc>
+    <loc>https://YOURDOMAIN.com/pythagorean-theorem-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/circle-area-and-circumference-calculator</loc>
+    <loc>https://YOURDOMAIN.com/circle-area-and-circumference-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/triangle-area-calculator</loc>
+    <loc>https://YOURDOMAIN.com/triangle-area-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/rectangle-square-area-calculator</loc>
+    <loc>https://YOURDOMAIN.com/rectangle-square-area-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/sphere-volume-and-surface-area</loc>
+    <loc>https://YOURDOMAIN.com/sphere-volume-and-surface-area</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cylinder-volume-surface-area</loc>
+    <loc>https://YOURDOMAIN.com/cylinder-volume-surface-area</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cone-volume-surface-area</loc>
+    <loc>https://YOURDOMAIN.com/cone-volume-surface-area</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/arithmetic-progression-ap-calculator</loc>
+    <loc>https://YOURDOMAIN.com/arithmetic-progression-ap-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/geometric-progression-gp-calculator</loc>
+    <loc>https://YOURDOMAIN.com/geometric-progression-gp-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/custom-base-logarithm-calculator</loc>
+    <loc>https://YOURDOMAIN.com/custom-base-logarithm-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/permutation-combination-calculator</loc>
+    <loc>https://YOURDOMAIN.com/permutation-combination-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/prime-factorization-calculator</loc>
+    <loc>https://YOURDOMAIN.com/prime-factorization-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/fraction-arithmetic-calculator</loc>
+    <loc>https://YOURDOMAIN.com/fraction-arithmetic-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/number-base-converter-bin-oct-hex</loc>
+    <loc>https://YOURDOMAIN.com/number-base-converter-bin-oct-hex</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/loan-emi-calculator</loc>
+    <loc>https://YOURDOMAIN.com/loan-emi-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/compound-interest-calculator</loc>
+    <loc>https://YOURDOMAIN.com/compound-interest-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mortgage-calculator</loc>
+    <loc>https://YOURDOMAIN.com/mortgage-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/roi-return-on-investment-calculator</loc>
+    <loc>https://YOURDOMAIN.com/roi-return-on-investment-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/sales-tax-vat-calculator</loc>
+    <loc>https://YOURDOMAIN.com/sales-tax-vat-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/tip-bill-split-calculator</loc>
+    <loc>https://YOURDOMAIN.com/tip-bill-split-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/loan-emi-calculator-months</loc>
+    <loc>https://YOURDOMAIN.com/loan-emi-calculator-months</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/simple-interest-calculator</loc>
+    <loc>https://YOURDOMAIN.com/simple-interest-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/compound-interest-frequency-calculator</loc>
+    <loc>https://YOURDOMAIN.com/compound-interest-frequency-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/savings-goal-calculator</loc>
+    <loc>https://YOURDOMAIN.com/savings-goal-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/salary-breakdown-calculator</loc>
+    <loc>https://YOURDOMAIN.com/salary-breakdown-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/discount-and-sale-price-calculator</loc>
+    <loc>https://YOURDOMAIN.com/discount-and-sale-price-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/manual-currency-conversion-calculator</loc>
+    <loc>https://YOURDOMAIN.com/manual-currency-conversion-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/business-profit-margin-calculator</loc>
+    <loc>https://YOURDOMAIN.com/business-profit-margin-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/pakistan-income-tax-slabs-calculator-fbr</loc>
+    <loc>https://YOURDOMAIN.com/pakistan-income-tax-slabs-calculator-fbr</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/car-lease-auto-installment-calculator</loc>
+    <loc>https://YOURDOMAIN.com/car-lease-auto-installment-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/home-loan-house-financing-calculator</loc>
+    <loc>https://YOURDOMAIN.com/home-loan-house-financing-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mutual-fund-investment-return-calculator</loc>
+    <loc>https://YOURDOMAIN.com/mutual-fund-investment-return-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/fixed-deposit-profit-calculator</loc>
+    <loc>https://YOURDOMAIN.com/fixed-deposit-profit-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/national-savings-profit-calculator</loc>
+    <loc>https://YOURDOMAIN.com/national-savings-profit-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/gold-price-weight-calculator</loc>
+    <loc>https://YOURDOMAIN.com/gold-price-weight-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/currency-denomination-cash-counter</loc>
+    <loc>https://YOURDOMAIN.com/currency-denomination-cash-counter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/inflation-impact-calculator</loc>
+    <loc>https://YOURDOMAIN.com/inflation-impact-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/compound-annual-growth-rate-cagr-calculator</loc>
+    <loc>https://YOURDOMAIN.com/compound-annual-growth-rate-cagr-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/retirement-nest-egg-calculator</loc>
+    <loc>https://YOURDOMAIN.com/retirement-nest-egg-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/net-worth-calculator</loc>
+    <loc>https://YOURDOMAIN.com/net-worth-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/dividend-yield-annual-payout-calculator</loc>
+    <loc>https://YOURDOMAIN.com/dividend-yield-annual-payout-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/debt-payoff-estimator-snowball-vs-avalanche</loc>
+    <loc>https://YOURDOMAIN.com/debt-payoff-estimator-snowball-vs-avalanche</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/break-even-point-calculator</loc>
+    <loc>https://YOURDOMAIN.com/break-even-point-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/markup-calculator</loc>
+    <loc>https://YOURDOMAIN.com/markup-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/roi-calculator</loc>
+    <loc>https://YOURDOMAIN.com/roi-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/commission-calculator</loc>
+    <loc>https://YOURDOMAIN.com/commission-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cost-per-unit-calculator</loc>
+    <loc>https://YOURDOMAIN.com/cost-per-unit-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/sales-target-calculator</loc>
+    <loc>https://YOURDOMAIN.com/sales-target-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/inventory-reorder-point-calculator</loc>
+    <loc>https://YOURDOMAIN.com/inventory-reorder-point-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/overtime-pay-calculator</loc>
+    <loc>https://YOURDOMAIN.com/overtime-pay-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/profit-margin-calculator</loc>
+    <loc>https://YOURDOMAIN.com/profit-margin-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/discount-calculator</loc>
+    <loc>https://YOURDOMAIN.com/discount-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/sales-tax-gst-calculator</loc>
+    <loc>https://YOURDOMAIN.com/sales-tax-gst-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/salary-to-hourly-calculator</loc>
+    <loc>https://YOURDOMAIN.com/salary-to-hourly-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/invoice-total-calculator</loc>
+    <loc>https://YOURDOMAIN.com/invoice-total-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cash-flow-calculator</loc>
+    <loc>https://YOURDOMAIN.com/cash-flow-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/net-profit-calculator</loc>
+    <loc>https://YOURDOMAIN.com/net-profit-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/operating-margin-calculator</loc>
+    <loc>https://YOURDOMAIN.com/operating-margin-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ebitda-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ebitda-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/customer-acquisition-cost-cac-calculator</loc>
+    <loc>https://YOURDOMAIN.com/customer-acquisition-cost-cac-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/customer-lifetime-value-ltv-calculator</loc>
+    <loc>https://YOURDOMAIN.com/customer-lifetime-value-ltv-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/working-capital-calculator</loc>
+    <loc>https://YOURDOMAIN.com/working-capital-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/quick-ratio-acid-test-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/quick-ratio-acid-test-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/debt-to-equity-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/debt-to-equity-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/employee-turnover-rate-calculator</loc>
+    <loc>https://YOURDOMAIN.com/employee-turnover-rate-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/payback-period-calculator</loc>
+    <loc>https://YOURDOMAIN.com/payback-period-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/economic-order-quantity-eoq-calculator</loc>
+    <loc>https://YOURDOMAIN.com/economic-order-quantity-eoq-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/customer-lifetime-value-clv-calculator</loc>
+    <loc>https://YOURDOMAIN.com/customer-lifetime-value-clv-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/customer-churn-rate-calculator</loc>
+    <loc>https://YOURDOMAIN.com/customer-churn-rate-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/inventory-turnover-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/inventory-turnover-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/brick-calculator</loc>
+    <loc>https://YOURDOMAIN.com/brick-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/concrete-calculator-mix-ratio-1-2-4</loc>
+    <loc>https://YOURDOMAIN.com/concrete-calculator-mix-ratio-1-2-4</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/paint-calculator</loc>
+    <loc>https://YOURDOMAIN.com/paint-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/tile-and-flooring-calculator</loc>
+    <loc>https://YOURDOMAIN.com/tile-and-flooring-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/steel-bar-weight-calculator</loc>
+    <loc>https://YOURDOMAIN.com/steel-bar-weight-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/slab-area-and-volume-calculator</loc>
+    <loc>https://YOURDOMAIN.com/slab-area-and-volume-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/plaster-calculator</loc>
+    <loc>https://YOURDOMAIN.com/plaster-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/excavation-volume-calculator</loc>
+    <loc>https://YOURDOMAIN.com/excavation-volume-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/marla-to-square-feet-converter</loc>
+    <loc>https://YOURDOMAIN.com/marla-to-square-feet-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/square-feet-to-marla-converter</loc>
+    <loc>https://YOURDOMAIN.com/square-feet-to-marla-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/boundary-wall-brick-plaster-calculator</loc>
+    <loc>https://YOURDOMAIN.com/boundary-wall-brick-plaster-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/water-tank-capacity-calculator</loc>
+    <loc>https://YOURDOMAIN.com/water-tank-capacity-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/septic-tank-size-calculator</loc>
+    <loc>https://YOURDOMAIN.com/septic-tank-size-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/roof-bitumen-waterproofing-calculator</loc>
+    <loc>https://YOURDOMAIN.com/roof-bitumen-waterproofing-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/marble-tile-skirting-calculator</loc>
+    <loc>https://YOURDOMAIN.com/marble-tile-skirting-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/door-window-wood-frame-calculator</loc>
+    <loc>https://YOURDOMAIN.com/door-window-wood-frame-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/column-reinforcement-steel-calculator</loc>
+    <loc>https://YOURDOMAIN.com/column-reinforcement-steel-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/foundation-earthwork-labor-cost-calculator</loc>
+    <loc>https://YOURDOMAIN.com/foundation-earthwork-labor-cost-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/sand-crush-volume-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/sand-crush-volume-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/gypsum-false-ceiling-cost-calculator</loc>
+    <loc>https://YOURDOMAIN.com/gypsum-false-ceiling-cost-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/house-construction-cost-estimator-pakistan</loc>
+    <loc>https://YOURDOMAIN.com/house-construction-cost-estimator-pakistan</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/roof-slab-steel-rebar-calculator</loc>
+    <loc>https://YOURDOMAIN.com/roof-slab-steel-rebar-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/terrazzo-mosaic-flooring-calculator</loc>
+    <loc>https://YOURDOMAIN.com/terrazzo-mosaic-flooring-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/compound-wall-pillar-calculator</loc>
+    <loc>https://YOURDOMAIN.com/compound-wall-pillar-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/retaining-wall-concrete-volume-calculator</loc>
+    <loc>https://YOURDOMAIN.com/retaining-wall-concrete-volume-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/drywall-gypsum-board-sheet-calculator</loc>
+    <loc>https://YOURDOMAIN.com/drywall-gypsum-board-sheet-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/roof-pitch-rise-calculator</loc>
+    <loc>https://YOURDOMAIN.com/roof-pitch-rise-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/stair-rise-and-run-calculator</loc>
+    <loc>https://YOURDOMAIN.com/stair-rise-and-run-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/bmi-calculator</loc>
+    <loc>https://YOURDOMAIN.com/bmi-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/daily-water-intake-calculator</loc>
+    <loc>https://YOURDOMAIN.com/daily-water-intake-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ideal-weight-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ideal-weight-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/calorie-needs-calculator</loc>
+    <loc>https://YOURDOMAIN.com/calorie-needs-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/body-fat-percentage-calculator</loc>
+    <loc>https://YOURDOMAIN.com/body-fat-percentage-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/pregnancy-due-date-calculator</loc>
+    <loc>https://YOURDOMAIN.com/pregnancy-due-date-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/heart-rate-zone-calculator</loc>
+    <loc>https://YOURDOMAIN.com/heart-rate-zone-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/steps-to-calories-calculator</loc>
+    <loc>https://YOURDOMAIN.com/steps-to-calories-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/macronutrients-macros-calculator</loc>
+    <loc>https://YOURDOMAIN.com/macronutrients-macros-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/daily-protein-intake-calculator</loc>
+    <loc>https://YOURDOMAIN.com/daily-protein-intake-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/bmr-basal-metabolic-rate-calculator</loc>
+    <loc>https://YOURDOMAIN.com/bmr-basal-metabolic-rate-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/fat-burning-heart-rate-zone-calculator</loc>
+    <loc>https://YOURDOMAIN.com/fat-burning-heart-rate-zone-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/waist-to-height-ratio-whtr-calculator</loc>
+    <loc>https://YOURDOMAIN.com/waist-to-height-ratio-whtr-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/calorie-deficit-for-weight-loss-calculator</loc>
+    <loc>https://YOURDOMAIN.com/calorie-deficit-for-weight-loss-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/sleep-duration-sleep-cycles-calculator</loc>
+    <loc>https://YOURDOMAIN.com/sleep-duration-sleep-cycles-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/caffeine-intake-safety-limit-calculator</loc>
+    <loc>https://YOURDOMAIN.com/caffeine-intake-safety-limit-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/target-weight-loss-timeline-calculator</loc>
+    <loc>https://YOURDOMAIN.com/target-weight-loss-timeline-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/one-rep-max-1rm-strength-calculator</loc>
+    <loc>https://YOURDOMAIN.com/one-rep-max-1rm-strength-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/blood-pressure-category-checker</loc>
+    <loc>https://YOURDOMAIN.com/blood-pressure-category-checker</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/lean-body-mass-lbm-calculator</loc>
+    <loc>https://YOURDOMAIN.com/lean-body-mass-lbm-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/bac-blood-alcohol-concentration-estimator</loc>
+    <loc>https://YOURDOMAIN.com/bac-blood-alcohol-concentration-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/smoking-cost-health-impact-calculator</loc>
+    <loc>https://YOURDOMAIN.com/smoking-cost-health-impact-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/running-pace-speed-calculator</loc>
+    <loc>https://YOURDOMAIN.com/running-pace-speed-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/target-heart-rate-karvonen-formula</loc>
+    <loc>https://YOURDOMAIN.com/target-heart-rate-karvonen-formula</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/body-surface-area-bsa-calculator</loc>
+    <loc>https://YOURDOMAIN.com/body-surface-area-bsa-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/waist-to-hip-ratio-whr-calculator</loc>
+    <loc>https://YOURDOMAIN.com/waist-to-hip-ratio-whr-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/daily-water-intake-target-calculator</loc>
+    <loc>https://YOURDOMAIN.com/daily-water-intake-target-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/body-fat-mass-lean-body-mass-calculator</loc>
+    <loc>https://YOURDOMAIN.com/body-fat-mass-lean-body-mass-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/age-calculator</loc>
+    <loc>https://YOURDOMAIN.com/age-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/date-difference-calculator</loc>
+    <loc>https://YOURDOMAIN.com/date-difference-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/add-or-subtract-days-from-a-date</loc>
+    <loc>https://YOURDOMAIN.com/add-or-subtract-days-from-a-date</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/working-days-calculator</loc>
+    <loc>https://YOURDOMAIN.com/working-days-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/countdown-to-a-date-calculator</loc>
+    <loc>https://YOURDOMAIN.com/countdown-to-a-date-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/time-duration-calculator</loc>
+    <loc>https://YOURDOMAIN.com/time-duration-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/time-zone-converter</loc>
+    <loc>https://YOURDOMAIN.com/time-zone-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/week-number-and-day-of-week-finder</loc>
+    <loc>https://YOURDOMAIN.com/week-number-and-day-of-week-finder</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/age-in-months-weeks-hours-calculator</loc>
+    <loc>https://YOURDOMAIN.com/age-in-months-weeks-hours-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/leap-year-checker</loc>
+    <loc>https://YOURDOMAIN.com/leap-year-checker</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/add-business-days-to-a-date-calculator</loc>
+    <loc>https://YOURDOMAIN.com/add-business-days-to-a-date-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/unix-timestamp-converter</loc>
+    <loc>https://YOURDOMAIN.com/unix-timestamp-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/meeting-time-planner-across-cities</loc>
+    <loc>https://YOURDOMAIN.com/meeting-time-planner-across-cities</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/time-addition-calculator</loc>
+    <loc>https://YOURDOMAIN.com/time-addition-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/time-subtraction-calculator</loc>
+    <loc>https://YOURDOMAIN.com/time-subtraction-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/days-until-birthday-event-calculator</loc>
+    <loc>https://YOURDOMAIN.com/days-until-birthday-event-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/quarter-of-the-year-finder</loc>
+    <loc>https://YOURDOMAIN.com/quarter-of-the-year-finder</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/days-passed-in-current-year-calculator</loc>
+    <loc>https://YOURDOMAIN.com/days-passed-in-current-year-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/retirement-countdown-calculator</loc>
+    <loc>https://YOURDOMAIN.com/retirement-countdown-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/hourly-wage-to-annual-salary-time-based</loc>
+    <loc>https://YOURDOMAIN.com/hourly-wage-to-annual-salary-time-based</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/century-millennium-calculator</loc>
+    <loc>https://YOURDOMAIN.com/century-millennium-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/stopwatch-lap-split-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/stopwatch-lap-split-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/daylight-saving-time-dst-detector</loc>
+    <loc>https://YOURDOMAIN.com/daylight-saving-time-dst-detector</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/annual-working-hours-calculator</loc>
+    <loc>https://YOURDOMAIN.com/annual-working-hours-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/seconds-to-hours-minutes-seconds-converter</loc>
+    <loc>https://YOURDOMAIN.com/seconds-to-hours-minutes-seconds-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/date-difference-in-weeks-days</loc>
+    <loc>https://YOURDOMAIN.com/date-difference-in-weeks-days</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/unix-epoch-timestamp-converter</loc>
+    <loc>https://YOURDOMAIN.com/unix-epoch-timestamp-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/age-in-days-hours-calculator</loc>
+    <loc>https://YOURDOMAIN.com/age-in-days-hours-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ohm-s-law-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ohm-s-law-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/electricity-bill-calculator</loc>
+    <loc>https://YOURDOMAIN.com/electricity-bill-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/appliance-running-cost-calculator</loc>
+    <loc>https://YOURDOMAIN.com/appliance-running-cost-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/series-and-parallel-resistor-calculator</loc>
+    <loc>https://YOURDOMAIN.com/series-and-parallel-resistor-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ups-and-battery-backup-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ups-and-battery-backup-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/solar-panel-size-estimator</loc>
+    <loc>https://YOURDOMAIN.com/solar-panel-size-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/led-resistor-calculator</loc>
+    <loc>https://YOURDOMAIN.com/led-resistor-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/watts-to-amps-calculator</loc>
+    <loc>https://YOURDOMAIN.com/watts-to-amps-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/kilowatt-hour-kwh-energy-cost-calculator</loc>
+    <loc>https://YOURDOMAIN.com/kilowatt-hour-kwh-energy-cost-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ac-to-dc-rectifier-peak-voltage-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ac-to-dc-rectifier-peak-voltage-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/transformer-turns-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/transformer-turns-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/capacitive-reactance-calculator</loc>
+    <loc>https://YOURDOMAIN.com/capacitive-reactance-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/inductive-reactance-calculator</loc>
+    <loc>https://YOURDOMAIN.com/inductive-reactance-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/rc-time-constant-calculator</loc>
+    <loc>https://YOURDOMAIN.com/rc-time-constant-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/wire-voltage-drop-calculator</loc>
+    <loc>https://YOURDOMAIN.com/wire-voltage-drop-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/motor-horsepower-to-watts-converter</loc>
+    <loc>https://YOURDOMAIN.com/motor-horsepower-to-watts-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/three-phase-power-calculator</loc>
+    <loc>https://YOURDOMAIN.com/three-phase-power-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/power-factor-correction-calculator</loc>
+    <loc>https://YOURDOMAIN.com/power-factor-correction-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/frequency-and-wavelength-calculator</loc>
+    <loc>https://YOURDOMAIN.com/frequency-and-wavelength-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/electric-charge-and-current-calculator</loc>
+    <loc>https://YOURDOMAIN.com/electric-charge-and-current-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/battery-charging-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/battery-charging-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/inverter-load-capacity-calculator</loc>
+    <loc>https://YOURDOMAIN.com/inverter-load-capacity-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/electric-water-heater-energy-consumption</loc>
+    <loc>https://YOURDOMAIN.com/electric-water-heater-energy-consumption</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/air-conditioner-ac-power-consumption-calculator</loc>
+    <loc>https://YOURDOMAIN.com/air-conditioner-ac-power-consumption-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/voltage-divider-circuit-output-calculator</loc>
+    <loc>https://YOURDOMAIN.com/voltage-divider-circuit-output-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/resistor-value-estimator</loc>
+    <loc>https://YOURDOMAIN.com/resistor-value-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/led-series-resistor-calculator</loc>
+    <loc>https://YOURDOMAIN.com/led-series-resistor-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/battery-charge-time-estimator</loc>
+    <loc>https://YOURDOMAIN.com/battery-charge-time-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/maximum-power-transfer-calculator</loc>
+    <loc>https://YOURDOMAIN.com/maximum-power-transfer-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/gpa-calculator-4-0-scale</loc>
+    <loc>https://YOURDOMAIN.com/gpa-calculator-4-0-scale</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cgpa-calculator-multiple-semesters</loc>
+    <loc>https://YOURDOMAIN.com/cgpa-calculator-multiple-semesters</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/percentage-calculator-for-marks</loc>
+    <loc>https://YOURDOMAIN.com/percentage-calculator-for-marks</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/grade-calculator-marks-to-grade</loc>
+    <loc>https://YOURDOMAIN.com/grade-calculator-marks-to-grade</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/average-marks-calculator</loc>
+    <loc>https://YOURDOMAIN.com/average-marks-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/attendance-percentage-75-target-calculator</loc>
+    <loc>https://YOURDOMAIN.com/attendance-percentage-75-target-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/marks-needed-in-final-exam-calculator</loc>
+    <loc>https://YOURDOMAIN.com/marks-needed-in-final-exam-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/study-time-planner</loc>
+    <loc>https://YOURDOMAIN.com/study-time-planner</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/sgpa-to-percentage-converter</loc>
+    <loc>https://YOURDOMAIN.com/sgpa-to-percentage-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/percentage-to-gpa-converter</loc>
+    <loc>https://YOURDOMAIN.com/percentage-to-gpa-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/final-grade-calculator-weighted-categories</loc>
+    <loc>https://YOURDOMAIN.com/final-grade-calculator-weighted-categories</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/reading-speed-wpm-calculator</loc>
+    <loc>https://YOURDOMAIN.com/reading-speed-wpm-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/quiz-score-negative-marking-calculator</loc>
+    <loc>https://YOURDOMAIN.com/quiz-score-negative-marking-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/study-break-pomodoro-time-planner</loc>
+    <loc>https://YOURDOMAIN.com/study-break-pomodoro-time-planner</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/university-tuition-fee-installment-calculator-pkr</loc>
+    <loc>https://YOURDOMAIN.com/university-tuition-fee-installment-calculator-pkr</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/essay-thesis-reading-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/essay-thesis-reading-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/standard-deviation-of-test-scores-calculator</loc>
+    <loc>https://YOURDOMAIN.com/standard-deviation-of-test-scores-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/scholarship-eligibility-gpa-checker</loc>
+    <loc>https://YOURDOMAIN.com/scholarship-eligibility-gpa-checker</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/textbook-reading-schedule-planner</loc>
+    <loc>https://YOURDOMAIN.com/textbook-reading-schedule-planner</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/assignment-score-contribution-calculator</loc>
+    <loc>https://YOURDOMAIN.com/assignment-score-contribution-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/flashcard-review-interval-planner</loc>
+    <loc>https://YOURDOMAIN.com/flashcard-review-interval-planner</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/college-credit-hours-cost-estimator-pkr</loc>
+    <loc>https://YOURDOMAIN.com/college-credit-hours-cost-estimator-pkr</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/grade-point-deficit-calculator</loc>
+    <loc>https://YOURDOMAIN.com/grade-point-deficit-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/class-rank-percentile-calculator</loc>
+    <loc>https://YOURDOMAIN.com/class-rank-percentile-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/semester-gpa-impact-calculator</loc>
+    <loc>https://YOURDOMAIN.com/semester-gpa-impact-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/multi-semester-cgpa-calculator</loc>
+    <loc>https://YOURDOMAIN.com/multi-semester-cgpa-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/final-exam-required-score-calculator</loc>
+    <loc>https://YOURDOMAIN.com/final-exam-required-score-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/flashcard-study-session-timer</loc>
+    <loc>https://YOURDOMAIN.com/flashcard-study-session-timer</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/grade-letter-to-percentage-converter</loc>
+    <loc>https://YOURDOMAIN.com/grade-letter-to-percentage-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/velocity-acceleration</loc>
+    <loc>https://YOURDOMAIN.com/velocity-acceleration</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/kinetic-energy-calculator</loc>
+    <loc>https://YOURDOMAIN.com/kinetic-energy-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/gravitational-potential-energy-calculator</loc>
+    <loc>https://YOURDOMAIN.com/gravitational-potential-energy-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/newton-s-second-law-force-calculator</loc>
+    <loc>https://YOURDOMAIN.com/newton-s-second-law-force-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/universal-gravitation-calculator</loc>
+    <loc>https://YOURDOMAIN.com/universal-gravitation-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ideal-gas-law-calculator-pv-nrt</loc>
+    <loc>https://YOURDOMAIN.com/ideal-gas-law-calculator-pv-nrt</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/reynolds-number-fluid-dynamics-calculator</loc>
+    <loc>https://YOURDOMAIN.com/reynolds-number-fluid-dynamics-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/thermal-expansion-calculator</loc>
+    <loc>https://YOURDOMAIN.com/thermal-expansion-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/projectile-motion-range-calculator</loc>
+    <loc>https://YOURDOMAIN.com/projectile-motion-range-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/centripetal-force-calculator</loc>
+    <loc>https://YOURDOMAIN.com/centripetal-force-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/momentum-calculator</loc>
+    <loc>https://YOURDOMAIN.com/momentum-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/torque-moment-of-force-calculator</loc>
+    <loc>https://YOURDOMAIN.com/torque-moment-of-force-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/frequency-and-period-calculator</loc>
+    <loc>https://YOURDOMAIN.com/frequency-and-period-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/wave-speed-calculator</loc>
+    <loc>https://YOURDOMAIN.com/wave-speed-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/decibel-sound-intensity-calculator</loc>
+    <loc>https://YOURDOMAIN.com/decibel-sound-intensity-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/coulomb-s-law-electric-force-calculator</loc>
+    <loc>https://YOURDOMAIN.com/coulomb-s-law-electric-force-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/radioactive-half-life-decay-calculator</loc>
+    <loc>https://YOURDOMAIN.com/radioactive-half-life-decay-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/density-mass-and-volume-calculator</loc>
+    <loc>https://YOURDOMAIN.com/density-mass-and-volume-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/specific-heat-capacity-heat-energy-calculator</loc>
+    <loc>https://YOURDOMAIN.com/specific-heat-capacity-heat-energy-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/simple-pendulum-period-calculator</loc>
+    <loc>https://YOURDOMAIN.com/simple-pendulum-period-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/hooke-s-law-spring-force-calculator</loc>
+    <loc>https://YOURDOMAIN.com/hooke-s-law-spring-force-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/stress-and-strain-mechanics-calculator</loc>
+    <loc>https://YOURDOMAIN.com/stress-and-strain-mechanics-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/refractive-index-snell-s-law-calculator</loc>
+    <loc>https://YOURDOMAIN.com/refractive-index-snell-s-law-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/doppler-effect-frequency-shift-calculator</loc>
+    <loc>https://YOURDOMAIN.com/doppler-effect-frequency-shift-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/thermal-conductivity-heat-transfer-calculator</loc>
+    <loc>https://YOURDOMAIN.com/thermal-conductivity-heat-transfer-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/reynolds-number-fluid-flow-calculator</loc>
+    <loc>https://YOURDOMAIN.com/reynolds-number-fluid-flow-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mechanical-torque-and-power-calculator</loc>
+    <loc>https://YOURDOMAIN.com/mechanical-torque-and-power-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/bernoulli-fluid-pressure-calculator</loc>
+    <loc>https://YOURDOMAIN.com/bernoulli-fluid-pressure-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/linear-thermal-expansion-calculator</loc>
+    <loc>https://YOURDOMAIN.com/linear-thermal-expansion-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/rental-yield-calculator</loc>
+    <loc>https://YOURDOMAIN.com/rental-yield-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/plot-area-converter</loc>
+    <loc>https://YOURDOMAIN.com/plot-area-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/plot-price-calculator</loc>
+    <loc>https://YOURDOMAIN.com/plot-price-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/price-per-marla-to-price-per-sq-ft</loc>
+    <loc>https://YOURDOMAIN.com/price-per-marla-to-price-per-sq-ft</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/construction-cost-estimator</loc>
+    <loc>https://YOURDOMAIN.com/construction-cost-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/property-installment-calculator</loc>
+    <loc>https://YOURDOMAIN.com/property-installment-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/down-payment-calculator</loc>
+    <loc>https://YOURDOMAIN.com/down-payment-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/property-profit-roi-calculator</loc>
+    <loc>https://YOURDOMAIN.com/property-profit-roi-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/fbr-property-tax-calculator-pakistan</loc>
+    <loc>https://YOURDOMAIN.com/fbr-property-tax-calculator-pakistan</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/stamp-duty-registration-fee-calculator</loc>
+    <loc>https://YOURDOMAIN.com/stamp-duty-registration-fee-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/capital-gains-tax-cgt-on-property-calculator</loc>
+    <loc>https://YOURDOMAIN.com/capital-gains-tax-cgt-on-property-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/rent-capitalization-rate-cap-rate-calculator</loc>
+    <loc>https://YOURDOMAIN.com/rent-capitalization-rate-cap-rate-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mortgage-affordability-calculator</loc>
+    <loc>https://YOURDOMAIN.com/mortgage-affordability-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/gross-rent-multiplier-grm-calculator</loc>
+    <loc>https://YOURDOMAIN.com/gross-rent-multiplier-grm-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/property-flipping-profit-calculator</loc>
+    <loc>https://YOURDOMAIN.com/property-flipping-profit-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/house-remodeling-roi-calculator</loc>
+    <loc>https://YOURDOMAIN.com/house-remodeling-roi-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/home-insurance-cost-estimator</loc>
+    <loc>https://YOURDOMAIN.com/home-insurance-cost-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/property-agent-commission-calculator</loc>
+    <loc>https://YOURDOMAIN.com/property-agent-commission-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/land-sub-division-plot-splitting-calculator</loc>
+    <loc>https://YOURDOMAIN.com/land-sub-division-plot-splitting-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/commercial-property-valuation-calculator</loc>
+    <loc>https://YOURDOMAIN.com/commercial-property-valuation-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/apartment-maintenance-fee-calculator</loc>
+    <loc>https://YOURDOMAIN.com/apartment-maintenance-fee-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/annual-property-appreciation-calculator</loc>
+    <loc>https://YOURDOMAIN.com/annual-property-appreciation-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mortgage-payoff-acceleration-calculator</loc>
+    <loc>https://YOURDOMAIN.com/mortgage-payoff-acceleration-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/home-equity-calculator</loc>
+    <loc>https://YOURDOMAIN.com/home-equity-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/gross-vs-net-operating-income-noi-calculator</loc>
+    <loc>https://YOURDOMAIN.com/gross-vs-net-operating-income-noi-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/property-capitalization-rate-cap-rate</loc>
+    <loc>https://YOURDOMAIN.com/property-capitalization-rate-cap-rate</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/property-cash-on-cash-return-calculator</loc>
+    <loc>https://YOURDOMAIN.com/property-cash-on-cash-return-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mortgage-refinance-breakeven-calculator</loc>
+    <loc>https://YOURDOMAIN.com/mortgage-refinance-breakeven-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/home-equity-loan-borrowing-limit-calculator</loc>
+    <loc>https://YOURDOMAIN.com/home-equity-loan-borrowing-limit-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/fuel-mileage-calculator-km-l</loc>
+    <loc>https://YOURDOMAIN.com/fuel-mileage-calculator-km-l</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/trip-fuel-cost-calculator</loc>
+    <loc>https://YOURDOMAIN.com/trip-fuel-cost-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cost-per-kilometer-calculator</loc>
+    <loc>https://YOURDOMAIN.com/cost-per-kilometer-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/speed-distance-and-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/speed-distance-and-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/vehicle-depreciation-calculator</loc>
+    <loc>https://YOURDOMAIN.com/vehicle-depreciation-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/fuel-tank-range-calculator</loc>
+    <loc>https://YOURDOMAIN.com/fuel-tank-range-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/trip-cost-sharing-calculator</loc>
+    <loc>https://YOURDOMAIN.com/trip-cost-sharing-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/oil-change-reminder-calculator</loc>
+    <loc>https://YOURDOMAIN.com/oil-change-reminder-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/car-token-tax-calculator-pakistan</loc>
+    <loc>https://YOURDOMAIN.com/car-token-tax-calculator-pakistan</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/toll-tax-trip-cost-calculator-pakistan</loc>
+    <loc>https://YOURDOMAIN.com/toll-tax-trip-cost-calculator-pakistan</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/average-monthly-fuel-budget-calculator-pkr</loc>
+    <loc>https://YOURDOMAIN.com/average-monthly-fuel-budget-calculator-pkr</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/electric-vehicle-ev-charging-cost-calculator-pkr</loc>
+    <loc>https://YOURDOMAIN.com/electric-vehicle-ev-charging-cost-calculator-pkr</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/car-loan-auto-finance-monthly-payment</loc>
+    <loc>https://YOURDOMAIN.com/car-loan-auto-finance-monthly-payment</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/braking-distance-and-stopping-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/braking-distance-and-stopping-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/engine-displacement-cc-to-horsepower-estimator</loc>
+    <loc>https://YOURDOMAIN.com/engine-displacement-cc-to-horsepower-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/carbon-footprint-co2-emissions-driving-calculator</loc>
+    <loc>https://YOURDOMAIN.com/carbon-footprint-co2-emissions-driving-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/car-resale-value-loss-per-month-calculator</loc>
+    <loc>https://YOURDOMAIN.com/car-resale-value-loss-per-month-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/road-trip-time-fuel-stops-planner</loc>
+    <loc>https://YOURDOMAIN.com/road-trip-time-fuel-stops-planner</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/engine-oil-consumption-rate-calculator</loc>
+    <loc>https://YOURDOMAIN.com/engine-oil-consumption-rate-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/car-insurance-annual-premium-estimator-pkr</loc>
+    <loc>https://YOURDOMAIN.com/car-insurance-annual-premium-estimator-pkr</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/horsepower-to-kilowatts-hp-to-kw-converter</loc>
+    <loc>https://YOURDOMAIN.com/horsepower-to-kilowatts-hp-to-kw-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/average-speed-over-speed-camera-distance</loc>
+    <loc>https://YOURDOMAIN.com/average-speed-over-speed-camera-distance</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/car-battery-health-replacement-estimator</loc>
+    <loc>https://YOURDOMAIN.com/car-battery-health-replacement-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/parking-fee-cost-calculator</loc>
+    <loc>https://YOURDOMAIN.com/parking-fee-cost-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/engine-rpm-and-speed-relationship-calculator</loc>
+    <loc>https://YOURDOMAIN.com/engine-rpm-and-speed-relationship-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/car-financing-monthly-emi-calculator</loc>
+    <loc>https://YOURDOMAIN.com/car-financing-monthly-emi-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/horsepower-to-torque-estimator</loc>
+    <loc>https://YOURDOMAIN.com/horsepower-to-torque-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/tire-sidewall-height-diameter-calculator</loc>
+    <loc>https://YOURDOMAIN.com/tire-sidewall-height-diameter-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/speeding-ticket-fine-estimator</loc>
+    <loc>https://YOURDOMAIN.com/speeding-ticket-fine-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/recipe-scaler</loc>
+    <loc>https://YOURDOMAIN.com/recipe-scaler</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cooking-measurement-converter</loc>
+    <loc>https://YOURDOMAIN.com/cooking-measurement-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/oven-temperature-converter</loc>
+    <loc>https://YOURDOMAIN.com/oven-temperature-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/meat-cooking-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/meat-cooking-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/rice-and-water-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/rice-and-water-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/food-cost-per-serving-calculator</loc>
+    <loc>https://YOURDOMAIN.com/food-cost-per-serving-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/party-food-quantity-calculator</loc>
+    <loc>https://YOURDOMAIN.com/party-food-quantity-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/tea-and-coffee-cups-calculator</loc>
+    <loc>https://YOURDOMAIN.com/tea-and-coffee-cups-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/baking-pan-size-converter</loc>
+    <loc>https://YOURDOMAIN.com/baking-pan-size-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/baking-powder-to-yeast-converter</loc>
+    <loc>https://YOURDOMAIN.com/baking-powder-to-yeast-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/sugar-to-honey-converter</loc>
+    <loc>https://YOURDOMAIN.com/sugar-to-honey-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/pasta-spaghetti-portion-calculator</loc>
+    <loc>https://YOURDOMAIN.com/pasta-spaghetti-portion-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/pizza-dough-hydration-calculator</loc>
+    <loc>https://YOURDOMAIN.com/pizza-dough-hydration-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/coffee-brew-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/coffee-brew-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/spice-blend-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/spice-blend-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/deep-fry-oil-amount-calculator</loc>
+    <loc>https://YOURDOMAIN.com/deep-fry-oil-amount-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/oven-to-slow-cooker-time-converter</loc>
+    <loc>https://YOURDOMAIN.com/oven-to-slow-cooker-time-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/baking-egg-substitute-calculator</loc>
+    <loc>https://YOURDOMAIN.com/baking-egg-substitute-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/fruit-jam-sugar-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/fruit-jam-sugar-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/meat-marinade-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/meat-marinade-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/bread-yeast-rising-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/bread-yeast-rising-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/double-boiler-chocolate-quantities</loc>
+    <loc>https://YOURDOMAIN.com/double-boiler-chocolate-quantities</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ice-cream-base-proportions</loc>
+    <loc>https://YOURDOMAIN.com/ice-cream-base-proportions</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/vinaigrette-oil-to-vinegar-ratio</loc>
+    <loc>https://YOURDOMAIN.com/vinaigrette-oil-to-vinegar-ratio</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/potluck-dish-count-calculator</loc>
+    <loc>https://YOURDOMAIN.com/potluck-dish-count-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/yeast-to-sourdough-starter-converter</loc>
+    <loc>https://YOURDOMAIN.com/yeast-to-sourdough-starter-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cake-pan-volume-batter-calculator</loc>
+    <loc>https://YOURDOMAIN.com/cake-pan-volume-batter-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cocktail-ice-dilution-calculator</loc>
+    <loc>https://YOURDOMAIN.com/cocktail-ice-dilution-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/french-fry-blanching-frying-timer</loc>
+    <loc>https://YOURDOMAIN.com/french-fry-blanching-frying-timer</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/statistical-summary</loc>
+    <loc>https://YOURDOMAIN.com/statistical-summary</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/median-calculator</loc>
+    <loc>https://YOURDOMAIN.com/median-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mode-calculator</loc>
+    <loc>https://YOURDOMAIN.com/mode-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/variance-calculator-sample-population</loc>
+    <loc>https://YOURDOMAIN.com/variance-calculator-sample-population</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/standard-deviation-calculator</loc>
+    <loc>https://YOURDOMAIN.com/standard-deviation-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/z-score-calculator</loc>
+    <loc>https://YOURDOMAIN.com/z-score-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/percentile-calculator</loc>
+    <loc>https://YOURDOMAIN.com/percentile-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/interquartile-range-iqr-calculator</loc>
+    <loc>https://YOURDOMAIN.com/interquartile-range-iqr-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/simple-probability-calculator</loc>
+    <loc>https://YOURDOMAIN.com/simple-probability-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/combinations-ncr-calculator</loc>
+    <loc>https://YOURDOMAIN.com/combinations-ncr-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/permutations-npr-calculator</loc>
+    <loc>https://YOURDOMAIN.com/permutations-npr-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/confidence-interval-calculator</loc>
+    <loc>https://YOURDOMAIN.com/confidence-interval-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/sample-size-calculator-for-surveys</loc>
+    <loc>https://YOURDOMAIN.com/sample-size-calculator-for-surveys</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/geometric-mean-calculator</loc>
+    <loc>https://YOURDOMAIN.com/geometric-mean-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/harmonic-mean-calculator</loc>
+    <loc>https://YOURDOMAIN.com/harmonic-mean-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/coefficient-of-variation-calculator</loc>
+    <loc>https://YOURDOMAIN.com/coefficient-of-variation-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/expected-value-calculator</loc>
+    <loc>https://YOURDOMAIN.com/expected-value-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mean-absolute-deviation-mad</loc>
+    <loc>https://YOURDOMAIN.com/mean-absolute-deviation-mad</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/range-calculator</loc>
+    <loc>https://YOURDOMAIN.com/range-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/simple-linear-regression-slope</loc>
+    <loc>https://YOURDOMAIN.com/simple-linear-regression-slope</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/pearson-correlation-coefficient-r</loc>
+    <loc>https://YOURDOMAIN.com/pearson-correlation-coefficient-r</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/relative-risk-odds-ratio</loc>
+    <loc>https://YOURDOMAIN.com/relative-risk-odds-ratio</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/root-mean-square-rms-calculator</loc>
+    <loc>https://YOURDOMAIN.com/root-mean-square-rms-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/pooled-variance-calculator</loc>
+    <loc>https://YOURDOMAIN.com/pooled-variance-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mean-absolute-percentage-error-mape</loc>
+    <loc>https://YOURDOMAIN.com/mean-absolute-percentage-error-mape</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/spearman-rank-correlation-coefficient</loc>
+    <loc>https://YOURDOMAIN.com/spearman-rank-correlation-coefficient</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/poisson-distribution-probability-calculator</loc>
+    <loc>https://YOURDOMAIN.com/poisson-distribution-probability-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/binomial-distribution-mean-variance</loc>
+    <loc>https://YOURDOMAIN.com/binomial-distribution-mean-variance</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/skewness-distribution-shape-estimator</loc>
+    <loc>https://YOURDOMAIN.com/skewness-distribution-shape-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/download-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/download-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mbps-to-mb-s-converter</loc>
+    <loc>https://YOURDOMAIN.com/mbps-to-mb-s-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/data-usage-calculator</loc>
+    <loc>https://YOURDOMAIN.com/data-usage-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/file-size-converter</loc>
+    <loc>https://YOURDOMAIN.com/file-size-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/bandwidth-calculator</loc>
+    <loc>https://YOURDOMAIN.com/bandwidth-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/screen-resolution-and-aspect-ratio-calculator</loc>
+    <loc>https://YOURDOMAIN.com/screen-resolution-and-aspect-ratio-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/image-resize-calculator-keep-aspect-ratio</loc>
+    <loc>https://YOURDOMAIN.com/image-resize-calculator-keep-aspect-ratio</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/password-strength-estimator</loc>
+    <loc>https://YOURDOMAIN.com/password-strength-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ping-network-latency-quality-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ping-network-latency-quality-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/wi-fi-router-range-obstruction-estimator</loc>
+    <loc>https://YOURDOMAIN.com/wi-fi-router-range-obstruction-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/cloud-storage-cost-comparison-calculator</loc>
+    <loc>https://YOURDOMAIN.com/cloud-storage-cost-comparison-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/mobile-data-plan-exhaustion-days-calculator</loc>
+    <loc>https://YOURDOMAIN.com/mobile-data-plan-exhaustion-days-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/video-bitrate-file-size-calculator</loc>
+    <loc>https://YOURDOMAIN.com/video-bitrate-file-size-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/server-uptime-percentage-calculator</loc>
+    <loc>https://YOURDOMAIN.com/server-uptime-percentage-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/qr-code-data-capacity-estimator</loc>
+    <loc>https://YOURDOMAIN.com/qr-code-data-capacity-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/smartphone-battery-drain-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/smartphone-battery-drain-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ssd-data-transfer-time-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ssd-data-transfer-time-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/password-brute-force-time-estimator</loc>
+    <loc>https://YOURDOMAIN.com/password-brute-force-time-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/api-rate-limit-consumption-calculator</loc>
+    <loc>https://YOURDOMAIN.com/api-rate-limit-consumption-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ram-memory-bandwidth-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ram-memory-bandwidth-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ppi-pixels-per-inch-display-density</loc>
+    <loc>https://YOURDOMAIN.com/ppi-pixels-per-inch-display-density</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/audio-file-size-bitrate-calculator</loc>
+    <loc>https://YOURDOMAIN.com/audio-file-size-bitrate-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ipv4-subnet-host-count-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ipv4-subnet-host-count-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/json-payload-data-size-estimator</loc>
+    <loc>https://YOURDOMAIN.com/json-payload-data-size-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/web-page-load-time-budget-calculator</loc>
+    <loc>https://YOURDOMAIN.com/web-page-load-time-budget-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/ssl-certificate-expiry-days-calculator</loc>
+    <loc>https://YOURDOMAIN.com/ssl-certificate-expiry-days-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/dns-propagation-time-estimator</loc>
+    <loc>https://YOURDOMAIN.com/dns-propagation-time-estimator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/base64-string-length-calculator</loc>
+    <loc>https://YOURDOMAIN.com/base64-string-length-calculator</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swiftcalc.pro/rgb-to-hex-color-code-converter</loc>
+    <loc>https://YOURDOMAIN.com/rgb-to-hex-color-code-converter</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

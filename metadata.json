@@ -1,6 +1,6 @@
 {
-  "name": "SwiftCalc Pro",
-  "description": "The Ultimate Multi-Category Calculator Web Portal with 350+ Professional Calculators Across 15 Major Categories.",
+  "name": "CalcVault Pro",
+  "description": "The Ultimate Multi-Category Calculator Web Portal with 400+ Professional Calculators Across 15 Major Categories.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

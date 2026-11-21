@@ -14,16 +14,16 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ className = 'w-9 h-9 sm:w-
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="swiftcalc-logo-bg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+        <linearGradient id="calcvault-logo-bg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor="#10b981" />
           <stop offset="100%" stopColor="#047857" />
         </linearGradient>
       </defs>
       {/* Rounded Green Square */}
-      <rect width="40" height="40" rx="10" fill="url(#swiftcalc-logo-bg)" />
-      {/* Bold Rounded White Letter "S" */}
+      <rect width="40" height="40" rx="10" fill="url(#calcvault-logo-bg)" />
+      {/* Bold Rounded White Letter "C" */}
       <path
-        d="M23.5 11.5H15.5C12.7386 11.5 10.5 13.5147 10.5 16C10.5 18.4853 12.7386 20 15.5 20H19.5C22.2614 20 24.5 21.5147 24.5 24C24.5 26.4853 22.2614 28.5 19.5 28.5H11.5"
+        d="M23 13C21 11.2 17.5 11 15 11.8C11.8 12.8 10.5 16 10.5 20C10.5 24 11.8 27.2 15 28.2C17.5 29 21 28.8 23 27"
         stroke="#FFFFFF"
         strokeWidth="4.4"
         strokeLinecap="round"

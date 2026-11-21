@@ -54,10 +54,15 @@ const POPULAR_CALCULATOR_IDS = [
 export default function App() {
   const allCalculators = useMemo(() => getAllCalculators(), []);
 
+  const normalizePath = (p: string) => {
+    const trimmed = p.replace(/\/+$/, '');
+    return trimmed === '' ? '/' : trimmed;
+  };
+
   // Current path / route state
-  const [currentPath, setCurrentPath] = useState<string>(() => window.location.pathname);
+  const [currentPath, setCurrentPath] = useState<string>(() => normalizePath(window.location.pathname));
   const [selectedCategory, setSelectedCategory] = useState<string | null>(() => {
-    const p = window.location.pathname;
+    const p = normalizePath(window.location.pathname);
     if (p.startsWith('/category/')) {
       const catId = p.replace('/category/', '');
       if (categories.some((c) => c.id === catId)) return catId;
@@ -76,7 +81,7 @@ export default function App() {
   // Favorites & History state with localStorage
   const [favorites, setFavorites] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('swiftcalc_favorites');
+      const saved = localStorage.getItem('calcvault_favorites');
       return saved ? JSON.parse(saved) : ['basic-calc', 'loan-calc', 'health-bmi-calc'];
     } catch {
       return ['basic-calc', 'loan-calc'];
@@ -85,7 +90,7 @@ export default function App() {
 
   const [history, setHistory] = useState<CalculationHistoryItem[]>(() => {
     try {
-      const saved = localStorage.getItem('swiftcalc_history');
+      const saved = localStorage.getItem('calcvault_history');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -94,7 +99,7 @@ export default function App() {
 
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     try {
-      return localStorage.getItem('swiftcalc_theme') === 'dark';
+      return localStorage.getItem('calcvault_theme') === 'dark';
     } catch {
       return false;
     }
@@ -146,7 +151,7 @@ export default function App() {
   // Sync browser popstate (back / forward buttons)
   useEffect(() => {
     const handlePopState = () => {
-      const p = window.location.pathname;
+      const p = normalizePath(window.location.pathname);
       setCurrentPath(p);
       if (p.startsWith('/category/')) {
         const catId = p.replace('/category/', '');
@@ -162,19 +167,19 @@ export default function App() {
   // Update localStorage and Dark Mode
   useEffect(() => {
     try {
-      localStorage.setItem('swiftcalc_favorites', JSON.stringify(favorites));
+      localStorage.setItem('calcvault_favorites', JSON.stringify(favorites));
     } catch {}
   }, [favorites]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('swiftcalc_history', JSON.stringify(history));
+      localStorage.setItem('calcvault_history', JSON.stringify(history));
     } catch {}
   }, [history]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('swiftcalc_theme', darkMode ? 'dark' : 'light');
+      localStorage.setItem('calcvault_theme', darkMode ? 'dark' : 'light');
       if (darkMode) {
         document.documentElement.classList.add('dark');
       } else {
@@ -183,47 +188,64 @@ export default function App() {
     } catch {}
   }, [darkMode]);
 
-  // Update SEO Document Title, Meta Description, and Canonical URL on route change
+  // Update SEO Document Title, Meta Description, Open Graph, Twitter Cards, Canonical URL, and Calculator JSON-LD on route change
   useEffect(() => {
-    const domain = window.location.origin.includes('localhost') ? 'https://swiftcalc.pro' : window.location.origin;
-    let title = 'SwiftCalc Pro - 400+ Free Online Calculators';
-    let desc = `Free online calculators for math, finance, business, health, construction, engineering, date, education, electrical, automotive, technology, and cooking with ${allCalculators.length}+ tools.`;
-    let canonical = domain + (currentPath === '/' ? '' : currentPath);
+    const SITE_URL = 'https://YOURDOMAIN.com';
+    let title = 'CalcVault Pro — 400+ Free Online Calculators & Converters';
+    let desc = `Use ${allCalculators.length}+ free online calculators for math, finance, health, construction, real estate, and unit conversions. Instant, accurate results with CalcVault Pro.`;
+    let canonical = `${SITE_URL}/`;
 
     if (activeCalculator) {
-      title = `${activeCalculator.name} - SwiftCalc Pro`;
-      desc = activeCalculator.description;
-      canonical = domain + getCalculatorSlug(activeCalculator);
+      const slug = getCalculatorSlug(activeCalculator);
+      title = `${activeCalculator.name} — Free Online Calculator | CalcVault Pro`;
+      desc = `${activeCalculator.description} Use our free ${activeCalculator.name} on CalcVault Pro for instant results, formula breakdown, and examples.`;
+      canonical = `${SITE_URL}${slug}`;
     } else if (selectedCategory) {
       const cat = categories.find((c) => c.id === selectedCategory);
       if (cat) {
-        title = `${cat.name} Calculators - SwiftCalc Pro`;
-        desc = `${cat.description} Browse ${cat.calculators.length} free online calculators in ${cat.name}.`;
-        canonical = `${domain}/category/${cat.id}`;
+        title = `${cat.name} Calculators (${cat.calculators.length} Free Tools) | CalcVault Pro`;
+        desc = `${cat.description} Browse ${cat.calculators.length} free online ${cat.name.toLowerCase()} calculators on CalcVault Pro.`;
+        canonical = `${SITE_URL}/category/${cat.id}`;
       }
     } else if (currentPath === '/about') {
-      title = 'About Us - SwiftCalc Pro';
-      desc = 'Learn about SwiftCalc Pro, the ultimate multi-category calculator portal providing instant, accurate, free online calculators.';
+      title = 'About Us | CalcVault Pro';
+      desc = 'Learn about CalcVault Pro, the free multi-category online calculator portal providing 400+ instant, accurate tools.';
+      canonical = `${SITE_URL}/about`;
     } else if (currentPath === '/contact') {
-      title = 'Contact Us - SwiftCalc Pro';
-      desc = 'Get in touch with SwiftCalc Pro support and feedback team.';
+      title = 'Contact Us | CalcVault Pro';
+      desc = 'Get in touch with the CalcVault Pro team for calculator suggestions, feedback, or inquiries.';
+      canonical = `${SITE_URL}/contact`;
     } else if (currentPath === '/privacy') {
-      title = 'Privacy Policy - SwiftCalc Pro';
-      desc = 'Read the privacy policy of SwiftCalc Pro regarding client-side data and user security.';
+      title = 'Privacy Policy | CalcVault Pro';
+      desc = 'Read the CalcVault Pro privacy policy detailing client-side calculations, local storage, and user data security.';
+      canonical = `${SITE_URL}/privacy`;
     } else if (currentPath === '/terms') {
-      title = 'Terms of Service - SwiftCalc Pro';
-      desc = 'Read the terms of service and usage conditions for SwiftCalc Pro calculators.';
+      title = 'Terms of Service | CalcVault Pro';
+      desc = 'Read the CalcVault Pro terms of service and usage guidelines for all online calculators.';
+      canonical = `${SITE_URL}/terms`;
     }
 
     document.title = title;
 
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.setAttribute('name', 'description');
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute('content', desc);
+    const upsertMeta = (attr: 'name' | 'property', key: string, content: string) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+
+    upsertMeta('name', 'description', desc);
+    upsertMeta('property', 'og:title', title);
+    upsertMeta('property', 'og:description', desc);
+    upsertMeta('property', 'og:url', canonical);
+    upsertMeta('property', 'og:type', 'website');
+    upsertMeta('property', 'og:site_name', 'CalcVault Pro');
+    upsertMeta('name', 'twitter:card', 'summary_large_image');
+    upsertMeta('name', 'twitter:title', title);
+    upsertMeta('name', 'twitter:description', desc);
 
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
@@ -232,6 +254,41 @@ export default function App() {
       document.head.appendChild(canonicalLink);
     }
     canonicalLink.setAttribute('href', canonical);
+
+    // Dynamic per-calculator WebApplication JSON-LD (strictly HTTPS)
+    let calcSchemaTag = document.getElementById('calculator-json-ld');
+    if (activeCalculator) {
+      const cat = categories.find((c) => c.id === activeCalculator.categoryId);
+      const schemaData = {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: activeCalculator.name,
+        url: canonical,
+        description: activeCalculator.description,
+        applicationCategory: 'UtilitiesApplication',
+        operatingSystem: 'All',
+        isPartOf: {
+          '@type': 'WebSite',
+          name: 'CalcVault Pro',
+          url: `${SITE_URL}/`,
+        },
+        about: cat ? cat.name : 'Online Calculator',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+      };
+      if (!calcSchemaTag) {
+        calcSchemaTag = document.createElement('script');
+        calcSchemaTag.id = 'calculator-json-ld';
+        calcSchemaTag.setAttribute('type', 'application/ld+json');
+        document.head.appendChild(calcSchemaTag);
+      }
+      calcSchemaTag.textContent = JSON.stringify(schemaData);
+    } else if (calcSchemaTag) {
+      calcSchemaTag.remove();
+    }
   }, [currentPath, activeCalculator, selectedCategory, allCalculators.length]);
 
   const navigateTo = (path: string) => {
@@ -706,15 +763,51 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:pr-16 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5 cursor-pointer" onClick={handleBackToHome}>
             <BrandLogo className="w-7 h-7" />
-            <span className="font-bold text-slate-900 dark:text-white">SwiftCalc Pro</span>
+            <span className="font-bold text-slate-900 dark:text-white">CalcVault Pro</span>
             <span>· {allCalculators.length}+ Free Online Calculators Portal</span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 font-medium">
-            <button onClick={() => navigateTo('/about')} className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About</button>
-            <button onClick={() => navigateTo('/contact')} className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact</button>
-            <button onClick={() => navigateTo('/privacy')} className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Privacy Policy</button>
-            <button onClick={() => navigateTo('/terms')} className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Terms of Service</button>
+          <nav aria-label="Footer navigation" className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 font-medium">
+            <a
+              href="/about"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('/about');
+              }}
+              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            >
+              About
+            </a>
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('/contact');
+              }}
+              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            >
+              Contact
+            </a>
+            <a
+              href="/privacy"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('/privacy');
+              }}
+              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('/terms');
+              }}
+              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            >
+              Terms of Service
+            </a>
             <button
               type="button"
               onClick={() => setDarkMode(!darkMode)}
@@ -724,9 +817,9 @@ export default function App() {
               {darkMode ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5 text-slate-600" />}
               <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
             </button>
-          </div>
+          </nav>
 
-          <p>© {new Date().getFullYear()} SwiftCalc Pro. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CalcVault Pro · By Naseeb. All rights reserved.</p>
         </div>
       </footer>
 

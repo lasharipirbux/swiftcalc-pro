@@ -194,9 +194,9 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
           {/* Input Form Column */}
           <div className="lg:col-span-7 space-y-5">
             <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-6 space-y-5">
-              <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wide">
+              <h2 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wide">
                 Calculator Inputs
-              </h3>
+              </h2>
 
               {calculator.inputs.map((inp) => (
                 <div key={inp.id} className="space-y-1.5">
@@ -297,10 +297,10 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
 
             {/* Formula & Explanation Box */}
             <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4">
-              <div className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-sm">
+              <h2 className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-sm">
                 <HelpCircle className="w-4 h-4 text-emerald-600" />
                 <span>Formula & Explanation</span>
-              </div>
+              </h2>
 
               {calcResult.formula && (
                 <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs font-mono text-emerald-600 dark:text-emerald-400">
@@ -324,8 +324,8 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
 
         </div>
 
-        {/* Unique SEO Content Section */}
-        {seoContent && (
+        {/* Unique SEO Content Section (Guaranteed on all 400 calculator pages) */}
+        {seoContent ? (
           <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6 text-left text-slate-700 dark:text-slate-300">
             <div className="space-y-2 text-left">
               <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Overview</h2>
@@ -364,15 +364,29 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
               {seoContent.whoUses}
             </div>
           </div>
+        ) : (
+          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-3 text-left text-slate-700 dark:text-slate-300">
+            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">
+              About the {calculator.name}
+            </h2>
+            <p className="text-xs sm:text-sm leading-relaxed text-left">
+              The {calculator.name} in our {categoryName} suite helps you {calculator.description.charAt(0).toLowerCase() + calculator.description.slice(1).replace(/\.$/, '')}. Enter your values for {calculator.inputs.map((i) => i.label).join(', ')} to compute accurate results instantly in your browser.
+            </p>
+            {calcResult.formula && (
+              <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">
+                <span className="font-semibold text-slate-900 dark:text-white">Formula used:</span> {calcResult.formula}
+              </p>
+            )}
+          </div>
         )}
 
         {/* Related Calculators Section (6 links from the same category) */}
         {relatedCalculators.length > 0 && (
           <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+            <h2 className="text-sm font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
               <Layers className="w-4 h-4 text-emerald-600" />
               <span>Related {categoryName} Calculators</span>
-            </h3>
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {relatedCalculators.map((rel) => (
                 <div
@@ -390,9 +404,9 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
                   className="p-3.5 bg-slate-50 dark:bg-slate-800/40 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 rounded-2xl cursor-pointer transition-all group flex items-center justify-between gap-3"
                 >
                   <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 truncate">
+                    <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 truncate">
                       {rel.name}
-                    </h4>
+                    </h3>
                     <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
                       {rel.description}
                     </p>
