@@ -759,12 +759,12 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pt-8 pb-20 sm:py-8 mt-12 text-center text-xs text-slate-500 dark:text-slate-400">
-        <div className="max-w-7xl mx-auto px-4 sm:pr-16 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="bg-[#064E3B] dark:bg-[#022C22] border-t border-emerald-800/60 dark:border-emerald-900/70 pt-12 pb-24 sm:py-12 mt-14 text-center text-xs text-emerald-100">
+        <div className="max-w-7xl mx-auto px-4 sm:pr-16 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-2.5 cursor-pointer" onClick={handleBackToHome}>
             <BrandLogo className="w-7 h-7" />
-            <span className="font-bold text-slate-900 dark:text-white">CalcVault Pro</span>
-            <span>· {allCalculators.length}+ Free Online Calculators Portal</span>
+            <span className="font-bold text-white">CalcVault Pro</span>
+            <span className="text-emerald-100/90">· {allCalculators.length}+ Free Online Calculators Portal</span>
           </div>
 
           <nav aria-label="Footer navigation" className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 font-medium">
@@ -774,7 +774,7 @@ export default function App() {
                 e.preventDefault();
                 navigateTo('/about');
               }}
-              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              className="text-emerald-50 hover:text-amber-300 active:text-amber-300 transition-colors"
             >
               About
             </a>
@@ -784,7 +784,7 @@ export default function App() {
                 e.preventDefault();
                 navigateTo('/contact');
               }}
-              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              className="text-emerald-50 hover:text-amber-300 active:text-amber-300 transition-colors"
             >
               Contact
             </a>
@@ -794,7 +794,7 @@ export default function App() {
                 e.preventDefault();
                 navigateTo('/privacy');
               }}
-              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              className="text-emerald-50 hover:text-amber-300 active:text-amber-300 transition-colors"
             >
               Privacy Policy
             </a>
@@ -804,22 +804,22 @@ export default function App() {
                 e.preventDefault();
                 navigateTo('/terms');
               }}
-              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              className="text-emerald-50 hover:text-amber-300 active:text-amber-300 transition-colors"
             >
               Terms of Service
             </a>
             <button
               type="button"
               onClick={() => setDarkMode(!darkMode)}
-              className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white hover:text-amber-300 active:text-amber-300 transition-colors"
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
-              {darkMode ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5 text-slate-600" />}
+              {darkMode ? <Sun className="w-3.5 h-3.5 text-amber-300" /> : <Moon className="w-3.5 h-3.5 text-emerald-100" />}
               <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
             </button>
           </nav>
 
-          <p>© {new Date().getFullYear()} CalcVault Pro · By Naseeb. All rights reserved.</p>
+          <p className="text-emerald-100/85">© {new Date().getFullYear()} CalcVault Pro · By Naseeb. All rights reserved.</p>
         </div>
       </footer>
 
