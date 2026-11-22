@@ -1,5 +1,6 @@
 import React from 'react';
 import { CalculationHistoryItem, CalculatorItem } from '../types';
+import { formatCalculatorResult } from '../utils/formatResult';
 import { X, History, Trash2, ArrowRight } from 'lucide-react';
 
 interface HistoryModalProps {
@@ -85,7 +86,7 @@ export const HistoryModal: React.FC<HistoryModalProps> = ({
                       <span className="text-[10px] text-slate-400">· {item.categoryName}</span>
                     </div>
                     <div className="text-sm font-mono font-bold text-slate-900 dark:text-white">
-                      Result: {item.result}
+                      Result: {formatCalculatorResult(item.result, item.calculatorId)}
                     </div>
                     <span className="text-[10px] text-slate-400">
                       {new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}

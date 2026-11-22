@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { CalculatorItem, CalculationHistoryItem } from '../types';
 import { getAllCalculators } from '../data/calculatorsData';
 import { getCalculatorSlug } from '../utils/slugs';
+import { formatCalculatorResult } from '../utils/formatResult';
 import { financeBusinessSeoMap } from '../data/seoFinanceBusiness';
 import { constructionHealthSeoMap } from '../data/seoConstructionHealth';
 import { datetimeElectricalSeoMap } from '../data/seoDatetimeElectrical';
@@ -55,6 +56,11 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
 
   // Perform calculation
   const calcResult = calculator.calculate(inputValues);
+  const formattedResult = formatCalculatorResult(calcResult.result, calculator.id);
+  const formattedSecondaryResult =
+    calcResult.secondaryResult !== undefined
+      ? formatCalculatorResult(calcResult.secondaryResult, calculator.id)
+      : undefined;
 
   // Automatically record to history on calculation change
   useEffect(() => {
@@ -64,13 +70,13 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
         calculatorName: calculator.name,
         categoryName,
         inputs: { ...inputValues },
-        result: calcResult.result,
+        result: formattedResult,
       });
     }
   }, [inputValues]);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(String(calcResult.result));
+    navigator.clipboard.writeText(formattedResult);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -257,31 +263,38 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
               </span>
 
               <div className="text-3xl sm:text-4xl font-extrabold tracking-tight font-mono tabular-nums text-amber-300 mb-2 break-all">
-                {calcResult.result}
+                {formattedResult}
               </div>
 
-              {calcResult.secondaryResult && (
-                String(calcResult.secondaryResult).includes('\n') ? (
-                  <div className="mb-6 pb-4 border-b border-emerald-700/60 space-y-1.5">
-                    {String(calcResult.secondaryResult)
-                      .split('\n')
-                      .map((line, idx) =>
-                        idx === 0 ? (
-                          <p key={idx} className="text-base sm:text-lg font-bold text-white">
-                            {line}
-                          </p>
-                        ) : (
-                          <p key={idx} className="text-xs text-emerald-100/80 font-medium">
-                            {line}
-                          </p>
+              {(formattedSecondaryResult || calcResult.note) && (
+                <div className="mb-6 pb-4 border-b border-emerald-700/60 space-y-1.5">
+                  {formattedSecondaryResult && (
+                    formattedSecondaryResult.includes('\n') ? (
+                      formattedSecondaryResult
+                        .split('\n')
+                        .map((line, idx) =>
+                          idx === 0 ? (
+                            <p key={idx} className="text-base sm:text-lg font-bold text-white">
+                              {line}
+                            </p>
+                          ) : (
+                            <p key={idx} className="text-xs text-emerald-100/80 font-medium">
+                              {line}
+                            </p>
+                          )
                         )
-                      )}
-                  </div>
-                ) : (
-                  <p className="text-sm text-emerald-100/90 font-medium mb-6 pb-4 border-b border-emerald-700/60">
-                    {calcResult.secondaryResult}
-                  </p>
-                )
+                    ) : (
+                      <p className="text-sm text-emerald-100/90 font-medium">
+                        {formattedSecondaryResult}
+                      </p>
+                    )
+                  )}
+                  {calcResult.note && (
+                    <p className="text-xs text-emerald-200/80">
+                      {calcResult.note}
+                    </p>
+                  )}
+                </div>
               )}
 
               <div className="flex items-center gap-3">

@@ -18,6 +18,7 @@ export interface CalculatorItem {
   calculate: (values: Record<string, any>) => {
     result: string | number;
     secondaryResult?: string | number;
+    note?: string;
     steps?: string[];
     formula?: string;
   };

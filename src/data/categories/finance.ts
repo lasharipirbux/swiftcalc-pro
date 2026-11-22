@@ -46,7 +46,12 @@ export const financeCategory: Category = {
             total = (total + m) * (1 + r / 12);
             contrib += m;
           }
-          return { result: `$${total.toFixed(2)}`, secondaryResult: `Interest: $${(total - contrib).toFixed(2)}`, formula: `Compound growth with monthly additions` };
+          return {
+            result: `$${total.toFixed(2)}`,
+            secondaryResult: `Interest: $${(total - contrib).toFixed(2)}`,
+            note: 'Monthly contribution is added at the beginning of each month.',
+            formula: `Compound growth with monthly additions`,
+          };
         }
       },
       {
