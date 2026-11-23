@@ -5,12 +5,6 @@ import { getCalculatorSlug } from '../utils/slugs';
 import { formatCalculatorResult } from '../utils/formatResult';
 import { safeCalculate } from '../utils/safeCalculate';
 import { getCalculatorSeoContent } from '../utils/seoBuilder';
-import { financeBusinessSeoMap } from '../data/seoFinanceBusiness';
-import { constructionHealthSeoMap } from '../data/seoConstructionHealth';
-import { datetimeElectricalSeoMap } from '../data/seoDatetimeElectrical';
-import { educationEngineeringSeoMap } from '../data/seoEducationEngineering';
-import { realestateAutomotiveSeoMap } from '../data/seoRealestateAutomotive';
-import { cookingStatisticsSeoMap } from '../data/seoCookingStatistics';
 import { Star, Copy, Check, RotateCcw, ArrowLeft, HelpCircle, ChevronRight, Layers } from 'lucide-react';
 
 interface CalculatorViewProps {
@@ -60,7 +54,7 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
     setInputValues(defaults);
   };
 
-  // Perform safe calculation (never returns NaN, Infinity, or Invalid Date)
+  // Perform safe calculation (never returns NaN, Infinity, null, or Invalid Date)
   const calcResult = safeCalculate(calculator, inputValues);
   const formattedResult = calcResult.isInvalid
     ? String(calcResult.result)
@@ -96,54 +90,10 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const seoMap = useMemo(
-    () => ({
-      ...financeBusinessSeoMap,
-      ...constructionHealthSeoMap,
-      ...datetimeElectricalSeoMap,
-      ...educationEngineeringSeoMap,
-      ...realestateAutomotiveSeoMap,
-      ...cookingStatisticsSeoMap,
-    }),
-    []
-  );
-
   const seoContent = useMemo(
-    () => getCalculatorSeoContent(calculator, categoryName, seoMap[calculator.id]),
-    [calculator, categoryName, seoMap]
+    () => getCalculatorSeoContent(calculator, categoryName),
+    [calculator, categoryName]
   );
-
-  // Inject FAQPage JSON-LD Schema for ALL 400 calculator pages
-  useEffect(() => {
-    let scriptTag = document.getElementById('faq-json-ld');
-    if (seoContent && seoContent.faqs.length > 0) {
-      const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: seoContent.faqs.map((f) => ({
-          '@type': 'Question',
-          name: f.q,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: f.a,
-          },
-        })),
-      };
-      if (!scriptTag) {
-        scriptTag = document.createElement('script');
-        scriptTag.id = 'faq-json-ld';
-        scriptTag.setAttribute('type', 'application/ld+json');
-        document.head.appendChild(scriptTag);
-      }
-      scriptTag.textContent = JSON.stringify(jsonLd);
-    } else if (scriptTag) {
-      scriptTag.remove();
-    }
-    return () => {
-      const st = document.getElementById('faq-json-ld');
-      if (st) st.remove();
-    };
-  }, [seoContent]);
 
   // Get 6 related calculators from the same category
   const relatedCalculators = useMemo(() => {
@@ -197,13 +147,14 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
                   : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400 hover:text-amber-500'
               }`}
               title={isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+              aria-label={isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
             >
               <Star className={`w-5 h-5 ${isFavorite ? 'fill-amber-400 text-amber-400' : ''}`} />
             </button>
           </div>
         </div>
 
-        {/* Calculator Header (H1) */}
+        {/* Calculator Header (Single H1 per page) */}
         <div className="mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">
             {calculator.name}
@@ -224,12 +175,13 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
 
               {calculator.inputs.map((inp) => (
                 <div key={inp.id} className="space-y-1.5">
-                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <label htmlFor={`input-${inp.id}`} className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
                     {inp.label}
                   </label>
                   
                   {inp.type === 'select' ? (
                     <select
+                      id={`input-${inp.id}`}
                       value={inputValues[inp.id] ?? inp.defaultValue}
                       onChange={(e) => handleChange(inp.id, e.target.value)}
                       className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
@@ -243,6 +195,7 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
                   ) : (
                     <div className="relative">
                       <input
+                        id={`input-${inp.id}`}
                         type={inp.type === 'number' ? 'number' : 'text'}
                         value={inputValues[inp.id] !== undefined ? inputValues[inp.id] : inp.defaultValue}
                         onChange={(e) => {
@@ -277,7 +230,7 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
             </div>
           </div>
 
-          {/* Results & Formula Column */}
+          {/* Results & Live Formula Column */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-emerald-700/50 relative overflow-hidden">
               
@@ -333,11 +286,11 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
               </div>
             </div>
 
-            {/* Formula & Explanation Box */}
+            {/* Live Formula & Breakdown Box */}
             <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4">
               <h2 className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-sm">
                 <HelpCircle className="w-4 h-4 text-emerald-600" />
-                <span>Formula & Explanation</span>
+                <span>Live Formula &amp; Steps</span>
               </h2>
 
               {calcResult.formula && (
@@ -362,45 +315,70 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
 
         </div>
 
-        {/* Unique SEO Content Section (150-200+ word guide + 3+ FAQs on all 400 calculator pages) */}
-        <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6 text-left text-slate-700 dark:text-slate-300">
-          <div className="space-y-2 text-left">
-            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Overview</h2>
-            <p className="text-xs sm:text-sm leading-relaxed text-left">{seoContent.intro}</p>
-          </div>
+        {/* Structured Educational Content (250–400 words across 4 clear sections) */}
+        <article className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-7 text-left text-slate-700 dark:text-slate-300">
+          
+          {/* Section 1: How to Use This Calculator */}
+          <section className="space-y-3">
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              How to Use This Calculator
+            </h2>
+            <ol className="space-y-2 text-xs sm:text-sm leading-relaxed pl-5 list-decimal text-slate-600 dark:text-slate-300">
+              {seoContent.howToUseSteps.map((step, idx) => (
+                <li key={idx} className="pl-1">
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </section>
 
-          <div className="space-y-2 text-left">
-            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">How to Use &amp; Formula</h2>
-            <p className="text-xs sm:text-sm leading-relaxed text-left">{seoContent.howItWorks}</p>
-          </div>
+          {/* Section 2: Formula & Explanation */}
+          <section className="space-y-2.5">
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              Formula &amp; Explanation
+            </h2>
+            <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              {seoContent.formulaExplanation}
+            </p>
+          </section>
 
-          <div className="space-y-2 text-left">
-            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Worked Example</h2>
-            <p className="text-xs sm:text-sm leading-relaxed text-left py-3 border-y border-slate-200 dark:border-slate-800">{seoContent.workedExample}</p>
-          </div>
+          {/* Section 3: Practical Example */}
+          <section className="space-y-2.5">
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              Practical Example
+            </h2>
+            <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5">
+              <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                {seoContent.practicalExample}
+              </p>
+            </div>
+          </section>
 
-          <div className="space-y-3 text-left">
-            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Frequently Asked Questions</h2>
+          {/* Section 4: Frequently Asked Questions (3-4 FAQs) */}
+          <section className="space-y-3">
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              Frequently Asked Questions
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
               {seoContent.faqs.map((faq, idx) => (
                 <div key={idx} className="h-full flex flex-col justify-start text-left bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">Q: {faq.q}</h3>
-                  <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">A: {faq.a}</p>
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">
+                    Q: {faq.q}
+                  </h3>
+                  <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">
+                    A: {faq.a}
+                  </p>
                 </div>
               ))}
             </div>
-          </div>
+          </section>
 
           {seoContent.medicalDisclaimer && (
-            <div className="py-2.5 border-y border-amber-200 dark:border-amber-900/50 text-xs font-medium text-amber-800 dark:text-amber-300 text-left">
+            <div className="py-2.5 px-4 bg-amber-50/70 dark:bg-amber-950/20 rounded-xl border border-amber-200 dark:border-amber-900/50 text-xs font-medium text-amber-800 dark:text-amber-300 text-left">
               {seoContent.medicalDisclaimer}
             </div>
           )}
-
-          <div className="pt-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 text-left">
-            {seoContent.whoUses}
-          </div>
-        </div>
+        </article>
 
         {/* Related Calculators Section (6 crawlable internal links from the same category) */}
         {relatedCalculators.length > 0 && (

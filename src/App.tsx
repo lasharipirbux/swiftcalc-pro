@@ -8,10 +8,10 @@ import { CalculatorView } from './components/CalculatorView';
 import { FavoritesModal } from './components/FavoritesModal';
 import { HistoryModal } from './components/HistoryModal';
 import { StaticPage } from './components/StaticPages';
+import { SeoHead, StaticPageId } from './components/SeoHead';
 import { getCalculatorSlug, findCalculatorBySlug } from './utils/slugs';
 import { searchCalculators } from './utils/search';
-import { SITE_URL, SITE_NAME } from './config/site';
-import { buildCalculatorTitle, buildCalculatorMetaDescription } from './utils/seoBuilder';
+import { SITE_NAME } from './config/site';
 import {
   ArrowRight,
   ArrowUp,
@@ -150,6 +150,17 @@ export default function App() {
     return null;
   }, [currentPath, allCalculators]);
 
+  // Normalize legacy flat calculator URLs (e.g. /bmi-calculator) to /calculator/bmi-calculator
+  useEffect(() => {
+    if (activeCalculator) {
+      const canonicalSlug = getCalculatorSlug(activeCalculator);
+      if (currentPath !== canonicalSlug) {
+        window.history.replaceState({}, '', canonicalSlug);
+        setCurrentPath(canonicalSlug);
+      }
+    }
+  }, [activeCalculator, currentPath]);
+
   // Sync browser popstate (back / forward buttons)
   useEffect(() => {
     const handlePopState = () => {
@@ -189,113 +200,6 @@ export default function App() {
       }
     } catch {}
   }, [darkMode]);
-
-  // Update SEO Document Title, Meta Description, Open Graph, Twitter Cards, Canonical URL, and Calculator JSON-LD on route change
-  useEffect(() => {
-    const baseUrl = SITE_URL.replace(/\/+$/, '');
-    let title = `${SITE_NAME} — 400+ Free Online Calculators & Converters`;
-    let desc = `Use ${allCalculators.length}+ free online calculators for math, finance, health, construction, real estate, and unit conversions. Instant, accurate results with ${SITE_NAME}.`;
-    let canonical = `${baseUrl}/`;
-
-    if (activeCalculator) {
-      const slug = getCalculatorSlug(activeCalculator);
-      title = buildCalculatorTitle(activeCalculator);
-      desc = buildCalculatorMetaDescription(activeCalculator);
-      canonical = `${baseUrl}${slug}`;
-    } else if (selectedCategory) {
-      const cat = categories.find((c) => c.id === selectedCategory);
-      if (cat) {
-        title = `Free ${cat.name} Calculators Online (${cat.calculators.length} Tools) – ${SITE_NAME}`;
-        desc = `${cat.description} Browse ${cat.calculators.length} free online ${cat.name.toLowerCase()} calculators with formulas, examples, and instant results on ${SITE_NAME}.`;
-        canonical = `${baseUrl}/category/${cat.id}`;
-      }
-    } else if (currentPath === '/about') {
-      title = `About Us | ${SITE_NAME}`;
-      desc = `Learn about ${SITE_NAME}, the free multi-category online calculator portal providing 400+ instant, accurate tools.`;
-      canonical = `${baseUrl}/about`;
-    } else if (currentPath === '/contact') {
-      title = `Contact Us | ${SITE_NAME}`;
-      desc = `Get in touch with the ${SITE_NAME} team for calculator suggestions, feedback, or inquiries.`;
-      canonical = `${baseUrl}/contact`;
-    } else if (currentPath === '/privacy') {
-      title = `Privacy Policy | ${SITE_NAME}`;
-      desc = `Read the ${SITE_NAME} privacy policy detailing client-side calculations, local storage, cookies, and user data security.`;
-      canonical = `${baseUrl}/privacy`;
-    } else if (currentPath === '/terms') {
-      title = `Terms of Service | ${SITE_NAME}`;
-      desc = `Read the ${SITE_NAME} terms of service and usage guidelines for all online calculators.`;
-      canonical = `${baseUrl}/terms`;
-    } else if (currentPath === '/disclaimer') {
-      title = `Disclaimer | ${SITE_NAME}`;
-      desc = `Read the ${SITE_NAME} financial, medical, construction, and estimation disclaimer for all online calculators.`;
-      canonical = `${baseUrl}/disclaimer`;
-    }
-
-    document.title = title;
-
-    const upsertMeta = (attr: 'name' | 'property', key: string, content: string) => {
-      let el = document.querySelector(`meta[${attr}="${key}"]`);
-      if (!el) {
-        el = document.createElement('meta');
-        el.setAttribute(attr, key);
-        document.head.appendChild(el);
-      }
-      el.setAttribute('content', content);
-    };
-
-    upsertMeta('name', 'description', desc);
-    upsertMeta('property', 'og:title', title);
-    upsertMeta('property', 'og:description', desc);
-    upsertMeta('property', 'og:url', canonical);
-    upsertMeta('property', 'og:type', 'website');
-    upsertMeta('property', 'og:site_name', SITE_NAME);
-    upsertMeta('name', 'twitter:card', 'summary_large_image');
-    upsertMeta('name', 'twitter:title', title);
-    upsertMeta('name', 'twitter:description', desc);
-
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.setAttribute('href', canonical);
-
-    // Dynamic per-calculator WebApplication JSON-LD using centralized SITE_URL
-    let calcSchemaTag = document.getElementById('calculator-json-ld');
-    if (activeCalculator) {
-      const cat = categories.find((c) => c.id === activeCalculator.categoryId);
-      const schemaData = {
-        '@context': 'https://schema.org',
-        '@type': 'WebApplication',
-        name: activeCalculator.name,
-        url: canonical,
-        description: desc,
-        applicationCategory: 'UtilitiesApplication',
-        operatingSystem: 'All',
-        isPartOf: {
-          '@type': 'WebSite',
-          name: SITE_NAME,
-          url: `${baseUrl}/`,
-        },
-        about: cat ? cat.name : 'Online Calculator',
-        offers: {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD',
-        },
-      };
-      if (!calcSchemaTag) {
-        calcSchemaTag = document.createElement('script');
-        calcSchemaTag.id = 'calculator-json-ld';
-        calcSchemaTag.setAttribute('type', 'application/ld+json');
-        document.head.appendChild(calcSchemaTag);
-      }
-      calcSchemaTag.textContent = JSON.stringify(schemaData);
-    } else if (calcSchemaTag) {
-      calcSchemaTag.remove();
-    }
-  }, [currentPath, activeCalculator, selectedCategory, allCalculators.length]);
 
   const navigateTo = (path: string) => {
     window.history.pushState({}, '', path);
@@ -432,13 +336,26 @@ export default function App() {
     }
   };
 
-  const isStaticPage = ['/about', '/contact', '/privacy', '/terms', '/disclaimer'].includes(currentPath);
-  const isHomePage = !isStaticPage && !activeCalculator && !selectedCategory;
+  const staticPageId: StaticPageId | null = ['/about', '/contact', '/privacy', '/terms', '/disclaimer'].includes(currentPath)
+    ? (currentPath.replace('/', '') as StaticPageId)
+    : null;
+  const isHomePage = currentPath === '/';
+  const isNotFound = !isHomePage && !staticPageId && !activeCalculator && !selectedCategory;
   const showHeroDropdown = isHeroDropdownOpen && heroSearchQuery.trim().length > 0;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
       
+      {/* Centralized SEO Metadata, Canonical, Open Graph & JSON-LD */}
+      <SeoHead
+        currentPath={currentPath}
+        activeCalculator={activeCalculator}
+        selectedCategory={selectedCategory}
+        staticPage={staticPageId}
+        isNotFound={isNotFound}
+        totalCalculators={allCalculators.length}
+      />
+
       {/* Header */}
       <Header
         searchQuery={searchQuery}
@@ -455,9 +372,9 @@ export default function App() {
       {/* Main Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
-        {isStaticPage ? (
+        {staticPageId ? (
           <StaticPage
-            page={currentPath.replace('/', '') as any}
+            page={staticPageId}
             onBack={handleBackToHome}
           />
         ) : activeCalculator ? (
@@ -555,6 +472,29 @@ export default function App() {
                   })}
                 </div>
               </div>
+            </div>
+          </div>
+        ) : isNotFound ? (
+          /* Clean 404 Not Found View (prevents soft-404 duplicate content) */
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 sm:p-12 shadow-xl max-w-2xl mx-auto my-8 text-center space-y-5">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+              404 Error
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+              Page Not Found
+            </h1>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              The calculator or page you requested could not be found. Explore our {allCalculators.length}+ free online calculators or return to the homepage.
+            </p>
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={handleBackToHome}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Browse All Calculators</span>
+              </button>
             </div>
           </div>
         ) : (
@@ -827,16 +767,16 @@ export default function App() {
             >
               Privacy Policy
             </a>
-            <a
-              href="/terms"
-              onClick={(e) => {
-                e.preventDefault();
-                navigateTo('/terms');
-              }}
-              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
-            >
-              Terms of Service
-            </a>
+              <a
+                href="/terms"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('/terms');
+                }}
+                className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
+              >
+                Terms &amp; Conditions
+              </a>
             <a
               href="/disclaimer"
               onClick={(e) => {
