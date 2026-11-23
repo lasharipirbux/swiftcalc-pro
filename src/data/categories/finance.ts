@@ -18,10 +18,11 @@ export const financeCategory: Category = {
           { id: 'years', label: 'Loan Term (Years)', type: 'number', defaultValue: 30 }
         ],
         calculate: (vals) => {
-          const p = Number(vals.principal);
-          const r = Number(vals.rate) / 12 / 100;
-          const n = Number(vals.years) * 12;
-          if (r === 0) return { result: `$${(p / n).toFixed(2)} /mo` };
+          const p = Number(vals.principal) || 0;
+          const r = (Number(vals.rate) || 0) / 12 / 100;
+          const n = (Number(vals.years) || 0) * 12;
+          if (n <= 0) return { result: '$0.00 / month', secondaryResult: 'Enter a loan term greater than 0 years.', formula: 'EMI Formula' };
+          if (r === 0) return { result: `$${(p / n).toFixed(2)} / month`, secondaryResult: `Total Payment: $${p.toFixed(2)}`, formula: 'EMI = P / n (0% interest)' };
           const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
           return { result: `$${emi.toFixed(2)} / month`, secondaryResult: `Total Payment: $${(emi * n).toFixed(2)}`, formula: `EMI Formula` };
         }
@@ -66,10 +67,11 @@ export const financeCategory: Category = {
           { id: 'years', label: 'Years', type: 'number', defaultValue: 30 }
         ],
         calculate: (vals) => {
-          const p = Number(vals.home) - Number(vals.down);
-          const r = Number(vals.rate) / 12 / 100;
-          const n = Number(vals.years) * 12;
-          const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+          const p = Math.max(0, (Number(vals.home) || 0) - (Number(vals.down) || 0));
+          const r = (Number(vals.rate) || 0) / 12 / 100;
+          const n = (Number(vals.years) || 0) * 12;
+          if (n <= 0) return { result: '$0.00 / mo', secondaryResult: `Loan Amount: $${p}`, formula: 'Mortgage payment formula' };
+          const emi = r === 0 ? p / n : (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
           return { result: `$${emi.toFixed(2)} / mo`, secondaryResult: `Loan Amount: $${p}`, formula: `Mortgage payment formula` };
         }
       },
@@ -121,10 +123,11 @@ export const financeCategory: Category = {
           { id: 'months', label: 'Term in Months', type: 'number', defaultValue: 24 }
         ],
         calculate: (vals) => {
-          const p = Number(vals.amount);
-          const r = Number(vals.rate) / 12 / 100;
-          const n = Number(vals.months);
-          if (r === 0) return { result: `PKR ${(p / n).toFixed(2)} / mo` };
+          const p = Number(vals.amount) || 0;
+          const r = (Number(vals.rate) || 0) / 12 / 100;
+          const n = Number(vals.months) || 0;
+          if (n <= 0) return { result: 'PKR 0 / month', secondaryResult: 'Enter a loan term greater than 0 months.', formula: 'EMI = [P × r × (1+r)^n] / [(1+r)^n - 1]' };
+          if (r === 0) return { result: `PKR ${(p / n).toFixed(2)} / mo`, secondaryResult: `Total Payment: PKR ${p.toLocaleString()}`, formula: 'EMI = P / n (0% interest)' };
           const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
           return {
             result: `PKR ${emi.toLocaleString(undefined, {maximumFractionDigits: 0})} / month`,
@@ -338,10 +341,11 @@ export const financeCategory: Category = {
           { id: 'years', label: 'Lease Tenure (Years)', type: 'number', defaultValue: 3 }
         ],
         calculate: (vals) => {
-          const p = Number(vals.carPrice) - Number(vals.downPayment);
-          const r = Number(vals.markup) / 12 / 100;
-          const n = Number(vals.years) * 12;
-          if (r === 0) return { result: `PKR ${(p / n).toFixed(0)} / month` };
+          const p = Math.max(0, (Number(vals.carPrice) || 0) - (Number(vals.downPayment) || 0));
+          const r = (Number(vals.markup) || 0) / 12 / 100;
+          const n = (Number(vals.years) || 0) * 12;
+          if (n <= 0) return { result: 'PKR 0 / month', secondaryResult: `Total Financed Amount: PKR ${p.toLocaleString()}`, formula: 'Auto Lease EMI Formula = [P × r × (1+r)^n] / [(1+r)^n - 1]' };
+          if (r === 0) return { result: `PKR ${Math.round(p / n).toLocaleString()} / month`, secondaryResult: `Total Financed Amount: PKR ${p.toLocaleString()} | Tenure: ${vals.years} years`, formula: 'Auto Lease EMI = P / n (0% markup)' };
           const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
           return {
             result: `PKR ${Math.round(emi).toLocaleString()} / month`,
@@ -361,10 +365,11 @@ export const financeCategory: Category = {
           { id: 'years', label: 'Term (Years)', type: 'number', defaultValue: 15 }
         ],
         calculate: (vals) => {
-          const p = Number(vals.amount);
-          const r = Number(vals.rate) / 12 / 100;
-          const n = Number(vals.years) * 12;
-          const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+          const p = Number(vals.amount) || 0;
+          const r = (Number(vals.rate) || 0) / 12 / 100;
+          const n = (Number(vals.years) || 0) * 12;
+          if (n <= 0) return { result: 'PKR 0 / month', secondaryResult: 'Enter a financing term greater than 0 years.', formula: 'House Financing Monthly Installment Formula' };
+          const emi = r === 0 ? p / n : (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
           return {
             result: `PKR ${Math.round(emi).toLocaleString()} / month`,
             secondaryResult: `Total Payment: PKR ${Math.round(emi * n).toLocaleString()}`,

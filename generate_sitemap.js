@@ -1,9 +1,10 @@
 import { categories, getAllCalculators } from './src/data/calculatorsData';
 import { getCalculatorSlug } from './src/utils/slugs';
+import { SITE_URL } from './src/config/site';
 import fs from 'fs';
 
-const domain = 'https://YOURDOMAIN.com';
-const lastmod = '2026-11-21';
+const domain = SITE_URL.replace(/\/+$/, '');
+const lastmod = new Date().toISOString().split('T')[0];
 const allCalcs = getAllCalculators();
 
 const entries = [
@@ -12,6 +13,7 @@ const entries = [
   { loc: `${domain}/contact`, priority: '0.6', changefreq: 'monthly' },
   { loc: `${domain}/privacy`, priority: '0.5', changefreq: 'monthly' },
   { loc: `${domain}/terms`, priority: '0.5', changefreq: 'monthly' },
+  { loc: `${domain}/disclaimer`, priority: '0.5', changefreq: 'monthly' },
 ];
 
 categories.forEach((cat) => {
@@ -56,6 +58,6 @@ Sitemap: ${domain}/sitemap.xml
 
 fs.writeFileSync('./public/robots.txt', robots);
 
-console.log('Sitemap generated with total pages:', entries.length);
-console.log('First 5 entries:');
-entries.slice(0, 5).forEach((e, i) => console.log(`${i + 1}: ${e.loc}`));
+console.log(`Sitemap generated for ${domain} with total pages:`, entries.length);
+console.log('First 6 entries:');
+entries.slice(0, 6).forEach((e, i) => console.log(`${i + 1}: ${e.loc}`));

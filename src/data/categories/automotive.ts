@@ -304,10 +304,11 @@ export const automotiveCategory: Category = {
           { id: 'years', label: 'Tenure (Years)', type: 'number', defaultValue: 3 }
         ],
         calculate: (vals) => {
-          const p = Number(vals.loanAmount);
-          const r = Number(vals.rate) / 12 / 100;
-          const n = Number(vals.years) * 12;
-          if (r === 0) return { result: `PKR ${(p / n).toFixed(0)} / month` };
+          const p = Number(vals.loanAmount) || 0;
+          const r = (Number(vals.rate) || 0) / 12 / 100;
+          const n = (Number(vals.years) || 0) * 12;
+          if (n <= 0) return { result: 'PKR 0 / month', secondaryResult: 'Enter a tenure greater than 0 years.', formula: 'Auto Finance EMI Formula' };
+          if (r === 0) return { result: `PKR ${Math.round(p / n).toLocaleString()} / month`, secondaryResult: `Total Payments: PKR ${Math.round(p).toLocaleString()}`, formula: 'Auto Finance EMI = P / n (0% markup)' };
           const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
           return {
             result: `PKR ${Math.round(emi).toLocaleString()} / month`,

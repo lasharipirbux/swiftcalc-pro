@@ -3,6 +3,8 @@ import { CalculatorItem, CalculationHistoryItem } from '../types';
 import { getAllCalculators } from '../data/calculatorsData';
 import { getCalculatorSlug } from '../utils/slugs';
 import { formatCalculatorResult } from '../utils/formatResult';
+import { safeCalculate } from '../utils/safeCalculate';
+import { getCalculatorSeoContent } from '../utils/seoBuilder';
 import { financeBusinessSeoMap } from '../data/seoFinanceBusiness';
 import { constructionHealthSeoMap } from '../data/seoConstructionHealth';
 import { datetimeElectricalSeoMap } from '../data/seoDatetimeElectrical';
@@ -30,16 +32,20 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
   onSaveHistory,
   onSelectCalculator,
 }) => {
-  const [inputValues, setInputValues] = useState<Record<string, any>>({});
-  const [copied, setCopied] = useState(false);
-
-  // Initialize default input values
-  useEffect(() => {
+  const getDefaults = () => {
     const defaults: Record<string, any> = {};
     calculator.inputs.forEach((inp) => {
       defaults[inp.id] = inp.defaultValue;
     });
-    setInputValues(defaults);
+    return defaults;
+  };
+
+  const [inputValues, setInputValues] = useState<Record<string, any>>(getDefaults);
+  const [copied, setCopied] = useState(false);
+
+  // Sync default input values when switching calculators
+  useEffect(() => {
+    setInputValues(getDefaults());
   }, [calculator]);
 
   const handleChange = (id: string, value: any) => {
@@ -54,17 +60,26 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
     setInputValues(defaults);
   };
 
-  // Perform calculation
-  const calcResult = calculator.calculate(inputValues);
-  const formattedResult = formatCalculatorResult(calcResult.result, calculator.id);
+  // Perform safe calculation (never returns NaN, Infinity, or Invalid Date)
+  const calcResult = safeCalculate(calculator, inputValues);
+  const formattedResult = calcResult.isInvalid
+    ? String(calcResult.result)
+    : formatCalculatorResult(calcResult.result, calculator.id);
   const formattedSecondaryResult =
     calcResult.secondaryResult !== undefined
-      ? formatCalculatorResult(calcResult.secondaryResult, calculator.id)
+      ? calcResult.isInvalid
+        ? String(calcResult.secondaryResult)
+        : formatCalculatorResult(calcResult.secondaryResult, calculator.id)
       : undefined;
 
   // Automatically record to history on calculation change
   useEffect(() => {
-    if (calcResult.result !== undefined && calcResult.result !== 'Invalid Expression' && calcResult.result !== 'Error in arithmetic syntax') {
+    if (
+      !calcResult.isInvalid &&
+      calcResult.result !== undefined &&
+      calcResult.result !== 'Invalid Expression' &&
+      calcResult.result !== 'Error in arithmetic syntax'
+    ) {
       onSaveHistory({
         calculatorId: calculator.id,
         calculatorName: calculator.name,
@@ -92,24 +107,27 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
     }),
     []
   );
-  const seoContent = seoMap[calculator.id];
 
-  // Inject FAQPage JSON-LD Schema for Finance, Business, Construction & Health calculators
+  const seoContent = useMemo(
+    () => getCalculatorSeoContent(calculator, categoryName, seoMap[calculator.id]),
+    [calculator, categoryName, seoMap]
+  );
+
+  // Inject FAQPage JSON-LD Schema for ALL 400 calculator pages
   useEffect(() => {
-    const seo = seoMap[calculator.id];
     let scriptTag = document.getElementById('faq-json-ld');
-    if (seo) {
+    if (seoContent && seoContent.faqs.length > 0) {
       const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": seo.faqs.map(f => ({
-          "@type": "Question",
-          "name": f.q,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": f.a
-          }
-        }))
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: seoContent.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.a,
+          },
+        })),
       };
       if (!scriptTag) {
         scriptTag = document.createElement('script');
@@ -118,14 +136,14 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
         document.head.appendChild(scriptTag);
       }
       scriptTag.textContent = JSON.stringify(jsonLd);
-    } else {
-      if (scriptTag) scriptTag.remove();
+    } else if (scriptTag) {
+      scriptTag.remove();
     }
     return () => {
       const st = document.getElementById('faq-json-ld');
       if (st) st.remove();
     };
-  }, [calculator.id, seoMap]);
+  }, [seoContent]);
 
   // Get 6 related calculators from the same category
   const relatedCalculators = useMemo(() => {
@@ -226,8 +244,15 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
                     <div className="relative">
                       <input
                         type={inp.type === 'number' ? 'number' : 'text'}
-                        value={inputValues[inp.id] ?? inp.defaultValue}
-                        onChange={(e) => handleChange(inp.id, inp.type === 'number' ? parseFloat(e.target.value) || 0 : e.target.value)}
+                        value={inputValues[inp.id] !== undefined ? inputValues[inp.id] : inp.defaultValue}
+                        onChange={(e) => {
+                          if (inp.type === 'number') {
+                            const raw = e.target.value;
+                            handleChange(inp.id, raw === '' ? '' : parseFloat(raw));
+                          } else {
+                            handleChange(inp.id, e.target.value);
+                          }
+                        }}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white font-mono tabular-nums focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all shadow-sm"
                       />
                       {inp.unit && (
@@ -337,63 +362,47 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
 
         </div>
 
-        {/* Unique SEO Content Section (Guaranteed on all 400 calculator pages) */}
-        {seoContent ? (
-          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6 text-left text-slate-700 dark:text-slate-300">
-            <div className="space-y-2 text-left">
-              <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Overview</h2>
-              <p className="text-xs sm:text-sm leading-relaxed text-left">{seoContent.intro}</p>
-            </div>
+        {/* Unique SEO Content Section (150-200+ word guide + 3+ FAQs on all 400 calculator pages) */}
+        <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-6 text-left text-slate-700 dark:text-slate-300">
+          <div className="space-y-2 text-left">
+            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Overview</h2>
+            <p className="text-xs sm:text-sm leading-relaxed text-left">{seoContent.intro}</p>
+          </div>
 
-            <div className="space-y-2 text-left">
-              <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">How it works</h2>
-              <p className="text-xs sm:text-sm leading-relaxed text-left">{seoContent.howItWorks}</p>
-            </div>
+          <div className="space-y-2 text-left">
+            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">How to Use &amp; Formula</h2>
+            <p className="text-xs sm:text-sm leading-relaxed text-left">{seoContent.howItWorks}</p>
+          </div>
 
-            <div className="space-y-2 text-left">
-              <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Worked Example</h2>
-              <p className="text-xs sm:text-sm leading-relaxed text-left py-3 border-y border-slate-200 dark:border-slate-800">{seoContent.workedExample}</p>
-            </div>
+          <div className="space-y-2 text-left">
+            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Worked Example</h2>
+            <p className="text-xs sm:text-sm leading-relaxed text-left py-3 border-y border-slate-200 dark:border-slate-800">{seoContent.workedExample}</p>
+          </div>
 
-            <div className="space-y-3 text-left">
-              <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Frequently Asked Questions</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-                {seoContent.faqs.map((faq, idx) => (
-                  <div key={idx} className="h-full flex flex-col justify-start text-left bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
-                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">Q: {faq.q}</h3>
-                    <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">A: {faq.a}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {seoContent.medicalDisclaimer && (
-              <div className="py-2.5 border-y border-amber-200 dark:border-amber-900/50 text-xs font-medium text-amber-800 dark:text-amber-300 text-left">
-                {seoContent.medicalDisclaimer}
-              </div>
-            )}
-
-            <div className="pt-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 text-left">
-              {seoContent.whoUses}
+          <div className="space-y-3 text-left">
+            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">Frequently Asked Questions</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+              {seoContent.faqs.map((faq, idx) => (
+                <div key={idx} className="h-full flex flex-col justify-start text-left bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">Q: {faq.q}</h3>
+                  <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">A: {faq.a}</p>
+                </div>
+              ))}
             </div>
           </div>
-        ) : (
-          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-3 text-left text-slate-700 dark:text-slate-300">
-            <h2 className="text-base font-bold text-slate-900 dark:text-white text-left">
-              About the {calculator.name}
-            </h2>
-            <p className="text-xs sm:text-sm leading-relaxed text-left">
-              The {calculator.name} in our {categoryName} suite helps you {calculator.description.charAt(0).toLowerCase() + calculator.description.slice(1).replace(/\.$/, '')}. Enter your values for {calculator.inputs.map((i) => i.label).join(', ')} to compute accurate results instantly in your browser.
-            </p>
-            {calcResult.formula && (
-              <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">
-                <span className="font-semibold text-slate-900 dark:text-white">Formula used:</span> {calcResult.formula}
-              </p>
-            )}
-          </div>
-        )}
 
-        {/* Related Calculators Section (6 links from the same category) */}
+          {seoContent.medicalDisclaimer && (
+            <div className="py-2.5 border-y border-amber-200 dark:border-amber-900/50 text-xs font-medium text-amber-800 dark:text-amber-300 text-left">
+              {seoContent.medicalDisclaimer}
+            </div>
+          )}
+
+          <div className="pt-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 text-left">
+            {seoContent.whoUses}
+          </div>
+        </div>
+
+        {/* Related Calculators Section (6 crawlable internal links from the same category) */}
         {relatedCalculators.length > 0 && (
           <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800">
             <h2 className="text-sm font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
@@ -401,32 +410,36 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
               <span>Related {categoryName} Calculators</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {relatedCalculators.map((rel) => (
-                <div
-                  key={rel.id}
-                  onClick={() => {
-                    if (onSelectCalculator) {
-                      onSelectCalculator(rel);
-                    } else {
-                      const slug = getCalculatorSlug(rel);
-                      window.history.pushState({}, '', slug);
-                      window.dispatchEvent(new PopStateEvent('popstate'));
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                  }}
-                  className="p-3.5 bg-slate-50 dark:bg-slate-800/40 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 rounded-2xl cursor-pointer transition-all group flex items-center justify-between gap-3"
-                >
-                  <div className="min-w-0">
-                    <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 truncate">
-                      {rel.name}
-                    </h3>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
-                      {rel.description}
-                    </p>
-                  </div>
-                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 shrink-0 transform group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              ))}
+              {relatedCalculators.map((rel) => {
+                const relSlug = getCalculatorSlug(rel);
+                return (
+                  <a
+                    key={rel.id}
+                    href={relSlug}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (onSelectCalculator) {
+                        onSelectCalculator(rel);
+                      } else {
+                        window.history.pushState({}, '', relSlug);
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                    }}
+                    className="p-3.5 bg-slate-50 dark:bg-slate-800/40 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 rounded-2xl cursor-pointer transition-all group flex items-center justify-between gap-3"
+                  >
+                    <div className="min-w-0">
+                      <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 truncate">
+                        {rel.name}
+                      </h3>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
+                        {rel.description}
+                      </p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 shrink-0 transform group-hover:translate-x-0.5 transition-transform" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         )}

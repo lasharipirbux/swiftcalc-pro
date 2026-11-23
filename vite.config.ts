@@ -4,11 +4,25 @@ import fs from 'fs';
 import path from 'path';
 import {defineConfig} from 'vite';
 
+import { SITE_URL } from './src/config/site';
+
 export default defineConfig(() => {
+  const cleanSiteUrl = SITE_URL.replace(/\/+$/, '');
   return {
     plugins: [
       react(),
       tailwindcss(),
+      // Ensures index.html canonical, og:url, and JSON-LD URLs stay automatically synced
+      // with SITE_URL in src/config/site.ts whenever the domain is updated.
+      {
+        name: 'sync-site-url-in-html',
+        transformIndexHtml(html: string): string {
+          return html.replaceAll(
+            'https://swiftcalc-pro.lasharipirbux.workers.dev',
+            cleanSiteUrl
+          );
+        },
+      },
       // Copies src/assets into dist/ so root-relative URLs like
       // "/src/assets/images/..." (e.g. generate_image output) still resolve
       // in production builds. Do not remove.

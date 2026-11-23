@@ -10,6 +10,8 @@ import { HistoryModal } from './components/HistoryModal';
 import { StaticPage } from './components/StaticPages';
 import { getCalculatorSlug, findCalculatorBySlug } from './utils/slugs';
 import { searchCalculators } from './utils/search';
+import { SITE_URL, SITE_NAME } from './config/site';
+import { buildCalculatorTitle, buildCalculatorMetaDescription } from './utils/seoBuilder';
 import {
   ArrowRight,
   ArrowUp,
@@ -140,7 +142,7 @@ export default function App() {
     if (
       currentPath.startsWith('/') &&
       currentPath.length > 1 &&
-      !['/about', '/contact', '/privacy', '/terms'].includes(currentPath) &&
+      !['/about', '/contact', '/privacy', '/terms', '/disclaimer'].includes(currentPath) &&
       !currentPath.startsWith('/category/')
     ) {
       return findCalculatorBySlug(currentPath, allCalculators) || null;
@@ -190,39 +192,43 @@ export default function App() {
 
   // Update SEO Document Title, Meta Description, Open Graph, Twitter Cards, Canonical URL, and Calculator JSON-LD on route change
   useEffect(() => {
-    const SITE_URL = 'https://YOURDOMAIN.com';
-    let title = 'CalcVault Pro — 400+ Free Online Calculators & Converters';
-    let desc = `Use ${allCalculators.length}+ free online calculators for math, finance, health, construction, real estate, and unit conversions. Instant, accurate results with CalcVault Pro.`;
-    let canonical = `${SITE_URL}/`;
+    const baseUrl = SITE_URL.replace(/\/+$/, '');
+    let title = `${SITE_NAME} — 400+ Free Online Calculators & Converters`;
+    let desc = `Use ${allCalculators.length}+ free online calculators for math, finance, health, construction, real estate, and unit conversions. Instant, accurate results with ${SITE_NAME}.`;
+    let canonical = `${baseUrl}/`;
 
     if (activeCalculator) {
       const slug = getCalculatorSlug(activeCalculator);
-      title = `${activeCalculator.name} — Free Online Calculator | CalcVault Pro`;
-      desc = `${activeCalculator.description} Use our free ${activeCalculator.name} on CalcVault Pro for instant results, formula breakdown, and examples.`;
-      canonical = `${SITE_URL}${slug}`;
+      title = buildCalculatorTitle(activeCalculator);
+      desc = buildCalculatorMetaDescription(activeCalculator);
+      canonical = `${baseUrl}${slug}`;
     } else if (selectedCategory) {
       const cat = categories.find((c) => c.id === selectedCategory);
       if (cat) {
-        title = `${cat.name} Calculators (${cat.calculators.length} Free Tools) | CalcVault Pro`;
-        desc = `${cat.description} Browse ${cat.calculators.length} free online ${cat.name.toLowerCase()} calculators on CalcVault Pro.`;
-        canonical = `${SITE_URL}/category/${cat.id}`;
+        title = `Free ${cat.name} Calculators Online (${cat.calculators.length} Tools) – ${SITE_NAME}`;
+        desc = `${cat.description} Browse ${cat.calculators.length} free online ${cat.name.toLowerCase()} calculators with formulas, examples, and instant results on ${SITE_NAME}.`;
+        canonical = `${baseUrl}/category/${cat.id}`;
       }
     } else if (currentPath === '/about') {
-      title = 'About Us | CalcVault Pro';
-      desc = 'Learn about CalcVault Pro, the free multi-category online calculator portal providing 400+ instant, accurate tools.';
-      canonical = `${SITE_URL}/about`;
+      title = `About Us | ${SITE_NAME}`;
+      desc = `Learn about ${SITE_NAME}, the free multi-category online calculator portal providing 400+ instant, accurate tools.`;
+      canonical = `${baseUrl}/about`;
     } else if (currentPath === '/contact') {
-      title = 'Contact Us | CalcVault Pro';
-      desc = 'Get in touch with the CalcVault Pro team for calculator suggestions, feedback, or inquiries.';
-      canonical = `${SITE_URL}/contact`;
+      title = `Contact Us | ${SITE_NAME}`;
+      desc = `Get in touch with the ${SITE_NAME} team for calculator suggestions, feedback, or inquiries.`;
+      canonical = `${baseUrl}/contact`;
     } else if (currentPath === '/privacy') {
-      title = 'Privacy Policy | CalcVault Pro';
-      desc = 'Read the CalcVault Pro privacy policy detailing client-side calculations, local storage, and user data security.';
-      canonical = `${SITE_URL}/privacy`;
+      title = `Privacy Policy | ${SITE_NAME}`;
+      desc = `Read the ${SITE_NAME} privacy policy detailing client-side calculations, local storage, cookies, and user data security.`;
+      canonical = `${baseUrl}/privacy`;
     } else if (currentPath === '/terms') {
-      title = 'Terms of Service | CalcVault Pro';
-      desc = 'Read the CalcVault Pro terms of service and usage guidelines for all online calculators.';
-      canonical = `${SITE_URL}/terms`;
+      title = `Terms of Service | ${SITE_NAME}`;
+      desc = `Read the ${SITE_NAME} terms of service and usage guidelines for all online calculators.`;
+      canonical = `${baseUrl}/terms`;
+    } else if (currentPath === '/disclaimer') {
+      title = `Disclaimer | ${SITE_NAME}`;
+      desc = `Read the ${SITE_NAME} financial, medical, construction, and estimation disclaimer for all online calculators.`;
+      canonical = `${baseUrl}/disclaimer`;
     }
 
     document.title = title;
@@ -242,7 +248,7 @@ export default function App() {
     upsertMeta('property', 'og:description', desc);
     upsertMeta('property', 'og:url', canonical);
     upsertMeta('property', 'og:type', 'website');
-    upsertMeta('property', 'og:site_name', 'CalcVault Pro');
+    upsertMeta('property', 'og:site_name', SITE_NAME);
     upsertMeta('name', 'twitter:card', 'summary_large_image');
     upsertMeta('name', 'twitter:title', title);
     upsertMeta('name', 'twitter:description', desc);
@@ -255,7 +261,7 @@ export default function App() {
     }
     canonicalLink.setAttribute('href', canonical);
 
-    // Dynamic per-calculator WebApplication JSON-LD (strictly HTTPS)
+    // Dynamic per-calculator WebApplication JSON-LD using centralized SITE_URL
     let calcSchemaTag = document.getElementById('calculator-json-ld');
     if (activeCalculator) {
       const cat = categories.find((c) => c.id === activeCalculator.categoryId);
@@ -264,13 +270,13 @@ export default function App() {
         '@type': 'WebApplication',
         name: activeCalculator.name,
         url: canonical,
-        description: activeCalculator.description,
+        description: desc,
         applicationCategory: 'UtilitiesApplication',
         operatingSystem: 'All',
         isPartOf: {
           '@type': 'WebSite',
-          name: 'CalcVault Pro',
-          url: `${SITE_URL}/`,
+          name: SITE_NAME,
+          url: `${baseUrl}/`,
         },
         about: cat ? cat.name : 'Online Calculator',
         offers: {
@@ -426,7 +432,7 @@ export default function App() {
     }
   };
 
-  const isStaticPage = ['/about', '/contact', '/privacy', '/terms'].includes(currentPath);
+  const isStaticPage = ['/about', '/contact', '/privacy', '/terms', '/disclaimer'].includes(currentPath);
   const isHomePage = !isStaticPage && !activeCalculator && !selectedCategory;
   const showHeroDropdown = isHeroDropdownOpen && heroSearchQuery.trim().length > 0;
 
@@ -513,7 +519,17 @@ export default function App() {
                         <div>
                           <div className="flex items-start justify-between gap-2 mb-2">
                             <h2 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                              {calc.name}
+                              <a
+                                href={getCalculatorSlug(calc)}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  handleSelectCalculator(calc);
+                                }}
+                                className="hover:underline focus:outline-none"
+                              >
+                                {calc.name}
+                              </a>
                             </h2>
                             <button
                               onClick={(e) => {
@@ -666,10 +682,13 @@ export default function App() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {categories.map((cat) => (
-                  <button
+                  <a
                     key={cat.id}
-                    type="button"
-                    onClick={() => handleSelectCategory(cat.id)}
+                    href={`/category/${cat.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleSelectCategory(cat.id);
+                    }}
                     className="text-left bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 rounded-2xl p-5 transition-all group shadow-sm hover:shadow-md flex flex-col justify-between"
                   >
                     <div>
@@ -694,7 +713,7 @@ export default function App() {
                       <span>Explore tools</span>
                       <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                     </div>
-                  </button>
+                  </a>
                 ))}
               </div>
             </section>
@@ -724,7 +743,17 @@ export default function App() {
                       <div>
                         <div className="flex items-start justify-between gap-2">
                           <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                            {calc.name}
+                            <a
+                              href={getCalculatorSlug(calc)}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                handleSelectCalculator(calc);
+                              }}
+                              className="hover:underline focus:outline-none"
+                            >
+                              {calc.name}
+                            </a>
                           </h3>
                           <button
                             type="button"
@@ -759,12 +788,12 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#064E3B] dark:bg-[#022C22] border-t border-emerald-800/60 dark:border-emerald-900/70 pt-12 pb-24 sm:py-12 mt-14 text-center text-xs text-emerald-100">
+      <footer className="bg-[#0F172A] border-t border-slate-800 pt-12 pb-24 sm:py-12 mt-14 text-center text-xs text-[#94A3B8]">
         <div className="max-w-7xl mx-auto px-4 sm:pr-16 flex flex-col sm:flex-row items-center justify-between gap-5">
-          <div className="flex items-center gap-2.5 cursor-pointer" onClick={handleBackToHome}>
+          <div className="flex items-center gap-2.5 cursor-pointer group" onClick={handleBackToHome}>
             <BrandLogo className="w-7 h-7" />
-            <span className="font-bold text-white">CalcVault Pro</span>
-            <span className="text-emerald-100/90">· {allCalculators.length}+ Free Online Calculators Portal</span>
+            <span className="font-bold text-[#E2E8F0] group-hover:text-emerald-400 transition-colors">CalcVault Pro</span>
+            <span className="text-[#94A3B8]">· {allCalculators.length}+ Free Online Calculators Portal</span>
           </div>
 
           <nav aria-label="Footer navigation" className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 font-medium">
@@ -774,9 +803,9 @@ export default function App() {
                 e.preventDefault();
                 navigateTo('/about');
               }}
-              className="text-emerald-50 hover:text-amber-300 active:text-amber-300 transition-colors"
+              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
             >
-              About
+              About Us
             </a>
             <a
               href="/contact"
@@ -784,9 +813,9 @@ export default function App() {
                 e.preventDefault();
                 navigateTo('/contact');
               }}
-              className="text-emerald-50 hover:text-amber-300 active:text-amber-300 transition-colors"
+              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
             >
-              Contact
+              Contact Us
             </a>
             <a
               href="/privacy"
@@ -794,7 +823,7 @@ export default function App() {
                 e.preventDefault();
                 navigateTo('/privacy');
               }}
-              className="text-emerald-50 hover:text-amber-300 active:text-amber-300 transition-colors"
+              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
             >
               Privacy Policy
             </a>
@@ -804,22 +833,32 @@ export default function App() {
                 e.preventDefault();
                 navigateTo('/terms');
               }}
-              className="text-emerald-50 hover:text-amber-300 active:text-amber-300 transition-colors"
+              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
             >
               Terms of Service
+            </a>
+            <a
+              href="/disclaimer"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('/disclaimer');
+              }}
+              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
+            >
+              Disclaimer
             </a>
             <button
               type="button"
               onClick={() => setDarkMode(!darkMode)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white hover:text-amber-300 active:text-amber-300 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/60 text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
-              {darkMode ? <Sun className="w-3.5 h-3.5 text-amber-300" /> : <Moon className="w-3.5 h-3.5 text-emerald-100" />}
+              {darkMode ? <Sun className="w-3.5 h-3.5 text-emerald-400" /> : <Moon className="w-3.5 h-3.5 text-emerald-400" />}
               <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
             </button>
           </nav>
 
-          <p className="text-emerald-100/85">© {new Date().getFullYear()} CalcVault Pro · By Naseeb. All rights reserved.</p>
+          <p className="text-[#94A3B8]">© {new Date().getFullYear()} CalcVault Pro · By Naseeb. All rights reserved.</p>
         </div>
       </footer>
 
