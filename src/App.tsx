@@ -14,6 +14,7 @@ import { StaticPage } from './components/StaticPages';
 import { SeoHead, StaticPageId } from './components/SeoHead';
 import { getCalculatorSlug, findCalculatorBySlug } from './utils/slugs';
 import { SITE_NAME, SUPPORT_EMAIL } from './config/site';
+import { CurrencyCode, CURRENCY_STORAGE_KEY, getInitialCurrency } from './utils/currency';
 import {
   ArrowRight,
   ArrowDown,
@@ -104,6 +105,8 @@ export default function App() {
     }
   });
 
+  const [currency, setCurrency] = useState<CurrencyCode>(() => getInitialCurrency());
+
   // Modals
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
@@ -182,6 +185,12 @@ export default function App() {
       }
     } catch {}
   }, [darkMode]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(CURRENCY_STORAGE_KEY, currency);
+    } catch {}
+  }, [currency]);
 
   const navigateTo = (path: string) => {
     window.history.pushState({}, '', path);
@@ -314,6 +323,8 @@ export default function App() {
         darkMode={darkMode}
         setDarkMode={setDarkMode}
         hideSearch={isHomePage}
+        currency={currency}
+        onChangeCurrency={setCurrency}
       />
 
       {/* Main Container */}
@@ -340,6 +351,7 @@ export default function App() {
               onToggleFavorite={handleToggleFavorite}
               onSaveHistory={handleSaveHistory}
               onSelectCalculator={handleSelectCalculator}
+              currency={currency}
             />
           </Suspense>
         ) : selectedCategory ? (
@@ -460,7 +472,7 @@ export default function App() {
             <section className="relative min-h-[calc(100svh-128px)] max-h-[calc(100svh-128px)] sm:min-h-[calc(100vh-128px)] sm:max-h-[calc(100vh-128px)] flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 text-white px-6 py-8 sm:px-12 sm:py-10 shadow-xl border border-emerald-700/50">
               <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-5">
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                  400+ Free Online Calculators
+                  {allCalculators.length} Free Online Calculators
                 </h1>
                 <p className="text-sm sm:text-lg text-emerald-100/90 max-w-2xl mx-auto leading-relaxed">
                   Instant, accurate calculators for finance, real estate, construction, health, education, and everyday math.
@@ -609,7 +621,7 @@ export default function App() {
             <div className="flex items-center gap-2.5 cursor-pointer group" onClick={handleBackToHome}>
               <BrandLogo className="w-7 h-7" />
               <span className="font-bold text-[#E2E8F0] group-hover:text-emerald-400 transition-colors">{SITE_NAME}</span>
-              <span className="text-[#94A3B8]">· {allCalculators.length}+ Free Online Calculators Portal</span>
+              <span className="text-[#94A3B8]">· {allCalculators.length} Free Online Calculators Portal</span>
             </div>
 
             <nav aria-label="Footer navigation" className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 font-medium">

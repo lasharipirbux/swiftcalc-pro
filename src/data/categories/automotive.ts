@@ -668,6 +668,46 @@ export const automotiveCategory: Category = {
             formula: 'Traffic fine tier relative to excess speed'
           };
         }
+      },
+      {
+        id: 'auto-usa-loan',
+        name: 'Auto Loan Calculator (USA)',
+        categoryId: 'automotive',
+        description: 'Calculate monthly USA car loan payments factoring in trade-in value, down payment, sales tax, and APR.',
+        inputs: [
+          { id: 'vehiclePrice', label: 'Vehicle Price ($)', type: 'number', defaultValue: 34000 },
+          { id: 'downPayment', label: 'Down Payment ($)', type: 'number', defaultValue: 5000 },
+          { id: 'tradeIn', label: 'Trade-In Value ($)', type: 'number', defaultValue: 4000 },
+          { id: 'salesTax', label: 'Sales Tax Rate (%)', type: 'number', defaultValue: 6.5 },
+          { id: 'apr', label: 'Auto Loan APR (%)', type: 'number', defaultValue: 6.2 },
+          { id: 'months', label: 'Loan Term (Months)', type: 'number', defaultValue: 60 }
+        ],
+        calculate: (vals) => {
+          const price = Math.max(0, Number(vals.vehiclePrice) || 0);
+          const down = Math.max(0, Number(vals.downPayment) || 0);
+          const trade = Math.max(0, Number(vals.tradeIn) || 0);
+          const taxRate = Math.max(0, Number(vals.salesTax) || 0) / 100;
+          const r = Math.max(0, Number(vals.apr) || 0) / 100 / 12;
+          const n = Math.max(1, Math.round(Number(vals.months) || 60));
+
+          const taxableBase = Math.max(0, price - trade);
+          const taxAmount = taxableBase * taxRate;
+          const loanAmount = Math.max(0, price + taxAmount - down - trade);
+
+          const monthly =
+            r === 0
+              ? loanAmount / n
+              : (loanAmount * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+          const totalPaid = monthly * n;
+          const totalInterest = Math.max(0, totalPaid - loanAmount);
+
+          return {
+            result: `$${monthly.toFixed(2)} / month`,
+            secondaryResult: `Loan Amount: $${Math.round(loanAmount).toLocaleString()} | Sales Tax: $${Math.round(taxAmount).toLocaleString()} | Total Interest: $${Math.round(totalInterest).toLocaleString()}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'Monthly Payment = [P · r · (1 + r)^n] / [(1 + r)^n − 1], P = Price + Tax − Down − Trade-In'
+          };
+        }
       }
     ]
   };

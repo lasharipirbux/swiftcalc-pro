@@ -457,6 +457,42 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>/calculator/401-k-retirement-calculator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/calculator/student-loan-payoff-calculator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/calculator/credit-card-payoff-calculator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/calculator/roth-ira-vs-traditional-ira-growth-calculator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/calculator/529-college-savings-calculator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/calculator/emergency-fund-calculator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>/calculator/break-even-point-calculator</loc>
     <lastmod>2026-11-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1825,6 +1861,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>/calculator/home-affordability-calculator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/calculator/rent-vs-buy-calculator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/calculator/down-payment-savings-calculator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>/calculator/fuel-mileage-calculator-km-l</loc>
     <lastmod>2026-11-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1994,6 +2048,12 @@
   </url>
   <url>
     <loc>/calculator/speeding-ticket-fine-estimator</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>/calculator/auto-loan-calculator-usa</loc>
     <lastmod>2026-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

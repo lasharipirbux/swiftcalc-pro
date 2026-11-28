@@ -632,6 +632,260 @@ export const financeCategory: Category = {
             formula: 'Amortization loan payoff duration formula'
           };
         }
+      },
+      {
+        id: 'fin-usa-401k',
+        name: '401(k) Retirement Calculator',
+        categoryId: 'finance',
+        description: 'Project your 401(k) retirement balance with salary contributions, employer match, and compound growth.',
+        inputs: [
+          { id: 'currentBalance', label: 'Current 401(k) Balance ($)', type: 'number', defaultValue: 35000 },
+          { id: 'annualSalary', label: 'Annual Salary ($)', type: 'number', defaultValue: 80000 },
+          { id: 'employeePct', label: 'Your Contribution (%)', type: 'number', defaultValue: 8 },
+          { id: 'employerMatchPct', label: 'Employer Match (% of Salary)', type: 'number', defaultValue: 4 },
+          { id: 'annualReturn', label: 'Expected Annual Return (%)', type: 'number', defaultValue: 7 },
+          { id: 'years', label: 'Years to Retirement', type: 'number', defaultValue: 25 }
+        ],
+        calculate: (vals) => {
+          const bal = Math.max(0, Number(vals.currentBalance) || 0);
+          const salary = Math.max(0, Number(vals.annualSalary) || 0);
+          const empPct = Math.max(0, Number(vals.employeePct) || 0) / 100;
+          const matchPct = Math.max(0, Number(vals.employerMatchPct) || 0) / 100;
+          const rate = (Number(vals.annualReturn) || 0) / 100;
+          const years = Math.max(0, Math.round(Number(vals.years) || 0));
+
+          const monthlyRate = rate / 12;
+          const totalMonths = years * 12;
+          const monthlyEmployee = (salary * empPct) / 12;
+          const monthlyEmployer = (salary * matchPct) / 12;
+          const monthlyTotal = monthlyEmployee + monthlyEmployer;
+
+          let futureValue = bal;
+          for (let m = 0; m < totalMonths; m++) {
+            futureValue = (futureValue + monthlyTotal) * (1 + monthlyRate);
+          }
+
+          const totalEmployeeContrib = monthlyEmployee * totalMonths;
+          const totalEmployerContrib = monthlyEmployer * totalMonths;
+          const totalGrowth = futureValue - bal - totalEmployeeContrib - totalEmployerContrib;
+
+          return {
+            result: `$${Math.round(futureValue).toLocaleString()}`,
+            secondaryResult: `Your Contributions: $${Math.round(totalEmployeeContrib).toLocaleString()} | Employer Match: $${Math.round(totalEmployerContrib).toLocaleString()} | Growth: $${Math.round(totalGrowth).toLocaleString()}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'FV = Balance×(1+r/12)^n + Monthly Total × [((1+r/12)^n − 1) / (r/12)]'
+          };
+        }
+      },
+      {
+        id: 'fin-usa-student-loan',
+        name: 'Student Loan Payoff Calculator',
+        categoryId: 'finance',
+        description: 'Calculate student loan payoff timeline, total interest, and savings from extra monthly payments.',
+        inputs: [
+          { id: 'balance', label: 'Loan Balance ($)', type: 'number', defaultValue: 35000 },
+          { id: 'apr', label: 'Interest Rate (APR %)', type: 'number', defaultValue: 5.5 },
+          { id: 'monthlyPayment', label: 'Monthly Payment ($)', type: 'number', defaultValue: 400 },
+          { id: 'extraPayment', label: 'Extra Monthly Payment ($)', type: 'number', defaultValue: 100 }
+        ],
+        calculate: (vals) => {
+          const bal = Math.max(0, Number(vals.balance) || 0);
+          const r = Math.max(0, Number(vals.apr) || 0) / 100 / 12;
+          const basePay = Math.max(0, Number(vals.monthlyPayment) || 0);
+          const extra = Math.max(0, Number(vals.extraPayment) || 0);
+          const totalPay = basePay + extra;
+
+          if (bal <= 0) return { result: '0 Months (Paid Off)', note: 'Estimates only. Check official sources for current rates.' };
+          if (totalPay <= bal * r) {
+            return {
+              result: 'Payment too low to cover monthly interest',
+              note: 'Estimates only. Check official sources for current rates.'
+            };
+          }
+
+          const simulate = (pmt: number) => {
+            if (pmt <= bal * r) return { months: Infinity, interest: Infinity };
+            let b = bal;
+            let m = 0;
+            let interest = 0;
+            while (b > 0.01 && m < 1200) {
+              const intCharge = b * r;
+              interest += intCharge;
+              const principalPaid = Math.min(b, pmt - intCharge);
+              b -= principalPaid;
+              m++;
+            }
+            return { months: m, interest };
+          };
+
+          const withExtra = simulate(totalPay);
+          const withoutExtra = simulate(basePay);
+          const yrs = (withExtra.months / 12).toFixed(1);
+          const interestSaved = Number.isFinite(withoutExtra.interest)
+            ? Math.max(0, withoutExtra.interest - withExtra.interest)
+            : 0;
+
+          return {
+            result: `${withExtra.months} Months (${yrs} yrs)`,
+            secondaryResult: `Total Interest: $${Math.round(withExtra.interest).toLocaleString()} | Interest Saved with Extra: $${Math.round(interestSaved).toLocaleString()}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'Months = −ln(1 − (Balance × r) / Payment) / ln(1 + r)'
+          };
+        }
+      },
+      {
+        id: 'fin-usa-credit-card',
+        name: 'Credit Card Payoff Calculator',
+        categoryId: 'finance',
+        description: 'Estimate how many months and how much interest it takes to pay off credit card debt.',
+        inputs: [
+          { id: 'balance', label: 'Credit Card Balance ($)', type: 'number', defaultValue: 6000 },
+          { id: 'apr', label: 'Credit Card APR (%)', type: 'number', defaultValue: 21.5 },
+          { id: 'monthlyPayment', label: 'Monthly Payment ($)', type: 'number', defaultValue: 250 }
+        ],
+        calculate: (vals) => {
+          const bal = Math.max(0, Number(vals.balance) || 0);
+          const r = Math.max(0, Number(vals.apr) || 0) / 100 / 12;
+          const pmt = Math.max(0, Number(vals.monthlyPayment) || 0);
+
+          if (bal <= 0) return { result: '0 Months ($0 Interest)', note: 'Estimates only. Check official sources for current rates.' };
+          if (pmt <= bal * r) {
+            return {
+              result: `Payment must exceed $${Math.ceil(bal * r).toLocaleString()} monthly interest`,
+              note: 'Estimates only. Check official sources for current rates.'
+            };
+          }
+
+          let b = bal;
+          let months = 0;
+          let totalInterest = 0;
+          while (b > 0.01 && months < 1200) {
+            const intCharge = b * r;
+            totalInterest += intCharge;
+            b -= Math.min(b, pmt - intCharge);
+            months++;
+          }
+          const totalPaid = bal + totalInterest;
+
+          return {
+            result: `${months} Months (${(months / 12).toFixed(1)} yrs)`,
+            secondaryResult: `Total Interest: $${Math.round(totalInterest).toLocaleString()} | Total Paid: $${Math.round(totalPaid).toLocaleString()}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'Payoff Months = −ln(1 − (Balance × APR/12) / Monthly Payment) / ln(1 + APR/12)'
+          };
+        }
+      },
+      {
+        id: 'fin-usa-roth-vs-trad-ira',
+        name: 'Roth IRA vs Traditional IRA Growth Calculator',
+        categoryId: 'finance',
+        description: 'Compare projected after-tax retirement balances between a Roth IRA and a Traditional IRA.',
+        inputs: [
+          { id: 'initialBalance', label: 'Starting Balance ($)', type: 'number', defaultValue: 10000 },
+          { id: 'annualContrib', label: 'Annual Contribution ($)', type: 'number', defaultValue: 7000 },
+          { id: 'annualReturn', label: 'Expected Annual Return (%)', type: 'number', defaultValue: 7 },
+          { id: 'years', label: 'Years Invested', type: 'number', defaultValue: 25 },
+          { id: 'currentTax', label: 'Current Tax Rate (%)', type: 'number', defaultValue: 22 },
+          { id: 'retirementTax', label: 'Expected Retirement Tax Rate (%)', type: 'number', defaultValue: 18 }
+        ],
+        calculate: (vals) => {
+          const start = Math.max(0, Number(vals.initialBalance) || 0);
+          const contrib = Math.max(0, Number(vals.annualContrib) || 0);
+          const r = (Number(vals.annualReturn) || 0) / 100;
+          const yrs = Math.max(0, Math.round(Number(vals.years) || 0));
+          const curTax = Math.min(99, Math.max(0, Number(vals.currentTax) || 0)) / 100;
+          const retTax = Math.min(99, Math.max(0, Number(vals.retirementTax) || 0)) / 100;
+
+          let grossBalance = start;
+          for (let y = 0; y < yrs; y++) {
+            grossBalance = (grossBalance + contrib) * (1 + r);
+          }
+
+          // Comparing equal pre-tax budget: Roth uses after-tax dollars today (1 - curTax)
+          const rothAfterTaxValue = grossBalance * (1 - curTax);
+          const tradAfterTaxValue = grossBalance * (1 - retTax);
+          const diff = Math.abs(rothAfterTaxValue - tradAfterTaxValue);
+          const leader =
+            rothAfterTaxValue >= tradAfterTaxValue ? 'Roth IRA' : 'Traditional IRA';
+
+          return {
+            result: `${leader} ahead by $${Math.round(diff).toLocaleString()}`,
+            secondaryResult: `Roth After-Tax: $${Math.round(rothAfterTaxValue).toLocaleString()} | Traditional After-Tax: $${Math.round(tradAfterTaxValue).toLocaleString()}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'Equal Pre-Tax Budget Comparison: Roth = FV × (1 − Current Tax) vs Traditional = FV × (1 − Retirement Tax)'
+          };
+        }
+      },
+      {
+        id: 'fin-usa-529-college-savings',
+        name: '529 College Savings Calculator',
+        categoryId: 'finance',
+        description: 'Estimate future tax-advantaged 529 college savings growth, total contributions, and state tax savings.',
+        inputs: [
+          { id: 'currentBalance', label: 'Current 529 Balance ($)', type: 'number', defaultValue: 5000 },
+          { id: 'monthlyContrib', label: 'Monthly Contribution ($)', type: 'number', defaultValue: 300 },
+          { id: 'annualReturn', label: 'Expected Annual Return (%)', type: 'number', defaultValue: 6.5 },
+          { id: 'years', label: 'Years Until College', type: 'number', defaultValue: 12 },
+          { id: 'stateTaxBenefit', label: 'State Tax Benefit Rate (%)', type: 'number', defaultValue: 4 }
+        ],
+        calculate: (vals) => {
+          const bal = Math.max(0, Number(vals.currentBalance) || 0);
+          const monthly = Math.max(0, Number(vals.monthlyContrib) || 0);
+          const r = (Number(vals.annualReturn) || 0) / 100 / 12;
+          const years = Math.max(0, Math.round(Number(vals.years) || 0));
+          const taxPct = Math.max(0, Number(vals.stateTaxBenefit) || 0) / 100;
+
+          const months = years * 12;
+          let fv = bal;
+          for (let m = 0; m < months; m++) {
+            fv = (fv + monthly) * (1 + r);
+          }
+
+          const totalContrib = bal + monthly * months;
+          const earnings = fv - totalContrib;
+          const estTaxSavings = monthly * months * taxPct;
+
+          return {
+            result: `$${Math.round(fv).toLocaleString()}`,
+            secondaryResult: `Contributions: $${Math.round(totalContrib).toLocaleString()} | Growth: $${Math.round(earnings).toLocaleString()} | Est. State Tax Savings: $${Math.round(estTaxSavings).toLocaleString()}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'FV = Balance×(1+r/12)^n + Monthly × [((1+r/12)^n − 1) / (r/12)]'
+          };
+        }
+      },
+      {
+        id: 'fin-usa-emergency-fund',
+        name: 'Emergency Fund Calculator',
+        categoryId: 'finance',
+        description: 'Calculate your ideal emergency fund goal based on monthly essential expenses and target months.',
+        inputs: [
+          { id: 'monthlyExpenses', label: 'Monthly Essential Expenses ($)', type: 'number', defaultValue: 4000 },
+          { id: 'targetMonths', label: 'Target Months of Coverage', type: 'number', defaultValue: 6 },
+          { id: 'currentSavings', label: 'Current Emergency Savings ($)', type: 'number', defaultValue: 8000 },
+          { id: 'monthlySaving', label: 'Monthly Contribution ($)', type: 'number', defaultValue: 500 }
+        ],
+        calculate: (vals) => {
+          const exp = Math.max(0, Number(vals.monthlyExpenses) || 0);
+          const targetMonths = Math.max(1, Number(vals.targetMonths) || 1);
+          const current = Math.max(0, Number(vals.currentSavings) || 0);
+          const monthlySave = Math.max(0, Number(vals.monthlySaving) || 0);
+
+          const goal = exp * targetMonths;
+          const gap = Math.max(0, goal - current);
+          const timeText =
+            gap === 0
+              ? 'Goal already reached'
+              : monthlySave > 0
+              ? `${Math.ceil(gap / monthlySave)} months to reach goal`
+              : 'Enter monthly contribution > 0';
+
+          return {
+            result: `$${Math.round(goal).toLocaleString()} Target Fund`,
+            secondaryResult: `Remaining Needed: $${Math.round(gap).toLocaleString()} | ${timeText}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'Target Emergency Fund = Monthly Essential Expenses × Target Months'
+          };
+        }
       }
     ]
   };

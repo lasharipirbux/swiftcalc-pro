@@ -5,6 +5,7 @@ import { getCalculatorSlug } from '../utils/slugs';
 import { formatCalculatorResult } from '../utils/formatResult';
 import { safeCalculate } from '../utils/safeCalculate';
 import { getCalculatorSeoContent } from '../utils/seoBuilder';
+import { CurrencyCode, isPakistanSpecificCalculator, localizeCurrencyText } from '../utils/currency';
 import { Star, Copy, Check, RotateCcw, ArrowLeft, HelpCircle, ChevronRight, Layers } from 'lucide-react';
 
 interface CalculatorViewProps {
@@ -15,6 +16,7 @@ interface CalculatorViewProps {
   onToggleFavorite: (calcId: string) => void;
   onSaveHistory: (item: Omit<CalculationHistoryItem, 'id' | 'timestamp'>) => void;
   onSelectCalculator?: (calc: CalculatorItem) => void;
+  currency?: CurrencyCode;
 }
 
 export const CalculatorView: React.FC<CalculatorViewProps> = ({
@@ -25,6 +27,7 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
   onToggleFavorite,
   onSaveHistory,
   onSelectCalculator,
+  currency = 'USD',
 }) => {
   const getDefaults = () => {
     const defaults: Record<string, any> = {};
@@ -54,17 +57,34 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
     setInputValues(defaults);
   };
 
+  const isPakistanSpecific = isPakistanSpecificCalculator(calculator.id);
+  const activeCurrency: CurrencyCode = isPakistanSpecific ? 'PKR' : currency;
+
   // Perform safe calculation (never returns NaN, Infinity, null, or Invalid Date)
   const calcResult = safeCalculate(calculator, inputValues);
-  const formattedResult = calcResult.isInvalid
+  const rawFormattedResult = calcResult.isInvalid
     ? String(calcResult.result)
     : formatCalculatorResult(calcResult.result, calculator.id);
-  const formattedSecondaryResult =
+  const formattedResult = localizeCurrencyText(rawFormattedResult, activeCurrency, calculator.id);
+  const rawFormattedSecondaryResult =
     calcResult.secondaryResult !== undefined
       ? calcResult.isInvalid
         ? String(calcResult.secondaryResult)
         : formatCalculatorResult(calcResult.secondaryResult, calculator.id)
       : undefined;
+  const formattedSecondaryResult =
+    rawFormattedSecondaryResult !== undefined
+      ? localizeCurrencyText(rawFormattedSecondaryResult, activeCurrency, calculator.id)
+      : undefined;
+  const formattedNote = calcResult.note
+    ? localizeCurrencyText(calcResult.note, activeCurrency, calculator.id)
+    : undefined;
+  const formattedFormula = calcResult.formula
+    ? localizeCurrencyText(calcResult.formula, activeCurrency, calculator.id)
+    : undefined;
+  const formattedSteps = calcResult.steps
+    ? calcResult.steps.map((s) => localizeCurrencyText(s, activeCurrency, calculator.id))
+    : undefined;
 
   // Automatically record to history on calculation change
   useEffect(() => {
@@ -162,6 +182,11 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
           <p className="text-sm text-slate-600 dark:text-slate-400 max-w-2xl">
             {calculator.description}
           </p>
+          {isPakistanSpecific && (
+            <p className="inline-block mt-2 px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-xs font-medium text-emerald-700 dark:text-emerald-300">
+              Pakistan-specific calculator
+            </p>
+          )}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -173,50 +198,56 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
                 Calculator Inputs
               </h2>
 
-              {calculator.inputs.map((inp) => (
-                <div key={inp.id} className="space-y-1.5">
-                  <label htmlFor={`input-${inp.id}`} className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
-                    {inp.label}
-                  </label>
-                  
-                  {inp.type === 'select' ? (
-                    <select
-                      id={`input-${inp.id}`}
-                      value={inputValues[inp.id] ?? inp.defaultValue}
-                      onChange={(e) => handleChange(inp.id, e.target.value)}
-                      className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
-                    >
-                      {inp.options?.map((opt) => (
-                        <option key={String(opt.value)} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    <div className="relative">
-                      <input
+              {calculator.inputs.map((inp) => {
+                const localizedLabel = localizeCurrencyText(inp.label, activeCurrency, calculator.id);
+                const localizedUnit = inp.unit
+                  ? localizeCurrencyText(inp.unit, activeCurrency, calculator.id)
+                  : undefined;
+                return (
+                  <div key={inp.id} className="space-y-1.5">
+                    <label htmlFor={`input-${inp.id}`} className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
+                      {localizedLabel}
+                    </label>
+                    
+                    {inp.type === 'select' ? (
+                      <select
                         id={`input-${inp.id}`}
-                        type={inp.type === 'number' ? 'number' : 'text'}
-                        value={inputValues[inp.id] !== undefined ? inputValues[inp.id] : inp.defaultValue}
-                        onChange={(e) => {
-                          if (inp.type === 'number') {
-                            const raw = e.target.value;
-                            handleChange(inp.id, raw === '' ? '' : parseFloat(raw));
-                          } else {
-                            handleChange(inp.id, e.target.value);
-                          }
-                        }}
-                        className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white font-mono tabular-nums focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all shadow-sm"
-                      />
-                      {inp.unit && (
-                        <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-medium text-slate-400">
-                          {inp.unit}
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              ))}
+                        value={inputValues[inp.id] ?? inp.defaultValue}
+                        onChange={(e) => handleChange(inp.id, e.target.value)}
+                        className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
+                      >
+                        {inp.options?.map((opt) => (
+                          <option key={String(opt.value)} value={opt.value}>
+                            {localizeCurrencyText(opt.label, activeCurrency, calculator.id)}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      <div className="relative">
+                        <input
+                          id={`input-${inp.id}`}
+                          type={inp.type === 'number' ? 'number' : 'text'}
+                          value={inputValues[inp.id] !== undefined ? inputValues[inp.id] : inp.defaultValue}
+                          onChange={(e) => {
+                            if (inp.type === 'number') {
+                              const raw = e.target.value;
+                              handleChange(inp.id, raw === '' ? '' : parseFloat(raw));
+                            } else {
+                              handleChange(inp.id, e.target.value);
+                            }
+                          }}
+                          className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white font-mono tabular-nums focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all shadow-sm"
+                        />
+                        {localizedUnit && (
+                          <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-medium text-slate-400">
+                            {localizedUnit}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
 
               <div className="flex items-center justify-between pt-2">
                 <button
@@ -244,7 +275,7 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
                 {formattedResult}
               </div>
 
-              {(formattedSecondaryResult || calcResult.note) && (
+              {(formattedSecondaryResult || formattedNote) && (
                 <div className="mb-6 pb-4 border-b border-emerald-700/60 space-y-1.5">
                   {formattedSecondaryResult && (
                     formattedSecondaryResult.includes('\n') ? (
@@ -267,9 +298,9 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
                       </p>
                     )
                   )}
-                  {calcResult.note && (
+                  {formattedNote && (
                     <p className="text-xs text-emerald-200/80">
-                      {calcResult.note}
+                      {formattedNote}
                     </p>
                   )}
                 </div>
@@ -293,15 +324,15 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
                 <span>Live Formula &amp; Steps</span>
               </h2>
 
-              {calcResult.formula && (
+              {formattedFormula && (
                 <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs font-mono text-emerald-600 dark:text-emerald-400">
-                  {calcResult.formula}
+                  {formattedFormula}
                 </div>
               )}
 
-              {calcResult.steps && calcResult.steps.length > 0 && (
+              {formattedSteps && formattedSteps.length > 0 && (
                 <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
-                  {calcResult.steps.map((step, idx) => (
+                  {formattedSteps.map((step, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <span className="font-bold text-emerald-600 dark:text-emerald-400 shrink-0">{idx + 1}.</span>
                       <span>{step}</span>
@@ -316,133 +347,69 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
         </div>
 
         {/* Structured Educational Content */}
-        {calculator.categoryId === 'datetime' ? (
-          <article className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-7 text-left text-slate-700 dark:text-slate-300">
-            {/* 1. Short Intro (2-3 sentences) */}
+        <article className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-7 text-left text-slate-700 dark:text-slate-300">
+          
+          {/* Section 1: How to Use This Calculator */}
+          <section className="space-y-3">
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              How to Use This Calculator
+            </h2>
+            <ol className="space-y-2 text-xs sm:text-sm leading-relaxed pl-5 list-decimal text-slate-600 dark:text-slate-300">
+              {seoContent.howToUseSteps.map((step, idx) => (
+                <li key={idx} className="pl-1">
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {/* Section 2: Formula & Explanation */}
+          <section className="space-y-2.5">
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              Formula &amp; Explanation
+            </h2>
             <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              {seoContent.intro}
+              {seoContent.formulaExplanation}
             </p>
+          </section>
 
-            {/* 2. Formula Explained */}
-            <section className="space-y-2.5">
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                Formula Explained
-              </h2>
-              <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                {seoContent.formulaExplanation}
+          {/* Section 3: Practical Example */}
+          <section className="space-y-2.5">
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              Practical Example
+            </h2>
+            <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5">
+              <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                {seoContent.practicalExample}
               </p>
-            </section>
+            </div>
+          </section>
 
-            {/* 3. Practical Example */}
-            <section className="space-y-2.5">
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                Practical Example
-              </h2>
-              <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5">
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                  {seoContent.practicalExample}
-                </p>
-              </div>
-            </section>
+          {/* Section 4: Frequently Asked Questions */}
+          <section className="space-y-3">
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              Frequently Asked Questions
+            </h2>
+            <div className="flex flex-col gap-4">
+              {seoContent.faqs.map((faq, idx) => (
+                <div key={idx} className="flex flex-col justify-start text-left bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">
+                    Q: {faq.q}
+                  </h3>
+                  <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">
+                    A: {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-            {/* 4. How to Use This Calculator (3-4 steps) */}
-            <section className="space-y-3">
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                How to Use This Calculator
-              </h2>
-              <ol className="space-y-2 text-xs sm:text-sm leading-relaxed pl-5 list-decimal text-slate-600 dark:text-slate-300">
-                {seoContent.howToUseSteps.map((step, idx) => (
-                  <li key={idx} className="pl-1">
-                    {step}
-                  </li>
-                ))}
-              </ol>
-            </section>
-
-            {/* 5. Frequently Asked Questions (3-4 FAQs) */}
-            <section className="space-y-3">
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                Frequently Asked Questions
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-                {seoContent.faqs.map((faq, idx) => (
-                  <div key={idx} className="h-full flex flex-col justify-start text-left bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
-                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">
-                      Q: {faq.q}
-                    </h3>
-                    <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">
-                      A: {faq.a}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </article>
-        ) : (
-          <article className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-7 text-left text-slate-700 dark:text-slate-300">
-            
-            {/* Section 1: How to Use This Calculator */}
-            <section className="space-y-3">
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                How to Use This Calculator
-              </h2>
-              <ol className="space-y-2 text-xs sm:text-sm leading-relaxed pl-5 list-decimal text-slate-600 dark:text-slate-300">
-                {seoContent.howToUseSteps.map((step, idx) => (
-                  <li key={idx} className="pl-1">
-                    {step}
-                  </li>
-                ))}
-              </ol>
-            </section>
-
-            {/* Section 2: Formula & Explanation */}
-            <section className="space-y-2.5">
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                Formula &amp; Explanation
-              </h2>
-              <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                {seoContent.formulaExplanation}
-              </p>
-            </section>
-
-            {/* Section 3: Practical Example */}
-            <section className="space-y-2.5">
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                Practical Example
-              </h2>
-              <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5">
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                  {seoContent.practicalExample}
-                </p>
-              </div>
-            </section>
-
-            {/* Section 4: Frequently Asked Questions (3-4 FAQs) */}
-            <section className="space-y-3">
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                Frequently Asked Questions
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-                {seoContent.faqs.map((faq, idx) => (
-                  <div key={idx} className="h-full flex flex-col justify-start text-left bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
-                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">
-                      Q: {faq.q}
-                    </h3>
-                    <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">
-                      A: {faq.a}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {seoContent.medicalDisclaimer && (
-              <div className="py-2.5 px-4 bg-amber-50/70 dark:bg-amber-950/20 rounded-xl border border-amber-200 dark:border-amber-900/50 text-xs font-medium text-amber-800 dark:text-amber-300 text-left">
-                {seoContent.medicalDisclaimer}
-              </div>
-            )}
-          </article>
-        )}
+          {seoContent.medicalDisclaimer && (
+            <div className="py-2.5 px-4 bg-amber-50/70 dark:bg-amber-950/20 rounded-xl border border-amber-200 dark:border-amber-900/50 text-xs font-medium text-amber-800 dark:text-amber-300 text-left">
+              {seoContent.medicalDisclaimer}
+            </div>
+          )}
+        </article>
 
         {/* Related Calculators Section (6 crawlable internal links from the same category) */}
         {relatedCalculators.length > 0 && (

@@ -651,6 +651,167 @@ export const realestateCategory: Category = {
             formula: 'Max Loan = (Market Value × 0.80) - Outstanding Mortgage'
           };
         }
+      },
+      {
+        id: 're-usa-home-affordability',
+        name: 'Home Affordability Calculator',
+        categoryId: 'realestate',
+        description: 'Estimate the maximum home price you can afford based on gross income, debts, down payment, and mortgage rates.',
+        inputs: [
+          { id: 'annualIncome', label: 'Annual Gross Income ($)', type: 'number', defaultValue: 110000 },
+          { id: 'monthlyDebts', label: 'Monthly Debt Payments ($)', type: 'number', defaultValue: 500 },
+          { id: 'downPayment', label: 'Down Payment ($)', type: 'number', defaultValue: 60000 },
+          { id: 'interestRate', label: 'Mortgage Interest Rate (%)', type: 'number', defaultValue: 6.5 },
+          { id: 'loanTermYears', label: 'Loan Term (Years)', type: 'number', defaultValue: 30 },
+          { id: 'dtiLimitPct', label: 'Max Back-End DTI Ratio (%)', type: 'number', defaultValue: 36 },
+          { id: 'taxInsPct', label: 'Annual Property Tax & Insurance (% of Home)', type: 'number', defaultValue: 1.5 }
+        ],
+        calculate: (vals) => {
+          const income = Math.max(0, Number(vals.annualIncome) || 0);
+          const debts = Math.max(0, Number(vals.monthlyDebts) || 0);
+          const down = Math.max(0, Number(vals.downPayment) || 0);
+          const rate = Math.max(0, Number(vals.interestRate) || 0) / 100 / 12;
+          const n = Math.max(1, Number(vals.loanTermYears) || 30) * 12;
+          const dti = Math.max(1, Number(vals.dtiLimitPct) || 36) / 100;
+          const taxInsMonthlyRate = Math.max(0, Number(vals.taxInsPct) || 0) / 100 / 12;
+
+          const monthlyIncome = income / 12;
+          const maxHousingBudget = Math.max(0, monthlyIncome * dti - debts);
+          if (maxHousingBudget <= 0) {
+            return {
+              result: '$0 Affordable Home Price',
+              secondaryResult: 'Monthly debts exceed selected DTI housing allowance',
+              note: 'Estimates only. Check official sources for current rates.'
+            };
+          }
+
+          // PITI = Loan * pmtFactor + HomePrice * taxInsMonthlyRate; Loan = HomePrice - Down
+          const pmtFactor =
+            rate === 0 ? 1 / n : (rate * Math.pow(1 + rate, n)) / (Math.pow(1 + rate, n) - 1);
+          const homePrice = Math.max(
+            down,
+            (maxHousingBudget + down * pmtFactor) / (pmtFactor + taxInsMonthlyRate)
+          );
+          const loanAmt = Math.max(0, homePrice - down);
+
+          return {
+            result: `$${Math.round(homePrice).toLocaleString()} Max Home Price`,
+            secondaryResult: `Est. Max Loan: $${Math.round(loanAmt).toLocaleString()} | Max Monthly PITI: $${Math.round(maxHousingBudget).toLocaleString()}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'Max Home Price solved from Max Monthly Housing Budget = (Monthly Income × DTI%) − Monthly Debts'
+          };
+        }
+      },
+      {
+        id: 're-usa-rent-vs-buy',
+        name: 'Rent vs Buy Calculator',
+        categoryId: 'realestate',
+        description: 'Compare total net housing costs and equity built between renting and buying a home over your stay horizon.',
+        inputs: [
+          { id: 'homePrice', label: 'Home Purchase Price ($)', type: 'number', defaultValue: 400000 },
+          { id: 'downPayment', label: 'Down Payment ($)', type: 'number', defaultValue: 80000 },
+          { id: 'mortgageRate', label: 'Mortgage Rate (%)', type: 'number', defaultValue: 6.5 },
+          { id: 'loanYears', label: 'Loan Term (Years)', type: 'number', defaultValue: 30 },
+          { id: 'monthlyRent', label: 'Monthly Rent ($)', type: 'number', defaultValue: 2400 },
+          { id: 'rentGrowth', label: 'Annual Rent Increase (%)', type: 'number', defaultValue: 3 },
+          { id: 'appreciation', label: 'Annual Home Appreciation (%)', type: 'number', defaultValue: 3.5 },
+          { id: 'stayYears', label: 'Years You Plan to Stay', type: 'number', defaultValue: 7 }
+        ],
+        calculate: (vals) => {
+          const price = Math.max(0, Number(vals.homePrice) || 0);
+          const down = Math.max(0, Number(vals.downPayment) || 0);
+          const r = Math.max(0, Number(vals.mortgageRate) || 0) / 100 / 12;
+          const n = Math.max(1, Number(vals.loanYears) || 30) * 12;
+          const rent0 = Math.max(0, Number(vals.monthlyRent) || 0);
+          const rentInc = (Number(vals.rentGrowth) || 0) / 100;
+          const appr = (Number(vals.appreciation) || 0) / 100;
+          const stay = Math.max(1, Math.round(Number(vals.stayYears) || 5));
+
+          const loan = Math.max(0, price - down);
+          const emi = r === 0 ? loan / n : (loan * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+          // Simulate stayYears
+          let remLoan = loan;
+          let totalBuyOutflow = down;
+          for (let m = 0; m < Math.min(stay * 12, n); m++) {
+            const intPaid = remLoan * r;
+            const prinPaid = Math.max(0, emi - intPaid);
+            remLoan = Math.max(0, remLoan - prinPaid);
+            totalBuyOutflow += emi;
+          }
+          // Include ~1.5% annual tax/maintenance estimate on initial home price per year
+          totalBuyOutflow += price * 0.015 * stay;
+          const futureHomeValue = price * Math.pow(1 + appr, stay);
+          const netBuyCost = totalBuyOutflow - (futureHomeValue - remLoan);
+
+          let totalRentCost = 0;
+          for (let y = 0; y < stay; y++) {
+            totalRentCost += rent0 * Math.pow(1 + rentInc, y) * 12;
+          }
+
+          const diff = Math.abs(totalRentCost - netBuyCost);
+          const better = netBuyCost <= totalRentCost ? 'Buying' : 'Renting';
+
+          return {
+            result: `${better} saves ~$${Math.round(diff).toLocaleString()} over ${stay} yrs`,
+            secondaryResult: `Net Buy Cost: $${Math.round(netBuyCost).toLocaleString()} | Cumulative Rent: $${Math.round(totalRentCost).toLocaleString()}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'Net Buy Cost = (Down Payment + Payments + Upkeep) − Ending Equity vs Cumulative Escalating Rent'
+          };
+        }
+      },
+      {
+        id: 're-usa-down-payment-savings',
+        name: 'Down Payment Savings Calculator',
+        categoryId: 'realestate',
+        description: 'Plan how many months it takes to save a home down payment with monthly deposits and savings APY.',
+        inputs: [
+          { id: 'homePrice', label: 'Target Home Price ($)', type: 'number', defaultValue: 380000 },
+          { id: 'downPct', label: 'Target Down Payment (%)', type: 'number', defaultValue: 20 },
+          { id: 'currentSavings', label: 'Current Savings ($)', type: 'number', defaultValue: 22000 },
+          { id: 'monthlyDeposit', label: 'Monthly Savings Contribution ($)', type: 'number', defaultValue: 1500 },
+          { id: 'apy', label: 'Savings Account APY (%)', type: 'number', defaultValue: 4.2 }
+        ],
+        calculate: (vals) => {
+          const home = Math.max(0, Number(vals.homePrice) || 0);
+          const pct = Math.max(0, Number(vals.downPct) || 0) / 100;
+          const cur = Math.max(0, Number(vals.currentSavings) || 0);
+          const monthly = Math.max(0, Number(vals.monthlyDeposit) || 0);
+          const monthlyRate = Math.max(0, Number(vals.apy) || 0) / 100 / 12;
+
+          const targetAmount = home * pct;
+          const remaining = Math.max(0, targetAmount - cur);
+
+          if (remaining <= 0) {
+            return {
+              result: `Goal Met ($${Math.round(targetAmount).toLocaleString()} Target)`,
+              secondaryResult: `Current savings cover ${Math.round(pct * 100)}% down payment`,
+              note: 'Estimates only. Check official sources for current rates.'
+            };
+          }
+
+          if (monthly <= 0 && monthlyRate <= 0) {
+            return {
+              result: `$${Math.round(targetAmount).toLocaleString()} Target`,
+              secondaryResult: `Remaining Needed: $${Math.round(remaining).toLocaleString()} (set monthly savings > 0)`,
+              note: 'Estimates only. Check official sources for current rates.'
+            };
+          }
+
+          let bal = cur;
+          let months = 0;
+          while (bal < targetAmount && months < 600) {
+            bal = (bal + monthly) * (1 + monthlyRate);
+            months++;
+          }
+
+          return {
+            result: `${months} Months (${(months / 12).toFixed(1)} yrs)`,
+            secondaryResult: `Target Down Payment: $${Math.round(targetAmount).toLocaleString()} | Remaining Gap Today: $${Math.round(remaining).toLocaleString()}`,
+            note: 'Estimates only. Check official sources for current rates.',
+            formula: 'Target Down Payment = Home Price × Down Payment %; simulate monthly deposits + APY'
+          };
+        }
       }
     ]
   };

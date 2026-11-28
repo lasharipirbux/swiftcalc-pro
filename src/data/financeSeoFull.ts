@@ -834,4 +834,178 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       },
     ],
   },
+
+  'fin-usa-401k': {
+    seoTitle: `Free 401(k) Retirement Calculator – Match & Growth | ${SITE_NAME}`,
+    metaDescription:
+      'Project your 401(k) balance with salary contributions, employer matching, and compound returns using our free 401(k) Retirement Calculator.',
+    howToUseSteps: [
+      'Type your existing account savings into Current 401(k) Balance ($).',
+      'Enter your yearly pre-tax pay in Annual Salary ($) alongside Your Contribution (%) and Employer Match (% of Salary).',
+      'Adjust Expected Annual Return (%) and Years to Retirement to inspect your projected retirement nest egg.',
+    ],
+    formulaExplanation:
+      'This 401(k) projection compounds your starting balance and monthly combined deposits (employee deferral plus employer match) over your chosen horizon. Formula: FV = Balance × (1 + r/12)^n + Monthly Total × [((1 + r/12)^n − 1) / (r/12)], where Monthly Total = Annual Salary × (Your Contribution % + Employer Match %) / 12.',
+    practicalExample:
+      'Starting with Current 401(k) Balance ($) = $35,000, Annual Salary ($) = $80,000, Your Contribution (%) = 8%, Employer Match (% of Salary) = 4%, Expected Annual Return (%) = 7%, and Years to Retirement = 25 builds $852,227 (from $160,000 employee contributions, $80,000 employer match, and $577,227 growth).',
+    faqs: [
+      {
+        q: 'Should Employer Match (% of Salary) reflect only what my company actually contributes?',
+        a: 'Yes—enter the effective percentage of your salary your employer adds after applying their matching formula and vesting rules.',
+      },
+      {
+        q: 'Does the 401(k) Retirement Calculator enforce annual IRS contribution ceilings automatically?',
+        a: 'No fixed dollar cap is hard-coded, allowing you to enter any contribution percentage and verify official IRS limits separately.',
+      },
+      {
+        q: 'Why does changing Years to Retirement affect the final balance so dramatically?',
+        a: 'Compounding accelerates during later decades when investment returns earn returns on prior decades of employee and employer deposits.',
+      },
+    ],
+  },
+
+  'fin-usa-student-loan': {
+    seoTitle: `Free Student Loan Payoff Calculator – Extra Payment Plan | ${SITE_NAME}`,
+    metaDescription:
+      'See payoff months and interest saved from extra monthly payments on college debt with our free Student Loan Payoff Calculator.',
+    howToUseSteps: [
+      'Enter your remaining debt in Loan Balance ($) and borrowing cost in Interest Rate (APR %).',
+      'Type your required installment into Monthly Payment ($).',
+      'Add any additional principal amount inside Extra Monthly Payment ($) to view months saved and total interest avoided.',
+    ],
+    formulaExplanation:
+      'Month-by-month student loan amortization applies monthly interest (Balance × APR / 12) before subtracting the remainder of Monthly Payment ($) plus Extra Monthly Payment ($) from principal until zero. Formula: Months = −ln(1 − (Balance × r) / Total Payment) / ln(1 + r).',
+    practicalExample:
+      'Paying Loan Balance ($) = $35,000 at Interest Rate (APR %) = 5.5% with Monthly Payment ($) = $400 and Extra Monthly Payment ($) = $100 clears the loan in 85 Months (7.1 yrs), costing $7,303 in total interest while saving $2,532 versus paying $400 alone.',
+    faqs: [
+      {
+        q: 'How does Extra Monthly Payment ($) reduce total student loan interest?',
+        a: 'Extra dollars apply directly to principal each month, leaving a smaller balance for next month’s interest accrual.',
+      },
+      {
+        q: 'Can I set Extra Monthly Payment ($) to 0 to check my standard payoff timeline?',
+        a: 'Yes—entering 0 shows the baseline payoff duration and full interest cost under your regular Monthly Payment ($).',
+      },
+      {
+        q: 'What if my Monthly Payment ($) plus Extra Monthly Payment ($) is below monthly interest?',
+        a: 'Negative amortization occurs when payment does not cover accrued interest, so the tool prompts you to raise the payment amount.',
+      },
+    ],
+  },
+
+  'fin-usa-credit-card': {
+    seoTitle: `Free Credit Card Payoff Calculator – APR & Interest | ${SITE_NAME}`,
+    metaDescription:
+      'Find how many months and total interest it takes to eliminate card balances with our free Credit Card Payoff Calculator.',
+    howToUseSteps: [
+      'Type your current statement amount owed into Credit Card Balance ($).',
+      'Enter your annual borrowing percentage in Credit Card APR (%).',
+      'Set your planned fixed budget in Monthly Payment ($) to inspect payoff months, total interest, and total dollars paid.',
+    ],
+    formulaExplanation:
+      'High-interest revolving debt accrues finance charges monthly using APR divided by 12, then reduces principal by the remaining payment slice. Formula: Payoff Months = −ln(1 − (Credit Card Balance × APR / 12) / Monthly Payment) / ln(1 + APR / 12).',
+    practicalExample:
+      'Paying off Credit Card Balance ($) = $6,000 at Credit Card APR (%) = 21.5% using Monthly Payment ($) = $250 takes 32 Months (2.7 yrs), incurring $1,914 in total interest and $7,914 total paid.',
+    faqs: [
+      {
+        q: 'Why does Credit Card APR (%) have such a large effect on total paid?',
+        a: 'Revolving card APRs often exceed 20%, meaning a large share of small monthly payments goes straight to interest instead of principal.',
+      },
+      {
+        q: 'What happens if I only pay enough to match monthly interest charges?',
+        a: 'Your Credit Card Balance ($) never shrinks, so the calculator informs you that Monthly Payment ($) must exceed monthly interest.',
+      },
+      {
+        q: 'Does this assume no new purchases are added to the card while paying it off?',
+        a: 'Yes—stopping new card spending ensures every fixed Monthly Payment ($) steadily drives your balance toward zero.',
+      },
+    ],
+  },
+
+  'fin-usa-roth-vs-trad-ira': {
+    seoTitle: `Free Roth IRA vs Traditional IRA Growth Calculator – Tax | ${SITE_NAME}`,
+    metaDescription:
+      'Compare after-tax retirement wealth between Roth and Traditional IRAs using custom tax rates with our free calculator.',
+    howToUseSteps: [
+      'Enter your existing account amount in Starting Balance ($) and planned yearly deposit in Annual Contribution ($).',
+      'Adjust Expected Annual Return (%) and Years Invested for your retirement horizon.',
+      'Supply both Current Tax Rate (%) and Expected Retirement Tax Rate (%) to compare after-tax balances.',
+    ],
+    formulaExplanation:
+      'Comparing equal pre-tax savings budgets scales your compounded future value FV by (1 − Current Tax Rate) for a Roth IRA (taxed upfront) versus (1 − Expected Retirement Tax Rate) for a Traditional IRA (taxed on withdrawal). Formula: Roth After-Tax = FV × (1 − t_now); Traditional After-Tax = FV × (1 − t_retire).',
+    practicalExample:
+      'With Starting Balance ($) = $10,000, Annual Contribution ($) = $7,000, Expected Annual Return (%) = 7%, Years Invested = 25, Current Tax Rate (%) = 22%, and Expected Retirement Tax Rate (%) = 18%, Traditional IRA finishes ahead by $21,120 ($432,968 vs $411,848 after tax).',
+    faqs: [
+      {
+        q: 'When does a Roth IRA beat a Traditional IRA in this comparison?',
+        a: 'Whenever Expected Retirement Tax Rate (%) exceeds Current Tax Rate (%), paying tax upfront on a Roth leaves more spendable income later.',
+      },
+      {
+        q: 'What if Current Tax Rate (%) and Expected Retirement Tax Rate (%) are identical?',
+        a: 'When tax rates match at contribution and withdrawal, both accounts yield identical after-tax retirement wealth.',
+      },
+      {
+        q: 'Are IRS income phaseouts or annual IRA contribution caps hard-coded?',
+        a: 'No—you control every dollar and tax percentage directly and should confirm current IRS eligibility rules separately.',
+      },
+    ],
+  },
+
+  'fin-usa-529-college-savings': {
+    seoTitle: `Free 529 College Savings Calculator – Tuition Fund Plan | ${SITE_NAME}`,
+    metaDescription:
+      'Estimate tax-advantaged 529 education savings growth and potential state tax savings with our free 529 College Savings Calculator.',
+    howToUseSteps: [
+      'Type any existing education account funds into Current 529 Balance ($).',
+      'Enter recurring deposits in Monthly Contribution ($) alongside Expected Annual Return (%) and Years Until College.',
+      'Add your State Tax Benefit Rate (%) (or 0 if none) to estimate total college funds and state tax savings.',
+    ],
+    formulaExplanation:
+      'Monthly deposits compound alongside your Current 529 Balance ($) at Expected Annual Return (%) divided by 12, while estimated cumulative state tax relief multiplies total monthly contributions by State Tax Benefit Rate (%). Formula: FV = Balance × (1 + r/12)^n + Monthly × [((1 + r/12)^n − 1) / (r/12)].',
+    practicalExample:
+      'Funding Current 529 Balance ($) = $5,000 with Monthly Contribution ($) = $300 at Expected Annual Return (%) = 6.5% over Years Until College = 12 and State Tax Benefit Rate (%) = 4% grows to $76,419 ($48,200 contributed, $28,219 growth, and $1,728 estimated state tax savings).',
+    faqs: [
+      {
+        q: 'What should I type in State Tax Benefit Rate (%) if my state has no income tax?',
+        a: 'Enter 0 in State Tax Benefit Rate (%)—the 529 balance projection still reflects tax-free investment compounding.',
+      },
+      {
+        q: 'Does the 529 College Savings Calculator impose a state-specific deduction cap?',
+        a: 'No fixed cap is assumed; adjust Monthly Contribution ($) and State Tax Benefit Rate (%) to match your state plan’s rules.',
+      },
+      {
+        q: 'How early should families start contributing to a 529 education fund?',
+        a: 'Starting even 10 to 18 years early allows market growth to cover a substantial portion of tuition bills.',
+      },
+    ],
+  },
+
+  'fin-usa-emergency-fund': {
+    seoTitle: `Free Emergency Fund Calculator – Safety Net Goal | ${SITE_NAME}`,
+    metaDescription:
+      'Determine your recommended emergency savings target and months needed to fund it with our free Emergency Fund Calculator.',
+    howToUseSteps: [
+      'Sum rent, groceries, utilities, insurance, and minimum debt bills inside Monthly Essential Expenses ($).',
+      'Choose how many months of cushion you want in Target Months of Coverage (commonly 3 to 6 months).',
+      'Enter Current Emergency Savings ($) and Monthly Contribution ($) to view your target fund and completion timeline.',
+    ],
+    formulaExplanation:
+      'Multiplying Monthly Essential Expenses ($) by Target Months of Coverage establishes your target safety net, then dividing any remaining shortfall by Monthly Contribution ($) estimates how many months it takes to fill your fund. Formula: Target Fund = Monthly Essential Expenses × Target Months; Months Needed = ceil((Target Fund − Current Savings) / Monthly Contribution).',
+    practicalExample:
+      'With Monthly Essential Expenses ($) = $4,000, Target Months of Coverage = 6, Current Emergency Savings ($) = $8,000, and Monthly Contribution ($) = $500, your Target Fund is $24,000 with $16,000 remaining—taking 32 months to reach your goal.',
+    faqs: [
+      {
+        q: 'Should non-essential dining or vacation spending be included in Monthly Essential Expenses ($)?',
+        a: 'No—include only must-pay living essentials like housing, food, utilities, healthcare, transportation, and minimum debt payments.',
+      },
+      {
+        q: 'When should Target Months of Coverage be closer to 6 or 9 months instead of 3?',
+        a: 'Single-income households, commission earners, and self-employed workers typically hold 6+ months for greater job-transition security.',
+      },
+      {
+        q: 'Where should emergency savings be kept once accumulated?',
+        a: 'Most planners hold emergency reserves in liquid, FDIC-insured high-yield savings or money market accounts rather than volatile stocks.',
+      },
+    ],
+  },
 };

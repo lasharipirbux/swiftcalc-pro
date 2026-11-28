@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { ArrowLeft, Shield, Mail, FileText, Info, AlertTriangle, Send, CheckCircle2 } from 'lucide-react';
 import { SITE_NAME, SUPPORT_EMAIL } from '../config/site';
+import { categories, getAllCalculators } from '../data/calculatorsData';
 
 interface StaticPageProps {
   page: 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer';
@@ -8,6 +9,8 @@ interface StaticPageProps {
 }
 
 export const StaticPage: React.FC<StaticPageProps> = ({ page, onBack }) => {
+  const totalCalculators = useMemo(() => getAllCalculators().length, []);
+  const totalCategories = categories.length;
   const [contactName, setContactName] = useState('');
   const [contactEmail, setContactEmail] = useState('');
   const [contactTopic, setContactTopic] = useState('General Inquiry');
@@ -57,7 +60,7 @@ export const StaticPage: React.FC<StaticPageProps> = ({ page, onBack }) => {
           </div>
           <div className="prose dark:prose-invert max-w-none text-sm text-slate-600 dark:text-slate-300 space-y-4">
             <p>
-              {SITE_NAME} is a comprehensive, fast online calculator portal built for students, engineers, financial planners, homeowners, business owners, and everyday users. Our platform provides 400+ specialized calculators across 14 categories including Math, Finance &amp; Money, Business &amp; Profit, Construction &amp; Civil, Health &amp; Fitness, Date &amp; Time, Electrical &amp; Physics, Education, Engineering, Real Estate, Automotive, Cooking, Statistics, and Internet &amp; Tech.
+              {SITE_NAME} is a comprehensive, fast online calculator portal built for students, engineers, financial planners, homeowners, business owners, and everyday users. Our platform provides {totalCalculators} specialized calculators across {totalCategories} categories including Math, Finance &amp; Money, Business &amp; Profit, Construction &amp; Civil, Health &amp; Fitness, Date &amp; Time, Electrical &amp; Physics, Education, Engineering, Real Estate, Automotive, Cooking, Statistics, and Internet &amp; Tech.
             </p>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mt-6">Our Mission</h2>
             <p>
@@ -254,7 +257,7 @@ export const StaticPage: React.FC<StaticPageProps> = ({ page, onBack }) => {
           </div>
           <div className="prose dark:prose-invert max-w-none text-sm text-slate-600 dark:text-slate-300 space-y-4">
             <p>
-              At {SITE_NAME}, we respect your privacy. All calculations across our 400+ calculators—including financial, real estate, health, password, and mathematical inputs—execute entirely client-side inside your web browser. We do not collect, store, or transmit your calculator input values to external servers.
+              At {SITE_NAME}, we respect your privacy. All calculations across our {totalCalculators} calculators—including financial, real estate, health, password, and mathematical inputs—execute entirely client-side inside your web browser. We do not collect, store, or transmit your calculator input values to external servers.
             </p>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mt-6">Browser Local Storage</h2>
             <p>
@@ -321,7 +324,7 @@ export const StaticPage: React.FC<StaticPageProps> = ({ page, onBack }) => {
             </p>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mt-6">Accuracy &amp; Availability</h2>
             <p>
-              While we carefully review and test our formulas across all 400+ calculators, tools are provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis without warranties of any kind. We reserve the right to update, modify, or expand calculators and site content at any time without prior notice.
+              While we carefully review and test our formulas across all {totalCalculators} calculators, tools are provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis without warranties of any kind. We reserve the right to update, modify, or expand calculators and site content at any time without prior notice.
             </p>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mt-6">Limitation of Liability</h2>
             <p>

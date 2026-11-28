@@ -181,8 +181,8 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
       };
     }
 
-    let title = `${SITE_NAME} — 400+ Free Online Calculators & Converters`;
-    let desc = `Use ${totalCalculators}+ free online calculators for math, finance, health, construction, real estate, and unit conversions. Instant, accurate results with ${SITE_NAME}.`;
+    let title = `${SITE_NAME} — ${totalCalculators} Free Online Calculators & Converters`;
+    let desc = `Use ${totalCalculators} free online calculators for math, finance, health, construction, real estate, and unit conversions. Instant, accurate results with ${SITE_NAME}.`;
     let canonical = `${baseUrl}/`;
     let robots = 'index, follow';
 
@@ -243,7 +243,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
       const pageMeta: Record<StaticPageId, { title: string; desc: string }> = {
         about: {
           title: `About Us | ${SITE_NAME}`,
-          desc: `Learn about ${SITE_NAME}, our multi-category online calculator portal providing ${totalCalculators}+ fast, accurate tools across 14 categories.`,
+          desc: `Learn about ${SITE_NAME}, our multi-category online calculator portal providing ${totalCalculators} fast, accurate tools across ${categories.length} categories.`,
         },
         contact: {
           title: `Contact Us | ${SITE_NAME}`,
@@ -281,7 +281,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
       });
     } else if (isNotFound) {
       title = `Page Not Found | ${SITE_NAME}`;
-      desc = `The requested calculator or page could not be found. Browse ${totalCalculators}+ free online calculators on ${SITE_NAME}.`;
+      desc = `The requested calculator or page could not be found. Browse ${totalCalculators} free online calculators on ${SITE_NAME}.`;
       canonical = `${baseUrl}${currentPath}`;
       robots = 'noindex, follow';
     } else {

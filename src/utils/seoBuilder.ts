@@ -215,11 +215,11 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'datetime' && datetimeSeoFullMap[calculator.id]) {
     const dt = datetimeSeoFullMap[calculator.id];
     return {
-      intro: dt.intro,
-      howItWorks: dt.formulaExplained,
+      intro: '',
+      howItWorks: dt.formulaExplanation,
       workedExample: dt.practicalExample,
       howToUseSteps: dt.howToUseSteps,
-      formulaExplanation: dt.formulaExplained,
+      formulaExplanation: dt.formulaExplanation,
       practicalExample: dt.practicalExample,
       faqs: dt.faqs,
       whoUses: '',

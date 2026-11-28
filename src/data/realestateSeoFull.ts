@@ -848,4 +848,91 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       },
     ],
   },
+
+  're-usa-home-affordability': {
+    seoTitle: `Free Home Affordability Calculator – Budget & DTI | ${SITE_NAME}`,
+    metaDescription:
+      'Estimate how much house you can afford from income, debts, down payment, and mortgage rates with our free Home Affordability Calculator.',
+    howToUseSteps: [
+      'Enter household pay in Annual Gross Income ($), existing obligations in Monthly Debt Payments ($), and cash ready in Down Payment ($).',
+      'Set your quoted Mortgage Interest Rate (%) and Loan Term (Years).',
+      'Customize Max Back-End DTI Ratio (%) and Annual Property Tax & Insurance (% of Home) to view your maximum affordable home price.',
+    ],
+    formulaExplanation:
+      'Allowable monthly housing payment equals (Annual Gross Income / 12 × Max Back-End DTI Ratio %) minus Monthly Debt Payments ($). Solving for home price combines principal-and-interest mortgage factor on (Home Price − Down Payment) with monthly property tax and insurance. Formula: Max PITI = (Gross Monthly Income × DTI%) − Monthly Debts.',
+    practicalExample:
+      'Earning Annual Gross Income ($) = $110,000 with Monthly Debt Payments ($) = $500, Down Payment ($) = $60,000, Mortgage Interest Rate (%) = 6.5%, Loan Term (Years) = 30, Max Back-End DTI Ratio (%) = 36%, and Annual Property Tax & Insurance (% of Home) = 1.5% yields $419,941 Max Home Price ($359,941 loan and $2,800 monthly PITI).',
+    faqs: [
+      {
+        q: 'Why does Max Back-End DTI Ratio (%) subtract Monthly Debt Payments ($)?',
+        a: 'Back-end debt-to-income counts auto loans, student loans, and credit card minimums together with housing costs against gross monthly pay.',
+      },
+      {
+        q: 'Does Annual Property Tax & Insurance (% of Home) vary across US states?',
+        a: 'Yes—local county tax assessments and homeowner insurance premiums vary widely, so adjust this percentage to fit your target zip code.',
+      },
+      {
+        q: 'How can I raise my affordable home budget without increasing Annual Gross Income ($)?',
+        a: 'Paying down Monthly Debt Payments ($) or adding to Down Payment ($) directly raises maximum purchasing power.',
+      },
+    ],
+  },
+
+  're-usa-rent-vs-buy': {
+    seoTitle: `Free Rent vs Buy Calculator – Homeownership Cost | ${SITE_NAME}`,
+    metaDescription:
+      'Compare net buying costs and home equity against escalating rent over your planned stay with our free Rent vs Buy Calculator.',
+    howToUseSteps: [
+      'Enter Home Purchase Price ($), Down Payment ($), Mortgage Rate (%), and Loan Term (Years) for the buying scenario.',
+      'Type current Monthly Rent ($) and Annual Rent Increase (%) for the renting alternative.',
+      'Set Annual Home Appreciation (%) and Years You Plan to Stay to compare net buying cost against cumulative rent.',
+    ],
+    formulaExplanation:
+      'Buying tracks your upfront down payment, cumulative mortgage payments, and estimated property upkeep minus projected home equity (appreciated home value minus remaining loan balance). Renting compounds Monthly Rent ($) yearly by Annual Rent Increase (%) over Years You Plan to Stay. Formula: Net Buy Cost = Outflows − (Future Home Value − Remaining Loan).',
+    practicalExample:
+      'Comparing Home Purchase Price ($) = $400,000, Down Payment ($) = $80,000, Mortgage Rate (%) = 6.5%, Loan Term (Years) = 30, Monthly Rent ($) = $2,400, Annual Rent Increase (%) = 3%, Annual Home Appreciation (%) = 3.5%, and Years You Plan to Stay = 7 yields Buying saves ~$148,359 ($72,320 net buy cost vs $220,679 rent).',
+    faqs: [
+      {
+        q: 'Why does Years You Plan to Stay change whether renting or buying wins?',
+        a: 'Longer stays allow mortgage amortization and Annual Home Appreciation (%) to outweigh upfront ownership and maintenance costs.',
+      },
+      {
+        q: 'What ongoing ownership expenses are reflected in Net Buy Cost?',
+        a: 'Alongside mortgage principal and interest, the model adds an estimated 1.5% annual allowance for property taxes and upkeep.',
+      },
+      {
+        q: 'How sensitive is Rent vs Buy to Annual Home Appreciation (%)?',
+        a: 'Higher appreciation lowers Net Buy Cost significantly, whereas flat home prices over short stays often favor renting.',
+      },
+    ],
+  },
+
+  're-usa-down-payment-savings': {
+    seoTitle: `Free Down Payment Savings Calculator – Monthly Plan | ${SITE_NAME}`,
+    metaDescription:
+      'Calculate how many months it takes to save your target home down payment with APY growth using our free Down Payment Savings Calculator.',
+    howToUseSteps: [
+      'Set Target Home Price ($) and your desired Target Down Payment (%) (such as 10% or 20%).',
+      'Enter cash already set aside in Current Savings ($) plus your Monthly Savings Contribution ($).',
+      'Input your high-yield Savings Account APY (%) to calculate months needed to hit your down payment target.',
+    ],
+    formulaExplanation:
+      'First multiplying Target Home Price ($) by Target Down Payment (%) sets your dollar goal, then month-by-month simulation adds Monthly Savings Contribution ($) and compounds monthly interest at Savings Account APY (%) / 12 until reaching the goal. Formula: Target = Home Price × Down Payment %.',
+    practicalExample:
+      'Saving toward Target Home Price ($) = $380,000 at Target Down Payment (%) = 20% ($76,000 target) starting from Current Savings ($) = $22,000 with Monthly Savings Contribution ($) = $1,500 and Savings Account APY (%) = 4.2% reaches the target in 33 Months (2.8 yrs).',
+    faqs: [
+      {
+        q: 'Do I always need 20% in Target Down Payment (%) to buy a home in the USA?',
+        a: 'No—many conventional and government-backed mortgages accept 3% to 10% down, though 20% generally avoids private mortgage insurance (PMI).',
+      },
+      {
+        q: 'How much faster does Savings Account APY (%) help reach the goal?',
+        a: 'Keeping funds in a 4%+ APY account instead of 0.1% checking shaves months off a multi-year savings timeline through monthly interest.',
+      },
+      {
+        q: 'Should closing costs also be budgeted beyond Target Down Payment (%)?',
+        a: 'Yes—buyers often budget an extra 2% to 5% of Target Home Price ($) for lender, appraisal, and title closing fees.',
+      },
+    ],
+  },
 };

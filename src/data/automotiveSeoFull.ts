@@ -848,4 +848,33 @@ export const automotiveSeoFullMap: Record<string, AutomotiveCalculatorSeoEntry> 
       },
     ],
   },
+
+  'auto-usa-loan': {
+    seoTitle: `Free Auto Loan Calculator (USA) – Car Payment & Tax | ${SITE_NAME}`,
+    metaDescription:
+      'Estimate monthly US car payments including trade-in value, down payment, sales tax, and APR with our free Auto Loan Calculator (USA).',
+    howToUseSteps: [
+      'Type the negotiated sticker amount in Vehicle Price ($), plus cash upfront in Down Payment ($) and dealer credit in Trade-In Value ($).',
+      'Enter your local state Sales Tax Rate (%) and lender Auto Loan APR (%).',
+      'Choose Loan Term (Months) (such as 48, 60, or 72) to view monthly payment, loan principal, sales tax, and total interest.',
+    ],
+    formulaExplanation:
+      'After subtracting Trade-In Value ($) to determine taxable vehicle value and adding Sales Tax Rate (%), the financed principal subtracts Down Payment ($) and Trade-In Value ($) before amortizing across Loan Term (Months). Formula: P = Price + (Price − Trade-In) × Sales Tax Rate − Down Payment − Trade-In; Monthly = [P · r · (1 + r)^n] / [(1 + r)^n − 1].',
+    practicalExample:
+      'Buying at Vehicle Price ($) = $34,000 with Down Payment ($) = $5,000, Trade-In Value ($) = $4,000, Sales Tax Rate (%) = 6.5% ($1,950 tax), Auto Loan APR (%) = 6.2%, and Loan Term (Months) = 60 finances $26,950 at $523.53 / month ($4,462 total interest).',
+    faqs: [
+      {
+        q: 'Does Trade-In Value ($) reduce Sales Tax Rate (%) charges in every US state?',
+        a: 'Most US states calculate sales tax on (Vehicle Price − Trade-In Value), though a few tax the full vehicle price—adjust your inputs if your state differs.',
+      },
+      {
+        q: 'Why does choosing 72 instead of 48 for Loan Term (Months) cost more overall?',
+        a: 'Stretching payments over extra years lowers the monthly bill while exposing your remaining loan principal to Auto Loan APR (%) longer.',
+      },
+      {
+        q: 'Should dealer doc fees or registration be added into Vehicle Price ($)?',
+        a: 'Yes—rolling out-the-door title and documentation fees into Vehicle Price ($) gives the closest match to your final lender contract.',
+      },
+    ],
+  },
 };

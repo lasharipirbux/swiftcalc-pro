@@ -3,10 +3,9 @@ import { SITE_NAME } from '../config/site';
 export interface DateTimeCalculatorSeoEntry {
   seoTitle: string;
   metaDescription: string;
-  intro: string;
-  formulaExplained: string;
-  practicalExample: string;
   howToUseSteps: string[];
+  formulaExplanation: string;
+  practicalExample: string;
   faqs: { q: string; a: string }[];
 }
 
@@ -14,35 +13,27 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-age-calc': {
     seoTitle: `Free Age Calculator – Exact Years, Months & Days | ${SITE_NAME}`,
     metaDescription:
-      'Compute exact age in years, months, days, and total days lived from any birth date using this free Age Calculator.',
-    intro:
-      'Determining your exact chronological age in years, months, and days is essential for CNIC applications, school admissions, and official government job eligibility. Because calendar months vary between 28 and 31 days and leap years insert an extra day every four years, mental math often misses by a day or two. This tool computes your exact calendar age alongside the cumulative number of days you have lived since birth.',
-    formulaExplained:
-      'The calculator subtracts your birth year, month, and day from the current calendar date step by step. Whenever today’s day number is smaller than your birth day, it borrows the exact day count of the preceding month; similarly, if the current month precedes your birth month, it borrows 12 months from the year count. Formula: Age = Current Date (Y, M, D) − Birth Date (Y, M, D); Total Days = floor(|Current Timestamp − Birth Timestamp| / 86,400,000 ms). Built for job applicants checking exam age limits, parents preparing school forms, and HR teams verifying candidate records.',
-    practicalExample:
-      'Suppose an applicant for a civil service exam was born on 1995-06-15 and checks their age on 2026-11-27. Borrowing across the calendar months yields an exact chronological age of 31 years, 5 months, and 12 days, alongside roughly 11,488 total days lived since birth.',
+      'Compute exact chronological age in years, months, days, and total days lived from any birth date using our free Age Calculator.',
     howToUseSteps: [
-      'Type your date of birth into the Date of Birth field using YYYY-MM-DD format (for example, 1995-06-15).',
-      'Confirm that the four-digit year, two-digit month, and two-digit day contain valid calendar values.',
-      'Check the Calculated Result box to read your exact age broken down into years, months, and remaining days.',
-      'Look at the secondary line just beneath the main result to view your cumulative days lived since birth.',
+      'Type your birth date inside Date of Birth (YYYY-MM-DD) using four-digit year, month, and day.',
+      'Read your chronological age in years, months, and remaining days alongside total days lived.',
     ],
+    formulaExplanation:
+      'Chronological age subtracts birth year, month, and day from the current calendar date, borrowing the exact day count of the prior month (28–31 days) whenever today’s day is smaller and borrowing 12 months when the birth month lies ahead. Formula: Age = Current Date (Y, M, D) − Birth Date (Y, M, D); Total Days = floor(|Current ms − Birth ms| / 86,400,000).',
+    practicalExample:
+      'Entering Date of Birth (YYYY-MM-DD) = 1998-03-10 checked on 2026-11-28 returns 28 years, 8 months, 18 days and Total Days Lived: 10,490.',
     faqs: [
       {
-        q: 'How does the calculator handle leap year birthdays on February 29?',
-        a: 'In non-leap years, the calendar borrows the exact 28 days of February so your chronological day count stays accurate without skipping or duplicating days.',
+        q: 'How does the Age Calculator treat leap-year birthdays on February 29?',
+        a: 'In non-leap years, calendar borrowing accounts for February having 28 days so your cumulative days lived stays exact.',
       },
       {
-        q: 'Why do competitive exams enforce strict day-level age verification?',
-        a: 'Official civil service and university admissions publish hard cut-off dates where exceeding the maximum age limit by even a single day affects eligibility.',
+        q: 'Why must Date of Birth (YYYY-MM-DD) follow year-month-day order?',
+        a: 'ISO ordering avoids swapping day and month on ambiguous dates such as 05-06 versus 06-05.',
       },
       {
-        q: 'Does the total days lived figure include leap days?',
-        a: 'Yes. Because total days are derived from exact millisecond timestamps divided by 86,400,000 ms per day, every February 29 between birth and today is counted.',
-      },
-      {
-        q: 'What format must I use when typing my birth date?',
-        a: 'Enter dates in ISO YYYY-MM-DD order (such as 1998-08-14) so day and month numbers are never swapped.',
+        q: 'Does Total Days Lived include every February 29 since birth?',
+        a: 'Yes—dividing exact millisecond timestamps by 86,400,000 ms counts every leap day occurring between birth and today.',
       },
     ],
   },
@@ -50,71 +41,57 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-date-diff': {
     seoTitle: `Free Date Difference Calculator – Days, Weeks & Months | ${SITE_NAME}`,
     metaDescription:
-      'Measure the exact span of days, weeks, months, and years between two calendar dates with the free Date Difference Calculator.',
-    intro:
-      'Measuring the exact span between two calendar dates helps project managers track milestones, landlords calculate lease durations, and travelers verify visa windows. Instead of counting pages across a calendar by hand, you get an immediate breakdown in total days, calendar years-months-days, and decimal weeks. Every month length and leap-year boundary is resolved automatically.',
-    formulaExplained:
-      'Both the Start Date and End Date are parsed into UTC calendar coordinates to avoid daylight-saving hour drift, then subtracted to determine net days elapsed. Calendar breakdown borrows the exact length of the preceding month (28, 29, 30, or 31 days) whenever end day precedes start day. Formula: Total Days = round(|End UTC ms − Start UTC ms| / 86,400,000); Weeks = Days / 7; Months = Days / 30.436875. Useful for legal teams, contract managers, and event planners.',
-    practicalExample:
-      'A commercial lease starting on 2026-01-01 and ending on 2026-12-31 spans exactly 364 net days (0 years, 11 months, 30 days), which equals 52.0 weeks or 12.0 average months. Adding 1 inclusive day gives the full 365-day year.',
+      'Measure exact days, weeks, months, and calendar years between two dates with our free Date Difference Calculator.',
     howToUseSteps: [
-      'Enter your beginning date in the Start Date box using YYYY-MM-DD notation (default 2026-01-01).',
-      'Enter your closing date in the End Date box using the same YYYY-MM-DD structure.',
-      'Read the top Calculated Result for total days separating the two dates.',
-      'Inspect the lines directly below the result for exact years/months/days, decimal weeks, and month equivalents.',
+      'Enter your opening calendar date into Start Date (YYYY-MM-DD).',
+      'Type your closing calendar date inside End Date (YYYY-MM-DD).',
+      'Inspect total elapsed days alongside years-months-days, weeks, and decimal months.',
     ],
+    formulaExplanation:
+      'Date span calculation maps both Start Date and End Date onto UTC midnights to eliminate daylight-saving hour drift, computes total elapsed days from millisecond distance, and converts remaining calendar differences across variable month lengths. Formula: Days = round(|End UTC ms − Start UTC ms| / 86,400,000); Weeks = Days / 7; Months = Days / 30.436875.',
+    practicalExample:
+      'Setting Start Date (YYYY-MM-DD) = 2026-03-01 and End Date (YYYY-MM-DD) = 2026-09-15 measures 198 days (0 years, 6 months, 14 days | 28.3 weeks | 6.5 months).',
     faqs: [
       {
-        q: 'Does the result count both the start date and end date inclusively?',
-        a: 'It computes the net difference (End minus Start). If your contract or leave schedule counts both the opening and closing dates as active days, add 1 to the day count.',
+        q: 'Does 198 days include both March 1 and September 15 inclusively?',
+        a: 'It counts net elapsed days (End minus Start); add 1 day if your rental lease or event includes both endpoints.',
       },
       {
-        q: 'Why does average months use 30.436875 days?',
-        a: 'A full Gregorian year averages 365.2425 days across a 400-year leap cycle, which equals 30.436875 days per month when divided by 12.',
+        q: 'Why is decimal Months based on 30.436875 days?',
+        a: 'Dividing the 365.2425-day Gregorian leap-cycle average year by 12 gives 30.436875 days per average month.',
       },
       {
-        q: 'What happens if the Start Date comes after the End Date?',
-        a: 'The calculator applies the absolute difference between the two timestamps, so reversed date pairs still return a positive span.',
-      },
-      {
-        q: 'Are leap years like 2024 and 2028 accounted for accurately?',
-        a: 'Yes. UTC date parsing explicitly includes February 29 whenever a leap year falls inside your chosen interval.',
+        q: 'What happens if Start Date (YYYY-MM-DD) is later than End Date (YYYY-MM-DD)?',
+        a: 'Absolute timestamp subtraction returns a positive day count regardless of which date comes first.',
       },
     ],
   },
 
   'dt-add-sub-days': {
-    seoTitle: `Free Add or Subtract Days from a Date Calculator | ${SITE_NAME}`,
+    seoTitle: `Free Add or Subtract Days from a Date Calculator – Future Date | ${SITE_NAME}`,
     metaDescription:
-      'Add or subtract any number of calendar days from a starting date to find the exact future or past date in seconds.',
-    intro:
-      'When an invoice carries a 45-day payment term or a medical follow-up is booked 90 days after discharge, counting across 30-day and 31-day months is prone to error. This calculator shifts any base calendar date forward or backward by your chosen day offset. It displays both the formatted weekday name and the clean ISO target date.',
-    formulaExplained:
-      'Your starting date is converted into milliseconds from the Unix epoch, and the day offset is converted into milliseconds by multiplying by 86,400,000. Adding or subtracting that offset shifts the timestamp across month and year borders without manual adjustment. Formula: Target Timestamp = Base Timestamp ± (Days × 86,400,000 ms). Designed for billing clerks, logistics coordinators, and appointment schedulers.',
-    practicalExample:
-      'A textile supplier issues an invoice on 2026-06-01 with net 45-day terms. Selecting Add Days (+) and entering 45 crosses June’s 30 days and lands precisely on Thursday, July 16, 2026 (2026-07-16).',
+      'Shift any calendar date forward or backward by an exact day count using our free Add or Subtract Days from a Date Calculator.',
     howToUseSteps: [
-      'Set the Base Date field to your reference calendar date in YYYY-MM-DD format.',
-      'Choose either Add Days (+) or Subtract Days (−) from the Operation dropdown menu.',
-      'Enter the integer number of calendar days you wish to shift by in the Number of Days input.',
-      'Review both the weekday result card and the YYYY-MM-DD target date beneath it.',
+      'Type your reference date inside Base Date (YYYY-MM-DD).',
+      'Select Add Days (+) or Subtract Days (-) in Operation and enter your offset inside Number of Days.',
+      'View the resulting weekday date and ISO target date.',
     ],
+    formulaExplanation:
+      'Calendar date shifting converts the base date into UTC milliseconds and adds or subtracts Number of Days multiplied by 86,400,000 milliseconds per day, stepping accurately across 28-, 30-, and 31-day months as well as year boundaries. Formula: Target Timestamp = Base Timestamp ± (Number of Days × 86,400,000 ms).',
+    practicalExample:
+      'Starting from Base Date (YYYY-MM-DD) = 2026-06-01 with Operation = Add Days (+) and Number of Days = 45 lands on Thu Jul 16 2026 (2026-07-16).',
     faqs: [
       {
-        q: 'Why does adding 30 days not always land on the same day number next month?',
-        a: 'Months vary between 28 and 31 days; adding 30 days to May 1 lands on May 31 rather than June 1 because May has 31 days.',
+        q: 'Why does adding 30 days to May 1 land on May 31 instead of June 1?',
+        a: 'Because May contains 31 days, shifting exactly 30 calendar days advances to the final day of May rather than crossing into June.',
       },
       {
-        q: 'Can I shift backward by several hundred or thousand days?',
-        a: 'Yes. Selecting Subtract Days (−) handles multi-year offsets smoothly to uncover past warranty or filing deadlines.',
+        q: 'Does Add or Subtract Days skip Saturdays or Sundays?',
+        a: 'No—every consecutive calendar day counts; switch to Add Business Days when weekends must be excluded.',
       },
       {
-        q: 'Does this tool skip Saturdays, Sundays, or bank holidays?',
-        a: 'No, it counts consecutive calendar days; use the Add Business Days calculator when weekends must be excluded.',
-      },
-      {
-        q: 'Are February 29 leap days handled automatically when crossing leap years?',
-        a: 'Yes. The calendar object automatically honors February 29 in leap years such as 2028 and 2032.',
+        q: 'Can Number of Days exceed 365 to look years ahead or back?',
+        a: 'Yes—multi-hundred or multi-thousand day offsets cross multiple leap years automatically.',
       },
     ],
   },
@@ -122,35 +99,28 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-working-days': {
     seoTitle: `Free Working Days Calculator – Count Workdays Minus Sundays | ${SITE_NAME}`,
     metaDescription:
-      'Count working days between two dates while automatically excluding Sundays using this free Working Days Calculator.',
-    intro:
-      'Across manufacturing plants, wholesale markets, construction sites, and many commercial offices, the standard workweek runs Monday through Saturday with Sunday off. Counting active shift days across several months manually leaves room for miscounted weekends. This tool walks through your inclusive date window and returns the total working days with Sundays removed.',
-    formulaExplained:
-      'Starting at the earlier of your two entered dates, a calendar cursor increments one day at a time through the end date inclusively. Each date whose weekday index is Monday (1) through Saturday (6) adds 1 to the working-day tally, while every Sunday (0) is skipped. Formula: Working Days = Inclusive Calendar Days − Count of Sundays in Range. Helpful for payroll supervisors, contractors, and academic coordinators.',
-    practicalExample:
-      'Scheduling a production batch from 2026-05-01 through 2026-05-31 covers 31 total calendar days. Since May 2026 contains 5 Sundays (May 3, 10, 17, 24, and 31), the calculator reports 26 working days.',
+      'Count working days between two dates with Sundays automatically excluded using our free Working Days Calculator.',
     howToUseSteps: [
-      'Type the beginning of your work period into the Start Date box as YYYY-MM-DD.',
-      'Enter the closing date of your schedule into the End Date box.',
-      'Wait for the instant calculation showing net working days excluding Sundays.',
-      'Compare the total calendar days note underneath to verify how many Sundays fell inside that period.',
+      'Enter the opening date inside Start Date (YYYY-MM-DD).',
+      'Type the closing inclusive date inside End Date (YYYY-MM-DD).',
+      'Inspect total working days excluding Sundays alongside total calendar days.',
     ],
+    formulaExplanation:
+      'Workday counting loops inclusively day by day from Start Date through End Date and tallies every calendar date whose weekday index is Monday through Saturday (excluding Sunday index 0). Formula: Working Days = Σ [day ∈ Start..End where Weekday(day) ≠ Sunday].',
+    practicalExample:
+      'Evaluating May 2026 from Start Date (YYYY-MM-DD) = 2026-05-01 to End Date (YYYY-MM-DD) = 2026-05-31 subtracts 5 Sundays from 31 calendar days to give 26 working days.',
     faqs: [
       {
-        q: 'Are the start and end dates both included in the tally?',
-        a: 'Yes, the day-by-day loop evaluates both endpoints inclusively so monthly wage runs are never short by one day.',
+        q: 'Are both Start Date and End Date counted when neither falls on Sunday?',
+        a: 'Yes—this range loop evaluates both endpoints inclusively unless one lands on a Sunday.',
       },
       {
-        q: 'Why does this calculator exclude Sundays rather than both Saturday and Sunday?',
-        a: 'Many factories, schools, retail shops, and commercial operations follow a six-day Monday-to-Saturday working schedule.',
+        q: 'Why does Working Days exclude only Sundays instead of Saturdays too?',
+        a: 'Many schools, banks, retail teams, and factories in Pakistan and South Asia operate six days a week with Sunday off.',
       },
       {
-        q: 'How should I account for public or religious holidays during the period?',
-        a: 'Count any national or festival holidays that fall on Monday–Saturday and subtract them manually from the output.',
-      },
-      {
-        q: 'How do daily-wage supervisors convert working days into payroll?',
-        a: 'Multiply the reported working days by the daily wage—for instance, 26 days × 1,500 per day equals 39,000.',
+        q: 'How do I account for Eid or national gazetted holidays?',
+        a: 'Subtract the number of weekday public holidays falling inside your chosen interval from the returned working day total.',
       },
     ],
   },
@@ -158,35 +128,27 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-countdown': {
     seoTitle: `Free Countdown to a Date Calculator – Days, Hours & Minutes | ${SITE_NAME}`,
     metaDescription:
-      'See exact days, hours, and minutes remaining until any upcoming event or deadline with our free Countdown to a Date Calculator.',
-    intro:
-      'Counting down to a major entrance exam, product release, fiscal closing, or family celebration becomes clearer when you know the exact remaining days, hours, and minutes. Instead of guessing how many weeks lie ahead, enter any future date to compare it against your live system clock. If the target date has already passed, the tool notifies you immediately.',
-    formulaExplained:
-      'The calculator reads your device’s current timestamp and subtracts it from the midnight (00:00) timestamp of your entered target date. Remaining milliseconds are divided successively by 86,400,000 for whole days, 3,600,000 for leftover hours, and 60,000 for remaining minutes. Formula: Remaining = Target Date Timestamp − Current Timestamp. Built for students, campaign planners, and project leads.',
-    practicalExample:
-      'Setting a target date of 2026-12-31 while browsing on 2026-11-27 at 00:00 computes a span of 2,937,600,000 milliseconds, outputting 34 days, 0 hrs, and 0 mins (or adjusting hour-by-hour to match your exact time of day).',
+      'Calculate remaining days, hours, and minutes until any future exam, launch, or holiday using our free Countdown to a Date Calculator.',
     howToUseSteps: [
-      'Type your upcoming deadline or milestone into the Target Date & Time box as YYYY-MM-DD.',
-      'Check that the chosen target date lies in the future relative to today’s date.',
-      'Inspect the Calculated Result box for remaining days, hours, and minutes.',
-      'Revisit or refresh with new target dates whenever you want to compare multiple upcoming deadlines.',
+      'Enter your target milestone date inside Target Date & Time (YYYY-MM-DD).',
+      'Check remaining days, hours, and minutes from the current instant.',
     ],
+    formulaExplanation:
+      'Event countdown subtracts the live system clock timestamp from your target date timestamp and divides remaining milliseconds sequentially by 86,400,000 (days), 3,600,000 (hours), and 60,000 (minutes). Formula: Days = floor(Δms / 86,400,000); Hours = floor((Δms % 86,400,000) / 3,600,000).',
+    practicalExample:
+      'Targeting Target Date & Time (YYYY-MM-DD) = 2026-12-31 from November 28, 2026 (00:09) computes roughly 32 days, 15 hrs, 50 mins left until New Year’s Eve.',
     faqs: [
       {
-        q: 'What does the calculator display if I enter a date in the past?',
-        a: 'When Target Timestamp minus Current Timestamp is zero or negative, it safely displays "Target date has already passed".',
+        q: 'What displays if Target Date & Time (YYYY-MM-DD) has already passed?',
+        a: 'Once the current clock moves past your entered target timestamp, the calculator reports that the target date has passed.',
       },
       {
-        q: 'Which time zone governs the remaining hours and minutes?',
-        a: 'Your browser’s local system clock controls the current time, matching whatever local time zone your phone or computer uses.',
+        q: 'Can Target Date & Time accept a clock time after the date?',
+        a: 'Yes—ISO strings like 2026-12-31T18:30 target an exact evening hour rather than midnight.',
       },
       {
-        q: 'Why do hours and minutes appear even though I only typed a calendar date?',
-        a: 'Calendar dates resolve to 00:00 midnight at the start of that day, so subtracting your current afternoon or evening hour shows the fractional day remaining.',
-      },
-      {
-        q: 'Can I count down to events several years away?',
-        a: 'Yes, entering a date years ahead accurately totals hundreds or thousands of days remaining.',
+        q: 'Does the remaining hour figure adjust to my device timezone?',
+        a: 'Plain YYYY-MM-DD strings parse as UTC midnight, so differences against your local device clock reflect your UTC offset.',
       },
     ],
   },
@@ -194,35 +156,28 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-time-duration': {
     seoTitle: `Free Time Duration Calculator – Elapsed Hours & Minutes | ${SITE_NAME}`,
     metaDescription:
-      'Find elapsed hours and total minutes between any two 24-hour times, including overnight shifts, with this free Time Duration Calculator.',
-    intro:
-      'Standard decimal calculators cannot subtract 08:30 from 17:15 directly because time runs on a 60-minute base rather than 100. Whether you are verifying employee shift cards, travel legs, or equipment runtime, this calculator computes exact elapsed hours and minutes between two 24-hour times. Overnight spans crossing midnight are bridged automatically.',
-    formulaExplained:
-      'Each HH:MM timestamp is converted into minutes elapsed since midnight by multiplying hours by 60 and adding minutes. If the End Time precedes the Start Time, 1,440 minutes (24 hours) are added so overnight durations calculate cleanly before dividing back into hours and remainder minutes. Formula: Elapsed Minutes = (End H × 60 + End M) − (Start H × 60 + Start M) [+ 1440 if overnight]. Ideal for freelancers, shift managers, and dispatchers.',
-    practicalExample:
-      'Suppose a technician starts work at 08:30 (510 minutes past midnight) and finishes at 17:15 (1,035 minutes past midnight). Subtracting yields 525 total minutes, which converts cleanly to 8 hours and 45 minutes.',
+      'Find exact elapsed hours, minutes, and total minutes between two 24-hour clock times using our free Time Duration Calculator.',
     howToUseSteps: [
-      'Type your starting clock time in 24-hour HH:MM notation (such as 08:30 for morning).',
-      'Enter your finishing clock time in the End Time field using HH:MM notation (such as 17:15 for 5:15 PM).',
-      'View the primary output showing whole hours and leftover minutes.',
-      'Check the secondary line for total elapsed minutes, which you can divide by 60 for decimal payroll billing.',
+      'Type shift or trip start time in 24-hour notation inside Start Time (HH:MM 24hr).',
+      'Enter finishing time inside End Time (HH:MM 24hr).',
+      'Read total elapsed hours, minutes, and combined minute count.',
     ],
+    formulaExplanation:
+      'Elapsed clock duration converts both 24-hour timestamps into minutes past midnight (hours × 60 + minutes), adds 1,440 minutes automatically when End Time crosses midnight into the next day, and splits the difference back into hours and minutes. Formula: Elapsed Mins = (End Mins − Start Mins + 1,440) mod 1,440.',
+    practicalExample:
+      'Logging Start Time (HH:MM 24hr) = 08:30 and End Time (HH:MM 24hr) = 17:15 equals 1,035 − 510 = 525 mins, displayed as 8 hours and 45 minutes.',
     faqs: [
       {
-        q: 'How do I enter PM clock times like 5:15 PM?',
-        a: 'Convert PM times to 24-hour clock format by adding 12 to the hour—so 5:15 PM becomes 17:15 and 10:30 PM becomes 22:30.',
+        q: 'Does Time Duration handle overnight shifts like 22:00 to 06:30?',
+        a: 'Yes—whenever End Time is earlier than Start Time, 24 hours (1,440 minutes) are added automatically so 22:00 to 06:30 equals 8 hours and 30 minutes.',
       },
       {
-        q: 'Does it support night shifts that cross midnight?',
-        a: 'Yes. Starting at 22:00 and ending at 06:30 automatically adds 24 hours to the end time and calculates 8 hours and 30 minutes.',
+        q: 'How should afternoon times like 5:15 PM be typed into End Time (HH:MM 24hr)?',
+        a: 'Add 12 to afternoon hours after 12:59 PM—so 5:15 PM enters as 17:15 and midnight enters as 00:00.',
       },
       {
-        q: 'Why does subtracting 8.30 from 17.15 on a normal calculator fail?',
-        a: 'Normal decimal arithmetic treats 0.15 minus 0.30 in base 100, giving 8.85 instead of the true base-60 answer of 8 hours 45 minutes.',
-      },
-      {
-        q: 'How can I turn the output into decimal billable hours?',
-        a: 'Take the Total Minutes figure shown below the main result and divide by 60 (525 ÷ 60 = 8.75 hours).',
+        q: 'How do I convert 8 hours and 45 minutes into decimal hours for payroll?',
+        a: 'Divide Total Minutes (525) by 60 to obtain 8.75 decimal billable hours.',
       },
     ],
   },
@@ -230,107 +185,84 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-timezone-conv': {
     seoTitle: `Free Time Zone Converter Calculator – PKT, GST, AST, GMT & EST | ${SITE_NAME}`,
     metaDescription:
-      'Convert 24-hour clock times smoothly between PKT, UAE GST, Saudi AST, UK GMT, and US EST using our free Time Zone Converter.',
-    intro:
-      'Remote software teams, international traders, and families living abroad coordinate across multiple time zones every single day. Converting between Pakistan Standard Time (PKT), Gulf Standard Time (GST), Arabia Standard Time (AST), UK Time (GMT), and US Eastern Time (EST) by hand often flips the sign or misses midnight wraparound. This converter outputs the exact destination time in one step.',
-    formulaExplained:
-      'The calculator maps your source time zone to Coordinated Universal Time (UTC) by subtracting its UTC offset (PKT +5, GST +4, AST +3, GMT 0, EST −5), then adds the destination zone’s UTC offset. Any result below 0 or at or above 1,440 minutes wraps seamlessly around the 24-hour day. Formula: Target Minutes = (Input Minutes − Source Offset × 60 + Target Offset × 60) mod 1440. Useful for remote engineers, BPO teams, and travelers.',
-    practicalExample:
-      'Converting 14:30 from PKT (UTC+5) to UK GMT (UTC+0) subtracts 5 × 60 = 300 minutes from 870 minutes past midnight, producing 570 minutes—formatted clearly as 09:30 (GMT).',
+      'Convert clock times across PKT, Dubai GST, Riyadh AST, London GMT/BST, and New York EST/EDT using our free Time Zone Converter Calculator.',
     howToUseSteps: [
-      'Type the clock time you want to convert in 24-hour HH:MM format (default 14:30).',
-      'Pick the origin region from the From Time Zone dropdown menu.',
-      'Select your destination region from the To Time Zone dropdown menu.',
-      'Read the converted 24-hour clock time and zone code in the Calculated Result panel.',
+      'Type your local 24-hour clock time inside Time (HH:MM 24hr).',
+      'Select your origin zone in From Time Zone and destination zone in To Time Zone.',
+      'Read the converted 24-hour time and day-shift notice immediately.',
     ],
+    formulaExplanation:
+      'Time zone conversion maps the entered time from its origin UTC offset (PKT +5, GST +4, AST +3, UK +0, EST −5) back to Coordinated Universal Time, then shifts by the target zone offset while wrapping around 0–1,439 daily minutes. Formula: Target Mins = (Source Mins − Source UTC Offset + Target UTC Offset) mod 1,440.',
+    practicalExample:
+      'Converting Time (HH:MM 24hr) = 15:00 from From Time Zone = PKT (+5) to To Time Zone = EST (−5) shifts back 10 hours to 05:00 (EST).',
     faqs: [
       {
-        q: 'What is the hour gap between Pakistan (PKT) and Dubai (GST)?',
-        a: 'PKT is UTC+5 and Dubai GST is UTC+4, meaning Pakistan is always 1 hour ahead of the UAE.',
+        q: 'Why does converting 23:00 PKT to EST show 13:00 while 02:00 PKT shows Previous Day?',
+        a: 'When subtracting the time-zone offset pushes minutes below 00:00 midnight, the destination clock sits on the previous calendar day.',
       },
       {
-        q: 'How far apart are Pakistan Time and Saudi Arabia Time?',
-        a: 'Pakistan (UTC+5) sits 2 hours ahead of Saudi Arabia (UTC+3), so 14:30 PKT equals 12:30 AST.',
+        q: 'Do Pakistan (PKT), Dubai (GST), and Saudi Arabia (AST) ever change for Daylight Saving?',
+        a: 'No—PKT (UTC+5), GST (UTC+4), and AST (UTC+3) maintain fixed year-round UTC offsets.',
       },
       {
-        q: 'Why is there a 10-hour difference between PKT and US EST?',
-        a: 'PKT stands 5 hours east of Greenwich (+5) while EST stands 5 hours west (−5), creating a combined 10-hour offset.',
-      },
-      {
-        q: 'What happens when a conversion crosses midnight?',
-        a: 'Modulo-1440 wrapping automatically rolls negative values backward into the previous evening (23:xx) or forward into early morning (00:xx).',
+        q: 'When London or New York runs summer DST, how does the difference from PKT shift?',
+        a: 'During March–October/November DST, London (BST UTC+1) sits 4 hours behind PKT and New York (EDT UTC−4) sits 9 hours behind PKT.',
       },
     ],
   },
 
   'dt-week-day-finder': {
-    seoTitle: `Free Week Number and Day of Week Finder Calculator | ${SITE_NAME}`,
+    seoTitle: `Free Week Number and Day of Week Finder Calculator – ISO Week | ${SITE_NAME}`,
     metaDescription:
-      'Discover the exact day of the week and official ISO-8601 week number for any calendar date with this free Week Number Finder.',
-    intro:
-      'Logistics teams, export merchandisers, and project planners frequently reference schedules by ISO calendar week numbers such as "Week 25" alongside weekdays. Knowing both the exact day of the week and the ISO week number for any past or future date removes scheduling guesswork. Enter any YYYY-MM-DD date to retrieve both immediately.',
-    formulaExplained:
-      'The weekday name comes directly from the Gregorian 0–6 day index (Sunday through Saturday). For the ISO-8601 week number, the algorithm shifts to the Thursday of your selected week—since ISO Week 1 is defined as the week holding the year’s first Thursday—and counts elapsed 7-day blocks. Formula: ISO Week = 1 + floor((Target Thursday − First Thursday of Year) / 604,800,000 ms). Designed for export planners, schedulers, and historians.',
-    practicalExample:
-      'Checking 2026-06-15 confirms that June 15, 2026 lands on a Monday and corresponds to ISO Week Number 25 of 2026.',
+      'Identify the weekday name and ISO-8601 week number (1–53) for any calendar date using our free Week Number and Day of Week Finder Calculator.',
     howToUseSteps: [
-      'Type any past, present, or future date into the Date box using YYYY-MM-DD format.',
-      'Make sure the month and day form a valid Gregorian calendar date.',
-      'Read the prominent Calculated Result to see the exact weekday (Monday–Sunday).',
-      'Look at the secondary result line just underneath to confirm the official ISO week number of the year.',
+      'Enter any historical or upcoming date inside Date (YYYY-MM-DD).',
+      'View the exact weekday name alongside its ISO-8601 week number of the year.',
     ],
+    formulaExplanation:
+      'ISO-8601 week numbering starts weeks on Monday, defines Week 1 as the week containing the year’s first Thursday (or January 4), and calculates day offset from that Thursday anchor divided by 7. Formula: ISO Week = 1 + round([(Thursday of Date’s Week) − (Thursday of Week 1)] / 604,800,000 ms).',
+    practicalExample:
+      'Checking Date (YYYY-MM-DD) = 2026-06-15 returns Monday with ISO Week Number: Week 25 of the year.',
     faqs: [
       {
-        q: 'How does ISO-8601 define Week 1 of a calendar year?',
-        a: 'Under ISO-8601, every week begins on Monday, and Week 1 is the first week containing at least four days of the new year (equivalently, the first Thursday).',
+        q: 'Why can January 1 sometimes belong to Week 52 or Week 53 of the previous year?',
+        a: 'Under ISO-8601, if January 1 lands on Friday, Saturday, or Sunday, its week contains fewer than 4 days of the new year and stays in the prior year’s final week.',
       },
       {
-        q: 'Can a calendar year have 53 ISO weeks instead of 52?',
-        a: 'Yes. Years starting on a Thursday—or leap years starting on a Wednesday—contain 53 ISO weeks.',
+        q: 'Can you look up the weekday of your birth date or a date 50 years ahead?',
+        a: 'Yes—any valid Gregorian YYYY-MM-DD date from past centuries to future decades resolves immediately.',
       },
       {
-        q: 'Can I look up which weekday I was born on?',
-        a: 'Absolutely—simply enter your birth date in YYYY-MM-DD order to see your birth weekday instantly.',
-      },
-      {
-        q: 'Why do shipping and retail purchase orders use week numbers?',
-        a: 'Global buyers schedule factory production slots and vessel cutoffs using standardized Week 01–52 numbers to avoid US/UK date format confusion.',
+        q: 'Which weekday starts each new ISO week?',
+        a: 'ISO-8601 weeks run Monday (day 1) through Sunday (day 7).',
       },
     ],
   },
 
   'dt-age-detailed': {
-    seoTitle: `Free Age in Months, Weeks & Hours Calculator | ${SITE_NAME}`,
+    seoTitle: `Free Age in Months, Weeks & Hours Calculator – Life Stats | ${SITE_NAME}`,
     metaDescription:
-      'Break down any chronological age into cumulative months, total weeks, and hours lived with this free detailed Age Calculator.',
-    intro:
-      'Traditional age counters stop at years, months, and days, yet infant growth milestones, pediatric immunization schedules, and fun anniversary benchmarks are measured in total months, weeks, or hours. This tool translates your entire time elapsed since birth into cumulative months, weeks, and total hours lived. Simply supply a YYYY-MM-DD birth date to see every unit at once.',
-    formulaExplained:
-      'The calculator takes the difference between today’s timestamp and your birth date timestamp in milliseconds. Dividing by 3,600,000 yields cumulative hours, dividing days by 7 gives completed weeks, and dividing days by 30.44 gives cumulative months. Formula: Total Hours = floor(Elapsed ms / 3,600,000); Total Weeks = floor(Days / 7); Total Months = floor(Days / 30.44). Helpful for parents, pediatric nurses, and milestone trackers.',
-    practicalExample:
-      'For a person born on 1990-01-01 evaluated in late November 2026 (~13,479 days elapsed), dividing by 30.44 yields 442 months, dividing by 7 yields 1,925 weeks, and multiplying by 24 gives roughly 323,496 hours lived.',
+      'Convert your date of birth into total months, weeks, and hours lived using our free Age in Months, Weeks & Hours Calculator.',
     howToUseSteps: [
-      'Type the birth date you want to analyze in YYYY-MM-DD format (default 1990-01-01).',
-      'Ensure the birth date precedes today’s calendar date.',
-      'Read the top result showing total cumulative months and completed weeks.',
-      'Check the secondary output line for an estimate of total hours lived since birth.',
+      'Enter your birth date inside Date of Birth (YYYY-MM-DD).',
+      'Review cumulative months, weeks, and estimated total hours lived.',
     ],
+    formulaExplanation:
+      'Lifetime unit breakdown measures exact millisecond duration from Date of Birth to today, converting elapsed hours via 3,600,000 ms, weeks via 7 days, and total months via average 30.436875-day months. Formula: Hours = floor(Δms / 3,600,000); Weeks = floor(Δdays / 7); Months = floor(Δdays / 30.436875).',
+    practicalExample:
+      'Entering Date of Birth (YYYY-MM-DD) = 2000-01-01 evaluated on 2026-11-28 produces 322 months (1,404 weeks) and Total Hours Lived: ~235,880 hours.',
     faqs: [
       {
-        q: 'Why are infant health records tracked in weeks and months rather than years?',
-        a: 'Pediatric vaccination timetables and developmental screenings happen at 6, 10, 14 weeks and 9, 15, 24 months, requiring exact month and week totals.',
+        q: 'Why do total weeks equal roughly 52.14 times your age in years?',
+        a: 'Because a calendar year holds 365 days (or 366 in leap years), dividing 365.2425 by 7 yields ~52.177 weeks per year.',
       },
       {
-        q: 'How close is the total hours figure?',
-        a: 'It measures elapsed hours from 00:00 midnight on your birth date up to the current hour of your device clock.',
+        q: 'Is Total Hours Lived exact to the birth hour?',
+        a: 'Since Date of Birth (YYYY-MM-DD) starts at midnight UTC, total hours stay accurate within ±24 hours of your exact birth minute.',
       },
       {
-        q: 'Why does dividing total days by 30.44 differ slightly from multiplying years by 12?',
-        a: 'Total months includes all completed months of the current partial year rather than rounding down to full birthdays.',
-      },
-      {
-        q: 'Around what age does a person reach 1,000 weeks old?',
-        a: '1,000 weeks equals 7,000 days, which arrives at roughly 19 years and 2 months of age.',
+        q: 'How is age in months helpful for infant and pediatric tracking?',
+        a: 'Pediatric growth charts, school cutoffs, and vaccination schedules track milestones in total months rather than rounded years.',
       },
     ],
   },
@@ -338,71 +270,56 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-leap-year': {
     seoTitle: `Free Leap Year Checker Calculator – Verify 366-Day Years | ${SITE_NAME}`,
     metaDescription:
-      'Check instantly whether any calendar year is a 366-day leap year or a 365-day common year with the free Leap Year Checker Calculator.',
-    intro:
-      'Not every year divisible by 4 is a leap year because century years ending in 00 follow a special 400-year astronomical correction. Checking whether February has 28 or 29 days matters for interest-day counts, lease scheduling, and calendar code validation. Enter any historical or future year to test all Gregorian leap-year rules instantly.',
-    formulaExplained:
-      'The Gregorian calendar rule verifies three divisibility conditions using modulo arithmetic: a year must divide evenly by 4, must skip multiples of 100, yet must include multiples of 400. Formula: Is Leap Year = (Year % 4 === 0 && Year % 100 !== 0) || (Year % 400 === 0). Ideal for software developers, math teachers, students, and payroll auditors.',
-    practicalExample:
-      'Testing the year 2028 passes divisibility by 4 without being a century year, confirming "2028 is a Leap Year (366 days)". Entering 2100 fails the 400-year rule because 2100 ÷ 400 leaves a remainder, returning "2100 is NOT a Leap Year (365 days)".',
+      'Verify instantly whether any calendar year is a 366-day leap year or 365-day common year using our free Leap Year Checker Calculator.',
     howToUseSteps: [
-      'Type any four-digit or historical integer year into the Year field (for example, 2028).',
-      'Test edge-case century years like 1900, 2000, or 2100 if comparing Gregorian exceptions.',
-      'Read the top verdict confirming whether the year contains 366 or 365 days.',
-      'Check the explanation line underneath to see which divisibility rule determined the outcome.',
+      'Enter any four-digit calendar year inside the Year field.',
+      'Check immediately whether that year holds 366 days (leap) or 365 days (common).',
     ],
+    formulaExplanation:
+      'The Gregorian calendar keeps seasons aligned with Earth’s ~365.2422-day orbit by adding February 29 in years divisible by 4, skipping century years divisible by 100, and reinstating 400-year multiples. Formula: IsLeap = (Year % 4 === 0 && Year % 100 !== 0) || (Year % 400 === 0).',
+    practicalExample:
+      'Checking Year = 2028 returns 2028 is a Leap Year (366 days) because 2028 divides evenly by 4 without being a century year.',
     faqs: [
       {
-        q: 'Why do leap years exist in the Gregorian calendar?',
-        a: 'Earth takes roughly 365.2422 days to orbit the sun, so adding February 29 nearly every four years prevents calendar seasons from drifting.',
-      },
-      {
         q: 'Why was 2000 a leap year while 1900 and 2100 are not?',
-        a: 'Century years must be divisible by 400 to qualify as leap years: 2000 ÷ 400 = 5 (leap year), while 1900 and 2100 leave remainders.',
+        a: 'Century years divisible by 100 skip February 29 unless they also divide evenly by 400—passing 2000 but failing 1900 and 2100.',
       },
       {
-        q: 'How do leap years change financial day-count calculations?',
-        a: 'Under Actual/Actual bond and daily-accrual conventions, daily interest in a leap year divides annual yield by 366 days instead of 365.',
+        q: 'Without leap years, how quickly would calendar seasons drift?',
+        a: 'Calendar dates would shift nearly 24 days every century, moving winter months gradually into summer over time.',
       },
       {
-        q: 'Which years after 2026 are leap years?',
-        a: 'The upcoming leap years are 2028, 2032, 2036, 2040, and 2044.',
+        q: 'Does Year accept far-future years like 2400 or historical years like 1600?',
+        a: 'Yes—any positive integer year evaluates the exact Gregorian divisibility rules instantly.',
       },
     ],
   },
 
   'dt-add-business-days': {
-    seoTitle: `Free Add Business Days to a Date Calculator | ${SITE_NAME}`,
+    seoTitle: `Free Add Business Days to a Date Calculator – Skip Weekends | ${SITE_NAME}`,
     metaDescription:
-      'Find the exact completion date after adding business days while skipping Saturdays and Sundays with this free calculator.',
-    intro:
-      'Banks, government offices, and courier companies commonly quote processing timelines in "business days" rather than calendar days. Because Saturdays and Sundays pause the clock, a 15-business-day commitment stretches noticeably further than 15 calendar days. This tool walks day by day from your start date, skipping Saturdays and Sundays to reveal the true delivery date.',
-    formulaExplained:
-      'Beginning at your Start Date, a loop advances forward one calendar day at a time and checks the weekday index (0 = Sunday, 6 = Saturday). Only weekdays Monday through Friday increment the business-day counter until your target count is satisfied. Formula: Advance Date + 1 Day repeatedly, counting only weekdays (day !== 0 && day !== 6). Built for e-commerce logistics, legal teams, and banking customers.',
-    practicalExample:
-      'Starting on Monday, 2026-06-01 and adding 15 business days skips three weekends (June 6–7, June 13–14, and June 20–21), landing squarely on Monday, June 22, 2026 (2026-06-22) after 21 total calendar days.',
+      'Find the exact completion date after adding Monday–Friday business days using our free Add Business Days to a Date Calculator.',
     howToUseSteps: [
-      'Type your submission or dispatch date into the Start Date field using YYYY-MM-DD format.',
-      'Enter a non-negative integer in the Business Days to Add box (default 15).',
-      'Check the Calculated Result card for the full weekday and calendar target date.',
-      'Verify the clean ISO date (YYYY-MM-DD) listed directly underneath for contract records.',
+      'Enter the kickoff calendar date into Start Date (YYYY-MM-DD).',
+      'Type the SLA or shipping weekday count inside Business Days to Add.',
+      'Read the final non-weekend completion date.',
     ],
+    formulaExplanation:
+      'Business-day stepping advances one UTC calendar day per iteration and decrements the Business Days to Add counter only when the landed day is Monday through Friday (skipping Saturday 6 and Sunday 0). Formula: Advance Date until WeekdayCount(Monday–Friday) = Business Days to Add.',
+    practicalExample:
+      'Adding Business Days to Add = 15 starting on Monday Start Date (YYYY-MM-DD) = 2026-06-01 skips 3 weekends (6 days) and arrives on Mon Jun 22 2026 (2026-06-22).',
     faqs: [
       {
-        q: 'How does this differ from the standard Add Days calculator?',
-        a: 'Standard day addition counts all 7 days of the week, whereas this calculator automatically skips every Saturday and Sunday.',
+        q: 'What happens if Start Date (YYYY-MM-DD) falls on a Saturday or Sunday?',
+        a: 'Stepping starts advancing forward onto Monday as the first counted business day.',
       },
       {
-        q: 'Why does adding 15 business days from a Monday take 21 calendar days?',
-        a: 'Every 5 business days spans 1 full calendar week (7 days), so 15 business days spans 3 complete weeks.',
+        q: 'Why does adding 15 business days span 21 calendar days?',
+        a: 'Every 5 weekdays pair with a 2-day weekend, so 15 working days stretch across three full weeks (21 total calendar days).',
       },
       {
-        q: 'Does the Start Date count as Business Day 1?',
-        a: 'No. The Start Date is Day 0 (submission day), and the very next Monday–Friday counts as Business Day 1.',
-      },
-      {
-        q: 'What if a bank holiday falls on a weekday inside my timeframe?',
-        a: 'Simply increase your Business Days to Add input by 1 for each weekday public holiday within that window.',
+        q: 'Are national bank holidays automatically skipped?',
+        a: 'Only Saturdays and Sundays are excluded automatically; add one extra day to Business Days to Add for each public holiday in the window.',
       },
     ],
   },
@@ -410,71 +327,55 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-unix-timestamp': {
     seoTitle: `Free Unix Timestamp Converter Calculator – Date to Epoch Seconds | ${SITE_NAME}`,
     metaDescription:
-      'Convert any YYYY-MM-DD calendar date into Unix epoch seconds, milliseconds, and UTC time using this free Unix Timestamp Converter.',
-    intro:
-      'Databases, REST APIs, log aggregators, and authentication systems store points in time as Unix epoch integers instead of formatted date strings. Manually converting a human date like 2026-06-01 into exact epoch seconds and milliseconds without a utility takes unnecessary guesswork. Enter any calendar date here to obtain its Unix timestamp in both seconds and milliseconds.',
-    formulaExplained:
-      'Your YYYY-MM-DD input is parsed into a UTC Date object anchored at 00:00:00 GMT. Calling getTime() yields total milliseconds elapsed since January 1, 1970 UTC, and dividing by 1,000 produces standard 10-digit Unix epoch seconds. Formula: Unix Timestamp (seconds) = floor(UTC Milliseconds / 1000). Created for backend engineers, QA testers, and database admins.',
-    practicalExample:
-      'Converting 2026-06-01 resolves to 1,780,272,000,000 milliseconds since the 1970 epoch, dividing by 1,000 to output a Unix timestamp of 1780272000 seconds (Mon, 01 Jun 2026 00:00:00 GMT).',
+      'Convert any calendar date into Unix epoch seconds, milliseconds, and UTC timestamp string using our free Unix Timestamp Converter Calculator.',
     howToUseSteps: [
-      'Type your target date in YYYY-MM-DD order into the Date & Time field (default 2026-06-01).',
-      'Check the Calculated Result box to copy the 10-digit Unix epoch integer in seconds.',
-      'Look at the secondary result line for the 13-digit millisecond value and canonical UTC string.',
-      'Use Reset Defaults anytime to jump back to the starter reference date.',
+      'Type any date or ISO timestamp inside Date & Time (YYYY-MM-DD).',
+      'Copy the 10-digit Unix epoch second count, 13-digit milliseconds, or formatted GMT string.',
     ],
+    formulaExplanation:
+      'POSIX Unix time tracks total non-leap seconds elapsed since 00:00:00 UTC on January 1, 1970, dividing JavaScript’s millisecond epoch timestamp by 1,000. Formula: Unix Seconds = floor(Date.parse(Date & Time) / 1,000).',
+    practicalExample:
+      'Converting Date & Time (YYYY-MM-DD) = 2026-06-01 generates 1780272000 Unix Timestamp (Milliseconds: 1780272000000 ms | Mon, 01 Jun 2026 00:00:00 GMT).',
     faqs: [
       {
-        q: 'What exact moment marks Unix timestamp 0?',
-        a: 'Timestamp 0 represents midnight 00:00:00 UTC on Thursday, January 1, 1970, known as the Unix Epoch.',
+        q: 'Why do modern APIs return 13-digit numbers while Unix seconds have 10 digits?',
+        a: 'Languages like JavaScript and Java count milliseconds (1,000× larger, 13 digits), whereas POSIX C, Python, and JWT exp claims use 10-digit seconds.',
       },
       {
-        q: 'When should I use the 10-digit seconds vs 13-digit milliseconds value?',
-        a: 'Most SQL databases, PHP, Python, and JWT claims use 10-digit seconds, while JavaScript, Java, and browser APIs typically expect 13-digit milliseconds.',
+        q: 'Can I include clock time after the date in Date & Time (YYYY-MM-DD)?',
+        a: 'Yes—append T14:30:00Z (for instance 2026-06-01T14:30:00Z) to encode exact UTC hours, minutes, and seconds.',
       },
       {
-        q: 'Does local time zone change a Unix timestamp?',
-        a: 'No. Unix epoch time is strictly measured against UTC, eliminating timezone ambiguity in distributed logs.',
-      },
-      {
-        q: 'What causes the Year 2038 timestamp limit on older software?',
-        a: 'Signed 32-bit integers max out at 2,147,483,647 seconds on January 19, 2038; modern 64-bit systems extend timestamps for billions of years.',
+        q: 'What does a negative Unix timestamp represent?',
+        a: 'Any date prior to January 1, 1970 resolves to negative seconds before the Unix epoch.',
       },
     ],
   },
 
   'dt-meeting-planner': {
-    seoTitle: `Free Meeting Time Planner Across Cities Calculator | ${SITE_NAME}`,
+    seoTitle: `Free Meeting Time Planner Across Cities Calculator – PKT Sync | ${SITE_NAME}`,
     metaDescription:
-      'Compare meeting hours simultaneously across Islamabad, Dubai, London, and New York with this free Meeting Time Planner Calculator.',
-    intro:
-      'Scheduling a single cross-border video call across South Asia, the Gulf, Europe, and North America often leaves one office joining at dawn or past midnight. By entering an integer hour in Islamabad (PKT), you can instantly inspect the corresponding clock hours in Dubai, London, and New York side by side. This helps distributed teams choose fair overlap windows in seconds.',
-    formulaExplained:
-      'Using Islamabad PKT (UTC+5) as the 24-hour anchor (0–23), each partner city is shifted by its standard UTC difference and wrapped modulo 24: Dubai subtracts 1 hour (UTC+4), London subtracts 5 hours (UTC+0), and New York subtracts 10 hours (UTC−5). Formula: City Hour = (PKT Hour − City Gap + 24) mod 24. Tailored for remote product teams, exporters, and international executives.',
-    practicalExample:
-      'Proposing 15 (3:00 PM PKT) in Islamabad outputs Dubai: 14:00, London: 10:00, and New York: 05:00—showing immediately that sliding the call to 18:00 PKT gives New York a much friendlier 08:00 AM slot.',
+      'Compare Islamabad PKT hours side by side with Dubai, London, and New York clocks using our free Meeting Time Planner Across Cities Calculator.',
     howToUseSteps: [
-      'Enter an hour from 0 to 23 in the Islamabad Time (PKT Hour) input field (for example, 15 for 3 PM).',
-      'Check the Calculated Result card showing Dubai, London, and New York local hours on one line.',
-      'Adjust the PKT hour up or down by 1–2 hours until every participating city falls within business hours.',
-      'Copy the synchronized multi-city string straight into your calendar invite.',
+      'Enter your proposed meeting hour (0 to 23) inside Islamabad Time (PKT Hour 0-23).',
+      'Compare simultaneous local hours in Dubai, London, and New York at a glance.',
     ],
+    formulaExplanation:
+      'Cross-border scheduling takes an integer 24-hour Islamabad PKT hour (UTC+5) and subtracts standard city offset differences (−1 hour for Dubai, −5 hours for London, and −10 hours for New York) modulo 24 hours. Formula: Dubai = (PKT − 1) mod 24; London = (PKT − 5) mod 24; New York = (PKT − 10) mod 24.',
+    practicalExample:
+      'Choosing Islamabad Time (PKT Hour 0-23) = 16 (4:00 PM PKT) displays Dubai: 15:00 | London: 11:00 | New York: 6:00 simultaneously.',
     faqs: [
       {
-        q: 'Which PKT hours work best for overlapping Pakistan, UK, and US East Coast calls?',
-        a: 'Between 18:00 and 20:00 PKT usually works best—landing during 13:00–15:00 in London and 08:00–10:00 AM in New York.',
+        q: 'Which Islamabad PKT hours fit Dubai, London, and New York business hours together?',
+        a: 'Between 18:00 and 20:00 PKT puts Dubai at 17:00–19:00, London at 13:00–15:00, and New York right inside 08:00–10:00 morning hours.',
       },
       {
-        q: 'What numbers represent afternoon and night hours?',
-        a: 'Use 24-hour integers from 0 (midnight) through 23 (11:00 PM), such as 13 for 1 PM and 19 for 7 PM.',
+        q: 'How should I read 18 or 21 in Islamabad Time (PKT Hour 0-23)?',
+        a: 'Values 13–23 map to afternoon/evening PM hours (subtract 12: 18 equals 6:00 PM, 21 equals 9:00 PM), while 0 equals midnight.',
       },
       {
-        q: 'How do London and New York summer clocks alter the gap?',
-        a: 'During British Summer Time (BST) and Eastern Daylight Time (EDT), London moves to 4 hours behind PKT and New York moves to 9 hours behind PKT.',
-      },
-      {
-        q: 'Why does Dubai align so closely with Pakistan working hours?',
-        a: 'Dubai sits just 1 hour behind PKT, providing nearly complete workday overlap across banking and office hours.',
+        q: 'How do London and New York hours change during summer DST?',
+        a: 'During March–October/November daylight saving months, London shifts 1 hour closer (+1 hr) and New York shifts 1 hour closer (+1 hr) to Islamabad.',
       },
     ],
   },
@@ -482,35 +383,28 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-time-add': {
     seoTitle: `Free Time Addition Calculator – Add Hours & Minutes Easily | ${SITE_NAME}`,
     metaDescription:
-      'Add any number of hours and minutes to a starting clock time with automatic midnight rollover via this free Time Addition Calculator.',
-    intro:
-      'Calculating arrival times when a flight takes 3 hours and 45 minutes or knowing when a 90-minute oven bake finishes requires base-60 clock math. Instead of converting minutes in your head, enter your starting HH:MM time alongside the hours and minutes to add. The tool wraps cleanly past midnight whenever your total crosses 24:00.',
-    formulaExplained:
-      'Your Start Time is converted to minutes since midnight (Start Hours × 60 + Start Minutes), summed with Added Hours × 60 + Added Minutes, then divided by 60 modulo 24 to output the resulting hour and minute. Formula: Result Time = ((Start H × 60 + Start M) + (Add H × 60 + Add M)) mod 1440. Useful for travelers, nurses, chefs, and broadcast schedulers.',
-    practicalExample:
-      'Starting at 10:30 (630 minutes) and adding 3 hours and 45 minutes (225 minutes) totals 855 minutes past midnight. Dividing 855 by 60 yields 14 hours with 15 minutes left over, displaying 14:15.',
+      'Add hours and minutes onto any 24-hour clock time with automatic midnight wrap using our free Time Addition Calculator.',
     howToUseSteps: [
-      'Type your initial clock time into Start Time using 24-hour HH:MM format (for example, 10:30).',
-      'Enter the whole hours to add in the Hours to Add field.',
-      'Enter extra minutes in the Minutes to Add field (values 60 or larger carry automatically into hours).',
-      'Read the new 24-hour clock time in the Calculated Result display.',
+      'Enter your starting clock time in 24-hour format inside Start Time (HH:MM).',
+      'Type additional hours into Hours to Add and extra minutes into Minutes to Add.',
+      'Check the updated 24-hour result and total duration added.',
     ],
+    formulaExplanation:
+      'Clock addition converts Start Time into total minutes past midnight, adds (Hours to Add × 60 + Minutes to Add), and applies modulo 1,440 minutes (24 hours) so durations past 23:59 roll cleanly into the next morning. Formula: End Mins = (Start Mins + Hours × 60 + Minutes) mod 1,440.',
+    practicalExample:
+      'Starting at Start Time (HH:MM) = 10:30 and adding Hours to Add = 3 with Minutes to Add = 45 equals 14:15 (Total added: 3h 45m).',
     faqs: [
       {
-        q: 'What happens if the added duration pushes the clock past 23:59?',
-        a: 'Modulo-24 logic wraps smoothly into the next morning—for instance, adding 3 hours to 22:30 outputs 01:30.',
+        q: 'What if Minutes to Add exceeds 60, such as 90 minutes?',
+        a: 'Extra minutes carry smoothly into hours automatically—entering 1 hour and 90 minutes advances the clock by 2 hours and 30 minutes.',
       },
       {
-        q: 'Can I type more than 60 in the Minutes to Add box?',
-        a: 'Yes. Entering 0 hours and 95 minutes converts seamlessly into 1 hour and 35 minutes.',
+        q: 'Does adding past 23:59 flag when the result crosses midnight?',
+        a: 'Yes—whenever total minutes reach or pass 1,440, the output appends (Next Day) alongside the wrapped 24-hour clock time.',
       },
       {
-        q: 'How do I turn the 24-hour output into standard AM/PM time?',
-        a: 'Hours 00–11 are AM, 12 is noon PM, and for 13–23 subtract 12 to read PM time (14:15 equals 2:15 PM).',
-      },
-      {
-        q: 'Can healthcare workers use this to plan recurring medicine doses?',
-        a: 'Yes, entering your last dose time and adding 6, 8, or 12 hours pins down your next scheduled dose instantly.',
+        q: 'Where is Time Addition most helpful day to day?',
+        a: 'Flight arrival planning, recipe baking timers, lab incubation windows, and shift handovers all rely on adding exact hours and minutes.',
       },
     ],
   },
@@ -518,35 +412,28 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-time-subtract': {
     seoTitle: `Free Time Subtraction Calculator – Subtract Hours & Minutes | ${SITE_NAME}`,
     metaDescription:
-      'Work backward from any clock deadline by subtracting hours and minutes accurately with this free Time Subtraction Calculator.',
-    intro:
-      'Working backward from an event start time—like figuring out when catering prep must begin or when to leave home before a train departs—frequently crosses the 60-minute boundary. Forgetting to borrow 60 minutes instead of 100 throws schedules off by 40 minutes. This calculator subtracts hours and minutes from any HH:MM starting time and handles midnight rollbacks cleanly.',
-    formulaExplained:
-      'Both the starting time and the duration to subtract are turned into raw minutes. Subtracted minutes are deducted from start minutes, and if the value dips below zero (crossing back into the previous night), 1,440 minutes (24 hours) are added before converting back to HH:MM. Formula: Target Time = ((Start H × 60 + Start M) − (Sub H × 60 + Sub M) + 1440) mod 1440. Ideal for travelers, event producers, and shift planners.',
-    practicalExample:
-      'If a ceremony begins at 18:00 (1,080 minutes) and setup requires 4 hours and 30 minutes (270 minutes), subtracting gives 810 minutes past midnight—outputting 13:30 (1:30 PM).',
+      'Subtract hours and minutes from any 24-hour clock time to plan departure or wake-up times using our free Time Subtraction Calculator.',
     howToUseSteps: [
-      'Type your deadline or event clock time into Start Time as 24-hour HH:MM (default 18:00).',
-      'Specify how many hours earlier to step back in the Hours to Subtract box.',
-      'Specify any remaining minutes to deduct in the Minutes to Subtract box.',
-      'Check the Calculated Result panel for the exact start time in HH:MM format.',
+      'Type your target deadline or arrival time inside Start Time (HH:MM).',
+      'Enter hours to count back in Hours to Subtract and minutes inside Minutes to Subtract.',
+      'Read the earlier 24-hour departure or start time.',
     ],
+    formulaExplanation:
+      'Backward clock calculation converts Start Time into minutes since midnight, subtracts (Hours to Subtract × 60 + Minutes to Subtract), and wraps negative results backward across 1,440 minutes into the previous evening. Formula: Target Mins = [(Start Mins − Hours × 60 − Minutes) mod 1,440 + 1,440] mod 1,440.',
+    practicalExample:
+      'Subtracting Hours to Subtract = 4 and Minutes to Subtract = 30 from Start Time (HH:MM) = 18:00 returns 13:30 (1:30 PM).',
     faqs: [
       {
-        q: 'What if subtracting pushes the clock earlier than 00:00 midnight?',
-        a: 'Adding 1,440 minutes wraps seamlessly into the prior evening—for example, 02:00 minus 5 hours equals 21:00 (9:00 PM the previous night).',
+        q: 'What happens if subtracting pushes the clock earlier than 00:00 midnight?',
+        a: 'The clock wraps cleanly into the prior evening (for example, 02:00 minus 4 hours gives 22:00 Previous Day).',
       },
       {
-        q: 'Why do people commonly miscalculate subtracting 45 minutes from :15?',
-        a: 'In base-10 math we borrow 10, whereas on a clock we must borrow 60 minutes from the hour column.',
+        q: 'How can travelers use Time Subtraction before international flights?',
+        a: 'Enter your boarding time in Start Time (HH:MM) and subtract airport check-in plus commute time to see the exact minute to leave home.',
       },
       {
-        q: 'How can travelers apply this to airport departure planning?',
-        a: 'Enter your flight takeoff time and subtract 3 hours for international check-in plus your expected commute duration.',
-      },
-      {
-        q: 'Must the Start Time follow 24-hour format?',
-        a: 'Yes, enter times like 07:45 or 18:00 using HH:MM 24-hour syntax so morning and evening never clash.',
+        q: 'Can I enter 0 in Hours to Subtract and only subtract minutes?',
+        a: 'Yes—setting Hours to Subtract = 0 and Minutes to Subtract = 45 shifts back three-quarters of an hour cleanly.',
       },
     ],
   },
@@ -554,35 +441,27 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-event-countdown': {
     seoTitle: `Free Days Until Birthday / Event Calculator – Annual Countdown | ${SITE_NAME}`,
     metaDescription:
-      'Find exact days remaining until your next birthday, anniversary, or recurring annual holiday using just MM-DD with this free calculator.',
-    intro:
-      'Because birthdays, wedding anniversaries, and national holidays repeat on the same calendar month and day every year, you should not have to keep updating the year number. By entering only the month and day (MM-DD), this tool finds the next upcoming occurrence automatically and counts down the remaining days from today.',
-    formulaExplained:
-      'The calculator splits your MM-DD input into month and day, creates a Date in the current year, and compares it against today’s date. If that date has already passed earlier in the current year, it automatically advances the target year by 1 before rounding up remaining milliseconds into days. Formula: Days Left = ceil((Next Occurrence − Today) / 86,400,000 ms). Built for families, retail marketers, and HR teams.',
-    practicalExample:
-      'Entering 12-25 on November 27, 2026 targets December 25, 2026 in the current year and calculates 28 days remaining until the next occurrence on Fri Dec 25 2026.',
+      'Count remaining days until your next birthday, anniversary, or recurring annual event using our free Days Until Birthday / Event Calculator.',
     howToUseSteps: [
-      'Type your birthday or annual holiday month and day into Event Date using MM-DD format (such as 12-25).',
-      'Confirm two digits for the month (01–12) followed by a hyphen and two digits for the day (01–31).',
-      'Read the top Calculated Result showing the exact days remaining until that date arrives.',
-      'Check the secondary output line to verify the exact weekday and year of the next occurrence.',
+      'Type your celebration month and day inside Event Date (MM-DD) separated by a hyphen.',
+      'Check remaining days and the exact weekday of the upcoming occurrence.',
     ],
+    formulaExplanation:
+      'Recurring annual countdown evaluates your Event Date (MM-DD) in the current calendar year; if that date already passed earlier this year, it automatically rolls forward to next year before computing remaining days. Formula: Days Left = ceil((Next Event Timestamp − Today Midnight) / 86,400,000 ms).',
+    practicalExample:
+      'Checking Event Date (MM-DD) = 12-25 on November 28, 2026 shows 27 days remaining (Next occurrence: Fri Dec 25 2026).',
     faqs: [
       {
-        q: 'Why do I only enter MM-DD instead of a full YYYY-MM-DD date?',
-        a: 'Annual milestones recur each year, so skipping the year lets the tool pick this year or next year dynamically based on today’s date.',
+        q: 'Why does Event Date (MM-DD) omit the year?',
+        a: 'Because birthdays and anniversaries repeat annually, entering just month and day lets the calculator find the next upcoming date automatically.',
       },
       {
-        q: 'How do I check days remaining until August 14 or March 23?',
-        a: 'Enter 08-14 for August 14 or 03-23 for March 23 to count down to the next national celebration.',
+        q: 'What displays if Event Date (MM-DD) matches today’s date?',
+        a: 'It reports 0 days remaining because the celebration falls on today itself.',
       },
       {
-        q: 'What does it display if the event falls on tomorrow’s date?',
-        a: 'Using ceiling rounding on fractional hours remaining reports 1 day remaining until tomorrow.',
-      },
-      {
-        q: 'How does the countdown treat a leap-day birthday like 02-29?',
-        a: 'In common non-leap years, Date rollover treats 02-29 as March 1 so the countdown continues working smoothly every year.',
+        q: 'Should single-digit months or days include leading zeros like 03-09?',
+        a: 'Yes—two-digit MM-DD formatting (03-09 for March 9) parses cleanly every time.',
       },
     ],
   },
@@ -590,35 +469,27 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-quarter-year': {
     seoTitle: `Free Quarter of the Year Finder Calculator – Q1 to Q4 Lookup | ${SITE_NAME}`,
     metaDescription:
-      'Identify which calendar quarter (Q1, Q2, Q3, or Q4) and month any YYYY-MM-DD date falls into with this free Quarter Finder.',
-    intro:
-      'Financial reports, quarterly tax filings, and corporate sales quotas divide the 12-month year into four equal three-month quarters (Q1 to Q4). When reviewing historical invoices or planning upcoming targets, checking a date’s exact quarter avoids misfiling across quarter boundaries. Enter any calendar date to view its quarter code and month name immediately.',
-    formulaExplained:
-      'The calculator reads the zero-indexed calendar month from your entered date (0 for January through 11 for December), divides by 3, takes the integer floor, and adds 1 to map months 0–2 to Q1, 3–5 to Q2, 6–8 to Q3, and 9–11 to Q4. Formula: Calendar Quarter = floor(MonthIndex / 3) + 1. Tailored for accountants, tax analysts, and sales directors.',
-    practicalExample:
-      'Entering 2026-08-14 extracts August (zero-indexed month 7). Computing floor(7 / 3) + 1 equals 2 + 1 = 3, returning Quarter Q3 (2026) and Month: August.',
+      'Identify the calendar quarter (Q1, Q2, Q3, or Q4) and month name for any date using our free Quarter of the Year Finder Calculator.',
     howToUseSteps: [
-      'Type any date in YYYY-MM-DD format into the Date field (default 2026-08-14).',
-      'Check the Calculated Result box to read the calendar quarter (Q1 through Q4) and year.',
-      'Confirm the full month name displayed immediately beneath the primary quarter label.',
-      'Test quarter boundary dates such as March 31 vs April 1 to confirm cutoff alignment.',
+      'Enter any date inside Date (YYYY-MM-DD).',
+      'Inspect the assigned calendar quarter (Q1–Q4), year, and full month name.',
     ],
+    formulaExplanation:
+      'Calendar quarters partition 12 months (zero-indexed 0 through 11) into four equal three-month reporting blocks: Q1 (Jan–Mar), Q2 (Apr–Jun), Q3 (Jul–Sep), and Q4 (Oct–Dec). Formula: Quarter = floor(MonthIndex_0_to_11 / 3) + 1.',
+    practicalExample:
+      'Entering Date (YYYY-MM-DD) = 2026-08-14 places August (index 7) into Quarter Q3 (2026).',
     faqs: [
       {
-        q: 'Which calendar months belong to Q1, Q2, Q3, and Q4?',
+        q: 'Which months belong inside Q1, Q2, Q3, and Q4?',
         a: 'Q1 covers January–March, Q2 covers April–June, Q3 covers July–September, and Q4 covers October–December.',
       },
       {
-        q: 'How do fiscal years starting in July affect quarter labels?',
-        a: 'Organizations running a July–June fiscal year treat calendar Q3 (July–September) as their Fiscal Q1 and calendar Q2 (April–June) as Fiscal Q4.',
+        q: 'Does a company or Pakistan fiscal year match Q1–Q4?',
+        a: 'Many corporations follow standard Jan–Dec Q1–Q4, whereas Pakistan’s government fiscal year starts July 1 (making July–September Fiscal Q1).',
       },
       {
-        q: 'When do publicly traded companies typically close quarterly earnings?',
-        a: 'Most calendar-year reporting schedules close quarterly books on March 31, June 30, September 30, and December 31.',
-      },
-      {
-        q: 'Can I check dates decades in the past or future?',
-        a: 'Yes, any valid Gregorian date in YYYY-MM-DD format resolves to its exact quarter.',
+        q: 'Can Date (YYYY-MM-DD) look up quarters for past or future years?',
+        a: 'Yes—enter any year in YYYY-MM-DD format to tag historical sales logs or future project milestones.',
       },
     ],
   },
@@ -626,35 +497,27 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-days-passed-year': {
     seoTitle: `Free Days Passed in Current Year Calculator – Day Number & % | ${SITE_NAME}`,
     metaDescription:
-      'Calculate the ordinal day of the year, percentage elapsed, and days remaining for any date with this free Days Passed Calculator.',
-    intro:
-      'Knowing the ordinal day of the year (from Day 1 on January 1 to Day 365 or 366 on December 31) and the percentage of the year completed helps businesses track annual quota pacing and manufacturing plants decode Julian batch numbers. This tool computes days elapsed, percent completed, and days left in the year for any chosen date.',
-    formulaExplained:
-      'The calculator creates a reference date on January 1 of the chosen year, counts full days elapsed up to your entered date, and adds 1 so January 1 registers as Day 1. It also checks the leap-year rule to set total year days to 365 or 366 before computing percentage elapsed. Formula: Day Number = floor((Date − Jan 1) / 86,400,000) + 1; Percent = (Day Number / Year Days) × 100. Built for QA teams, sales analysts, and planners.',
-    practicalExample:
-      'Checking 2026-07-01 in non-leap year 2026 shows Day 182 of 365 (49.9% completed), with exactly 183 days remaining before the year closes.',
+      'Find ordinal day of the year (1–366), year completion percentage, and days remaining with our free Days Passed in Current Year Calculator.',
     howToUseSteps: [
-      'Enter the date you want to benchmark in YYYY-MM-DD format (default 2026-07-01).',
-      'Review the top Calculated Result for the ordinal Day Number out of 365 or 366 and percentage passed.',
-      'Check the secondary note beneath to see how many days remain in that year.',
-      'Compare the percentage passed against your annual revenue or study milestones.',
+      'Enter your target date inside Date (YYYY-MM-DD).',
+      'View the exact ordinal day number, percent of year elapsed, and remaining days.',
     ],
+    formulaExplanation:
+      'Julian ordinal day counting subtracts January 1 of the entered date’s year from the entered date, adds 1 inclusive day, and divides by 365 (or 366 in leap years) to report percentage progress. Formula: Day of Year = floor((Date − Jan 1) / 86,400,000 ms) + 1; Year % = (Day / YearDays) × 100.',
+    practicalExample:
+      'Inspecting Date (YYYY-MM-DD) = 2026-07-01 returns Day 182 of 365 (49.9%) with 183 days remaining in 2026.',
     faqs: [
       {
-        q: 'Which date sits at the exact midpoint of a 365-day year?',
-        a: 'July 2 is Day 183 of a standard 365-day year, leaving 182 days before it and 182 days after it.',
+        q: 'Why does July 1 equal Day 182 in 2026 instead of 183?',
+        a: 'Because 2026 is a common 365-day year (February has 28 days), Jan–Jun total 181 days, making July 1 Day 182; in leap years it becomes Day 183.',
       },
       {
-        q: 'Does the denominator switch to 366 automatically during leap years?',
-        a: 'Yes. Entering a date in 2028 or 2032 automatically updates the denominator to 366 total days.',
+        q: 'What day number does December 31 equal?',
+        a: 'December 31 evaluates to Day 365 in standard years and Day 366 in leap years (100.0% elapsed, 0 days remaining).',
       },
       {
-        q: 'Where are ordinal day numbers used in industry?',
-        a: 'Food and pharmaceutical packaging often uses 3-digit Julian day codes (such as 182 for July 1) to mark exact production dates.',
-      },
-      {
-        q: 'How can managers check annual sales pacing from this output?',
-        a: 'If 49.9% of the year has passed, cumulative year-to-date output should ideally track near or above 50% of the yearly goal.',
+        q: 'Where do teams use ordinal Day of Year numbers?',
+        a: 'Logistics batch codes, agriculture calendars, seasonal retail pacing, and ISO annual quota trackers rely on Day 1–366 pacing.',
       },
     ],
   },
@@ -662,35 +525,28 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-retirement-countdown': {
     seoTitle: `Free Retirement Countdown Calculator – Years & Days Left | ${SITE_NAME}`,
     metaDescription:
-      'Estimate how many working years and approximate days remain until your target retirement age with this free Retirement Countdown Calculator.',
-    intro:
-      'Whether your goal is early financial independence at 50 or standard superannuation at age 60 or 65, turning your remaining career span into concrete years and days clarifies savings priorities. Enter your current age and target retirement age to see both years left and approximate calendar days remaining.',
-    formulaExplained:
-      'Once verifying that your target retirement age exceeds your current age, the calculator subtracts current age from retirement age to find working years remaining, then multiplies by 365 days for a rough day-level horizon. Formula: Years Left = Retirement Age − Current Age; Approximate Days = Years Left × 365. Ideal for employees, civil servants, and pension planners.',
-    practicalExample:
-      'A 35-year-old employee planning to retire at age 60 has 60 − 35 = 25 years remaining, which translates to approximately 9,125 days before target retirement at age 60.',
+      'Calculate remaining working years and approximate days until your target retirement age using our free Retirement Countdown Calculator.',
     howToUseSteps: [
-      'Type your present age in whole years into the Current Age field (default 35).',
-      'Type your planned retirement age into the Retirement Age field (default 60).',
-      'Inspect the Calculated Result box showing years left and approximate total days.',
-      'Test different target ages (such as 55 vs 65) to see how each five-year shift changes your horizon.',
+      'Type your current age in years inside Current Age (Years).',
+      'Enter your planned retirement milestone age inside Retirement Age.',
+      'Review remaining years and approximate total days left to retirement.',
     ],
+    formulaExplanation:
+      'Retirement horizon subtracts Current Age from Retirement Age and multiplies remaining years by 365 days to express long-term career runway in both years and days. Formula: Years Left = max(0, Retirement Age − Current Age); Approx Days = Years Left × 365.',
+    practicalExample:
+      'Setting Current Age (Years) = 35 and Retirement Age = 60 computes 25 years remaining (~9,125 days) until retirement.',
     faqs: [
       {
-        q: 'What is the typical public-sector retirement age in many civil services?',
-        a: 'Age 60 is widely used as the standard superannuation benchmark, while private corporate policies frequently range from 58 to 65.',
+        q: 'What is the standard government retirement age in Pakistan?',
+        a: 'Most civil and public-sector employees in Pakistan retire at age 60, while private-sector professionals often plan anywhere from 55 to 65.',
       },
       {
-        q: 'Why does seeing remaining days help long-term retirement saving?',
-        a: 'Viewing a 25-year window as ~9,125 days makes monthly pension or mutual fund contributions feel concrete and actionable.',
+        q: 'Can Current Age (Years) or Retirement Age accept halves like 57.5?',
+        a: 'Yes—decimals calculate fractional years and scale approximate days left proportionally.',
       },
       {
-        q: 'What happens if someone enters a retirement age smaller than or equal to current age?',
-        a: 'Validation catches that invalid range cleanly and prompts you to enter a retirement age greater than your current age.',
-      },
-      {
-        q: 'Does the 365-day multiplier account for leap years?',
-        a: 'It gives a clean annual approximation; over 25 years, leap years add roughly 6 extra days to the total.',
+        q: 'How can I turn remaining years into an exact future calendar year?',
+        a: 'Add Years Left directly onto the current calendar year (for example, 2026 + 25 = 2051).',
       },
     ],
   },
@@ -698,35 +554,28 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-hourly-to-annual': {
     seoTitle: `Free Hourly Wage to Annual Salary (Time-based) Calculator | ${SITE_NAME}`,
     metaDescription:
-      'Convert an hourly rate and weekly work hours into annualized, monthly, and weekly earnings using this free Hourly to Annual Calculator.',
-    intro:
-      'Freelancers, part-time instructors, and contract developers frequently negotiate compensation by the hour, making it hard to compare offers against salaried full-time roles. This time-based wage converter translates any hourly rate and weekly hour load into total annual, monthly, and weekly pay on one screen.',
-    formulaExplained:
-      'Weekly earnings equal your Hourly Rate multiplied by Hours per Week; multiplying by 52 weeks per year yields gross annual salary, and dividing annual salary by 12 gives average monthly income. Formula: Annual Salary = Hourly Rate × Hours per Week × 52; Monthly = Annual / 12. Tailored for remote contractors, hourly staff, and HR analysts.',
-    practicalExample:
-      'Billing 750 per hour for 40 hours per week generates 30,000 per week. Across 52 weeks, total annual pay reaches 1,560,000, averaging 130,000 per calendar month.',
+      'Convert hourly pay and weekly working hours into annual, monthly, and weekly earnings using our free Hourly Wage to Annual Salary (Time-based) Calculator.',
     howToUseSteps: [
-      'Enter your hourly pay or consulting rate in the Hourly Rate box (default 750).',
-      'Enter your average weekly billable or shift hours in Hours per Week (default 40).',
-      'View your annualized gross pay in the primary Calculated Result card.',
-      'Check the secondary breakdown underneath for equivalent monthly and weekly pay figures.',
+      'Enter your per-hour pay inside Hourly Rate (PKR).',
+      'Type regular weekly worked hours inside Hours per Week.',
+      'Check annualized 52-week salary alongside monthly and weekly income figures.',
     ],
+    formulaExplanation:
+      'Annualized time-wage conversion multiplies Hourly Rate by Hours per Week for weekly gross income, multiplies by 52 weeks for annual salary, and divides annual pay by 12 for average monthly earnings. Formula: Annual Salary = Hourly Rate × Hours per Week × 52; Monthly = Annual / 12.',
+    practicalExample:
+      'Earning Hourly Rate (PKR) = 900 across Hours per Week = 40 hours equals Weekly: PKR 36,000, Monthly: PKR 156,000, and PKR 1,872,000 / year.',
     faqs: [
       {
-        q: 'Why does monthly salary equal Annual divided by 12 instead of Weekly times 4?',
-        a: 'A year has 52 weeks—about 4.33 weeks per month—so multiplying weekly earnings by 4 understates actual monthly income by roughly 8.3%.',
+        q: 'How many total annual hours does a 40 Hours per Week schedule represent?',
+        a: '40 hours × 52 weeks equals 2,080 paid work hours per year when paid time off is included.',
       },
       {
-        q: 'How should freelancers adjust for unpaid holidays or sick weeks?',
-        a: 'If you work 48 weeks instead of 52, scale down your Hours per Week slightly (e.g., 40 × 48 / 52 ≈ 36.9 hours) for an accurate annual forecast.',
+        q: 'What if I take 4 unpaid weeks off per year as a freelancer?',
+        a: 'Reduce Annual Salary by 4/52 (roughly 7.7%), or multiply Hourly Rate × Hours per Week × 48 weeks.',
       },
       {
-        q: 'Are overtime multipliers or income taxes deducted here?',
-        a: 'No, this calculates gross straight-time earnings before taxes, deductions, or 1.5× overtime premiums.',
-      },
-      {
-        q: 'Can part-time tutors or shift workers use this tool?',
-        a: 'Yes, entering 15 or 20 hours per week works accurately for part-time schedules too.',
+        q: 'Does this converter subtract income tax or EOBI deductions?',
+        a: 'No—outputs represent gross pre-tax earnings before statutory payroll taxes.',
       },
     ],
   },
@@ -734,35 +583,27 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-century-calc': {
     seoTitle: `Free Century & Millennium Calculator – Find Any Year's Era | ${SITE_NAME}`,
     metaDescription:
-      'Find which century and millennium any historical or future year belongs to using this free Century & Millennium Calculator.',
-    intro:
-      'History readers and students frequently trip over century naming—thinking 1947 sits in the 19th century when it actually belongs to the 20th century, or placing 2026 in the 20th century instead of the 21st. Because the 1st century spanned Years 1 through 100, century numbers sit one higher than the leading two digits for most years. Enter any year here to check both its century and millennium immediately.',
-    formulaExplained:
-      'Dividing any positive calendar year by 100 and rounding upward with the mathematical ceiling function assigns Years 1–100 to the 1st century, 1901–2000 to the 20th century, and 2001–2100 to the 21st century. Dividing by 1,000 and taking the ceiling determines the millennium. Formula: Century = ceil(Year / 100); Millennium = ceil(Year / 1000). Designed for students, teachers, and researchers.',
-    practicalExample:
-      'Entering the year 2026 computes ceil(2026 / 100) = ceil(20.26) = 21st Century and ceil(2026 / 1000) = 3rd Millennium.',
+      'Determine the exact century and millennium of any historical or future year using our free Century & Millennium Calculator.',
     howToUseSteps: [
-      'Type any positive integer year into the Year field (for example, 1947 or 2026).',
-      'Read the top Calculated Result showing the ordinal century (with proper st/nd/rd/th suffix).',
-      'Check the secondary output line directly beneath to see the corresponding millennium.',
-      'Compare boundary years like 1900 vs 1901 or 2000 vs 2001 to verify historical era transitions.',
+      'Type any positive AD/CE calendar year inside the Year input.',
+      'Read its corresponding Century and Millennium immediately.',
     ],
+    formulaExplanation:
+      'Because historical numbering begins at Year 1 CE rather than Year 0, centuries span years xx01–(x+1)00 and millennia span 1,000-year blocks starting at 0001; dividing Year by 100 or 1,000 and rounding upward gives exact era indices. Formula: Century = ceil(Year / 100); Millennium = ceil(Year / 1000).',
+    practicalExample:
+      'Entering Year = 2026 rounds ceil(2026 / 100) = 21 and ceil(2026 / 1000) = 3, placing 2026 in the 21st Century (21th display) and 3rd Millennium.',
     faqs: [
       {
-        q: 'Why is 2026 in the 21st century even though the year begins with 20?',
-        a: 'The 1st century ran from Year 1 to Year 100 (there was no Year 0), pushing every subsequent century up by 1 relative to the first two digits.',
+        q: 'Why is the year 2026 in the 21st Century instead of the 20th Century?',
+        a: 'The 1st Century ran from years 1 to 100, so every century sits one number ahead of its leading two digits (2001–2100 is the 21st Century).',
       },
       {
-        q: 'Which century and millennium does the year 1947 fall into?',
-        a: 'ceil(1947 / 100) = 20, placing 1947 in the 20th Century and the 2nd Millennium.',
+        q: 'Did the 3rd Millennium start in 2000 or 2001?',
+        a: 'Strict calendar math places year 2000 as the final year of the 2nd Millennium (ceil(2000/1000) = 2) and 2001 as the start of the 3rd Millennium.',
       },
       {
-        q: 'Did the year 2000 belong to the 20th or 21st century?',
-        a: 'Mathematically, 2000 ÷ 100 = 20 exactly, making 2000 the final year of the 20th century and the 2nd millennium, while 2001 began the 21st century.',
-      },
-      {
-        q: 'Can I test years before 100 AD, such as Year 75?',
-        a: 'Yes, Year 75 calculates ceil(75 / 100) = 1st Century and 1st Millennium.',
+        q: 'Which century does the year 1900 belong to?',
+        a: '1900 divided by 100 equals 19 exactly, making 1900 the closing year of the 19th Century.',
       },
     ],
   },
@@ -770,71 +611,56 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-stopwatch-split': {
     seoTitle: `Free Stopwatch Lap Split Time Calculator – Average Pace | ${SITE_NAME}`,
     metaDescription:
-      'Calculate average lap time in minutes and seconds from total session duration and completed laps with this free Split Time Calculator.',
-    intro:
-      'Runners pacing intervals around a 400-meter track, swimmers counting pool lengths, and industrial engineers timing repetitive factory cycles all need average split time per lap. Dividing total minutes by lap count manually leaves awkward decimals like 4.35 minutes instead of readable minutes and seconds. This calculator converts total duration and laps into clean minutes and seconds per lap.',
-    formulaExplained:
-      'Total elapsed minutes are divided by the number of completed laps. The integer portion yields whole minutes per lap, while the fractional remainder is multiplied by 60 and rounded to the nearest second. Formula: Avg Minutes = Total Duration / Laps; Lap Seconds = round((Avg Minutes − floor(Avg Minutes)) × 60). Built for athletes, running coaches, and time-study engineers.',
-    practicalExample:
-      'Completing 10 track laps in 45 total minutes equals 45 / 10 = 4.50 minutes per lap. Converting the 0.50 fractional minute by 60 seconds produces 4 min 30 sec per lap.',
+      'Divide total workout or race minutes by completed laps to find exact average split time using our free Stopwatch Lap Split Time Calculator.',
     howToUseSteps: [
-      'Enter your overall session time in minutes in the Total Duration field (decimals like 22.5 are supported).',
-      'Enter the total count of completed laps or production cycles in Number of Laps Completed.',
-      'Check the Calculated Result box for your exact average pace formatted in minutes and seconds.',
-      'Compare different lap targets to plan negative splits or physical fitness test pacing.',
+      'Enter total session time in minutes inside Total Duration (Minutes).',
+      'Type how many circuits or intervals finished inside Number of Laps Completed.',
+      'Check average split time formatted cleanly in minutes and seconds per lap.',
     ],
+    formulaExplanation:
+      'Lap pace averaging divides Total Duration (Minutes) by Number of Laps Completed to obtain decimal minutes per lap, converting the fractional part into integer seconds via × 60. Formula: Avg Lap Mins = Total Duration / Laps; Lap Secs = round((Avg Lap Mins − floor(Avg Lap Mins)) × 60).',
+    practicalExample:
+      'Completing Number of Laps Completed = 8 in Total Duration (Minutes) = 36 calculates 36 / 8 = 4.5 min, returning 4 min 30 sec per lap.',
     faqs: [
       {
-        q: 'Can I enter decimal minutes such as 7.5 for 7 minutes 30 seconds?',
-        a: 'Yes. Decimal minutes are handled cleanly, so 7.5 minutes across 4 laps calculates 1 min 53 sec per lap.',
+        q: 'How can runners convert 400m track splits into 1 km pace?',
+        a: 'Multiply a 400m average lap time by 2.5 (since 2.5 × 400m = 1,000m) to estimate per-kilometer race pace.',
       },
       {
-        q: 'What happens if 0 is entered for the lap count?',
-        a: 'Input guarding prevents division by zero and asks for a lap count greater than 0.',
+        q: 'Can Total Duration (Minutes) include decimals like 18.5 for 18m 30s?',
+        a: 'Yes—convert extra seconds by dividing by 60 (for instance, 30s = 0.50 min, 15s = 0.25 min) before entering Total Duration (Minutes).',
       },
       {
-        q: 'Can manufacturing supervisors use this for cycle-time audits?',
-        a: 'Yes, simply enter total shift runtime in minutes and total units completed to get average cycle time per unit.',
-      },
-      {
-        q: 'How can athletes prepare for timed 1.6 km (4-lap) physical runs?',
-        a: 'Enter your target run time in minutes and 4 laps to learn the exact per-lap split you must hit every 400 meters.',
+        q: 'Why must Number of Laps Completed stay greater than zero?',
+        a: 'Dividing total workout minutes by zero laps is mathematically undefined.',
       },
     ],
   },
 
   'dt-dst-checker': {
-    seoTitle: `Free Daylight Saving Time (DST) Detector Calculator | ${SITE_NAME}`,
+    seoTitle: `Free Daylight Saving Time (DST) Detector Calculator – Season Check | ${SITE_NAME}`,
     metaDescription:
-      'Check whether Daylight Saving Time (DST) is generally active in any month of the year using this free DST Detector Calculator.',
-    intro:
-      'Even in regions that stay on standard time all year, anyone working with teams or financial markets in the UK, Europe, the United States, or Canada needs to know when Western clocks shift for summer. When Daylight Saving Time is active, time differences with London and New York shrink or shift by an hour. Enter a month number (1–12) to verify whether Northern Hemisphere summer DST is typically active.',
-    formulaExplained:
-      'Across major Northern Hemisphere regions (North America and Europe), clocks advance by 1 hour during spring (March, month 3) and revert to standard time in autumn (late October / early November). The detector evaluates whether your month integer falls inside months 3 through 10. Formula: DST Typically Active if 3 ≤ Month ≤ 10. Helpful for remote teams, market traders, and flight schedulers.',
-    practicalExample:
-      'Entering Month 6 (June) falls squarely inside the 3–10 window, returning "Likely Active (Spring / Summer DST)" and noting the Northern Hemisphere March–October rule.',
+      'Check whether spring/summer Daylight Saving Time is active for any month 1–12 using our free Daylight Saving Time (DST) Detector Calculator.',
     howToUseSteps: [
-      'Enter a numeric month from 1 (January) through 12 (December) in the Month field.',
-      'Review the Calculated Result verdict indicating whether Daylight Saving Time or Standard Time applies.',
-      'Read the reference note beneath the verdict for the March–October window explanation.',
-      'Use this check before confirming international calendar invites around March and October clock transitions.',
+      'Type numeric month index from 1 (January) to 12 (December) inside Month (1 = Jan, 12 = Dec).',
+      'View whether Northern Hemisphere spring/summer Daylight Saving Time is typically active.',
     ],
+    formulaExplanation:
+      'Northern Hemisphere Daylight Saving Time generally shifts clocks forward 1 hour from March (month 3) through October (month 10), returning to standard winter time from November through February. Formula: DST Likely Active = (Month ≥ 3 && Month ≤ 10).',
+    practicalExample:
+      'Entering Month (1 = Jan, 12 = Dec) = 7 (July) returns Likely Active (Spring / Summer DST) across North America and Europe.',
     faqs: [
       {
-        q: 'When do clocks change in the UK and European Union?',
-        a: 'European and UK clocks spring forward on the last Sunday of March and fall back on the last Sunday of October.',
+        q: 'Does Pakistan or the Middle East observe Daylight Saving Time?',
+        a: 'No—Pakistan (PKT), UAE, and Saudi Arabia keep constant year-round standard time without spring or autumn clock shifts.',
       },
       {
-        q: 'When does Daylight Saving Time begin and end in the USA and Canada?',
-        a: 'Most US states and Canadian provinces shift forward on the second Sunday of March and return to standard time on the first Sunday of November.',
+        q: 'Why do exact switch days vary between the US and Europe in March and October/November?',
+        a: 'The US starts DST on the second Sunday of March and ends on the first Sunday of November, whereas Europe shifts on the last Sundays of March and October.',
       },
       {
-        q: 'How does DST alter meeting times for teams on fixed standard time?',
-        a: 'During DST months, a 9:00 AM meeting in London or New York arrives 1 hour earlier in fixed non-DST time zones.',
-      },
-      {
-        q: 'Do Southern Hemisphere countries follow the same March–October window?',
-        a: 'No, Southern Hemisphere regions such as parts of Australia observe summer DST during the opposite months (roughly October to April).',
+        q: 'How does Southern Hemisphere DST differ from March–October?',
+        a: 'Countries like Australia and New Zealand reverse seasons, running DST roughly from October through early April.',
       },
     ],
   },
@@ -842,107 +668,84 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-work-hours-year': {
     seoTitle: `Free Annual Working Hours Calculator – Yearly Work Hours | ${SITE_NAME}`,
     metaDescription:
-      'Compute total annual working hours after deducting weekly Sundays and paid holidays or leaves with this free Annual Working Hours Calculator.',
-    intro:
-      'Estimating productive hours per year is crucial when budgeting annual consulting contracts, calculating employee hourly costs, or forecasting factory machine utilization. Simply multiplying 365 days by 8 hours ignores weekly Sundays and public holidays. This calculator subtracts 52 Sundays and your yearly holidays/leaves before multiplying by daily shift length.',
-    formulaExplained:
-      'Starting from a 365-day year, the formula deducts 52 Sundays plus your entered annual public holidays and leave days to establish net active workdays, then multiplies by working hours per day. Formula: Annual Working Hours = (365 − 52 Sundays − Public Holidays/Leaves) × Hours per Day. Built for cost accountants, HR managers, and industrial engineers.',
-    practicalExample:
-      'For an 8-hour daily shift with 15 annual public holidays and leaves, net working days equal 365 − 52 − 15 = 298 days. Multiplying 298 by 8 hours outputs 2,384 working hours / year.',
+      'Compute total annual working hours from daily shift length and yearly holidays/leaves using our free Annual Working Hours Calculator.',
     howToUseSteps: [
-      'Type your normal shift duration into Working Hours per Day (default 8).',
-      'Enter your combined annual public holidays and paid leaves in the second input field (default 15).',
-      'Read total yearly hours in the Calculated Result display.',
-      'Check the secondary line to see the exact net working days used in the annual tally.',
+      'Type normal daily shift duration inside Working Hours per Day.',
+      'Enter expected annual leave and public holidays inside Public Holidays / Leaves per Year.',
+      'Inspect total working hours per year alongside net working days.',
     ],
+    formulaExplanation:
+      'Annual work capacity starts from 365 calendar days, subtracts 52 weekly Sundays plus Public Holidays / Leaves per Year to determine net working days, and multiplies by Working Hours per Day. Formula: Annual Hours = max(0, 365 − 52 − Holidays) × Working Hours per Day.',
+    practicalExample:
+      'Working Working Hours per Day = 8 with Public Holidays / Leaves per Year = 15 yields 298 working days × 8 = 2,384 working hours / year.',
     faqs: [
       {
-        q: 'How do I calculate annual hours for a 5-day Monday–Friday office schedule?',
-        a: 'Add 52 Saturdays to your public holidays and leaves in the holidays input (for example, 52 + 15 = 67) to reflect 246 working days.',
+        q: 'What should I enter in Public Holidays / Leaves per Year if my office takes Saturdays off too?',
+        a: 'Add 52 Saturdays onto your annual public holidays and paid leaves (e.g., 52 + 15 = 67) to model a 5-day workweek accurately.',
       },
       {
-        q: 'How do 2,384 hours compare to a standard 2,080-hour Western benchmark?',
-        a: 'A 2,080-hour year assumes 5 days/week (52 × 40) without subtracting holidays, whereas 2,384 hours reflects a 6-day Monday–Saturday schedule minus 15 holidays.',
+        q: 'How do HR managers use 2,384 working hours / year?',
+        a: 'Dividing annual payroll cost or project retainers by total annual working hours yields accurate hourly labor cost rates.',
       },
       {
-        q: 'How can I derive effective hourly cost from an annual salary?',
-        a: 'Divide total annual compensation by the annual working hours calculated here to find true per-hour cost.',
-      },
-      {
-        q: 'Can part-time schedules be evaluated too?',
-        a: 'Yes, entering 4 or 5 working hours per day scales the annual hours proportionally.',
+        q: 'Can Working Hours per Day take decimals such as 7.5 hours?',
+        a: 'Yes—7.5 hours (for an 8-hour shift excluding a 30-minute unpaid break) computes exact yearly totals.',
       },
     ],
   },
 
   'dt-seconds-to-time': {
-    seoTitle: `Free Seconds to Hours:Minutes:Seconds Converter Calculator | ${SITE_NAME}`,
+    seoTitle: `Free Seconds to Hours:Minutes:Seconds Converter Calculator – HH:MM:SS | ${SITE_NAME}`,
     metaDescription:
-      'Convert raw elapsed seconds into clean zero-padded HH:MM:SS time format using this free Seconds to Time Converter Calculator.',
-    intro:
-      'Call center dialers, video export timelines, telemetry logs, and fitness trackers frequently record durations strictly in raw seconds like 10,540. Converting thousands of seconds into readable hours, minutes, and seconds by hand takes repetitive division. Enter any second total to format it instantly as HH:MM:SS.',
-    formulaExplained:
-      'Whole hours are extracted using integer division by 3,600 (seconds per hour). The remaining seconds (Total % 3,600) are divided by 60 for whole minutes, and the final modulo-60 remainder supplies leftover seconds, padded cleanly with leading zeros. Formula: Hours = floor(S / 3600); Minutes = floor((S % 3600) / 60); Seconds = S % 60. Ideal for video editors, QA analysts, and developers.',
-    practicalExample:
-      'Entering 10,540 seconds gives floor(10540 / 3600) = 2 hours with 3,340 seconds remaining; dividing 3,340 by 60 yields 55 minutes and 40 seconds—formatted as 02:55:40.',
+      'Convert any raw count of seconds into clean HH:MM:SS clock format using our free Seconds to Hours:Minutes:Seconds Converter Calculator.',
     howToUseSteps: [
-      'Type or paste any total number of seconds into the Total Seconds input box (default 10540).',
-      'Check the Calculated Result card showing clean zero-padded HH:MM:SS output.',
-      'Read the descriptive breakdown line right below for spelled-out hours, minutes, and seconds.',
-      'Copy the formatted timestamp directly into production logs or video notes.',
+      'Enter total raw seconds inside the Total Seconds field.',
+      'View the formatted HH:MM:SS string and full hours, minutes, and seconds breakdown.',
     ],
+    formulaExplanation:
+      'Base-60 time normalization extracts whole hours by dividing Total Seconds by 3,600, computes remaining minutes by dividing the remainder by 60, and leaves modulo-60 seconds padded to two digits each. Formula: Hours = floor(S / 3,600); Mins = floor((S % 3,600) / 60); Secs = floor(S % 60).',
+    practicalExample:
+      'Converting Total Seconds = 10540 splits into 2 × 3,600 (7,200) + 55 × 60 (3,300) + 40 = 02:55:40 (2 hours, 55 minutes, 40 seconds).',
     faqs: [
       {
-        q: 'How many total seconds make up 1 hour and 1 full day?',
-        a: 'One hour contains 3,600 seconds (60 × 60), and a full 24-hour day contains 86,400 seconds.',
+        q: 'Can Total Seconds exceed 86,400 (more than 24 hours)?',
+        a: 'Yes—hours accumulate cleanly past 24 (for instance, 90,000 seconds displays 25:00:00) for long race or server-uptime logs.',
       },
       {
-        q: 'Does the converter work when seconds exceed 24 hours (86,400)?',
-        a: 'Yes. Total hours count past 24 cleanly—for instance, 90,000 seconds formats as 25:00:00.',
+        q: 'How many seconds sit inside 1 hour and inside 1 full day?',
+        a: 'One hour contains 3,600 seconds (60 × 60), and one 24-hour day contains 86,400 seconds.',
       },
       {
-        q: 'Why are call center handle times often exported in seconds?',
-        a: 'Telecom dialers log Average Handle Time (AHT) in exact integer seconds so managers can aggregate sums accurately before converting to HH:MM:SS.',
-      },
-      {
-        q: 'Are single-digit hours, minutes, or seconds zero-padded?',
-        a: 'Yes, values under 10 automatically display a leading zero (such as 02:05:09) for consistent timecode readability.',
+        q: 'What happens if I enter decimal seconds like 125.8?',
+        a: 'Seconds floor cleanly to whole integer display seconds so HH:MM:SS formatting stays uniform.',
       },
     ],
   },
 
   'dt-weeks-diff': {
-    seoTitle: `Free Date Difference in Weeks & Days Calculator | ${SITE_NAME}`,
+    seoTitle: `Free Date Difference in Weeks & Days Calculator – Day Breakdown | ${SITE_NAME}`,
     metaDescription:
-      'Convert any day span into completed weeks, remaining days, and total hours with this free Weeks & Days Calculator.',
-    intro:
-      'Probation periods, pregnancy trimesters, university semesters, and construction curing windows are easiest to track when expressed in weeks plus remaining days rather than rough months. Rather than dividing large day counts by 7 manually, enter any number of days here to see full weeks, leftover days, and total hours.',
-    formulaExplained:
-      'Dividing Total Days by 7 and taking the floor gives completed 7-day weeks, while the modulo operator (%) captures the 0 to 6 remaining days; multiplying days by 24 reports equivalent total hours. Formula: Weeks = floor(Days / 7); Remaining Days = Days % 7; Total Hours = Days × 24. Helpful for HR managers, clinics, educators, and contractors.',
-    practicalExample:
-      'A standard 90-day employee probation period divides by 7 to produce floor(90 / 7) = 12 Weeks and 6 Days (with 90 % 7 = 6), totaling 2,160 hours.',
+      'Convert any total number of days into full weeks, leftover days, and total hours using our free Date Difference in Weeks & Days Calculator.',
     howToUseSteps: [
-      'Type any total day interval into the Total Number of Days field (default 90).',
-      'View the Calculated Result displaying exact full weeks and remaining days.',
-      'Review the secondary result directly below to see the equivalent hours count.',
-      'Pair this with Date Difference if you first need the day count between two calendar dates.',
+      'Type any integer day count inside Total Number of Days.',
+      'Read equivalent whole weeks, remainder days, and total hours.',
     ],
+    formulaExplanation:
+      'Week-and-day conversion divides Total Number of Days by 7 via integer floor division to count full 7-day weeks, takes modulo 7 for leftover days, and multiplies Total Number of Days by 24 for total hours. Formula: Weeks = floor(Days / 7); Remainder Days = Days % 7; Hours = Days × 24.',
+    practicalExample:
+      'Entering Total Number of Days = 100 divides 100 by 7 to output 14 Weeks and 2 Days (Total hours: 2,400 hours).',
     faqs: [
       {
-        q: 'Why is a 40-week pregnancy tracked in weeks instead of months?',
-        a: 'Every week is fixed at exactly 7 days, giving obstetric clinics reliable weekly milestones compared to 28–31 day months.',
+        q: 'Why is converting days to weeks useful during pregnancy or project sprints?',
+        a: 'Obstetric timelines (40 weeks = 280 days) and two-week software sprints measure progress in Weeks + Days rather than raw days.',
       },
       {
-        q: 'How many weeks and leftover days are in a 365-day year?',
-        a: '365 days equals 52 Weeks and 1 Day (and 52 Weeks and 2 Days during a 366-day leap year).',
+        q: 'What do 90-day probation or notice periods equal in weeks?',
+        a: '90 days divides into 12 Weeks and 6 Days (just one day shy of 13 full weeks).',
       },
       {
-        q: 'What does a 180-day contract period equal in weeks?',
-        a: '180 days divides cleanly into 25 Weeks and 5 Days.',
-      },
-      {
-        q: 'Does the calculator also compute total hours for the day span?',
-        a: 'Yes, the secondary display multiplies your day count by 24 to output total elapsed hours.',
+        q: 'Can Total Number of Days accept large counts like 1,000 days?',
+        a: 'Yes—1,000 days converts cleanly to 142 Weeks and 6 Days (24,000 hours).',
       },
     ],
   },
@@ -950,71 +753,55 @@ export const datetimeSeoFullMap: Record<string, DateTimeCalculatorSeoEntry> = {
   'dt-unix-epoch-convert': {
     seoTitle: `Free Unix Epoch Timestamp Converter Calculator – Epoch to UTC | ${SITE_NAME}`,
     metaDescription:
-      'Decode any 10-digit Unix epoch timestamp (seconds) into readable UTC date and time with this free Unix Epoch Timestamp Converter.',
-    intro:
-      'API payloads, JWT authentication tokens (`exp` and `iat` claims), and database audit columns store timestamps as cryptic 10-digit epoch integers like 1735689600. Decoding them into human-readable dates without opening a code console saves valuable debugging time. Paste any Unix epoch timestamp in seconds to convert it immediately into a UTC date string.',
-    formulaExplained:
-      'Because standard Unix timestamps measure seconds since January 1, 1970 UTC while JavaScript Date constructors expect milliseconds, the calculator multiplies your epoch input by 1,000 and formats the result via toUTCString(). Formula: UTC Date = new Date(Epoch Seconds × 1000).toUTCString(). Crafted for backend developers, DevOps engineers, and QA analysts.',
-    practicalExample:
-      'Entering the Unix timestamp 1735689600 multiplies by 1,000 to equal 1,735,689,600,000 milliseconds, resolving cleanly to "Wed, 01 Jan 2025 00:00:00 GMT".',
+      'Decode any 10-digit Unix epoch second counter into a human-readable UTC date and clock time using our free Unix Epoch Timestamp Converter Calculator.',
     howToUseSteps: [
-      'Paste or type a 10-digit Unix epoch timestamp in seconds into the Unix Epoch Timestamp box.',
-      'Ensure you entered seconds rather than 13-digit milliseconds (drop the last 3 digits if using ms).',
-      'Read the human-readable UTC weekday, date, and HH:MM:SS time in the Calculated Result box.',
-      'Add or subtract your local UTC offset to translate the GMT output into local clock time.',
+      'Paste or type a Unix epoch integer in seconds inside Unix Epoch Timestamp (Seconds).',
+      'Read the decoded UTC day, date, month, year, and GMT clock time.',
     ],
+    formulaExplanation:
+      'Epoch decoding multiplies Unix Epoch Timestamp (Seconds) by 1,000 to obtain JavaScript epoch milliseconds and resolves the exact UTC date/time relative to 1970-01-01T00:00:00Z. Formula: UTC Date = new Date(Unix Epoch Seconds × 1,000).',
+    practicalExample:
+      'Decoding Unix Epoch Timestamp (Seconds) = 1735689600 outputs Wed, 01 Jan 2025 00:00:00 GMT.',
     faqs: [
       {
-        q: 'What should I do if my timestamp has 13 digits instead of 10?',
-        a: 'A 13-digit timestamp is recorded in milliseconds; remove the trailing three digits before entering it into this seconds converter.',
+        q: 'What if my log file gave a 13-digit timestamp like 1735689600000?',
+        a: 'A 13-digit timestamp is in milliseconds—drop the last three zeros (divide by 1,000) before entering it into Unix Epoch Timestamp (Seconds).',
       },
       {
-        q: 'How do I adjust the GMT/UTC output to my local time zone?',
-        a: 'Add your time zone’s UTC offset (for instance, +5 hours for PKT or −5 hours for EST) to the GMT clock shown.',
+        q: 'Why does output display in GMT / UTC instead of local PKT time?',
+        a: 'Unix epoch time is standardized globally in UTC/GMT so servers across every continent interpret the exact same instant identically.',
       },
       {
-        q: 'Do negative epoch integers work for dates prior to 1970?',
-        a: 'Yes. Negative Unix timestamps count seconds backward before January 1, 1970 GMT.',
-      },
-      {
-        q: 'Where do developers most frequently inspect raw epoch timestamps?',
-        a: 'Common places include JWT token payloads, Stripe/Firebase webhooks, Linux server logs, and SQL integer date columns.',
+        q: 'What is the Year 2038 limit for 32-bit Unix timestamps?',
+        a: 'Signed 32-bit integers max out at 2,147,483,647 (January 19, 2038), whereas modern 64-bit systems decode timestamps centuries into the future.',
       },
     ],
   },
 
   'dt-zodiac-age': {
-    seoTitle: `Free Age in Days & Hours Calculator – Total Days & Hours | ${SITE_NAME}`,
+    seoTitle: `Free Age in Days & Hours Calculator – Years to Days & Hours | ${SITE_NAME}`,
     metaDescription:
-      'Convert any age in years into cumulative days lived, approximate months, and total hours alive with this free Age in Days & Hours Calculator.',
-    intro:
-      'When you only know a person’s age in years—or want a fast estimate for turning 25, 40, or 60—looking up an exact calendar birth date is unnecessary. This quick converter turns any integer or decimal age in years directly into approximate days, months, and cumulative hours alive while factoring leap years.',
-    formulaExplained:
-      'To include roughly one leap day every four years, the calculator multiplies your entered years by the 365.25-day astronomical Julian year average, rounds to nearest whole days, multiplies years by 12 for months, and multiplies days by 24 for total hours. Formula: Total Days = round(Years × 365.25); Total Months = Years × 12; Total Hours = Total Days × 24. Handy for students, educators, and milestone celebrations.',
-    practicalExample:
-      'Entering an age of 25 years calculates round(25 × 365.25) = 9,131 Days (~300 Months) and 9,131 × 24 = 219,144 total hours alive.',
+      'Convert your current age in years into total days, approximate months, and total hours alive using our free Age in Days & Hours Calculator.',
     howToUseSteps: [
-      'Type an age in years into the Age in Years box (whole integers or decimals like 2.5 both work).',
-      'Read the top Calculated Result showing total days and approximate months.',
-      'Check the secondary output beneath to see cumulative hours alive.',
-      'Switch to the main Age Calculator whenever you want exact day-level precision from a specific YYYY-MM-DD birth date.',
+      'Enter your age in years inside the Age in Years box.',
+      'Check total days lived, approximate months, and cumulative hours alive.',
     ],
+    formulaExplanation:
+      'Year-to-day age estimation multiplies Age in Years by 365.25 (accounting for one leap day every four years), multiplies years by 12 for months, and multiplies rounded days by 24 for total hours alive. Formula: Total Days = round(Age Years × 365.25); Months = round(Age Years × 12); Hours = Total Days × 24.',
+    practicalExample:
+      'Entering Age in Years = 30 computes 10,958 Days (~360 Months) and Total hours alive: ~262,992 hours.',
     faqs: [
       {
-        q: 'Why does the calculation multiply years by 365.25 instead of 365?',
-        a: 'Every fourth year adds February 29 (366 days), bringing the average calendar year length close to 365.25 days.',
+        q: 'Why does the calculator multiply Age in Years by 365.25 instead of 365?',
+        a: 'Because every fourth year adds February 29, 365.25 averages leap years accurately across multi-decade lifespans.',
       },
       {
-        q: 'About how many days and hours has an 18-year-old lived?',
-        a: 'At 18 years, someone has lived roughly 6,575 days—or around 157,800 hours.',
+        q: 'When should I use Age in Days & Hours instead of the Date of Birth Age Calculator?',
+        a: 'Use this quick tool when you only know someone’s age in years (such as 30) rather than their exact calendar birth date.',
       },
       {
-        q: 'Can I enter fractional years like 1.5 or 2.5?',
-        a: 'Yes, entering 2.5 years outputs 913 days (~30 months), making it great for toddler milestones or warranty ages.',
-      },
-      {
-        q: 'How does this differ from the Birth-Date Age Calculator?',
-        a: 'This calculator takes a quick numeric year count, whereas the main Age Calculator computes exact calendar years, months, and days from a YYYY-MM-DD birth date.',
+        q: 'Can Age in Years accept decimal ages like 2.5 years for a toddler?',
+        a: 'Yes—2.5 years converts cleanly to 913 Days (~30 Months) and ~21,912 hours.',
       },
     ],
   },

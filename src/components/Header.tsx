@@ -4,7 +4,9 @@ import { categories, getAllCalculators } from '../data/calculatorsData';
 import { CalculatorItem } from '../types';
 import { searchCalculators } from '../utils/search';
 import { BrandLogo } from './BrandLogo';
+import { PWAInstallButton } from './PWAInstallButton';
 import { SITE_NAME } from '../config/site';
+import { CURRENCIES, CurrencyCode } from '../utils/currency';
 
 interface HeaderProps {
   searchQuery: string;
@@ -16,6 +18,8 @@ interface HeaderProps {
   darkMode: boolean;
   setDarkMode: (val: boolean) => void;
   hideSearch?: boolean;
+  currency: CurrencyCode;
+  onChangeCurrency: (c: CurrencyCode) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -26,6 +30,8 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenFavorites,
   onOpenHistory,
   hideSearch = false,
+  currency,
+  onChangeCurrency,
 }) => {
   const allCalculators = useMemo(() => getAllCalculators(), []);
   const totalCount = allCalculators.length;
@@ -130,19 +136,19 @@ export const Header: React.FC<HeaderProps> = ({
         
         {/* Brand Logo & Short Title / Tagline */}
         <div
-          className={`${isMobileSearchOpen ? 'hidden sm:flex' : 'flex'} items-center gap-2.5 sm:gap-3 shrink-0 cursor-pointer`}
+          className={`${isMobileSearchOpen ? 'hidden sm:flex' : 'flex'} items-center gap-2 sm:gap-3 shrink-0 cursor-pointer`}
           onClick={() => {
             if (onLogoClick) onLogoClick();
             else window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <BrandLogo className="w-9 h-9 sm:w-10 sm:h-10" />
+          <BrandLogo className="w-8 h-8 sm:w-10 sm:h-10" />
           <div>
             <span className="block text-sm sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-none">
               {SITE_NAME}
             </span>
             <p className="hidden sm:block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
-              {totalCount}+ Professional Calculators
+              {totalCount} Professional Calculators
             </p>
           </div>
         </div>
@@ -258,7 +264,7 @@ export const Header: React.FC<HeaderProps> = ({
         )}
 
         {/* Action Buttons (+ Mobile Search Trigger when search is enabled) */}
-        <div className={`${isMobileSearchOpen ? 'hidden sm:flex' : 'flex'} items-center gap-1.5 sm:gap-2 shrink-0`}>
+        <div className={`${isMobileSearchOpen ? 'hidden sm:flex' : 'flex'} items-center gap-1 sm:gap-2 shrink-0`}>
           {!hideSearch && (
             <button
               type="button"
@@ -268,15 +274,29 @@ export const Header: React.FC<HeaderProps> = ({
               }}
               aria-label="Search calculators"
               title="Search calculators"
-              className="sm:hidden flex items-center justify-center p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 transition-all shadow-sm"
+              className="sm:hidden flex items-center justify-center p-1.5 sm:p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 transition-all shadow-sm"
             >
               <Search className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             </button>
           )}
 
+          <select
+            value={currency}
+            onChange={(e) => onChangeCurrency(e.target.value as CurrencyCode)}
+            aria-label="Select currency"
+            title="Select currency"
+            className="px-1.5 sm:px-2.5 py-1.5 sm:py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all shadow-sm cursor-pointer"
+          >
+            {CURRENCIES.map((cur) => (
+              <option key={cur.code} value={cur.code}>
+                {cur.code}
+              </option>
+            ))}
+          </select>
+
           <button
             onClick={onOpenFavorites}
-            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 transition-all shadow-sm"
+            className="flex items-center gap-1.5 p-1.5 sm:px-3 sm:py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 transition-all shadow-sm"
             title="Saved Favorites"
           >
             <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
@@ -285,12 +305,14 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={onOpenHistory}
-            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 transition-all shadow-sm"
+            className="flex items-center gap-1.5 p-1.5 sm:px-3 sm:py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 transition-all shadow-sm"
             title="Calculation History"
           >
             <History className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             <span className="hidden sm:inline">History</span>
           </button>
+
+          <PWAInstallButton />
         </div>
 
       </div>
