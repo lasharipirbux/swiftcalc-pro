@@ -31,7 +31,7 @@ export default defineConfig(() => {
         manifest: false,
         workbox: {
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
-          globIgnores: ['**/sitemap.xml', '**/robots.txt', '**/_headers', '**/_redirects', '**/.htaccess'],
+          globIgnores: ['**/sitemap.xml', '**/robots.txt', '**/_headers', '**/.htaccess'],
           navigateFallback: '/index.html',
           navigateFallbackDenylist: [
             /^\/sitemap\.xml$/i,
