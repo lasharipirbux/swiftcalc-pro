@@ -456,9 +456,9 @@ export default function App() {
           /* Home Landing Page */
           <div className="space-y-16 pb-4">
             
-            {/* 1) Full-Screen Hero Section (~90vh, centered, no search bar) */}
-            <section className="relative min-h-[90vh] flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 text-white px-6 py-16 sm:px-12 shadow-xl border border-emerald-700/50">
-              <div className="max-w-3xl mx-auto text-center space-y-6">
+            {/* 1) Full-Screen Hero Section (fits header + hero inside first screen) */}
+            <section className="relative min-h-[calc(100svh-128px)] max-h-[calc(100svh-128px)] sm:min-h-[calc(100vh-128px)] sm:max-h-[calc(100vh-128px)] flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 text-white px-6 py-8 sm:px-12 sm:py-10 shadow-xl border border-emerald-700/50">
+              <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-5">
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                   400+ Free Online Calculators
                 </h1>
