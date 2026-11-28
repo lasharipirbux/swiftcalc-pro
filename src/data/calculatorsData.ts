@@ -1,18 +1,18 @@
-import { Category } from "../types";
-import { mathCategory } from "./categories/math";
-import { financeCategory } from "./categories/finance";
-import { businessCategory } from "./categories/business";
-import { constructionCategory } from "./categories/construction";
-import { healthCategory } from "./categories/health";
-import { datetimeCategory } from "./categories/datetime";
-import { electricalCategory } from "./categories/electrical";
-import { educationCategory } from "./categories/education";
-import { engineeringCategory } from "./categories/engineering";
-import { realestateCategory } from "./categories/realestate";
-import { automotiveCategory } from "./categories/automotive";
-import { cookingCategory } from "./categories/cooking";
-import { statisticsCategory } from "./categories/statistics";
-import { techCategory } from "./categories/tech";
+import type { Category } from "../types.ts";
+import { mathCategory } from "./categories/math.ts";
+import { financeCategory } from "./categories/finance.ts";
+import { businessCategory } from "./categories/business.ts";
+import { constructionCategory } from "./categories/construction.ts";
+import { healthCategory } from "./categories/health.ts";
+import { datetimeCategory } from "./categories/datetime.ts";
+import { electricalCategory } from "./categories/electrical.ts";
+import { educationCategory } from "./categories/education.ts";
+import { engineeringCategory } from "./categories/engineering.ts";
+import { realestateCategory } from "./categories/realestate.ts";
+import { automotiveCategory } from "./categories/automotive.ts";
+import { cookingCategory } from "./categories/cooking.ts";
+import { statisticsCategory } from "./categories/statistics.ts";
+import { techCategory } from "./categories/tech.ts";
 
 export const categories: Category[] = [
   mathCategory,

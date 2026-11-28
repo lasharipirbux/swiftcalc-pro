@@ -3,6 +3,7 @@ import { SITE_NAME } from '../config/site';
 export interface RealestateCalculatorSeoEntry {
   seoTitle: string;
   metaDescription: string;
+  introDescription: string;
   howToUseSteps: string[];
   formulaExplanation: string;
   practicalExample: string;
@@ -11,9 +12,11 @@ export interface RealestateCalculatorSeoEntry {
 
 export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> = {
   'rental-yield': {
-    seoTitle: `Free Rental Yield Calculator – Gross & Net PKR Return | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Rental Yield on Property | ${SITE_NAME}`,
     metaDescription:
-      'Compute gross and net annual rental yield percentages on residential or commercial Pakistani properties with our free Rental Yield Calculator.',
+      'Learn how to calculate rental yield on property in PKR with gross and net annual return percentages after landlord upkeep expenses.',
+    introDescription:
+      'Evaluating whether a residential house, flat, or commercial shop justifies its asking price starts with knowing how to calculate rental yield on property accurately. Enter expected monthly rent, total acquisition cost, and annual maintenance or tax bills to compare gross yield against true net cash return. Seeing both figures side by side helps landlords spot overpriced listings where upkeep silently eats into yearly income before signing any deal.',
     howToUseSteps: [
       'Type expected tenant rent per month in rupees inside Monthly Rent (PKR).',
       'Enter total acquisition cost of the house or flat into Purchase Price (PKR).',
@@ -25,24 +28,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Leasing a 10-Marla Lahore house bought at Purchase Price (PKR) = 15,000,000 for Monthly Rent (PKR) = 150,000 (PKR 1,800,000/year) with Annual Expenses (PKR) = 100,000 gives Gross Yield: 12.00% and Net Yield: 11.33%.',
     faqs: [
       {
-        q: 'What qualifies as Annual Expenses (PKR) when figuring Net Yield?',
-        a: 'Include society maintenance charges, annual property taxes, landlord repairs, and any unpaid utility bills between tenants.',
+        q: 'Which landlord bills belong inside annual property expenses?',
+        a: 'Include society dues, annual property tax, routine repairs, and utility charges paid during vacant months.',
       },
       {
-        q: 'What rental yield percentage is typical for houses in Pakistani cities?',
-        a: 'Residential homes in Lahore, Karachi, or Islamabad often yield 3%–5% net annually, whereas prime commercial shops can reach 7%–10%+.',
+        q: 'What net rental yield is considered solid for urban housing?',
+        a: 'Residential homes commonly return 3% to 5% net yearly, while well-located commercial shops often reach 7% to 10%.',
       },
       {
-        q: 'Does Purchase Price (PKR) include transfer fees and stamp duty?',
-        a: 'Add stamp duty, FBR tax, and agent commission into Purchase Price (PKR) if you want true net yield on total cash outlay.',
+        q: 'Should stamp duty and broker fees be added to purchase price?',
+        a: 'Yes, adding closing fees gives a truer return on the total cash you actually spent buying the asset.',
       },
     ],
   },
 
   'plot-area-converter': {
-    seoTitle: `Free Plot Area Converter Calculator – Marla, Kanal & Sq Ft | ${SITE_NAME}`,
+    seoTitle: `Convert Marla to Sq Ft and Kanal Online | ${SITE_NAME}`,
     metaDescription:
-      'Convert land sizes instantly between marla, kanal, square feet, square yards, and square meters using our free Plot Area Converter Calculator.',
+      'Quickly convert marla to sq ft and kanal online alongside square yards and square meters using the standard 272.25 sq ft benchmark.',
+    introDescription:
+      'Real estate listings across cities quote land in mixed units, making it essential to convert marla to sq ft and kanal online without arithmetic errors. Type any area value and pick your starting unit—marla, kanal, square feet, square yards, or square meters—to see every equivalent size immediately. Using the official 272.25 square feet per marla revenue standard lets buyers compare regional listings, architectural blueprints, and registry documents cleanly.',
     howToUseSteps: [
       'Enter the numeric plot measurement into the Area Value field.',
       'Select your starting land unit from From Unit (Marla, Kanal, Square Feet, Square Yard, or Square Meter).',
@@ -54,24 +59,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Converting Area Value = 5 with From Unit = Marla equals 1361.25 sq ft, 0.250 Kanal, 151.25 sq yd, and 126.46 sq m.',
     faqs: [
       {
-        q: 'Why do some housing societies in Lahore use 225 or 250 sq ft per Marla instead of 272.25?',
-        a: 'While standard revenue records define 1 Marla as 272.25 sq ft, private developments such as DHA or Bahria Town frequently standardize residential plots at 225 sq ft per Marla.',
+        q: 'Why do certain private housing societies measure a marla at 225 sq ft?',
+        a: 'Official land revenue records define 1 marla as 272.25 sq ft, though several modern developments standardize residential plots at 225 sq ft.',
       },
       {
-        q: 'How many Marlas make 1 Kanal across Pakistan?',
-        a: 'One Kanal always equals exactly 20 Marlas—so 5 Marla equals 0.250 Kanal and 10 Marla equals half a Kanal.',
+        q: 'How many marlas equal one full kanal?',
+        a: 'One kanal always equals 20 marlas, which means 5 marla is a quarter kanal and 10 marla is half a kanal.',
       },
       {
-        q: 'How do square yards (Gaj) used in Karachi compare to Marla?',
-        a: 'A 125 sq yd Karachi plot equals 1,125 sq ft, or roughly 4.13 standard 272.25 sq ft Marlas.',
+        q: 'How does a 125 square yard plot convert to marlas?',
+        a: 'A 125 square yard plot covers 1,125 sq ft, which works out to roughly 4.13 standard revenue marlas.',
       },
     ],
   },
 
   'plot-price-calc': {
-    seoTitle: `Free Plot Price Calculator – Marla & Kanal Land Value (PKR) | ${SITE_NAME}`,
+    seoTitle: `Calculate Total Plot Price per Marla | ${SITE_NAME}`,
     metaDescription:
-      'Compute total land value in rupees from per-marla rate and plot size in marlas or kanals using our free Plot Price Calculator.',
+      'Easily calculate total plot price per marla or kanal in PKR to check residential and commercial land budgets in seconds.',
+    introDescription:
+      'Property dealers frequently quote land rates by the single marla even when negotiating larger residential or commercial blocks. When you calculate total plot price per marla here, simply enter the asking rate, type your land size, and switch between marla or kanal units. Converting kanals into marlas automatically prevents costly zero-counting errors while comparing blocks, street locations, or phased society offers before making an earnest token deposit.',
     howToUseSteps: [
       'Type the market rate for one marla in rupees inside Price per Marla (PKR).',
       'Enter total plot dimension inside Plot Size.',
@@ -83,24 +90,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Valuing a Plot Size = 10 plot in Plot Size Unit = Marla at Price per Marla (PKR) = 1,200,000 totals PKR 12,000,000.',
     faqs: [
       {
-        q: 'How does switching Plot Size Unit to Kanal alter the calculation?',
-        a: 'Selecting Kanal automatically multiplies your Plot Size by 20 Marlas before multiplying by Price per Marla (PKR)—so 1 Kanal at PKR 1,200,000/marla equals PKR 24,000,000.',
+        q: 'How does switching the unit to kanal affect total land cost?',
+        a: 'Choosing kanal multiplies your entered plot size by 20 marlas first, so 1 kanal at PKR 1,200,000 per marla totals PKR 24,000,000.',
       },
       {
-        q: 'Can I enter fractional sizes like 7.5 into Plot Size?',
-        a: 'Yes—decimals such as 5.5 Marla or 1.5 Kanal compute exact proportional rupee amounts.',
+        q: 'Can I calculate uneven sizes like 7.5 marla or 1.25 kanal?',
+        a: 'Yes, fractional decimal entries compute exact proportional rupee totals for irregular or extra-land plots.',
       },
       {
-        q: 'Does PKR 12,000,000 include society development charges or corner premiums?',
-        a: 'No—this computes base land value only; add corner, main-boulevard, or park-facing surcharges separately.',
+        q: 'Are corner or park-facing surcharges included in this figure?',
+        a: 'No, add any 10% corner, boulevard, or park-facing category premiums on top of the base plot price.',
       },
     ],
   },
 
   'marla-to-sqft-price': {
-    seoTitle: `Free Price per Marla to Price per Sq Ft Calculator (PKR) | ${SITE_NAME}`,
+    seoTitle: `Convert Price per Marla to Sq Ft Rate | ${SITE_NAME}`,
     metaDescription:
-      'Convert quoted land price per marla into exact PKR cost per square foot using our free Price per Marla to Price per Sq Ft Calculator.',
+      'Quickly convert price per marla to sq ft rate in PKR using 272.25 sq ft per marla to compare plots against apartments.',
+    introDescription:
+      'Weighing an open residential plot against a high-rise apartment or commercial shop is tricky because each uses a different pricing yardstick. Once you convert price per marla to sq ft rate using the standard 272.25 square foot benchmark, every property option speaks the exact same language. Entering a quoted per-marla figure immediately exposes the true rupee cost of every single square foot before you negotiate with sellers or developers.',
     howToUseSteps: [
       'Enter the asking land rate for one marla in rupees inside Price per Marla (PKR).',
       'Read the equivalent rupee cost per square foot based on 272.25 sq ft per marla.',
@@ -111,24 +120,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'A plot quoted at Price per Marla (PKR) = 1,500,000 works out to 1,500,000 / 272.25 = PKR 5509.64 / sq ft.',
     faqs: [
       {
-        q: 'Why is dividing by 272.25 useful when comparing apartments and residential plots?',
-        a: 'Apartments and commercial shops price by square foot while residential plots quote by Marla, so converting puts both options on the same PKR/sq ft yardstick.',
+        q: 'Why is per-square-foot pricing helpful when comparing flats and plots?',
+        a: 'Flats and shops almost always quote per square foot, so converting plot rates lets you compare unit value directly.',
       },
       {
-        q: 'What is the price per sq ft if a 1-Kanal plot sells for PKR 40,000,000?',
-        a: 'At PKR 2,000,000 per Marla (40,000,000 ÷ 20), entering 2000000 returns PKR 7,346.19 / sq ft.',
+        q: 'How do I check the square foot rate of a kanal plot?',
+        a: 'Divide the total kanal asking price by 20 to get the per-marla price, then enter that figure here.',
       },
       {
-        q: 'Does this converter apply 225 sq ft or 272.25 sq ft per Marla?',
-        a: 'It uses the standard 272.25 sq ft revenue marla benchmark across all inputs.',
+        q: 'Which marla size standard does this price converter apply?',
+        a: 'It divides by the standard revenue measurement of 272.25 square feet per marla.',
       },
     ],
   },
 
   'construction-cost-est': {
-    seoTitle: `Free Construction Cost Estimator Calculator – Covered Area PKR | ${SITE_NAME}`,
+    seoTitle: `Estimate House Construction Cost per Sq Ft | ${SITE_NAME}`,
     metaDescription:
-      'Estimate total house building budget in rupees from covered square footage and contractor rate using our free Construction Cost Estimator Calculator.',
+      'Quickly estimate house construction cost per sq ft in PKR from total covered slab area and grey-structure or turnkey rates.',
+    introDescription:
+      'Planning a new build starts long before bricks reach the site, so knowing how to estimate house construction cost per sq ft protects your cash reserves from mid-project surprises. Enter the combined covered slab area across all planned floors alongside your contractor’s grey-structure or turnkey rate. Multiplying both values produces a clear baseline budget, letting homeowners adjust finish quality, floor count, or material grades before signing a construction agreement.',
     howToUseSteps: [
       'Enter total ground plus upper-floor built area into Covered Area (sq ft).',
       'Type grey-structure or turnkey rate per square foot inside Rate per Sq Ft (PKR).',
@@ -140,24 +151,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Building a 5-Marla double-story house with Covered Area (sq ft) = 2500 at a turnkey Rate per Sq Ft (PKR) = 4500 totals PKR 11,250,000.',
     faqs: [
       {
-        q: 'Does Covered Area (sq ft) mean plot size or total floor slab area?',
-        a: 'Always enter total built-up covered square footage across basement, ground, first floor, and mumty—not raw plot area.',
+        q: 'Should I enter total plot area or covered built-up area?',
+        a: 'Enter the sum of covered slab square footage across basement, ground, upper floors, and stair mumty—not raw plot size.',
       },
       {
-        q: 'What is the difference between grey structure and complete turnkey rates in Rate per Sq Ft (PKR)?',
-        a: 'Grey structure covers foundation, brickwork, plaster, and rough plumbing/conduits, whereas turnkey adds tiles, wood, paint, fixtures, and kitchen cabinets.',
+        q: 'How do grey-structure and turnkey building rates differ?',
+        a: 'Grey structure covers foundation, masonry, roof slabs, and rough plumbing, while turnkey adds flooring, woodwork, paint, and sanitary fixtures.',
       },
       {
-        q: 'Should boundary walls and underground water tanks be budgeted outside this number?',
-        a: 'Many contractors quote covered area only and bill boundary walls, septic tanks, and elevation stonework separately—confirm contract inclusions.',
+        q: 'Are boundary walls and underground water tanks included?',
+        a: 'Many contractors price porches, boundary walls, and septic tanks separately, so confirm written contract scope upfront.',
       },
     ],
   },
 
   'property-installment': {
-    seoTitle: `Free Property Installment Calculator – Monthly Plan (PKR) | ${SITE_NAME}`,
+    seoTitle: `Calculate Monthly Property Installment Plan | ${SITE_NAME}`,
     metaDescription:
-      'Calculate equal monthly payment installments for society plots or apartments after down payment with our free Property Installment Calculator.',
+      'Easily calculate monthly property installment plan payments in PKR after down payment across your society or builder schedule.',
+    introDescription:
+      'Buying a plot file or under-construction apartment on developer terms requires checking whether monthly dues genuinely fit household income. When you calculate monthly property installment plan commitments here, input total booking price, upfront down payment, and total payment months. Separating remaining balance from equal monthly installments lets buyers test 24-month, 36-month, or 48-month housing schedules and avoid overcommitting cash flow during multi-year development phases.',
     howToUseSteps: [
       'Enter full booking value of the plot or flat into Total Price (PKR).',
       'Type initial booking and confirmation deposit inside Down Payment (PKR).',
@@ -169,24 +182,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Booking a 5-Marla plot at Total Price (PKR) = 12,000,000 with Down Payment (PKR) = 3,000,000 over Number of Months = 36 leaves PKR 9,000,000 balance, or PKR 250,000 / month.',
     faqs: [
       {
-        q: 'How do quarterly installment plans translate into Number of Months?',
-        a: 'Multiply quarterly installments by 3 for Number of Months, or multiply the monthly result by 3 to budget quarterly payments.',
+        q: 'How do I plan for quarterly developer installments instead of monthly?',
+        a: 'Multiply the calculated monthly installment by 3 to know how much cash to set aside each quarter.',
       },
       {
-        q: 'What if possession or balloting payments are billed separately from monthly installments?',
-        a: 'Subtract lump-sum balloting and possession charges along with Down Payment (PKR) if you want only regular monthly installment cash flow.',
+        q: 'What about separate lump-sum balloting or possession payments?',
+        a: 'Add lump-sum balloting and possession amounts to the down payment field if you want only regular monthly dues.',
       },
       {
-        q: 'Does this calculator apply bank markup?',
-        a: 'No—it models interest-free developer installment schedules; bank home loans with markup follow amortizing EMI math.',
+        q: 'Does this installment planner include bank loan interest?',
+        a: 'No, it calculates zero-markup developer schedules rather than interest-bearing bank mortgages.',
       },
     ],
   },
 
   'down-payment-calc': {
-    seoTitle: `Free Down Payment Calculator – Property Booking Cash (PKR) | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Property Down Payment | ${SITE_NAME}`,
     metaDescription:
-      'Calculate required booking cash and remaining financing balance from total property value and deposit percentage with our free Down Payment Calculator.',
+      'See how to calculate property down payment cash and remaining loan balance in PKR from sale price and deposit percentage.',
+    introDescription:
+      'Before reserving a plot or applying for housing finance, buyers need a clear picture of upfront liquidity. Understanding how to calculate property down payment requirements lets you enter the agreed purchase price and seller deposit percentage to reveal exact booking cash and remaining balance. Testing 15%, 20%, or 30% deposit levels helps families balance initial cash reserves against lower future installments or smaller financed balances.',
     howToUseSteps: [
       'Type agreed sale or booking value inside Total Property Price (PKR).',
       'Enter required upfront deposit percentage into Down Payment Percentage (%).',
@@ -198,24 +213,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Purchasing a plot at Total Property Price (PKR) = 10,000,000 with Down Payment Percentage (%) = 25 requires PKR 2,500,000 upfront and leaves PKR 7,500,000 balance.',
     faqs: [
       {
-        q: 'What Down Payment Percentage (%) do Pakistani housing societies and banks usually ask?',
-        a: 'Developer plot plans commonly ask 15%–25% upfront booking, while SBP-regulated bank home financing typically requires 20%–30% equity.',
+        q: 'What deposit percentage do most housing societies and banks request?',
+        a: 'Developer booking plans typically request 15% to 25% down, while bank home loans commonly ask for 20% to 30% buyer equity.',
       },
       {
-        q: 'Does Down Payment cover stamp duty and transfer fees?',
-        a: 'No—keep an additional 4%–8% cash reserve aside for FBR withholding tax, stamp duty, and society transfer fees.',
+        q: 'Does my down payment cover registry taxes and transfer charges?',
+        a: 'No, hold back an extra 4% to 8% in liquid cash for stamp duty, withholding taxes, and society transfer fees.',
       },
       {
-        q: 'How does increasing Down Payment Percentage (%) help bank buyers?',
-        a: 'Putting down 30% instead of 20% shrinks borrowed principal and noticeably lowers monthly bank markup payments.',
+        q: 'Is paying a larger down payment always better?',
+        a: 'A higher deposit lowers financed principal and monthly payments, provided you still keep an emergency savings buffer.',
       },
     ],
   },
 
   'property-profit-calc': {
-    seoTitle: `Free Property Profit & ROI Calculator – Resale Gain (PKR) | ${SITE_NAME}`,
+    seoTitle: `Calculate Net Profit and ROI on Property Sale | ${SITE_NAME}`,
     metaDescription:
-      'Find net capital profit and percentage ROI on selling a plot or house after purchase cost and taxes using our free Property Profit & ROI Calculator.',
+      'Easily calculate net profit and ROI on property sale in PKR after deducting purchase price, taxes, and closing expenses.',
+    introDescription:
+      'Headline resale prices rarely tell the full financial story once commissions, transfer fees, and taxes are paid. When you calculate net profit and ROI on property sale here, enter your original purchase price, agreed selling price, and total transaction expenses to uncover real take-home gain. Measuring percentage return against all capital invested makes it easy to compare real estate flips against alternative investments honestly.',
     howToUseSteps: [
       'Enter original acquisition price inside Purchase Buy Price (PKR).',
       'Type final agreed resale price into Selling Price (PKR).',
@@ -227,24 +244,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Reselling a 5-Marla plot bought at Purchase Buy Price (PKR) = 8,000,000 for Selling Price (PKR) = 11,500,000 after Taxes & Expenses (PKR) = 300,000 earns PKR 3,200,000 net profit and 38.55% ROI.',
     faqs: [
       {
-        q: 'Which fees belong inside Taxes & Expenses (PKR)?',
-        a: 'Include buyer and seller agent commissions, society NDC/transfer charges, stamp duty, and capital gains tax paid on exit.',
+        q: 'What costs should go into taxes and expenses when reselling?',
+        a: 'Combine brokerage commissions, society NDC and transfer fees, stamp paper charges, and any capital gains tax due at exit.',
       },
       {
-        q: 'Why can Selling Price look profitable while Net Profit turns tiny?',
-        a: 'High non-filer transaction taxes, dealer fees, and society transfer levies eat directly into apparent price appreciation.',
+        q: 'Why can a higher resale price still deliver weak net profit?',
+        a: 'Heavy transaction taxes, dealer fees, and transfer levies quickly shrink paper gains on short holding periods.',
       },
       {
-        q: 'Does ROI (%) adjust for how many years you held the plot?',
-        a: 'No—this computes total holding-period ROI; divide ROI by years held for a quick annualized comparison.',
+        q: 'Does the ROI percentage account for years held?',
+        a: 'It shows cumulative return across the whole deal; divide by years held for a rough yearly return rate.',
       },
     ],
   },
 
   're-fbr-property-tax': {
-    seoTitle: `Free FBR Property Tax Calculator (Pakistan) – Filer vs Non-Filer | ${SITE_NAME}`,
+    seoTitle: `Calculate FBR Property Tax for Filers Online | ${SITE_NAME}`,
     metaDescription:
-      'Estimate Pakistani FBR withholding tax on property transactions in PKR for filers and non-filers using our free FBR Property Tax Calculator (Pakistan).',
+      'Quickly calculate FBR property tax for filers online and compare non-filer withholding rates in PKR on notified valuation.',
+    introDescription:
+      'Budgeting for real estate transfers in Pakistan requires checking withholding tax obligations well ahead of registry day. To calculate FBR property tax for filers online, enter the notified FBR property valuation and toggle between active filer and non-filer tax status. Comparing both tiers side by side highlights how drastically non-filer status increases upfront closing charges on plots, apartments, and constructed homes.',
     howToUseSteps: [
       'Enter declared DC or FBR valuation rate in rupees inside Property Value / FBR Valuation (PKR).',
       'Select Filer (Active Taxpayer) or Non-Filer from the Tax Status dropdown.',
@@ -256,24 +275,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'On a plot assessed at Property Value / FBR Valuation (PKR) = 10,000,000 with Tax Status = Filer (Active Taxpayer) (2%), tax estimates at PKR 200,000 Annual Tax (versus PKR 600,000 for a Non-Filer).',
     faqs: [
       {
-        q: 'Why is Tax Status = Non-Filer charged three times higher here?',
-        a: 'Pakistan tax budgets impose steep withholding penalties on non-filers under Sections 236C and 236K to encourage tax-return filing.',
+        q: 'Why do non-filers pay significantly higher FBR property tax?',
+        a: 'Federal tax laws apply higher withholding slabs under Sections 236C and 236K to non-filers to encourage active tax registration.',
       },
       {
-        q: 'Does FBR calculate tax on DC rate, FBR table value, or actual market price?',
-        a: 'Withholding tax applies against the official notified FBR valuation table (or declared consideration if higher), not lower DC rates.',
+        q: 'Is FBR tax applied to market price or notified valuation tables?',
+        a: 'Withholding tax is assessed on the official notified FBR valuation rate or the declared sale value, whichever is higher.',
       },
       {
-        q: 'Should I verify current budget slabs before transfer day?',
-        a: 'Yes—annual Finance Acts adjust 236C/236K progressive slabs by property value tier, so confirm current FBR notifications with your tax consultant.',
+        q: 'Can FBR property tax percentages change with each federal budget?',
+        a: 'Yes, annual Finance Acts update tiered property tax slabs, so confirm latest official notifications before paying challans.',
       },
     ],
   },
 
   're-stamp-duty': {
-    seoTitle: `Free Stamp Duty & Registration Fee Calculator – Registry PKR | ${SITE_NAME}`,
+    seoTitle: `Calculate Stamp Duty and Registration Fees | ${SITE_NAME}`,
     metaDescription:
-      'Estimate provincial stamp duty and registry charges in rupees for property deed transfer using our free Stamp Duty & Registration Fee Calculator.',
+      'Easily calculate stamp duty and registration fees in PKR for property sale deeds with clear 2% stamp and 1% registry breakdown.',
+    introDescription:
+      'Transferring formal ownership at the sub-registrar office involves provincial levies that buyers sometimes overlook when negotiating a purchase. When you calculate stamp duty and registration fees here, enter the assessed deed value to see both the 2% stamp duty and 1% registration fee itemized immediately. Estimating these statutory closing charges beforehand keeps your registry day cash flow organized with no last-minute challan shortages.',
     howToUseSteps: [
       'Type the official deed valuation or DC value in rupees inside Property Value (PKR).',
       'Inspect total transfer charges broken down between Stamp Duty (2%) and Registration Fee (1%).',
@@ -284,24 +305,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Registering a 10-Marla property valued at Property Value (PKR) = 15,000,000 computes Stamp Duty (2%): PKR 300,000 plus Registration (1%): PKR 150,000 for PKR 450,000 Total Fees.',
     faqs: [
       {
-        q: 'Are Stamp Duty rates identical in Punjab, Sindh, Islamabad, and KPK?',
-        a: 'No—provinces periodically revise stamp duty and TMA/corporation taxes (typically 1%–3% combined), so verify local DC/e-Stamp rates before generating challans.',
+        q: 'Do all provinces charge the exact same stamp duty percentage?',
+        a: 'Rates differ slightly across Punjab, Sindh, Islamabad, and KPK and change periodically, so verify local e-Stamp schedules.',
       },
       {
-        q: 'Do society file transfers pay Stamp Duty immediately?',
-        a: 'Unregistered allotment files typically pay society transfer fees first, whereas Stamp Duty and registration apply when executing a formal sale deed (Registry).',
+        q: 'Do housing society allotment file transfers pay stamp duty?',
+        a: 'Allotment files generally pay society transfer fees first, while stamp duty applies when registering a formal sale deed.',
       },
       {
-        q: 'Who normally pays Stamp Duty & Registration Fees in Pakistan?',
-        a: 'By market custom in Pakistan, the property buyer pays stamp duty, registration fee, and e-stamp charges unless negotiated otherwise.',
+        q: 'Does the buyer or seller typically cover registry charges?',
+        a: 'In most transactions, the buyer covers stamp paper and registration costs unless the sale agreement splits them.',
       },
     ],
   },
 
   're-cgt-property': {
-    seoTitle: `Free Capital Gains Tax (CGT) on Property Calculator – PKR | ${SITE_NAME}`,
+    seoTitle: `Calculate Capital Gains Tax on Property Sale | ${SITE_NAME}`,
     metaDescription:
-      'Estimate Pakistani Capital Gains Tax on property resale profit based on holding years using our free Capital Gains Tax (CGT) on Property Calculator.',
+      'Quickly calculate capital gains tax on property sale in PKR using taxable profit and holding period years.',
+    introDescription:
+      'Timing a real estate exit can noticeably change how much profit stays in your pocket after tax. To calculate capital gains tax on property sale, enter your net resale gain and the complete years you held the asset to see the applicable rate and tax bill. Testing different holding horizons helps investors evaluate whether waiting an extra year lowers their tax bracket enough to justify holding longer.',
     howToUseSteps: [
       'Enter net taxable resale gain in rupees inside Capital Gain / Profit (PKR).',
       'Type complete years owned from purchase to sale under Holding Period (Years).',
@@ -313,24 +336,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Realizing Capital Gain / Profit (PKR) = 3,000,000 after Holding Period (Years) = 2 applies the 10% bracket for PKR 300,000 CGT.',
     faqs: [
       {
-        q: 'What counts as Capital Gain / Profit (PKR) instead of gross sale price?',
-        a: 'Capital gain equals Selling Price minus original Purchase Cost and documented acquisition/improvement expenses—not total sale proceeds.',
+        q: 'Is capital gains tax charged on total sale price or only profit?',
+        a: 'It applies solely to net capital gain—selling price minus original purchase cost and documented acquisition costs.',
       },
       {
-        q: 'Why does Holding Period (Years) = 4 return PKR 0 CGT here?',
-        a: 'Under this tapered holding-period schedule, properties held 4+ years qualify for 0% capital gains exemption (verify latest Finance Act dates for plots acquired after July 2024).',
+        q: 'Why does holding for four or more years show zero tax here?',
+        a: 'This tapered schedule reduces CGT to 0% after four years, though recent Finance Acts apply flat rules to newly acquired properties.',
       },
       {
-        q: 'Is CGT calculated differently for open plots versus constructed houses?',
-        a: 'Recent Pakistani tax schedules distinguish plots, flats, and constructed houses by acquisition date—consult your tax filer when submitting annual returns.',
+        q: 'Do open plots and constructed homes follow the same CGT rules?',
+        a: 'Tax laws sometimes distinguish open plots, flats, and built houses by purchase date, so check current return rules with a tax advisor.',
       },
     ],
   },
 
   're-cap-rate': {
-    seoTitle: `Free Rent Capitalization Rate (Cap Rate) Calculator – NOI % | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Rent Cap Rate on Property | ${SITE_NAME}`,
     metaDescription:
-      'Measure unleveraged annual return from Net Operating Income and property cost using our free Rent Capitalization Rate (Cap Rate) Calculator.',
+      'Learn how to calculate rent cap rate on property from annual net operating income and purchase price in PKR.',
+    introDescription:
+      'Comparing two income properties with completely different asking prices requires a debt-free profitability benchmark. Knowing how to calculate rent cap rate on property lets you divide yearly net operating income by total asset price to produce one clean return percentage. Investors rely on this figure to judge whether a commercial floor, shop, or rental home generates strong annual cash flow relative to neighborhood market risk.',
     howToUseSteps: [
       'Type annual rental profit after upkeep costs inside Net Operating Income - NOI (PKR / year).',
       'Enter total asset price in rupees into Property Value / Cost (PKR).',
@@ -342,24 +367,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'A commercial plaza earning Net Operating Income - NOI (PKR / year) = 1,200,000 on Property Value / Cost (PKR) = 15,000,000 delivers an 8.00% Cap Rate.',
     faqs: [
       {
-        q: 'Should mortgage EMI payments be deducted before entering Net Operating Income - NOI (PKR / year)?',
-        a: 'No—NOI deliberately excludes loan principal and interest so investors can compare all-cash property yields cleanly.',
+        q: 'Should monthly mortgage installments be subtracted before entering NOI?',
+        a: 'No, exclude financing payments from NOI so capitalization rate compares properties strictly on an all-cash basis.',
       },
       {
-        q: 'Is a higher Cap Rate always better?',
-        a: 'Higher cap rates yield stronger current cash income per rupee invested, though lower cap rates often reflect safer, prime-location appreciation.',
+        q: 'Does a higher cap rate automatically mean a safer investment?',
+        a: 'Not always—higher cap rates often reflect higher tenant turnover or older buildings, whereas prime locations trade at lower cap rates.',
       },
       {
-        q: 'Can Cap Rate estimate fair market value if market cap rates are known?',
-        a: 'Yes—rearranging the formula gives Fair Value = NOI ÷ Market Cap Rate.',
+        q: 'Can cap rate help estimate what a rental building is worth?',
+        a: 'Yes, dividing a building’s annual NOI by the local neighborhood cap rate gives a solid market valuation estimate.',
       },
     ],
   },
 
   're-mortgage-affordability': {
-    seoTitle: `Free Mortgage Affordability Calculator – Max Home Loan PKR | ${SITE_NAME}`,
+    seoTitle: `How Much Home Loan Can I Afford on My Salary | ${SITE_NAME}`,
     metaDescription:
-      'Estimate maximum home loan capacity and monthly EMI budget from household income and debts using our free Mortgage Affordability Calculator.',
+      'Find out how much home loan can I afford on my salary in PKR using household income, monthly debts, and a 40% housing ratio.',
+    introDescription:
+      'Shopping for a house without knowing your borrowing ceiling wastes weeks touring properties outside bank approval limits. Checking how much home loan can I afford on my salary starts by entering combined monthly household income alongside existing car, credit, or personal loan payments. Using a 40% debt-burden ratio quickly reveals your safe monthly installment cap and estimated maximum home loan before approaching any lender.',
     howToUseSteps: [
       'Enter combined monthly take-home pay into Monthly Household Income (PKR).',
       'Type total car lease, credit card, or personal loan EMIs inside Existing Monthly Debt Payments (PKR).',
@@ -371,24 +398,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'With Monthly Household Income (PKR) = 300,000 and Existing Monthly Debt Payments (PKR) = 40,000, max housing EMI is PKR 80,000, supporting PKR 6,800,000 Max Loan.',
     faqs: [
       {
-        q: 'Why does Existing Monthly Debt Payments (PKR) cut home loan eligibility rupee-for-rupee?',
-        a: 'Banks sum all active debt installments against your 40% debt-burden ratio ceiling, so paying off a PKR 40,000 car loan unlocks PKR 40,000 more monthly EMI capacity.',
+        q: 'How strongly do existing car or credit card payments reduce loan approval?',
+        a: 'Every rupee paid toward existing monthly debt lowers your allowable housing installment rupee for rupee under bank debt-burden rules.',
       },
       {
-        q: 'Does Max Loan include the buyer’s cash down payment?',
-        a: 'No—add your own 20%–30% cash down payment onto Max Loan to find the highest house price you can shop for.',
+        q: 'Does the estimated maximum loan include my cash down payment?',
+        a: 'No, add your saved down payment cash on top of the maximum loan to determine your full property shopping budget.',
       },
       {
-        q: 'How do KIBOR interest shifts affect the 85× loan factor?',
-        a: 'Lower bank markup rates stretch each PKR of EMI into a larger loan, whereas higher KIBOR reduces maximum borrowable principal.',
+        q: 'How do interest rate changes shift my borrowing power?',
+        a: 'Lower markup rates allow a larger principal for the same monthly installment, while rising rates shrink maximum loan size.',
       },
     ],
   },
 
   're-grm': {
-    seoTitle: `Free Gross Rent Multiplier (GRM) Calculator – Payback Years | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Gross Rent Multiplier Online | ${SITE_NAME}`,
     metaDescription:
-      'Compare rental deals quickly by dividing property price by gross yearly rent using our free Gross Rent Multiplier (GRM) Calculator.',
+      'See how to calculate gross rent multiplier online by dividing property price by annual rent to screen deals fast.',
+    introDescription:
+      'When scanning dozens of rental listings in a single evening, landlords need a rapid first-pass filter before digging into repair logs. Learning how to calculate gross rent multiplier online lets you divide asking price by gross yearly rent in seconds. A lower ratio signals faster payback from rent alone, narrowing your shortlist to promising income properties worth deeper operating expense verification.',
     howToUseSteps: [
       'Enter asking sale price in rupees inside Property Price (PKR).',
       'Type total annual rent before expenses into Gross Annual Rent (PKR).',
@@ -400,24 +429,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Buying a flat at Property Price (PKR) = 12,000,000 renting for Gross Annual Rent (PKR) = 1,440,000 (PKR 120,000/month) gives 8.33 GRM.',
     faqs: [
       {
-        q: 'Is a lower or higher GRM more attractive for cash-flow buyers?',
-        a: 'A lower GRM (such as 8 vs 18) means the property collects more annual rent relative to its asking price and repays capital faster.',
+        q: 'Should rental investors look for a lower or higher GRM number?',
+        a: 'A lower GRM indicates the asking price is smaller relative to yearly rent, suggesting stronger gross cash flow.',
       },
       {
-        q: 'What major factor does Gross Rent Multiplier ignore?',
-        a: 'GRM ignores vacancy losses, property taxes, and building maintenance—always follow up with Net Operating Income and Cap Rate.',
+        q: 'What important landlord costs does GRM leave out?',
+        a: 'It ignores vacancies, maintenance, insurance, and property taxes, so always verify net income before making an offer.',
       },
       {
-        q: 'Why do residential plots with houses in Pakistan show GRMs of 20–30?',
-        a: 'Because land appreciation dominates market prices in major cities, residential rents typically lag behind purchase price.',
+        q: 'Why do residential homes often show much higher GRMs than shops?',
+        a: 'Houses price in strong land appreciation expectations, so annual rent represents a smaller slice of purchase price.',
       },
     ],
   },
 
   're-flipping-profit': {
-    seoTitle: `Free Property Flipping Profit Calculator – Fix & Flip ROI | ${SITE_NAME}`,
+    seoTitle: `Calculate House Flipping Profit After Rehab | ${SITE_NAME}`,
     metaDescription:
-      'Calculate net house-flipping profit, capital invested, and ROI after rehab costs with our free Property Flipping Profit Calculator.',
+      'Accurately calculate house flipping profit after rehab, holding expenses, and closing fees with instant flip ROI in PKR.',
+    introDescription:
+      'Renovating an older home for quick resale looks lucrative on paper until hidden holding and closing expenses surface. When you calculate house flipping profit after rehab here, combine purchase cost, renovation budget, and holding fees against your realistic resale target. Reviewing net rupee profit alongside percentage ROI shows immediately whether a fix-and-flip project leaves enough margin to absorb contractor overruns or slower market sales.',
     howToUseSteps: [
       'Type acquisition price inside Purchase Price (PKR).',
       'Enter contractor remodeling budget into Renovation Cost (PKR).',
@@ -429,24 +460,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Buying a 5-Marla shell at Purchase Price (PKR) = 8,000,000, spending Renovation Cost (PKR) = 1,500,000 and Holding & Closing Costs (PKR) = 400,000 (PKR 9,900,000 invested), and selling at Target Resale Price (PKR) = 12,000,000 nets PKR 2,100,000 Net Profit (21.21% Flip ROI).',
     faqs: [
       {
-        q: 'What belongs inside Holding & Closing Costs (PKR) on a 6-month flip?',
-        a: 'Include stamp duty, transfer fees, property utility bills, watchman/security wages, selling agent commission, and short-term financing costs.',
+        q: 'Which expenses belong inside holding and closing costs?',
+        a: 'Count transfer taxes, stamp duty, utility bills, site security, agent commissions, and any short-term borrowing costs.',
       },
       {
-        q: 'Why do experienced flippers keep a 10%–15% contingency inside Renovation Cost (PKR)?',
-        a: 'Hidden plumbing leaks, wiring replacements, and material price jumps quickly erode thin flip margins if unbudgeted.',
+        q: 'How much contingency buffer should flippers add to rehab budgets?',
+        a: 'Adding 10% to 15% extra covers hidden wiring, seepage, or material price increases that often appear mid-renovation.',
       },
       {
-        q: 'How do property taxes affect short-term flips held under 1 year?',
-        a: 'Short-term resales incur higher capital gains tax rates in Pakistan, so factor exit tax into Holding & Closing Costs (PKR).',
+        q: 'Do short-term flips face heavier resale taxes?',
+        a: 'Yes, selling within a year usually triggers higher short-term capital gains brackets, so include exit tax in closing costs.',
       },
     ],
   },
 
   're-remodeling-roi': {
-    seoTitle: `Free House Remodeling ROI Calculator – Upgrade Value Gain | ${SITE_NAME}`,
+    seoTitle: `Calculate Home Remodeling ROI and Value Gain | ${SITE_NAME}`,
     metaDescription:
-      'Check whether kitchen, bath, or facade upgrades add more market value than their renovation cost using our free House Remodeling ROI Calculator.',
+      'Quickly calculate home remodeling ROI and value gain to check if kitchen, bath, or facade upgrades pay back at resale.',
+    introDescription:
+      'Not every home renovation adds more resale value than it costs to build, especially if finishes exceed local neighborhood standards. To calculate home remodeling ROI and value gain, enter your total upgrade budget alongside the realistic market appraisal boost after completion. Seeing net equity gain and percentage return helps homeowners prioritize high-impact kitchen, bathroom, and exterior improvements over pricey cosmetic overhauls.',
     howToUseSteps: [
       'Type total upgrade invoice in rupees inside Renovation Cost (PKR).',
       'Enter projected boost in home appraisal inside Estimated Property Value Increase (PKR).',
@@ -458,24 +491,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Investing Renovation Cost (PKR) = 2,000,000 in kitchen and bath updates yielding Estimated Property Value Increase (PKR) = 2,500,000 creates PKR 500,000 Net Value Gain (25.0% ROI).',
     faqs: [
       {
-        q: 'Which home upgrades usually deliver the highest Remodeling ROI in Pakistan?',
-        a: 'Fresh exterior paint, modern kitchen cabinetry, updated bathroom vanities, and clean tile flooring typically recapture cost fastest at resale.',
+        q: 'Which renovations tend to return the most value when selling?',
+        a: 'Fresh exterior paint, updated kitchen cabinets, modern washrooms, and clean flooring usually recapture costs best.',
       },
       {
-        q: 'What does a negative Net Value Gain mean?',
-        a: 'If Renovation Cost exceeds Value Increase, the remodel adds personal lifestyle comfort rather than immediate resale profit.',
+        q: 'What does a negative net value gain indicate?',
+        a: 'It means the project costs more than buyers will pay extra for it, making it a personal comfort upgrade rather than a profit play.',
       },
       {
-        q: 'How should owners estimate Property Value Increase realistically?',
-        a: 'Compare recent sale prices of renovated versus unrenovated 5-Marla or 10-Marla homes on the same block.',
+        q: 'How can I estimate realistic post-renovation value increase?',
+        a: 'Compare recent closing prices of remodeled homes against dated homes of the exact same size on nearby streets.',
       },
     ],
   },
 
   're-insurance-cost': {
-    seoTitle: `Free Home Insurance Cost Estimator Calculator – Annual PKR | ${SITE_NAME}`,
+    seoTitle: `Estimate Annual Home Insurance Cost Online | ${SITE_NAME}`,
     metaDescription:
-      'Estimate annual and monthly home hazard insurance premiums from rebuild value and rate using our free Home Insurance Cost Estimator.',
+      'Quickly estimate annual home insurance cost online and monthly premiums in PKR from structure rebuild value and policy rate.',
+    introDescription:
+      'Protecting a house against fire, storms, or structural damage costs less when you understand how insurers price coverage. To estimate annual home insurance cost online, enter the building’s physical replacement cost—excluding underlying plot land value—and your quoted annual premium rate. Viewing both yearly and monthly figures helps homeowners and mortgage borrowers budget hazard insurance smoothly alongside utility and maintenance bills.',
     howToUseSteps: [
       'Enter rebuild cost of the house structure (excluding land) into Home Structure Replacement Value (PKR).',
       'Type insurer quoted percentage inside Annual Premium Rate (%).',
@@ -487,24 +522,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Insuring a home with Home Structure Replacement Value (PKR) = 15,000,000 at Annual Premium Rate (%) = 0.3 costs PKR 45,000 / year (PKR 3,750 monthly).',
     faqs: [
       {
-        q: 'Why exclude plot land price from Home Structure Replacement Value (PKR)?',
-        a: 'Fire, storm, or earthquake policies only rebuild damaged physical walls, roof, and finishes—not the underlying land itself.',
+        q: 'Why should land value be excluded from replacement cost?',
+        a: 'Hazard policies only pay to rebuild damaged walls, roofing, and interiors, because the land plot itself remains intact.',
       },
       {
-        q: 'Is home structure insurance mandatory for bank mortgages in Pakistan?',
-        a: 'Yes—virtually all Pakistani commercial banks require active fire and hazard takaful/insurance covering the financed structure value.',
+        q: 'Do mortgage lenders require active home structure insurance?',
+        a: 'Yes, banks typically mandate fire and allied perils insurance or takaful throughout the entire home loan term.',
       },
       {
-        q: 'What typical Annual Premium Rate (%) covers standard residential houses?',
-        a: 'Basic fire and allied perils coverage generally runs between 0.15% and 0.40% per year depending on construction grade and city zone.',
+        q: 'What annual rate range is common for residential hazard policies?',
+        a: 'Standard residential structure policies typically range from 0.15% to 0.40% per year depending on construction type and location.',
       },
     ],
   },
 
   're-agent-commission': {
-    seoTitle: `Free Property Agent Commission Calculator – Dealer Fee (PKR) | ${SITE_NAME}`,
+    seoTitle: `Calculate Real Estate Agent Commission Fee | ${SITE_NAME}`,
     metaDescription:
-      'Calculate real estate broker commission in Pakistani Rupees from deal price and commission percentage with our free Property Agent Commission Calculator.',
+      'Easily calculate real estate agent commission fee in PKR from agreed sale price and brokerage percentage before closing.',
+    introDescription:
+      'Brokerage fees are one of the most negotiable yet frequently misunderstood closing items in any real estate transaction. When you calculate real estate agent commission fee ahead of signing the token receipt, enter the agreed property sale price and brokerage percentage to see the exact rupee payout. Testing 0.5%, 1%, or 2% fee tiers helps both buyers and sellers agree on transparent terms early.',
     howToUseSteps: [
       'Enter final negotiated property deal value inside Property Transaction Price (PKR).',
       'Type broker fee percentage into Commission Rate (%) (commonly 1% or 2%).',
@@ -516,24 +553,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Closing a 10-Marla sale at Property Transaction Price (PKR) = 15,000,000 with Commission Rate (%) = 1.0 yields PKR 150,000 agent commission.',
     faqs: [
       {
-        q: 'What is the customary Commission Rate (%) in Pakistani real estate deals?',
-        a: 'Sale deals typically carry 1% commission each from buyer and seller (2% total), while rental leases usually charge one month’s rent.',
+        q: 'What broker commission percentage is standard for property sales?',
+        a: 'Many markets charge 1% each from buyer and seller on sales, while rental deals typically charge one month of rent.',
       },
       {
-        q: 'Can Commission Rate (%) accommodate tiered or split fees like 0.5% or 1.5%?',
-        a: 'Yes—enter decimals such as 0.5 or 1.5 on high-value Kanal or commercial deals where discounted rates are agreed.',
+        q: 'Can I negotiate a lower commission rate on high-value deals?',
+        a: 'Yes, large kanal homes and commercial plazas often close at reduced 0.5% or fixed-fee commissions agreed in advance.',
       },
       {
-        q: 'Should agent commission be calculated on gross deal value before FBR taxes?',
-        a: 'Brokerage fees are calculated directly on the agreed market Transaction Price, not reduced by FBR valuation differences.',
+        q: 'Is agent commission based on market deal price or official tax value?',
+        a: 'Brokers calculate commission on the actual agreed transaction price rather than lower official tax valuation tables.',
       },
     ],
   },
 
   're-plot-split': {
-    seoTitle: `Free Land Sub-division / Plot Splitting Calculator – Marla Plots | ${SITE_NAME}`,
+    seoTitle: `How Many Plots Can I Get From My Land | ${SITE_NAME}`,
     metaDescription:
-      'Count saleable 5-marla or 10-marla plots from raw land after road deductions using our free Land Sub-division / Plot Splitting Calculator.',
+      'Find out how many plots can I get from my land in marlas after subtracting mandatory roads, parks, and utility space.',
+    introDescription:
+      'Landowners and developers planning a small housing scheme often overestimate saleable inventory by forgetting streets and open spaces. Answering how many plots can I get from my land becomes straightforward when you enter total raw land in marlas, target plot size, and the road and amenity percentage. Deducting infrastructure space first reveals realistic whole-plot yield before commissioning formal town-planning drawings.',
     howToUseSteps: [
       'Enter gross raw acreage converted to marlas inside Total Land Area (Marlas).',
       'Type desired individual plot size inside Target Size per Plot (Marlas).',
@@ -545,24 +584,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Subdividing Total Land Area (Marlas) = 100 (5 Kanals) into Target Size per Plot (Marlas) = 5 after Land Allocated for Roads & Amenities (%) = 25 leaves 75.0 net Marlas, producing 15 Saleable Plots (5 Marla each).',
     faqs: [
       {
-        q: 'How much Land Allocated for Roads & Amenities (%) do development authorities require?',
-        a: 'Authorities like LDA, CDA, and SBCA often mandate 25%–40% combined open space for wide roads, parks, graveyards, and commercial zones.',
+        q: 'What percentage of raw land usually goes to roads and amenities?',
+        a: 'Municipal authorities commonly mandate 25% to 40% of gross land for streets, parks, mosques, and utility corridors.',
       },
       {
-        q: 'Why does the output round down using whole integers?',
-        a: 'Leftover fractional marlas cannot become a standalone standard plot and instead become odd-size corner extensions or green pockets.',
+        q: 'Why are partial leftover marlas rounded down?',
+        a: 'Fractional remaining area cannot form a standard rectangular plot and usually gets merged into corner plots or green strips.',
       },
       {
-        q: 'How many Marlas equal 1 Acre (Killa) if converting farmland?',
-        a: 'One standard acre equals 160 Marlas (8 Kanals = 43,560 sq ft), which you can enter directly into Total Land Area (Marlas).',
+        q: 'How many marlas should I enter for one acre of farmland?',
+        a: 'One standard acre (killa) equals 160 marlas or 8 kanals, which you can enter directly into total land area.',
       },
     ],
   },
 
   're-commercial-valuation': {
-    seoTitle: `Free Commercial Property Valuation Calculator – GIM Appraisal | ${SITE_NAME}`,
+    seoTitle: `How to Value Commercial Property From Rent | ${SITE_NAME}`,
     metaDescription:
-      'Appraise commercial plazas and shops from gross annual rent and market multiplier using our free Commercial Property Valuation Calculator.',
+      'Learn how to value commercial property from rent in PKR using gross annual lease revenue and a market income multiplier.',
+    introDescription:
+      'Commercial shops, office floors, and warehouses are priced primarily on their income-producing strength rather than bedroom counts. Understanding how to value commercial property from rent lets you multiply gross annual rental income by your district’s prevailing Gross Income Multiplier. Checking this quick income-based appraisal helps buyers verify whether a plaza asking price aligns with local comparable sales before ordering a formal bank valuation.',
     howToUseSteps: [
       'Type total annual lease income from all shop or office units inside Gross Annual Rental Income (PKR).',
       'Enter local commercial market multiplier into Market Gross Income Multiplier (GIM).',
@@ -574,24 +615,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'A commercial floor generating Gross Annual Rental Income (PKR) = 3,000,000 at Market Gross Income Multiplier (GIM) = 8.5 appraises at PKR 25,500,000 Valuation.',
     faqs: [
       {
-        q: 'How do appraisers find the right Market Gross Income Multiplier (GIM)?',
-        a: 'Divide recent comparable commercial building sale prices in the same business district by their gross yearly rents.',
+        q: 'Where do investors find the right Gross Income Multiplier for an area?',
+        a: 'Divide recent sale prices of similar nearby shops or plazas by their annual gross rental income to find the local benchmark.',
       },
       {
-        q: 'How does GIM differ from Cap Rate valuation?',
-        a: 'GIM uses gross rent before expenses, making it ideal for fast screening, whereas Cap Rate accounts for building upkeep and management costs.',
+        q: 'How is GIM valuation different from cap rate valuation?',
+        a: 'GIM uses gross rent for rapid estimates, whereas cap rate deducts operating expenses for more detailed underwriting.',
       },
       {
-        q: 'Should vacant shop units count inside Gross Annual Rental Income (PKR)?',
-        a: 'Use stabilized market rent adjusted for expected vacancy rather than assuming 100% permanent occupancy.',
+        q: 'Should vacant commercial units be counted at full asking rent?',
+        a: 'Apply realistic achievable rent adjusted for typical local vacancy rather than assuming zero downtime.',
       },
     ],
   },
 
   're-apartment-maintenance': {
-    seoTitle: `Free Apartment Maintenance Fee Calculator – Monthly & Yearly PKR | ${SITE_NAME}`,
+    seoTitle: `Calculate Monthly Apartment Maintenance Fee | ${SITE_NAME}`,
     metaDescription:
-      'Calculate monthly and annual condo or flat maintenance charges from square footage and per-sq-ft rate with our free Apartment Maintenance Fee Calculator.',
+      'Quickly calculate monthly apartment maintenance fee and yearly society dues in PKR from covered square footage and unit rate.',
+    introDescription:
+      'High-rise living offers gated security, reliable elevators, and backup power, yet recurring building dues add up noticeably over a full year. When you calculate monthly apartment maintenance fee obligations here, enter your flat’s covered square footage and the management union’s per-square-foot rate. Seeing both monthly and annual totals upfront lets tenants and buyers compare true occupancy costs across different residential towers fairly before signing.',
     howToUseSteps: [
       'Enter covered flat area inside Apartment Size (Square Feet).',
       'Type building union fee per square foot in Maintenance Rate per Sq Ft (PKR / month).',
@@ -603,24 +646,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'A flat of Apartment Size (Square Feet) = 1400 billed at Maintenance Rate per Sq Ft (PKR / month) = 8 pays PKR 11,200 / month, or PKR 134,400 annually.',
     faqs: [
       {
-        q: 'Are backup generator diesel charges normally included inside Maintenance Rate per Sq Ft?',
-        a: 'Usually common-area lighting and elevator backup are included, while in-apartment generator kWh usage is metered separately.',
+        q: 'Are backup generator electricity charges included in building maintenance?',
+        a: 'Common-area lights and lifts are usually covered, while private in-flat generator consumption is typically billed separately.',
       },
       {
-        q: 'Should landlords factor apartment maintenance into net rental yield?',
-        a: 'If the lease requires the owner to pay building union dues rather than the tenant, include the annual PKR figure as an operating expense.',
+        q: 'Who normally pays apartment maintenance dues—tenant or owner?',
+        a: 'Tenants typically cover routine monthly service dues, though major capital repair assessments stay with the property owner.',
       },
       {
-        q: 'How do studio vs 3-bed flat fees compare under per-sq-ft billing?',
-        a: 'Because every resident pays the exact same rate per sq ft, a 2,100 sq ft unit pays 50% more monthly maintenance than a 1,400 sq ft unit.',
+        q: 'Why do larger apartments pay higher monthly union dues?',
+        a: 'Because charges scale linearly per square foot, a larger floor plan carries a proportionally bigger share of building upkeep.',
       },
     ],
   },
 
   're-appreciation': {
-    seoTitle: `Free Annual Property Appreciation Calculator – Compound PKR Growth | ${SITE_NAME}`,
+    seoTitle: `Calculate Future Property Value Appreciation | ${SITE_NAME}`,
     metaDescription:
-      'Project future compound value of plots and homes over years at an annual growth rate with our free Annual Property Appreciation Calculator.',
+      'Easily calculate future property value appreciation in PKR over multi-year holding periods with compound annual growth.',
+    introDescription:
+      'Long-term real estate wealth relies heavily on steady compounding over five, ten, or fifteen years. When you calculate future property value appreciation here, input today’s market appraisal, expected yearly growth rate, and planned holding years. Observing both projected future value and total rupee gain helps investors test conservative versus optimistic growth assumptions before locking capital into plots or residential homes.',
     howToUseSteps: [
       'Enter today’s market appraisal inside Current Property Value (PKR).',
       'Type expected yearly growth percentage into Annual Appreciation Rate (%).',
@@ -632,24 +677,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'A 10-Marla house at Current Property Value (PKR) = 20,000,000 growing at Annual Appreciation Rate (%) = 10 over Years = 5 reaches PKR 32,210,200 (PKR 12,210,200 gain).',
     faqs: [
       {
-        q: 'Why does 10% appreciation over 5 years yield PKR 12,210,200 instead of PKR 10,000,000?',
-        a: 'Compound growth earns 10% on each prior year’s appreciated value rather than simple linear 10% × 5 = 50% growth.',
+        q: 'Why does compound appreciation grow faster than simple yearly percentages?',
+        a: 'Each year’s growth percentage applies to the newly increased property value rather than only the original purchase price.',
       },
       {
-        q: 'Do developing plot files appreciate evenly every year?',
-        a: 'Real estate often moves in jumps around balloting, road carpeting, and possession milestones—treat Annual Appreciation Rate (%) as a multi-year average.',
+        q: 'Do real estate values rise smoothly by the same percent every year?',
+        a: 'Markets move in cycles around infrastructure milestones, so use an average long-term growth rate rather than one boom year.',
       },
       {
-        q: 'Can I compare property appreciation against inflation?',
-        a: 'Subtract average annual CPI inflation from Annual Appreciation Rate (%) to model real purchasing-power growth.',
+        q: 'How can I check inflation-adjusted property growth?',
+        a: 'Subtract expected annual inflation from your nominal appreciation percentage to estimate real purchasing-power gains.',
       },
     ],
   },
 
   're-payoff-acceleration': {
-    seoTitle: `Free Mortgage Payoff Acceleration Calculator – Extra Principal PKR | ${SITE_NAME}`,
+    seoTitle: `Calculate Extra Mortgage Payment Savings | ${SITE_NAME}`,
     metaDescription:
-      'Estimate interest saved on home financing by paying extra monthly principal in PKR using our free Mortgage Payoff Acceleration Calculator.',
+      'Quickly calculate extra mortgage payment savings in PKR to see how additional monthly principal reduces long-term markup.',
+    introDescription:
+      'Sending even modest extra cash toward your home loan principal each month chips away at future bank markup faster than most borrowers realize. To calculate extra mortgage payment savings, enter your unpaid loan balance, extra monthly principal amount, and current annual markup rate. Previewing multi-year interest reduction shows how consistent voluntary prepayments accelerate debt freedom without paying fees for a full bank refinance.',
     howToUseSteps: [
       'Type unpaid bank loan principal into Remaining Loan Balance (PKR).',
       'Enter additional voluntary principal paid monthly inside Extra Monthly Principal Payment (PKR).',
@@ -661,24 +708,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Adding Extra Monthly Principal Payment (PKR) = 25,000 against Remaining Loan Balance (PKR) = 8,000,000 at Annual Markup Rate (%) = 16 saves Approx. PKR 120,000 Interest Saved over five years.',
     faqs: [
       {
-        q: 'Do Pakistani banks charge an early partial-prepayment penalty?',
-        a: 'Some Islamic and conventional home finance contracts allow penalty-free annual partial prepayments up to a capped percentage, while others charge 1%–3%—check your offer letter.',
+        q: 'Do banks charge early partial-prepayment fees on extra payments?',
+        a: 'Policies vary—some home finance contracts allow penalty-free yearly partial prepayments up to a cap, while others charge 1% to 3%.',
       },
       {
-        q: 'Should extra payments be marked explicitly toward principal reduction?',
-        a: 'Always instruct the bank branch that extra cash reduces principal balance rather than advancing next month’s scheduled EMI.',
+        q: 'Should I notify the bank that extra cash is for principal reduction?',
+        a: 'Yes, explicitly instruct your lender to apply extra funds to principal balance rather than prepaying future scheduled EMIs.',
       },
       {
-        q: 'When in a 15-year mortgage do extra principal payments save the most markup?',
-        a: 'Prepayments made in the first 1–5 years eliminate decades of future markup compounding.',
+        q: 'When during a mortgage do extra payments save the most markup?',
+        a: 'Prepayments made during the early years of a loan cut the most total interest because balances are still highest.',
       },
     ],
   },
 
   're-home-equity': {
-    seoTitle: `Free Home Equity Calculator – Net Ownership Share (PKR) | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Home Equity Percentage | ${SITE_NAME}`,
     metaDescription:
-      'Calculate your net home equity in rupees and ownership percentage by subtracting mortgage debt using our free Home Equity Calculator.',
+      'Learn how to calculate home equity percentage and net ownership value in PKR by subtracting remaining mortgage debt.',
+    introDescription:
+      'Knowing how much of your house you truly own free and clear guides smart refinancing, selling, and borrowing decisions. Learning how to calculate home equity percentage takes just two numbers: today’s realistic market value and your remaining mortgage payoff balance. Tracking both rupee equity and ownership share lets homeowners see how regular principal payments and local appreciation build personal net worth over time.',
     howToUseSteps: [
       'Type current appraised resale price inside Current Market Value (PKR).',
       'Enter unpaid principal still owed to your lender into Remaining Mortgage Balance (PKR).',
@@ -690,24 +739,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Owning a house worth Current Market Value (PKR) = 25,000,000 with Remaining Mortgage Balance (PKR) = 9,000,000 provides PKR 16,000,000 Equity (64.0%).',
     faqs: [
       {
-        q: 'How can Home Equity grow even faster than monthly loan repayments?',
-        a: 'Rising local property prices boost Current Market Value (PKR) while regular EMIs simultaneously shrink Remaining Mortgage Balance (PKR).',
+        q: 'What are the two ways home equity grows over time?',
+        a: 'Equity rises both as your monthly payments shrink mortgage principal and as local market prices lift your home’s value.',
       },
       {
-        q: 'What happens if Remaining Mortgage Balance exceeds Current Market Value?',
-        a: 'The calculator floors displayed equity at PKR 0, signaling an underwater loan where selling wouldn’t cover debt without cash.',
+        q: 'What if my mortgage balance is higher than current market value?',
+        a: 'Equity shows zero, signaling negative equity where selling today would not fully pay off the remaining loan.',
       },
       {
-        q: 'Does Home Equity equal cash I receive immediately upon selling?',
-        a: 'Subtract selling agent commission, transfer fees, and taxes from PKR 16,000,000 Equity to find net cash walk-away proceeds.',
+        q: 'Is my full home equity equal to cash received after selling?',
+        a: 'No, remember to deduct broker commissions, transfer fees, and closing taxes from gross equity to estimate net proceeds.',
       },
     ],
   },
 
   're-noi': {
-    seoTitle: `Free Gross vs Net Operating Income (NOI) Calculator – PKR | ${SITE_NAME}`,
+    seoTitle: `Calculate Net Operating Income for Rental | ${SITE_NAME}`,
     metaDescription:
-      'Compute property Net Operating Income (NOI) in PKR from gross rent and upkeep bills with our free Gross vs Net Operating Income (NOI) Calculator.',
+      'Easily calculate net operating income for rental properties in PKR by deducting upkeep and operating bills from gross rent.',
+    introDescription:
+      'Gross rent checks can make an aging building look far more profitable than it truly is once repairs and management fees hit. When you calculate net operating income for rental investments here, enter gross annual rental collections and yearly operating expenses to isolate true property-level earnings. Commercial lenders and landlords rely on NOI as the starting foundation for cap rate and valuation math.',
     howToUseSteps: [
       'Enter total yearly rent collected before bills inside Gross Annual Rental Income (PKR).',
       'Type annual repairs, management, insurance, and tax costs into Operating Expenses / Maintenance (PKR).',
@@ -719,24 +770,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Collecting Gross Annual Rental Income (PKR) = 1,800,000 against Operating Expenses / Maintenance (PKR) = 250,000 produces PKR 1,550,000 NOI.',
     faqs: [
       {
-        q: 'Which items should stay out of Operating Expenses / Maintenance (PKR) for NOI?',
-        a: 'Exclude mortgage payments, loan markup, and personal FBR income tax; NOI strictly evaluates property-level revenue minus property-level upkeep.',
+        q: 'Which expenses should stay excluded from rental NOI?',
+        a: 'Leave out mortgage payments, personal income taxes, and major capital replacements so NOI reflects pure property operations.',
       },
       {
-        q: 'Why is NOI essential before calculating Cap Rate?',
-        a: 'Cap Rate divides NOI by property price—using gross rent instead of NOI overstates real property yield.',
+        q: 'Why do investors compute NOI before figuring cap rate?',
+        a: 'Using gross rent instead of NOI hides repair and tax burdens, artificially inflating apparent property yield.',
       },
       {
-        q: 'How should vacancy periods be treated inside Gross Annual Rental Income (PKR)?',
-        a: 'Subtract 1 month of expected vacancy between tenants (using 11 months rent instead of 12) for conservative budgeting.',
+        q: 'How should expected tenant vacancies be handled in gross rent?',
+        a: 'Use 11 months of rent instead of 12 when budgeting to allow a realistic cushion for tenant turnover.',
       },
     ],
   },
 
   're-property-cap-rate': {
-    seoTitle: `Free Property Capitalization Rate (Cap Rate) Calculator – Yield % | ${SITE_NAME}`,
+    seoTitle: `Calculate Property Cap Rate From Annual NOI | ${SITE_NAME}`,
     metaDescription:
-      'Evaluate unleveraged annual property investment yield from NOI and purchase price using our free Property Capitalization Rate (Cap Rate) Calculator.',
+      'Quickly calculate property cap rate from annual NOI and purchase price in PKR to compare unleveraged real estate yields.',
+    introDescription:
+      'Comparing a rented bungalow, an apartment unit, and a neighborhood retail shop becomes objective once financing is stripped away. To calculate property cap rate from annual NOI, enter yearly net operating income alongside total property purchase price. The resulting percentage reveals your annual unleveraged return, helping investors evaluate whether asking prices match expected cash yield across residential and commercial asset classes.',
     howToUseSteps: [
       'Type yearly net rental earnings in rupees inside Net Operating Income (NOI in PKR).',
       'Enter full acquisition price or valuation inside Property Value / Purchase Price (PKR).',
@@ -748,24 +801,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'A 1-Kanal rented bungalow generating Net Operating Income (NOI in PKR) = 1,500,000 on Property Value / Purchase Price (PKR) = 25,000,000 returns a 6.00% Cap Rate.',
     faqs: [
       {
-        q: 'How many years does a 6.00% Cap Rate take to recover purchase cost from rent alone?',
-        a: 'Dividing 100 by 6.00 shows roughly 16.7 years of steady net rent, excluding any land price appreciation.',
+        q: 'How fast does a 6% cap rate pay back purchase cost from rent alone?',
+        a: 'Dividing 100 by 6 shows roughly 16.7 years of steady net rental income before counting any property appreciation.',
       },
       {
-        q: 'Why do commercial shops often trade at higher Cap Rates than residential houses?',
-        a: 'Commercial leases deliver stronger immediate cash flow per rupee, whereas residential villas rely heavily on long-term capital appreciation.',
+        q: 'Why do shops typically offer higher cap rates than houses?',
+        a: 'Retail leases prioritize immediate cash flow yield, whereas houses trade at higher prices driven by long-term land appreciation.',
       },
       {
-        q: 'What changes if you pay all cash versus taking a mortgage?',
-        a: 'Cap Rate stays identical because it ignores debt; use Cash-on-Cash Return when evaluating leveraged down-payment returns.',
+        q: 'Does taking out a bank loan change a property’s cap rate?',
+        a: 'No, cap rate assumes an all-cash purchase; use cash-on-cash return to measure leveraged performance with financing.',
       },
     ],
   },
 
   're-cash-on-cash': {
-    seoTitle: `Free Property Cash on Cash Return Calculator – Equity Yield % | ${SITE_NAME}`,
+    seoTitle: `Calculate Cash on Cash Return on Rental | ${SITE_NAME}`,
     metaDescription:
-      'Compute annual cash-on-cash return percentage on actual down payment and cash invested using our free Property Cash on Cash Return Calculator.',
+      'Easily calculate cash on cash return on rental property in PKR from yearly pre-tax cash flow and total cash invested.',
+    introDescription:
+      'When financing a rental property with a bank mortgage or installment plan, your true return depends on the out-of-pocket cash you actually put in. To calculate cash on cash return on rental deals, enter yearly pre-tax cash flow left after mortgage payments and divide by total upfront cash invested. This practical metric lets leveraged investors compare down-payment efficiency across competing deals accurately.',
     howToUseSteps: [
       'Type yearly rent profit remaining after mortgage EMIs and upkeep into Annual Pre-Tax Cash Flow (PKR).',
       'Enter total out-of-pocket down payment, fees, and rehab cash inside Total Cash Invested / Down Payment (PKR).',
@@ -777,24 +832,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Putting Total Cash Invested / Down Payment (PKR) = 5,000,000 into an apartment yielding Annual Pre-Tax Cash Flow (PKR) = 600,000 earns a 12.00% Cash-on-Cash Return.',
     faqs: [
       {
-        q: 'Why does Total Cash Invested / Down Payment (PKR) include closing fees and initial repairs?',
-        a: 'Every rupee spent out of pocket before tenant move-in—down payment, stamp duty, transfer fee, and paint—ties up your cash capital.',
+        q: 'Should closing fees and initial repairs count in total cash invested?',
+        a: 'Yes, include down payment, stamp duty, transfer fees, and make-ready repairs so the percentage reflects every rupee spent.',
       },
       {
-        q: 'How can Cash-on-Cash Return beat Cap Rate on financed properties?',
-        a: 'When rental yield exceeds bank financing cost (positive leverage), borrowing amplifies cash return on your smaller down payment.',
+        q: 'How can cash-on-cash return beat cap rate on a financed rental?',
+        a: 'Positive leverage occurs when rental yield exceeds loan interest cost, boosting percentage returns on your smaller down payment.',
       },
       {
-        q: 'Does Annual Pre-Tax Cash Flow include property appreciation?',
-        a: 'No—Cash-on-Cash focuses strictly on spendable yearly cash flow rather than unrealized paper equity gains.',
+        q: 'Does cash-on-cash return include future property appreciation?',
+        a: 'No, it measures spendable annual cash income only and excludes unrealized market value gains.',
       },
     ],
   },
 
   're-refinance-breakeven': {
-    seoTitle: `Free Mortgage Refinance Breakeven Calculator – Months to Payback | ${SITE_NAME}`,
+    seoTitle: `When Does Mortgage Refinancing Break Even | ${SITE_NAME}`,
     metaDescription:
-      'Find how many months lower loan payments need to repay switching fees using our free Mortgage Refinance Breakeven Calculator.',
+      'Find out when does mortgage refinancing break even in months and years by comparing closing costs against monthly savings.',
+    introDescription:
+      'Switching to a lower mortgage rate looks attractive until bank processing, legal, and valuation fees enter the picture. Checking when does mortgage refinancing break even takes only your total switching fees and expected monthly installment reduction. Dividing costs by monthly savings reveals the exact recovery month, helping homeowners confirm they will keep the property long enough to enjoy genuine net savings.',
     howToUseSteps: [
       'Enter bank processing, valuation, and legal charges inside Refinancing Closing Costs (PKR).',
       'Type monthly installment reduction achieved under the new loan into Monthly Payment Savings (PKR).',
@@ -806,24 +863,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Paying Refinancing Closing Costs (PKR) = 150,000 to cut payments by Monthly Payment Savings (PKR) = 12,000 reaches payback in ~12.5 Months to Breakeven (1.0 years).',
     faqs: [
       {
-        q: 'When does refinancing make financial sense based on Breakeven Months?',
-        a: 'If you plan to keep the home well past 12.5 months—say 3 to 10 more years—refinancing captures net positive savings.',
+        q: 'How do I decide if the breakeven timeline is worth refinancing?',
+        a: 'Refinancing makes financial sense when you expect to own the home comfortably past the breakeven month.',
       },
       {
-        q: 'What fees belong inside Refinancing Closing Costs (PKR)?',
-        a: 'Sum early settlement charges from your old bank, new loan processing fee, property valuation, and legal mortgage registration.',
+        q: 'Which bank fees belong inside refinancing closing costs?',
+        a: 'Add early settlement charges from your current lender, new processing fees, property appraisal, and mortgage re-registration costs.',
       },
       {
-        q: 'What if Monthly Payment Savings (PKR) comes from stretching the loan term longer?',
-        a: 'Check total remaining interest paid too—extending a 10-year balance back to 20 years lowers monthly bills while raising lifetime markup.',
+        q: 'What if lower payments happen mainly from resetting the loan term?',
+        a: 'Extending remaining years reduces monthly cash outflow but can raise total lifetime interest paid, so compare total markup too.',
       },
     ],
   },
 
   're-equity-loan-limit': {
-    seoTitle: `Free Home Equity Loan Borrowing Limit Calculator – 80% LTV PKR | ${SITE_NAME}`,
+    seoTitle: `How Much Home Equity Loan Can I Borrow | ${SITE_NAME}`,
     metaDescription:
-      'Calculate maximum borrowable home equity under an 80% LTV rule minus mortgage debt with our free Home Equity Loan Borrowing Limit Calculator.',
+      'Check how much home equity loan can I borrow in PKR under an 80% LTV collateral limit minus remaining mortgage balance.',
+    introDescription:
+      'Homeowners looking to fund a renovation, education, or business expansion often tap built-up property value instead of selling. To check how much home equity loan can I borrow, enter your home’s appraised market value and current unpaid mortgage balance. Applying the common 80% Loan-to-Value lending cap instantly calculates available collateral room so you can approach banks with realistic borrowing expectations.',
     howToUseSteps: [
       'Type current appraised house or plot value into Current Property Market Value (PKR).',
       'Enter any remaining home loan balance inside Outstanding Mortgage Balance (PKR) (enter 0 if debt-free).',
@@ -835,24 +894,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'On a 1-Kanal home at Current Property Market Value (PKR) = 30,000,000 (80% LTV = PKR 24,000,000) with Outstanding Mortgage Balance (PKR) = 10,000,000, borrowing capacity equals PKR 14,000,000 Max Loan Limit.',
     faqs: [
       {
-        q: 'Why do banks enforce an 80% LTV ceiling instead of lending 100% of equity?',
-        a: 'Keeping a 20% collateral cushion shields the bank against temporary property price dips and legal recovery expenses.',
+        q: 'Why do lenders cap home equity loans around 80% LTV?',
+        a: 'Keeping a 20% equity cushion protects lenders against property market dips and legal recovery costs.',
       },
       {
-        q: 'What happens if Outstanding Mortgage Balance already exceeds 80% of market value?',
-        a: 'The formula outputs PKR 0 Max Loan Limit because existing debt already consumes the bank’s collateral threshold.',
+        q: 'Why would my borrowing limit display zero?',
+        a: 'If your existing mortgage already equals or exceeds 80% of current value, no additional collateral room remains under standard LTV rules.',
       },
       {
-        q: 'Can business owners or salaried homeowners verify income eligibility separately?',
-        a: 'Yes—even with PKR 14,000,000 collateral room, banks still require monthly income proof supporting the resulting installment.',
+        q: 'Does sufficient collateral guarantee automatic bank approval?',
+        a: 'No, lenders still review monthly salary or business income statements to verify you can comfortably afford the new installment.',
       },
     ],
   },
 
   're-usa-home-affordability': {
-    seoTitle: `Free Home Affordability Calculator – Budget & DTI | ${SITE_NAME}`,
+    seoTitle: `How Much House Can I Afford With My Income | ${SITE_NAME}`,
     metaDescription:
-      'Estimate how much house you can afford from income, debts, down payment, and mortgage rates with our free Home Affordability Calculator.',
+      'Find out how much house can I afford with my income using debts, down payment, mortgage rate, taxes, and DTI limits.',
+    introDescription:
+      'House hunting gets far less stressful once your target price range rests on real underwriting math instead of guesswork. Answering how much house can I afford with my income combines gross annual pay, monthly debt obligations, down payment cash, interest rate, and local property tax and insurance estimates. Adjusting your debt-to-income limit immediately reveals both maximum home price and safe monthly PITI budget.',
     howToUseSteps: [
       'Enter household pay in Annual Gross Income ($), existing obligations in Monthly Debt Payments ($), and cash ready in Down Payment ($).',
       'Set your quoted Mortgage Interest Rate (%) and Loan Term (Years).',
@@ -864,24 +925,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Earning Annual Gross Income ($) = $110,000 with Monthly Debt Payments ($) = $500, Down Payment ($) = $60,000, Mortgage Interest Rate (%) = 6.5%, Loan Term (Years) = 30, Max Back-End DTI Ratio (%) = 36%, and Annual Property Tax & Insurance (% of Home) = 1.5% yields $419,941 Max Home Price ($359,941 loan and $2,800 monthly PITI).',
     faqs: [
       {
-        q: 'Why does Max Back-End DTI Ratio (%) subtract Monthly Debt Payments ($)?',
-        a: 'Back-end debt-to-income counts auto loans, student loans, and credit card minimums together with housing costs against gross monthly pay.',
+        q: 'What does back-end DTI ratio count besides a mortgage?',
+        a: 'Back-end debt-to-income combines auto loans, student loans, and minimum credit card bills with your projected monthly housing payment.',
       },
       {
-        q: 'Does Annual Property Tax & Insurance (% of Home) vary across US states?',
-        a: 'Yes—local county tax assessments and homeowner insurance premiums vary widely, so adjust this percentage to fit your target zip code.',
+        q: 'Why should I adjust the property tax and insurance percentage?',
+        a: 'County tax rates and homeowner insurance vary widely by state, directly affecting how much loan fits inside your monthly PITI budget.',
       },
       {
-        q: 'How can I raise my affordable home budget without increasing Annual Gross Income ($)?',
-        a: 'Paying down Monthly Debt Payments ($) or adding to Down Payment ($) directly raises maximum purchasing power.',
+        q: 'How can buyers raise their home budget without a salary increase?',
+        a: 'Paying off monthly debts or saving a larger down payment directly expands maximum affordable purchase price.',
       },
     ],
   },
 
   're-usa-rent-vs-buy': {
-    seoTitle: `Free Rent vs Buy Calculator – Homeownership Cost | ${SITE_NAME}`,
+    seoTitle: `Should I Rent or Buy a House Calculator | ${SITE_NAME}`,
     metaDescription:
-      'Compare net buying costs and home equity against escalating rent over your planned stay with our free Rent vs Buy Calculator.',
+      'Use our should I rent or buy a house calculator to compare net ownership cost and home equity against rising rent.',
+    introDescription:
+      'Deciding whether to sign another apartment lease or commit to a mortgage depends heavily on how many years you plan to stay. Using this should I rent or buy a house calculator lets you enter purchase price, down payment, mortgage terms, current rent, rent growth, and expected home appreciation. Comparing net ownership cost after ending equity against cumulative rent clarifies which choice saves more money.',
     howToUseSteps: [
       'Enter Home Purchase Price ($), Down Payment ($), Mortgage Rate (%), and Loan Term (Years) for the buying scenario.',
       'Type current Monthly Rent ($) and Annual Rent Increase (%) for the renting alternative.',
@@ -893,24 +956,26 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Comparing Home Purchase Price ($) = $400,000, Down Payment ($) = $80,000, Mortgage Rate (%) = 6.5%, Loan Term (Years) = 30, Monthly Rent ($) = $2,400, Annual Rent Increase (%) = 3%, Annual Home Appreciation (%) = 3.5%, and Years You Plan to Stay = 7 yields Buying saves ~$148,359 ($72,320 net buy cost vs $220,679 rent).',
     faqs: [
       {
-        q: 'Why does Years You Plan to Stay change whether renting or buying wins?',
-        a: 'Longer stays allow mortgage amortization and Annual Home Appreciation (%) to outweigh upfront ownership and maintenance costs.',
+        q: 'Why does planned stay length matter so much when buying vs renting?',
+        a: 'Staying longer gives loan principal paydown and home appreciation enough time to outweigh maintenance and upfront ownership costs.',
       },
       {
-        q: 'What ongoing ownership expenses are reflected in Net Buy Cost?',
-        a: 'Alongside mortgage principal and interest, the model adds an estimated 1.5% annual allowance for property taxes and upkeep.',
+        q: 'Does net buying cost account for ongoing upkeep and property taxes?',
+        a: 'Yes, the comparison adds a 1.5% annual ownership allowance for taxes and home maintenance alongside mortgage payments.',
       },
       {
-        q: 'How sensitive is Rent vs Buy to Annual Home Appreciation (%)?',
-        a: 'Higher appreciation lowers Net Buy Cost significantly, whereas flat home prices over short stays often favor renting.',
+        q: 'When does renting usually come out ahead financially?',
+        a: 'Renting often wins over short 1-to-3 year stays or in markets where home prices grow slowly relative to high mortgage rates.',
       },
     ],
   },
 
   're-usa-down-payment-savings': {
-    seoTitle: `Free Down Payment Savings Calculator – Monthly Plan | ${SITE_NAME}`,
+    seoTitle: `How Long to Save for a House Down Payment | ${SITE_NAME}`,
     metaDescription:
-      'Calculate how many months it takes to save your target home down payment with APY growth using our free Down Payment Savings Calculator.',
+      'Calculate how long to save for a house down payment in months and years using monthly deposits and savings account APY.',
+    introDescription:
+      'Turning a homeownership goal into a real purchase date gets much clearer once you map out monthly cash contributions. Checking how long to save for a house down payment requires your target home price, desired down payment percentage, current savings, monthly deposit, and savings account APY. Simulating compound monthly interest reveals the exact timeline and remaining dollar gap so you can adjust savings habits realistically.',
     howToUseSteps: [
       'Set Target Home Price ($) and your desired Target Down Payment (%) (such as 10% or 20%).',
       'Enter cash already set aside in Current Savings ($) plus your Monthly Savings Contribution ($).',
@@ -922,16 +987,16 @@ export const realestateSeoFullMap: Record<string, RealestateCalculatorSeoEntry> 
       'Saving toward Target Home Price ($) = $380,000 at Target Down Payment (%) = 20% ($76,000 target) starting from Current Savings ($) = $22,000 with Monthly Savings Contribution ($) = $1,500 and Savings Account APY (%) = 4.2% reaches the target in 33 Months (2.8 yrs).',
     faqs: [
       {
-        q: 'Do I always need 20% in Target Down Payment (%) to buy a home in the USA?',
-        a: 'No—many conventional and government-backed mortgages accept 3% to 10% down, though 20% generally avoids private mortgage insurance (PMI).',
+        q: 'Do homebuyers always need a full 20% down payment?',
+        a: 'No, many conventional and government-backed loans accept 3% to 10% down, though putting 20% down avoids private mortgage insurance.',
       },
       {
-        q: 'How much faster does Savings Account APY (%) help reach the goal?',
-        a: 'Keeping funds in a 4%+ APY account instead of 0.1% checking shaves months off a multi-year savings timeline through monthly interest.',
+        q: 'How much difference does a high-yield savings APY make?',
+        a: 'Earning 4% or more in a high-yield account instead of near-zero checking trims months off multi-year down payment timelines.',
       },
       {
-        q: 'Should closing costs also be budgeted beyond Target Down Payment (%)?',
-        a: 'Yes—buyers often budget an extra 2% to 5% of Target Home Price ($) for lender, appraisal, and title closing fees.',
+        q: 'Should I save extra cash beyond my down payment percentage?',
+        a: 'Yes, setting aside an extra 2% to 5% of the home price prepares you for lender, title, and appraisal closing costs.',
       },
     ],
   },

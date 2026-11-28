@@ -15,8 +15,6 @@ interface HeaderProps {
   onLogoClick?: () => void;
   onOpenFavorites: () => void;
   onOpenHistory: () => void;
-  darkMode: boolean;
-  setDarkMode: (val: boolean) => void;
   hideSearch?: boolean;
   currency: CurrencyCode;
   onChangeCurrency: (c: CurrencyCode) => void;

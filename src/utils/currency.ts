@@ -1,32 +1,35 @@
-export type CurrencyCode = 'PKR' | 'USD' | 'GBP' | 'EUR' | 'INR' | 'AED' | 'SAR';
+export type CurrencyCode = 'USD' | 'PKR' | 'USDT' | 'EUR' | 'GBP' | 'INR' | 'AED' | 'SAR';
 
 export interface CurrencyConfig {
   code: CurrencyCode;
   symbol: string;
-  symbolPrefix: boolean; // true for $, £, €, ₹ (no space before digits); false for PKR, AED, SAR (space before digits)
+  symbolPrefix: boolean; // true for $, £, €, ₹ (no space before digits); false for PKR, USDT, AED, SAR (space before digits)
 }
 
 export const CURRENCIES: CurrencyConfig[] = [
-  { code: 'PKR', symbol: 'PKR', symbolPrefix: false },
   { code: 'USD', symbol: '$', symbolPrefix: true },
-  { code: 'GBP', symbol: '£', symbolPrefix: true },
+  { code: 'PKR', symbol: 'PKR', symbolPrefix: false },
+  { code: 'USDT', symbol: 'USDT', symbolPrefix: false },
   { code: 'EUR', symbol: '€', symbolPrefix: true },
+  { code: 'GBP', symbol: '£', symbolPrefix: true },
   { code: 'INR', symbol: '₹', symbolPrefix: true },
   { code: 'AED', symbol: 'AED', symbolPrefix: false },
   { code: 'SAR', symbol: 'SAR', symbolPrefix: false },
 ];
 
 export const CURRENCY_MAP: Record<CurrencyCode, CurrencyConfig> = {
-  PKR: CURRENCIES[0],
-  USD: CURRENCIES[1],
-  GBP: CURRENCIES[2],
+  USD: CURRENCIES[0],
+  PKR: CURRENCIES[1],
+  USDT: CURRENCIES[2],
   EUR: CURRENCIES[3],
-  INR: CURRENCIES[4],
-  AED: CURRENCIES[5],
-  SAR: CURRENCIES[6],
+  GBP: CURRENCIES[4],
+  INR: CURRENCIES[5],
+  AED: CURRENCIES[6],
+  SAR: CURRENCIES[7],
 };
 
 export const CURRENCY_STORAGE_KEY = 'calcnaseeb_currency';
+export const CURRENCY_EXPLICIT_KEY = 'calcnaseeb_currency_user_selected';
 
 // Calculators whose rules, tax slabs, fine tiers, note denominations, or land/weight units are Pakistan-specific
 export const PAKISTAN_SPECIFIC_CALCULATOR_IDS = new Set<string>([
@@ -51,76 +54,32 @@ export function isPakistanSpecificCalculator(calculatorId: string): boolean {
   return PAKISTAN_SPECIFIC_CALCULATOR_IDS.has(calculatorId);
 }
 
-const EU_REGION_CODES = new Set([
-  'AT', 'BE', 'CY', 'DE', 'EE', 'ES', 'FI', 'FR', 'GR', 'HR',
-  'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PT', 'SI', 'SK',
-  'BG', 'CZ', 'DK', 'HU', 'PL', 'RO', 'SE', 'EU',
-]);
-
-const EU_LANGUAGE_CODES = new Set([
-  'bg', 'cs', 'da', 'de', 'el', 'es', 'et', 'fi', 'fr', 'ga',
-  'hr', 'hu', 'it', 'lt', 'lv', 'mt', 'nl', 'pl', 'pt', 'ro',
-  'sk', 'sl', 'sv',
-]);
-
 export function isValidCurrency(value: unknown): value is CurrencyCode {
   return typeof value === 'string' && value in CURRENCY_MAP;
 }
 
-export function detectDefaultCurrency(): CurrencyCode {
-  if (typeof navigator === 'undefined') return 'USD';
-
-  const locales: string[] = [];
-  if (Array.isArray(navigator.languages)) {
-    locales.push(...navigator.languages);
-  }
-  if (navigator.language) {
-    locales.push(navigator.language);
-  }
-
-  for (const raw of locales) {
-    if (!raw) continue;
-    const normalized = raw.trim().replace('_', '-');
-    const parts = normalized.split('-');
-    const lang = parts[0]?.toLowerCase() || '';
-    // Find 2-letter region subtag (skip 4-letter script tags like Latn/Arab)
-    const region = parts.slice(1).find((p) => /^[a-zA-Z]{2}$/.test(p))?.toUpperCase();
-
-    if (region === 'PK') return 'PKR';
-    if (region === 'US') return 'USD';
-    if (region === 'GB' || region === 'UK') return 'GBP';
-    if (region === 'IN') return 'INR';
-    if (region === 'AE') return 'AED';
-    if (region === 'SA') return 'SAR';
-    if (region && EU_REGION_CODES.has(region)) return 'EUR';
-
-    // Handle language-only locales (avoid mapping pt-BR or es-MX/es-419 to EUR)
-    if (!region || region === '419') {
-      if (lang === 'ur') return 'PKR';
-      if (lang === 'hi') return 'INR';
-      if (EU_LANGUAGE_CODES.has(lang) && region !== '419') return 'EUR';
-    }
-  }
-
-  return 'USD';
-}
-
 export function getInitialCurrency(): CurrencyCode {
   try {
-    const saved = localStorage.getItem(CURRENCY_STORAGE_KEY);
-    if (isValidCurrency(saved)) {
-      return saved;
+    const userSelected = localStorage.getItem(CURRENCY_EXPLICIT_KEY) === 'true';
+    if (userSelected) {
+      const saved = localStorage.getItem(CURRENCY_STORAGE_KEY);
+      if (isValidCurrency(saved)) {
+        return saved;
+      }
     }
   } catch {
     // Ignore storage access failures
   }
-  const detected = detectDefaultCurrency();
+  return 'USD';
+}
+
+export function saveCurrencyPreference(currency: CurrencyCode): void {
   try {
-    localStorage.setItem(CURRENCY_STORAGE_KEY, detected);
+    localStorage.setItem(CURRENCY_STORAGE_KEY, currency);
+    localStorage.setItem(CURRENCY_EXPLICIT_KEY, 'true');
   } catch {
     // Ignore storage write failures
   }
-  return detected;
 }
 
 export function localizeCurrencyText(
@@ -148,8 +107,8 @@ export function localizeCurrencyText(
       : `${isNeg ? '-' : ''}${cfg.code} ${absNum}`;
   });
 
-  // Replace PKR amounts like "PKR 120,000" or "PKR -500"
-  out = out.replace(/\bPKR\s+(-?\d[\d,]*(?:\.\d+)?)/g, (_m, num: string) => {
+  // Replace PKR or USD amounts like "PKR 120,000", "PKR -500", "USD 1,200"
+  out = out.replace(/\b(?:PKR|USD)\s+(-?\d[\d,]*(?:\.\d+)?)/g, (_m, num: string) => {
     const isNeg = num.startsWith('-');
     const absNum = isNeg ? num.slice(1) : num;
     return cfg.symbolPrefix
@@ -160,12 +119,15 @@ export function localizeCurrencyText(
   // Replace "($)" in input labels
   out = out.replace(/\(\$\)/g, `(${cfg.symbol})`);
 
-  // Replace contextual phrases like "Amount in PKR", "per 1 PKR", "1 PKR =" with code
-  out = out.replace(/\b(in|per\s+1)\s+PKR\b/gi, `$1 ${cfg.code}`);
-  out = out.replace(/\b1\s+PKR\s*=/gi, `1 ${cfg.code} =`);
-
-  // Replace any remaining standalone "PKR" in labels/units (e.g., "(PKR)", "PKR / kWh", "PKR - S")
-  out = out.replace(/\bPKR\b/g, cfg.symbol);
+  // Replace contextual phrases ("Amount in PKR", "per 1 PKR", "1 PKR =") with code, and remaining standalone codes with symbol
+  out = out.replace(
+    /\b(in|per\s+1)\s+(?:PKR|USD)\b|\b1\s+(?:PKR|USD)\s*=|\b(?:PKR|USD)\b/gi,
+    (match, prefix?: string) => {
+      if (prefix) return `${prefix} ${cfg.code}`;
+      if (/^1\s+/i.test(match)) return `1 ${cfg.code} =`;
+      return cfg.symbol;
+    }
+  );
 
   return out;
 }

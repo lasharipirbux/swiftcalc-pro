@@ -1,4 +1,9 @@
+import { SITE_NAME } from '../config/site';
+
 export interface MathCalculatorSeoEntry {
+  seoTitle: string;
+  metaDescription: string;
+  introDescription: string;
   howToUseSteps: string[];
   formulaExplanation: string;
   practicalExample: string;
@@ -7,6 +12,11 @@ export interface MathCalculatorSeoEntry {
 
 export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
   'basic-calc': {
+    seoTitle: `Solve Math Expressions Using PEMDAS | ${SITE_NAME}`,
+    metaDescription:
+      'Quickly solve math expressions using PEMDAS order of operations with parentheses, multiplication, division, addition, and modulo.',
+    introDescription:
+      'Whether you are checking homework, balancing a cash register, or verifying invoice line items, knowing how to solve math expressions using PEMDAS prevents common arithmetic errors. Type a complete expression with parentheses, +, -, *, /, or % into one box instead of clearing intermediate steps on a handheld keypad. The engine evaluates brackets first, handles multiplication and division ahead of addition, and prints the step trail so you can confirm every intermediate value.',
     howToUseSteps: [
       'Type any multi-step equation directly into the Math Expression field using digits, parentheses, and +, -, *, /, or % operators.',
       'Group inner additions or subtractions inside parentheses whenever you want those sub-calculations evaluated before multiplications.',
@@ -19,21 +29,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering 100 + 50 * 2 into the Math Expression box evaluates 50 * 2 = 100 first according to multiplication precedence, then adds 100 to produce an exact final answer of 200 (instead of 300).',
     faqs: [
       {
-        q: 'Why does 100 + 50 * 2 evaluate to 200 rather than 300?',
-        a: 'Multiplication takes higher precedence than addition, so 50 * 2 executes before adding 100; wrap (100 + 50) in parentheses if you want addition done first.',
+        q: 'Why does 100 + 50 * 2 equal 200 instead of 300?',
+        a: 'Multiplication runs before addition under order-of-operations rules, so 50 * 2 computes first unless you wrap (100 + 50) in parentheses.',
       },
       {
-        q: 'Which math symbols are accepted inside the Math Expression input?',
-        a: 'You may enter standard numbers, decimal points, parentheses (), addition +, subtraction -, multiplication *, division /, and modulo %.',
+        q: 'Which math symbols can I type into the expression box?',
+        a: 'You can use digits, decimals, parentheses (), addition +, subtraction -, multiplication *, division /, and remainder %.',
       },
       {
-        q: 'How can I override default precedence in a long expression?',
-        a: 'Place parentheses around whichever operations should execute earlier, such as (24 + 16) / 8 to get 5.',
+        q: 'How do I force addition to run before division?',
+        a: 'Wrap the addition inside parentheses—for example, typing (24 + 16) / 8 calculates 40 / 8 = 5.',
       },
     ],
   },
 
   'scientific-calc': {
+    seoTitle: `Calculate Sin Cos Tan and Logs Online | ${SITE_NAME}`,
+    metaDescription:
+      'Need to calculate sin cos tan and logs online? Compute degree-based trigonometry, square roots, natural ln, and log10 to six decimals.',
+    introDescription:
+      'Engineering students, physics labs, and surveyors frequently need to calculate sin cos tan and logs online without carrying a physical scientific keypad. Pick your function from the dropdown, enter an angle in degrees for trigonometry or a positive number for roots and logarithms, and read the six-decimal result right away. Switching operations while keeping the same input lets you compare sine, cosine, and tangent ratios or check ln against log10 instantly.',
     howToUseSteps: [
       'Choose your desired mathematical function from the Operation selector: Sine (sin), Cosine (cos), Tangent (tan), Square Root (sqrt), Natural Log (ln), or Base-10 Log (log10).',
       'Enter the angle in degrees (for trigonometric choices) or positive numeric input inside the Value field.',
@@ -46,21 +61,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Selecting Sine (sin) in Operation and typing 45 in Value converts 45° to 0.785398 radians and computes sin(45°) = 0.707107.',
     faqs: [
       {
-        q: 'Does the Scientific Calculator expect angles in degrees or radians?',
-        a: 'For sin, cos, and tan, the Value box accepts degrees directly and converts them internally by multiplying by π / 180.',
+        q: 'Should I enter degrees or radians for sin, cos, and tan?',
+        a: 'Enter angles in standard degrees; the calculator automatically converts degrees into radians behind the scenes.',
       },
       {
-        q: 'What distinguishes Natural Log (ln) from Base-10 Log (log10)?',
-        a: 'Natural Log uses Euler’s constant e ≈ 2.71828 as its base, whereas Base-10 Log measures powers of 10 (for instance, log10(1000) = 3).',
+        q: 'What is the difference between ln and log10?',
+        a: 'Natural log (ln) uses base e (about 2.71828), while log10 uses base 10—so log10(100) equals 2.',
       },
       {
-        q: 'Why must Value be strictly positive when selecting ln or log10?',
-        a: 'Real-valued logarithms are only defined for numbers greater than 0 because no real exponent raises e or 10 to zero or a negative number.',
+        q: 'Why must the input be positive for logarithms?',
+        a: 'Real logarithms are undefined at zero and negative values because positive bases raised to real powers never reach zero.',
       },
     ],
   },
 
   'fraction-calc': {
+    seoTitle: `Add Subtract Multiply and Divide Fractions | ${SITE_NAME}`,
+    metaDescription:
+      'Learn how to add subtract multiply and divide fractions with automatic lowest-terms simplification and decimal conversion.',
+    introDescription:
+      'Cooking recipes, carpentry measurements, and algebra assignments often require you to add subtract multiply and divide fractions cleanly without making common-denominator mistakes. Enter the numerator and denominator for both fractions, pick your arithmetic operator, and inspect both the reduced fraction and its four-decimal equivalent. Every answer is automatically divided by its greatest common divisor so results always appear in crisp, lowest integer terms.',
     howToUseSteps: [
       'Fill in Numerator 1 and Denominator 1 to define your left-hand fraction (remember Denominator 1 cannot be zero).',
       'Pick +, -, *, or / in the Operation dropdown to combine the two fractions.',
@@ -73,21 +93,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'With Numerator 1 = 1, Denominator 1 = 2, Operation = +, Numerator 2 = 1, and Denominator 2 = 4, common-denominator math produces 6/8, which simplifies via GCD(6, 8) = 2 to 3/4 (Decimal: 0.7500).',
     faqs: [
       {
-        q: 'How does the fraction output get reduced to lowest terms automatically?',
-        a: 'After computing the raw numerator and denominator, Euclid’s greatest common divisor divides both integers until they share no factor above 1.',
+        q: 'How are fraction answers simplified automatically?',
+        a: 'The calculator divides both the resulting numerator and denominator by their greatest common divisor until no common factor remains.',
       },
       {
-        q: 'Why does division flip the second fraction?',
-        a: 'Dividing by c/d is mathematically identical to multiplying by its multiplicative inverse d/c.',
+        q: 'Can I use improper fractions like 7/4 or 9/5?',
+        a: 'Yes, improper fractions compute cleanly and stay formatted in reduced improper fraction form alongside a decimal readout.',
       },
       {
-        q: 'Can I work with improper fractions whose numerator exceeds the denominator?',
-        a: 'Yes, entering improper values such as Numerator 1 = 7 and Denominator 1 = 4 calculates accurately and keeps the answer in simplified improper fraction form.',
+        q: 'Why can a denominator never be set to zero?',
+        a: 'Division by zero is undefined in mathematics, so every valid fraction needs a non-zero bottom number.',
       },
     ],
   },
 
   'decimal-calc': {
+    seoTitle: `How to Convert a Decimal to a Fraction | ${SITE_NAME}`,
+    metaDescription:
+      'See how to convert a decimal to a fraction in simplest reduced terms, turning values like 0.75, 0.375, or 1.25 into exact ratios.',
+    introDescription:
+      'Workshop rulers, sewing patterns, and math homework frequently ask how to convert a decimal to a fraction when measurements come off a digital scale in tenths or thousandths. Type any terminating decimal—such as 0.75, 0.375, or 2.5—and the converter scales it by powers of ten before simplifying via greatest common divisor. In seconds, you see the exact lowest-terms ratio ready for tape measures or algebraic equations.',
     howToUseSteps: [
       'Enter any terminating decimal number—such as 0.75, 0.125, or 2.5—into the Decimal Value input box.',
       'Wait for the instant conversion reducing the fraction to its lowest integer terms.',
@@ -100,21 +125,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Typing 0.75 into Decimal Value counts 2 decimal digits, forming 75 / 100; dividing numerator and denominator by GCD(75, 100) = 25 yields the reduced fraction 3 / 4.',
     faqs: [
       {
-        q: 'How does the converter handle decimals larger than 1, such as 1.25?',
-        a: 'It converts 1.25 to 125 / 100 and reduces by 25 to output the improper fraction 5 / 4.',
+        q: 'How does 0.375 turn into 3 / 8?',
+        a: 'Three decimal places make 375 / 1000, and dividing both top and bottom by 125 simplifies it down to 3 / 8.',
       },
       {
-        q: 'Why does 0.375 convert cleanly to 3 / 8?',
-        a: 'With three decimal digits, 0.375 equals 375 / 1,000, and dividing both parts by 125 reduces it exactly to 3 / 8.',
+        q: 'What happens if I type a decimal larger than 1 like 1.25?',
+        a: 'It simplifies 125 / 100 by 25 to give the exact improper fraction 5 / 4.',
       },
       {
-        q: 'What if I enter a whole integer like 5 into Decimal Value?',
-        a: 'With zero digits after the point, 10⁰ = 1, giving the exact fraction 5 / 1.',
+        q: 'Can I convert negative decimals too?',
+        a: 'Yes, negative decimals convert identically while preserving the minus sign on the simplified numerator.',
       },
     ],
   },
 
   'percentage-calc': {
+    seoTitle: `How to Calculate Percentage of a Number | ${SITE_NAME}`,
+    metaDescription:
+      'Learn how to calculate percentage of a number from part and total values for exam grades, sales targets, and budget shares.',
+    introDescription:
+      'Checking exam scores, tracking monthly quota progress, or comparing store discounts starts with knowing how to calculate percentage of a number quickly. Enter your achieved part amount alongside the full total value to see the exact percentage rounded to two decimal places plus the numeric gap between them. It eliminates mental division mistakes whether your part is a small slice of the whole or exceeds 100%.',
     howToUseSteps: [
       'Type the partial quantity or score you want to evaluate into the Part / Amount field.',
       'Enter the full reference baseline or maximum possible score inside the Total / Whole field.',
@@ -127,21 +157,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Setting Part / Amount = 45 and Total / Whole = 150 divides 45 by 150 to get 0.30, multiplies by 100 to output 30.00%, and reports Difference: -105.',
     faqs: [
       {
-        q: 'Can Part / Amount be greater than Total / Whole?',
-        a: 'Yes, entering Part = 180 and Total = 150 accurately produces 120.00% with a positive difference of +30.',
+        q: 'How do I find my exam percentage from obtained and total marks?',
+        a: 'Enter your obtained marks as the Part and the maximum possible marks as the Total to get your exact percentage immediately.',
       },
       {
-        q: 'How can students use this to calculate exam marks percentages?',
-        a: 'Put your obtained marks in Part / Amount and maximum total marks in Total / Whole to see your score percentage immediately.',
+        q: 'Can the percentage go above 100%?',
+        a: 'Yes, whenever the Part exceeds the Total—such as 180 out of 150—the calculator accurately outputs 120.00%.',
       },
       {
-        q: 'What does a negative number in the Difference line mean?',
-        a: 'It indicates by how many units your Part / Amount falls short of reaching 100% of Total / Whole.',
+        q: 'What does a negative Difference line tell me?',
+        a: 'It shows exactly how many units your part is short of reaching 100% of the whole.',
       },
     ],
   },
 
   'ratio-calc': {
+    seoTitle: `How to Solve a Ratio Proportion Online | ${SITE_NAME}`,
+    metaDescription:
+      'See how to solve a ratio proportion online (A:B = C:D) for missing values when scaling recipes, blueprints, and mixtures.',
+    introDescription:
+      'Resizing a baking recipe, scaling a floor plan, or mixing concrete batches requires knowing how to solve a ratio proportion online so every ingredient stays balanced. Enter your known starting ratio (A to B) alongside the third value C in A:B = C:D, and the solver cross-multiplies immediately to reveal the missing fourth term D. It handles whole numbers and decimals smoothly to four-decimal precision.',
     howToUseSteps: [
       'Enter the first term of your known ratio into field A (default 3).',
       'Enter the matching second term of your known ratio into field B (default 5).',
@@ -154,21 +189,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'With A = 3, B = 5, and C = 15 in the proportion 3 : 5 = 15 : D, computing (5 × 15) / 3 = 75 / 3 solves D = 25.0000.',
     faqs: [
       {
-        q: 'What does the solved value represent in A:B = C:D?',
-        a: 'It represents the missing fourth value D that keeps the ratio C:D strictly proportional to A:B.',
+        q: 'How can I verify that the solved ratio is truly proportional?',
+        a: 'Multiply A by D and compare it with B times C—both cross-products will always match.',
       },
       {
-        q: 'How can I double-check that the solved value D keeps both ratios equal?',
-        a: 'Verify that A × D equals B × C—for example, 3 × 25 = 75 and 5 × 15 = 75.',
+        q: 'Can I enter decimals like 1.5 or 2.25 in a ratio?',
+        a: 'Yes, decimal inputs work smoothly for kitchen conversions, paint mixing, and map scale factors.',
       },
       {
-        q: 'Can decimal values be entered in fields A, B, or C?',
-        a: 'Yes, fractional measurements such as 1.5 or 2.75 calculate cleanly for engineering or cooking scale-ups.',
+        q: 'Why can field A never be zero?',
+        a: 'Cross-multiplying solves D = (B × C) / A, which would require dividing by zero if A were 0.',
       },
     ],
   },
 
   'average-calc': {
+    seoTitle: `How to Find the Average of Numbers Online | ${SITE_NAME}`,
+    metaDescription:
+      'Learn how to find the average of numbers online from any comma-separated list, seeing the exact arithmetic mean, sum, and count.',
+    introDescription:
+      'Teachers grading class tests, runners averaging split speeds, and shoppers tracking monthly utility bills often search for how to find the average of numbers online in one quick paste. Enter any comma-separated list of positive, negative, or decimal values, and the calculator adds every valid entry, counts how many numbers were parsed, and divides sum by count. Checking the displayed count confirms no value was accidentally skipped.',
     howToUseSteps: [
       'Enter or paste your list of values into the Numbers (comma separated) field, placing a comma between each entry.',
       'Ensure decimals or negative values are separated clearly by commas rather than spaces alone.',
@@ -181,21 +221,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering 10, 20, 30, 40, 50 into Numbers (comma separated) totals Sum = 150 across Count = 5 items, yielding an arithmetic mean of 150 / 5 = 30.00.',
     faqs: [
       {
-        q: 'What happens if there are extra spaces around the commas in my number list?',
-        a: 'Whitespace around each comma is trimmed automatically, so both "10,20,30" and "10, 20, 30" calculate identically.',
+        q: 'Do extra spaces after commas affect the average calculation?',
+        a: 'No, whitespace around each comma is ignored automatically, so 10,20,30 and 10, 20, 30 give the exact same result.',
       },
       {
-        q: 'Can negative numbers and decimal scores be included together?',
-        a: 'Yes, positive, negative, and decimal values all parse cleanly into the Sum and Mean.',
+        q: 'Can I mix decimals and negative numbers in the same list?',
+        a: 'Yes, positive, negative, and decimal entries all add cleanly into the total sum and mean.',
       },
       {
-        q: 'Why does the output include Count alongside Sum?',
-        a: 'Checking Count confirms that every single comma-separated entry in your list was parsed with none accidentally missed.',
+        q: 'Why does the summary line display both Sum and Count?',
+        a: 'Showing Count lets you verify that all items in your pasted list were recognized before dividing.',
       },
     ],
   },
 
   'square-root': {
+    seoTitle: `Find Square Root and Cube Root of a Number | ${SITE_NAME}`,
+    metaDescription:
+      'Instantly find square root and cube root of a number side by side to four decimal places for geometry, algebra, and volume math.',
+    introDescription:
+      'Solving diagonal geometry lengths or reversing cubic volume formulas is effortless when you can find square root and cube root of a number together on one screen. Type any integer or decimal to see both its principal square root (√n) and cube root (∛n) to four decimal places. While square roots require non-negative real numbers, testing negative inputs still reveals exact real cube roots below zero.',
     howToUseSteps: [
       'Type the target value you want to extract roots from into the Number field.',
       'Check the Calculated Result header for the principal square root (√n) formatted to four decimal places.',
@@ -208,21 +253,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering 144 into Number outputs Square Root: 12.0000 (since 12² = 144) alongside Cube Root: 5.2415 (since 5.2415³ ≈ 144).',
     faqs: [
       {
-        q: 'Does √n give both positive and negative roots in geometry problems?',
-        a: 'This calculator reports the principal non-negative square root; in pure algebra x² = 144 has solutions +12 and −12.',
+        q: 'Why can I take the cube root of -27 but not its square root?',
+        a: 'Multiplying three negative numbers gives a negative ((-3)³ = -27), while squaring any real number is never negative.',
       },
       {
-        q: 'Why can you take the cube root of a negative number like −27, unlike a square root?',
-        a: 'Multiplying three negatives produces a negative ((−3)³ = −27), whereas squaring any real number always gives zero or positive.',
+        q: 'Does the square root output show both plus and minus answers?',
+        a: 'It shows the principal positive root; for equations like x² = 144, remember both +12 and -12 satisfy the equation.',
       },
       {
-        q: 'What makes 64 special for both square and cube roots?',
-        a: '64 is both a perfect square (8² = 64) and a perfect cube (4³ = 64).',
+        q: 'Which common numbers have exact whole square and cube roots?',
+        a: 'Numbers like 1 and 64 (8² and 4³) are both perfect squares and perfect cubes.',
       },
     ],
   },
 
   'power-exponent': {
+    seoTitle: `How to Calculate Exponents and Powers Online | ${SITE_NAME}`,
+    metaDescription:
+      'Learn how to calculate exponents and powers online for positive, zero, negative, and fractional exponents with instant results.',
+    introDescription:
+      'From compound interest growth to binary memory sizes and scientific notation, knowing how to calculate exponents and powers online helps you evaluate repeated multiplication in one step. Enter any base x and exponent y to compute x^y immediately. Beyond standard whole powers, you can enter 0 to confirm the zero-exponent rule, negative exponents for reciprocals, or fractional decimals like 0.5 for square roots.',
     howToUseSteps: [
       'Enter the starting value being multiplied into the Base (x) box.',
       'Enter the power to raise it to inside the Exponent (y) box.',
@@ -235,21 +285,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Setting Base (x) = 3 and Exponent (y) = 4 computes 3 × 3 × 3 × 3, outputting 81.',
     faqs: [
       {
-        q: 'What does raising any nonzero Base (x) to Exponent (y) = 0 produce?',
-        a: 'By the zero-exponent rule, x⁰ always equals 1 for any nonzero base.',
+        q: 'Why does any non-zero number raised to the power 0 equal 1?',
+        a: 'Dividing a power by itself—like 5³ / 5³ = 5⁰—always equals 1, making x⁰ = 1 for every non-zero base.',
       },
       {
-        q: 'How are negative powers like 2^(-3) evaluated?',
-        a: 'A negative exponent means reciprocal division: 2^(-3) = 1 / 2³ = 1 / 8 = 0.125.',
+        q: 'How do negative exponents work?',
+        a: 'A negative exponent flips the power into a fraction—for instance, 2^-3 equals 1 / 2³ = 1 / 8 = 0.125.',
       },
       {
-        q: 'Can fractional exponents like 0.5 be entered into Exponent (y)?',
-        a: 'Yes, entering Base (x) = 25 and Exponent (y) = 0.5 computes √25 = 5.',
+        q: 'Can I compute roots using fractional exponents like 0.5 or 0.25?',
+        a: 'Yes, raising 16 to 0.5 calculates √16 = 4, and raising 16 to 0.25 calculates the fourth root 2.',
       },
     ],
   },
 
   'lcm-gcd': {
+    seoTitle: `How to Find LCM and GCD of Two Numbers | ${SITE_NAME}`,
+    metaDescription:
+      'Discover how to find LCM and GCD of two numbers using Euclid’s algorithm to simplify fractions, schedules, and gear ratios.',
+    introDescription:
+      'Adding fractions with unlike denominators, syncing repeating maintenance schedules, or reducing ratios becomes simple once you know how to find LCM and GCD of two numbers accurately. Enter any two integers to get both their Greatest Common Divisor (GCD) via Euclid’s remainder algorithm and their Least Common Multiple (LCM) side by side. It works equally well on large pairs and coprime numbers.',
     howToUseSteps: [
       'Type your first integer into the Number 1 input box (default 36).',
       'Type your second integer into the Number 2 input box (default 48).',
@@ -262,21 +317,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering Number 1 = 36 and Number 2 = 48 applies Euclid’s remainders (48 mod 36 = 12, 36 mod 12 = 0) to get GCD: 12, then computes (36 × 48) / 12 = LCM: 144.',
     faqs: [
       {
-        q: 'What does it mean if two inputs show GCD: 1?',
-        a: 'A GCD of 1 means Number 1 and Number 2 are coprime (sharing no common factor besides 1), making their LCM equal to their product.',
+        q: 'What does it mean when two numbers have a GCD of 1?',
+        a: 'It means the two numbers are coprime and share no common factor greater than 1, so their LCM equals their direct product.',
       },
       {
-        q: 'How is LCM useful when adding two fractions by hand?',
-        a: 'The LCM of two denominators gives the Lowest Common Denominator, keeping intermediate numerators as small as possible.',
+        q: 'How does LCM help when adding fractions?',
+        a: 'The LCM of two denominators gives the smallest common denominator, keeping arithmetic simple.',
       },
       {
-        q: 'What role does GCD play in simplifying fractions?',
-        a: 'Dividing both a fraction’s numerator and denominator by their GCD reduces the fraction directly to simplest form.',
+        q: 'Is GCD the same as Greatest Common Factor (GCF)?',
+        a: 'Yes, Greatest Common Divisor (GCD), Highest Common Factor (HCF), and Greatest Common Factor (GCF) all refer to the same number.',
       },
     ],
   },
 
   'prime-number': {
+    seoTitle: `How to Check if a Number Is Prime Online | ${SITE_NAME}`,
+    metaDescription:
+      'Test any whole integer—learn how to check if a number is prime online instantly using fast square-root trial division.',
+    introDescription:
+      'Students exploring number theory or developers testing encryption parameters often need to know how to check if a number is prime online without dividing manually by dozens of candidates. Enter any whole integer to verify immediately whether it is Prime, Composite, or Not Prime. By testing divisors up to the square root of your number, the checker classifies small numbers, edge cases like 1 and 2, and large odd integers reliably.',
     howToUseSteps: [
       'Type any whole number you wish to classify into the Integer field (default 97).',
       'Observe the result status reading Prime Number, Composite Number, or Not Prime.',
@@ -289,21 +349,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering Integer = 97 checks divisors from 2 through √97 ≈ 9.84 (namely 2, 3, 4, 5, 6, 7, 8, 9); finding no remainder of 0 confirms 97 is a Prime Number.',
     faqs: [
       {
-        q: 'Why are 0 and 1 classified as Not Prime?',
-        a: 'By mathematical convention, a prime must have exactly two distinct positive divisors (1 and itself), whereas 1 has only one divisor.',
+        q: 'Why is the number 1 not considered prime?',
+        a: 'A prime number must have exactly two distinct positive factors (1 and itself), whereas 1 has only one factor.',
       },
       {
-        q: 'What is the sole even prime number?',
-        a: 'The integer 2 is the smallest and only even prime, because every larger even number divides evenly by 2.',
+        q: 'What is the only even prime number?',
+        a: 'The number 2 is the sole even prime because every larger even integer divides evenly by 2.',
       },
       {
-        q: 'Why does testing stop once divisors reach √n?',
-        a: 'If n = a × b and neither factor exceeded √n, their product could not reach n; therefore at least one factor always sits at or below √n.',
+        q: 'Why do primality tests only check divisors up to the square root?',
+        a: 'If a number factors into two parts, at least one factor must be less than or equal to its square root.',
       },
     ],
   },
 
   'factorial-calc': {
+    seoTitle: `How to Calculate Factorial of a Number | ${SITE_NAME}`,
+    metaDescription:
+      'See how to calculate factorial of a number (n!) up to 170! instantly for permutations, probability, and combinatorics.',
+    introDescription:
+      'Counting seating arrangements, analyzing card probabilities, and expanding Taylor series all depend on knowing how to calculate factorial of a number (n!) accurately. Type any whole integer from 0 up to 170 to multiply every descending positive integer down to 1 in one click. The output formats large results with clear comma separators and correctly evaluates 0! as 1 so combinatorics formulas work consistently.',
     howToUseSteps: [
       'Enter a non-negative whole number between 0 and 170 into the Integer n box.',
       'Check the Calculated Result readout for the exact product n! formatted with thousands separators.',
@@ -316,21 +381,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Setting Integer n = 7 evaluates 7 × 6 × 5 × 4 × 3 × 2 × 1, outputting 5,040.',
     faqs: [
       {
-        q: 'Why is 0! equal to 1 rather than 0?',
-        a: 'There is exactly 1 way to arrange zero objects (the empty permutation), and 0! = 1 preserves the recurrence n! = n × (n − 1)! for n = 1.',
+        q: 'Why does 0! equal 1 instead of 0?',
+        a: 'There is one way to arrange zero items (doing nothing), and defining 0! = 1 keeps combination formulas like nCr valid.',
       },
       {
-        q: 'Why does the input cap at Integer n = 170?',
-        a: '170! is approximately 7.26 × 10³⁰⁶, right below JavaScript’s maximum representable 64-bit floating number (~1.79 × 10³⁰⁸).',
+        q: 'Why is 170 the largest factorial supported here?',
+        a: '171! exceeds standard 64-bit computer number limits (around 1.8 × 10³⁰⁸), causing overflow to infinity.',
       },
       {
-        q: 'What does n! represent in probability and seating problems?',
-        a: 'It counts the exact number of distinct ways n unique people or items can be ordered in a row.',
+        q: 'What does 5! = 120 tell me in real life?',
+        a: 'It means 5 distinct books on a shelf or 5 people standing in line can be ordered in 120 unique ways.',
       },
     ],
   },
 
   'quadratic-solver': {
+    seoTitle: `Solve Quadratic Equations Step by Step | ${SITE_NAME}`,
+    metaDescription:
+      'Find real roots x1 and x2 plus the discriminant—solve quadratic equations step by step in ax² + bx + c = 0 form online.',
+    introDescription:
+      'Algebra homework, projectile physics problems, and parabolic curve sketches go much faster when you solve quadratic equations step by step with instant discriminant feedback. Enter coefficients a, b, and c from ax² + bx + c = 0 to compute both real roots x₁ and x₂ alongside Δ = b² − 4ac. Seeing the discriminant right below the roots tells you immediately whether two intercepts, one double root, or complex solutions occur.',
     howToUseSteps: [
       'Enter the x² coefficient in field a (default 1; must be nonzero for a quadratic equation).',
       'Type the linear x coefficient into field b, including a minus sign if negative (default -3).',
@@ -343,21 +413,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering a = 1, b = -3, and c = -10 computes Discriminant: (-3)² − 4(1)(-10) = 49, then solves (3 ± 7) / 2 to output x₁ = 5.0000, x₂ = -2.0000.',
     faqs: [
       {
-        q: 'What does the Discriminant line tell me about the graph of the parabola?',
-        a: 'Positive Δ gives two distinct x-intercepts, Δ = 0 means the vertex touches the x-axis at one double root, and negative Δ means no real x-intercepts.',
+        q: 'What does a negative discriminant mean?',
+        a: 'When b² − 4ac is negative, the parabola never crosses the x-axis and the solutions are complex numbers instead of real roots.',
       },
       {
-        q: 'Why does setting a = 0 return a warning instead of roots?',
-        a: 'When a = 0, the x² term disappears, turning the expression into a linear equation bx + c = 0 and making division by 2a impossible.',
+        q: 'What happens when the discriminant equals zero?',
+        a: 'The parabola touches the x-axis at a single point, giving one repeated root where x₁ equals x₂.',
       },
       {
-        q: 'What happens if b² − 4ac is less than zero?',
-        a: 'The solver identifies Complex Roots because taking the square root of a negative discriminant involves the imaginary unit i.',
+        q: 'Why cannot coefficient a be zero?',
+        a: 'If a = 0, the x² term vanishes and the equation becomes a straight line rather than a quadratic.',
       },
     ],
   },
 
   'matrix-calc': {
+    seoTitle: `Find Determinant of a 2x2 Matrix Online | ${SITE_NAME}`,
+    metaDescription:
+      'Quickly find determinant of a 2x2 matrix online using ad − bc for linear algebra, Cramer’s rule, and invertibility checks.',
+    introDescription:
+      'Linear algebra students solving systems of equations or testing whether a transformation matrix has an inverse often need to find determinant of a 2x2 matrix online without sign slips. Enter the four elements a, b, c, and d across rows one and two to compute (a × d) − (b × c) immediately. Whenever the determinant drops to zero, you know right away that the matrix is singular and non-invertible.',
     howToUseSteps: [
       'Type the top-left element into a (1,1) (default 4) and the top-right element into b (1,2) (default 6).',
       'Enter the bottom-left element in c (2,1) (default 3) and the bottom-right element in d (2,2) (default 8).',
@@ -370,21 +445,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Using a (1,1) = 4, b (1,2) = 6, c (2,1) = 3, and d (2,2) = 8 calculates (4 × 8) − (6 × 3) = 32 − 18, outputting Determinant = 14.',
     faqs: [
       {
-        q: 'What does Determinant = 0 signify for a 2×2 matrix?',
-        a: 'A zero determinant indicates a singular matrix whose rows or columns are linearly dependent, meaning it has no matrix inverse.',
+        q: 'What does a determinant of zero mean?',
+        a: 'A zero determinant tells you the rows or columns are multiples of each other, meaning the matrix has no inverse.',
       },
       {
-        q: 'Can negative determinants happen?',
-        a: 'Yes, a negative determinant simply indicates that the matrix transformation flips orientation (reflection) alongside scaling area.',
+        q: 'Can a matrix determinant be negative?',
+        a: 'Yes, a negative determinant means the linear transformation flips orientation in addition to scaling area.',
       },
       {
-        q: 'How is this 2×2 determinant used in Cramer’s Rule?',
-        a: 'To solve two simultaneous linear equations, you divide the determinant of modified coefficient matrices by the main determinant.',
+        q: 'Where is a 2x2 determinant used outside homework?',
+        a: 'It powers Cramer’s rule for two-variable equations, 2D computer graphics transforms, and cross-product area math.',
       },
     ],
   },
 
   'math-pythagorean': {
+    seoTitle: `Find Hypotenuse Using Pythagorean Theorem | ${SITE_NAME}`,
+    metaDescription:
+      'Calculate right-triangle diagonals—find hypotenuse using Pythagorean theorem √(a² + b²) for framing, ladders, and geometry.',
+    introDescription:
+      'Squaring up a deck frame, checking safe ladder placement, or solving right-triangle geometry problems becomes effortless when you find hypotenuse using Pythagorean theorem inputs a and b. Enter the two perpendicular legs meeting at 90 degrees, and the solver squares both sides, adds them together, and takes the square root to four decimals. It is ideal for verifying classic 3-4-5 carpentry corners or any custom diagonal.',
     howToUseSteps: [
       'Enter the length of the first perpendicular leg into Side A (default 3).',
       'Enter the length of the second perpendicular leg into Side B (default 4).',
@@ -397,21 +477,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'With Side A = 3 and Side B = 4, squaring both legs produces 9 + 16 = 25, whose square root outputs Hypotenuse (c) = 5.0000.',
     faqs: [
       {
-        q: 'Does it matter whether the shorter leg goes in Side A or Side B?',
-        a: 'No, addition is commutative (a² + b² = b² + a²), so swapping Side A and Side B yields the identical hypotenuse.',
+        q: 'Does it matter which leg I enter as Side A versus Side B?',
+        a: 'No, because a² + b² equals b² + a², swapping the two shorter legs produces the exact same hypotenuse.',
       },
       {
-        q: 'What are the most common whole-number right triangles (Pythagorean triples)?',
-        a: 'Popular triples include 3-4-5, 5-12-13, 8-15-17, and 7-24-25.',
+        q: 'How do builders use the 3-4-5 rule to square corners?',
+        a: 'Mark 3 units on one wall and 4 on the adjoining wall; when the diagonal between marks measures 5 units, the corner is 90 degrees.',
       },
       {
-        q: 'How do carpenters check if a room corner is truly 90 degrees using this rule?',
-        a: 'Measure 3 feet along one wall and 4 feet along the adjoining wall; if the diagonal distance measures exactly 5 feet, the corner is square.',
+        q: 'Does this formula work on triangles without a 90-degree angle?',
+        a: 'No, the basic Pythagorean theorem only applies to right triangles; general triangles require the Law of Cosines.',
       },
     ],
   },
 
   'math-circle-area': {
+    seoTitle: `Calculate Circle Area and Circumference | ${SITE_NAME}`,
+    metaDescription:
+      'Measure round patios, pipes, and pizzas—calculate circle area and circumference instantly from radius using full pi precision.',
+    introDescription:
+      'Measuring round garden beds, comparing pizza sizes, or sizing circular ducts starts when you calculate circle area and circumference from a single radius input. Type the center-to-edge radius (or half the diameter) to obtain both the enclosed square area via πr² and the outer perimeter circumference via 2πr. Using full double-precision pi before rounding keeps DIY material estimates and school answers tight.',
     howToUseSteps: [
       'Measure from the center of your circle to its edge and enter that distance into Radius (r) (default 7).',
       'If you only know the full width across the circle, divide your diameter by 2 before typing into Radius (r).',
@@ -424,21 +509,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Setting Radius (r) = 7 calculates Area = π × 7² = 153.94 sq units and Circumference = 2 × π × 7 = 43.98 units.',
     faqs: [
       {
-        q: 'How do I convert a circle’s diameter into Radius (r)?',
-        a: 'Divide the diameter by 2—for example, a 14 cm diameter circle has a Radius (r) of 7 cm.',
+        q: 'What if I measured the full diameter across the circle instead of the radius?',
+        a: 'Divide the diameter by 2 first—a 14 cm diameter circle has a 7 cm radius.',
       },
       {
-        q: 'Why does doubling Radius (r) quadruple the circle’s Area?',
-        a: 'Because Area depends on r squared (r²), multiplying radius by 2 increases enclosed area by 2² = 4 times while doubling circumference.',
+        q: 'Why does doubling a circle’s radius give four times the area?',
+        a: 'Area grows with the square of the radius (r²), so 2× radius multiplies enclosed area by 2² = 4 times.',
       },
       {
-        q: 'How accurate is the value of π used internally?',
-        a: 'Calculations use JavaScript’s full double-precision Math.PI (15+ significant digits) before formatting final numbers to two decimals.',
+        q: 'What units does the answer use?',
+        a: 'If you enter radius in meters, area is in square meters and circumference is in meters; the same matches inches, feet, or cm.',
       },
     ],
   },
 
   'math-triangle-area': {
+    seoTitle: `How to Find Area of a Triangle With Base | ${SITE_NAME}`,
+    metaDescription:
+      'Learn how to find area of a triangle with base and perpendicular height (0.5 × b × h) for geometry homework and roof gables.',
+    introDescription:
+      'Measuring a triangular garden corner, estimating siding on a roof gable, or finishing geometry worksheets is straightforward when you know how to find area of a triangle with base and vertical height. Enter the bottom base width alongside the 90-degree perpendicular height up to the top peak. Multiplying half of base times height solves any flat right, acute, or obtuse triangle immediately.',
     howToUseSteps: [
       'Type the length of the triangle’s horizontal bottom edge into the Base (b) input (default 10).',
       'Enter the perpendicular vertical distance from that base to the opposite corner into Height (h) (default 6).',
@@ -451,21 +541,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering Base (b) = 10 and Height (h) = 6 multiplies 0.5 × 10 × 6 to output Area = 30.00 sq units.',
     faqs: [
       {
-        q: 'Can I enter the slanted side length into Height (h)?',
-        a: 'No—Height (h) must be the perpendicular 90° altitude from the base up to the apex, not a slanted side edge.',
+        q: 'Should I enter the slanted side length as the height?',
+        a: 'No, height must be measured straight up at a 90-degree angle from the base to the opposite point.',
       },
       {
-        q: 'Does this formula work for obtuse or scalene triangles?',
-        a: 'Yes, Area = 0.5 × b × h holds for every flat triangle as long as h is measured perpendicular to the chosen base line.',
+        q: 'Does 0.5 × base × height work for obtuse triangles too?',
+        a: 'Yes, it holds true for all triangles, even when the top peak overhangs past one end of the base.',
       },
       {
-        q: 'What if I scale both Base (b) and Height (h) up by a factor of 3?',
-        a: 'Multiplying both dimensions by 3 scales the resulting Area by 3 × 3 = 9 times.',
+        q: 'What happens if I double both the base and the height?',
+        a: 'Doubling both dimensions increases the triangle’s total area by four times.',
       },
     ],
   },
 
   'math-rectangle': {
+    seoTitle: `Calculate Rectangle Area and Perimeter | ${SITE_NAME}`,
+    metaDescription:
+      'Instantly calculate rectangle area and perimeter plus corner-to-corner diagonal length from length and width for rooms and lawns.',
+    introDescription:
+      'Estimating floor tiles, pricing perimeter fencing, or squaring up a raised garden bed starts when you calculate rectangle area and perimeter from two simple side lengths. Enter length and width (or equal numbers for a square) to view interior area, total outer perimeter, and the diagonal distance across opposite corners. Comparing your tape measure against that diagonal guarantees your layout corners form true 90-degree angles.',
     howToUseSteps: [
       'Type the longer horizontal edge into the Length field (default 12).',
       'Type the shorter vertical edge into the Width field (default 8)—or match both values for a square.',
@@ -478,21 +573,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'With Length = 12 and Width = 8, the calculator outputs Area = 96.00 sq units alongside Perimeter = 40 and Diagonal = 14.42.',
     faqs: [
       {
-        q: 'How can this tool evaluate a perfect square?',
-        a: 'Enter identical numbers into Length and Width (for instance, 9 and 9) to get Area = 81.00, Perimeter = 36, and Diagonal = 12.73.',
+        q: 'Can I use this calculator for a square room or tile?',
+        a: 'Yes, simply enter the same measurement into both Length and Width.',
       },
       {
-        q: 'Does swapping Length and Width change Area, Perimeter, or Diagonal?',
-        a: 'No—rotating a rectangle 90 degrees preserves all three measurements identically.',
+        q: 'Why does knowing the diagonal length matter during construction?',
+        a: 'If both diagonals across opposite corners equal the calculated √(L² + W²), your rectangle is guaranteed to be perfectly square.',
       },
       {
-        q: 'Why is the Diagonal useful when laying tiles or framing a deck?',
-        a: 'Checking that both corner-to-corner diagonals match your calculated √(L² + W²) confirms the layout forms true 90° corners.',
+        q: 'Does swapping Length and Width alter any of the results?',
+        a: 'No, area, perimeter, and diagonal remain identical regardless of which side is entered first.',
       },
     ],
   },
 
   'math-sphere': {
+    seoTitle: `Calculate Sphere Volume and Surface Area | ${SITE_NAME}`,
+    metaDescription:
+      'Quickly calculate sphere volume and surface area from radius for spherical tanks, balls, bearings, and 3D geometry coursework.',
+    introDescription:
+      'Sizing spherical storage tanks, finding material needed to coat a globe, or solving 3D geometry exercises is quick when you calculate sphere volume and surface area from one radius entry. Type the center-to-surface radius to compute enclosed cubic volume using (4/3)πr³ alongside outer shell surface area via 4πr². Both figures update live so you can see immediately how small radius increases expand tank capacity rapidly.',
     howToUseSteps: [
       'Measure the distance from a ball or spherical tank’s center to its outer surface and enter it in Radius (r) (default 5).',
       'Divide diameter in half first if you measured straight across a sphere’s widest point.',
@@ -505,21 +605,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering Radius (r) = 5 evaluates (4/3) × π × 125 = Volume = 523.60 cubic units and 4 × π × 25 = Surface Area = 314.16 sq units.',
     faqs: [
       {
-        q: 'Why does Volume scale faster than Surface Area when Radius (r) increases?',
-        a: 'Volume depends on r³ while Surface Area depends on r², so doubling Radius (r) increases Surface Area 4× but increases Volume 8×.',
+        q: 'How do I find the volume of a half-sphere dome?',
+        a: 'Divide the full sphere volume by 2 to get the exact interior capacity of a hemisphere.',
       },
       {
-        q: 'How do I compute the capacity of a hemisphere (half sphere)?',
-        a: 'Divide the full sphere Volume by 2; for curved-shell-only hemisphere surface area, divide Surface Area by 2 (adding πr² if the flat circular top is closed).',
+        q: 'What mistake happens if I type diameter instead of radius?',
+        a: 'Entering diameter doubles the radius, making surface area 4 times too big and volume 8 times too big—always divide diameter by 2 first.',
       },
       {
-        q: 'What happens if I enter a diameter by mistake instead of Radius (r)?',
-        a: 'Using diameter as radius inflates Surface Area by 4 times and Volume by 8 times, so always halve diameter first.',
+        q: 'Why does sphere volume grow much faster than surface area?',
+        a: 'Volume scales with radius cubed (r³), whereas surface area scales with radius squared (r²).',
       },
     ],
   },
 
   'math-cylinder': {
+    seoTitle: `Calculate Cylinder Volume and Surface Area | ${SITE_NAME}`,
+    metaDescription:
+      'Size drums, pipes, and water tanks—calculate cylinder volume and surface area instantly from base radius and height.',
+    introDescription:
+      'Estimating water tank capacity, sizing steel pipes, or pricing sheet-metal drums starts when you calculate cylinder volume and surface area from base radius and height. Enter both dimensions to see internal cubic volume (πr²h) and complete outer surface area combining the curved cylindrical wall plus both circular end lids. Results update live so you can test how widening a tank compares with making it taller.',
     howToUseSteps: [
       'Enter the circular cross-section radius into Radius (r) (default 4).',
       'Type the perpendicular cylinder length or depth into Height (h) (default 10).',
@@ -532,21 +637,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Setting Radius (r) = 4 and Height (h) = 10 computes Volume = π × 16 × 10 = 502.65 cubic units and Surface Area = 80π + 32π = 351.86 sq units.',
     faqs: [
       {
-        q: 'Does Surface Area include both the top and bottom circular caps?',
-        a: 'Yes, 2πrh + 2πr² includes the curved side wall plus both circular ends; subtract 2πr² if modeling an open pipe.',
+        q: 'Does surface area include the top and bottom circular lids?',
+        a: 'Yes, total surface area includes the curved side wall plus both circular caps; subtract 2πr² if modeling an open-ended pipe.',
       },
       {
-        q: 'How do I calculate capacity for an open-top barrel or water drum?',
-        a: 'Internal Volume remains πr²h regardless of whether the top lid is open or sealed.',
+        q: 'Which changes tank volume more: doubling radius or doubling height?',
+        a: 'Doubling radius quadruples volume because radius is squared (r²), whereas doubling height doubles volume.',
       },
       {
-        q: 'Does tilting or laying a cylindrical tank horizontally change its full Volume?',
-        a: 'Total Volume πr²h stays unchanged whether the tank stands upright or lies on its side.',
+        q: 'Does a horizontal tank have the same full capacity as a vertical one?',
+        a: 'Yes, full geometric volume stays πr²h regardless of whether the cylinder stands upright or lies horizontally.',
       },
     ],
   },
 
   'math-cone': {
+    seoTitle: `Calculate Cone Volume and Surface Area | ${SITE_NAME}`,
+    metaDescription:
+      'Solve funnels, silos, and geometry homework—calculate cone volume and surface area with automatic slant height lookup.',
+    introDescription:
+      'Measuring conical grain hoppers, paper funnels, or geometry solids becomes straightforward when you calculate cone volume and surface area from base radius and vertical height. Enter those two measurements to get enclosed volume (one-third of a matching cylinder), total surface area including the circular base, and automatically computed slant height along the outer slope. You never need to solve the slant triangle separately.',
     howToUseSteps: [
       'Type the radius of the cone’s circular base into Radius (r) (default 3).',
       'Enter the vertical perpendicular height from the center of the base up to the tip in Height (h) (default 4).',
@@ -559,21 +669,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Using Radius (r) = 3 and Height (h) = 4 yields Slant Height = √(9 + 16) = 5.00, Volume = (1/3)π(9)(4) = 37.70 cubic units, and Surface Area = π(3)(3 + 5) = 75.40 sq units.',
     faqs: [
       {
-        q: 'How does Height (h) differ from the Slant Height printed in the secondary line?',
-        a: 'Height (h) runs vertically straight down from the apex inside the cone to the base center, whereas Slant Height runs along the slanted outer edge.',
+        q: 'What is the difference between height and slant height?',
+        a: 'Height runs straight down inside from the tip to the center of the base, while slant height runs down the angled outer edge.',
       },
       {
-        q: 'Why is a cone’s Volume multiplied by 1/3 compared to a cylinder?',
-        a: 'Three congruent cones of equal base radius and height hold the exact volume of one matching cylinder.',
+        q: 'Why does a cone hold one-third the volume of a cylinder?',
+        a: 'Three identical cones with the same base and vertical height fill one matching cylinder completely.',
       },
       {
-        q: 'Does Surface Area include the flat circular base?',
-        a: 'Yes, πr(r + l) equals πr² (base disk) plus πrl (lateral curved side), useful for closed conical caps.',
+        q: 'Does the surface area include the flat circular bottom?',
+        a: 'Yes, total surface area adds both the flat base disk (πr²) and the curved cone wall (πrl).',
       },
     ],
   },
 
   'math-ap-series': {
+    seoTitle: `Find Nth Term and Sum of Arithmetic Series | ${SITE_NAME}`,
+    metaDescription:
+      'Quickly find nth term and sum of arithmetic series given first term a, common difference d, and term count n.',
+    introDescription:
+      'Linear savings increments, stadium row seating counts, and algebra sequences all follow constant-step rules where you need to find nth term and sum of arithmetic series accurately. Enter the opening term a, the constant difference d added each step (positive or negative), and position n. The calculator outputs both the exact n-th number in the sequence and the total sum of all terms from position 1 through n.',
     howToUseSteps: [
       'Enter the starting number of your arithmetic sequence in First Term (a) (default 2).',
       'Enter the constant step added between consecutive terms in Common Difference (d) (default 3; negative steps allowed).',
@@ -586,21 +701,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Setting First Term (a) = 2, Common Difference (d) = 3, and Term Number (n) = 10 solves a₁₀ = 2 + 9(3) = 29 and Sum of first 10 terms = (10 / 2)(2 + 29) = 155.',
     faqs: [
       {
-        q: 'Can Common Difference (d) be negative for a decreasing sequence?',
-        a: 'Yes—entering d = -4 steps down by 4 on every term, correctly solving both negative terms and decreasing sums.',
+        q: 'Can common difference d be negative for shrinking sequences?',
+        a: 'Yes, entering a negative d steps downward at every term, calculating decreasing terms and sums cleanly.',
       },
       {
-        q: 'Why does the formula multiply Common Difference (d) by (n − 1) instead of n?',
-        a: 'The First Term (a) already sits at position 1 with zero steps added, so reaching position n takes n − 1 steps.',
+        q: 'Why does the nth-term formula multiply d by (n − 1) instead of n?',
+        a: 'Because the first term takes zero steps, reaching term n requires only n − 1 additions of d.',
       },
       {
-        q: 'What makes a sequence an AP rather than a GP?',
-        a: 'An AP adds a constant difference d between terms (2, 5, 8, 11), whereas a GP multiplies by a constant ratio r.',
+        q: 'How is an arithmetic progression different from a geometric progression?',
+        a: 'An arithmetic progression adds a fixed constant each step, whereas a geometric progression multiplies by a fixed ratio.',
       },
     ],
   },
 
   'math-gp-series': {
+    seoTitle: `Find Nth Term of Geometric Progression | ${SITE_NAME}`,
+    metaDescription:
+      'Calculate exponential sequences—find nth term of geometric progression from first term a, common ratio r, and position n.',
+    introDescription:
+      'Modeling doubling populations, radioactive decay, or recurring multiplier patterns starts when you find nth term of geometric progression sequences using a constant ratio. Type the first number a, the multiplier r applied at each step, and the target position n. Whether your ratio grows rapidly above 1, shrinks as a decimal like 0.5, or alternates signs when negative, you get the exact n-th term instantly.',
     howToUseSteps: [
       'Type the opening sequence number inside First Term (a) (default 3).',
       'Enter the constant multiplier applied at each step into Common Ratio (r) (default 2).',
@@ -613,21 +733,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'With First Term (a) = 3, Common Ratio (r) = 2, and Term Number (n) = 5 (sequence 3, 6, 12, 24, 48), evaluating 3 × 2⁴ = 3 × 16 outputs n-th Term = 48.',
     faqs: [
       {
-        q: 'What happens when Common Ratio (r) is a fraction between 0 and 1, like 0.5?',
-        a: 'Each successive term shrinks (for example 100, 50, 25, 12.5), modeling exponential decay or radioactive half-lives.',
+        q: 'What happens if common ratio r is between 0 and 1, like 0.5?',
+        a: 'Each successive term shrinks (such as 80, 40, 20, 10), making it ideal for modeling half-lives and exponential decay.',
       },
       {
-        q: 'Can Common Ratio (r) be negative?',
-        a: 'Yes, a negative ratio alternates signs between odd and even term positions, such as 3, −6, 12, −24, 48.',
+        q: 'What does a negative common ratio do to the sequence?',
+        a: 'A negative ratio flips the sign on every consecutive term, alternating between positive and negative values.',
       },
       {
-        q: 'Why is the exponent on r equal to (n − 1)?',
-        a: 'Because Term 1 equals a × r⁰ = a, leaving one fewer multiplication step than the term index n.',
+        q: 'Why does term 1 stay equal to first term a?',
+        a: 'At n = 1, the exponent n − 1 is zero, and r⁰ = 1 leaves a × 1 = a.',
       },
     ],
   },
 
   'math-log-custom': {
+    seoTitle: `Calculate Logarithm With Any Base Online | ${SITE_NAME}`,
+    metaDescription:
+      'Need log2, log5, or log16? Calculate logarithm with any base online to four decimal places using the change-of-base formula.',
+    introDescription:
+      'Most handheld calculators only give log base 10 and natural ln, leaving programmers and students stuck when they need to calculate logarithm with any base online such as base 2 for binary bits or base 16 for hex scales. Enter any positive number alongside any valid base other than 1. The solver applies the change-of-base ratio ln(n) / ln(b) to deliver exact four-decimal results instantaneously.',
     howToUseSteps: [
       'Enter the positive argument you want the logarithm of in the Number input box (default 64).',
       'Enter any positive base other than 1 inside the Base field (default 2).',
@@ -640,21 +765,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Setting Number = 64 and Base = 2 divides ln(64) ÷ ln(2) = 4.15888 ÷ 0.69315, outputting Log₍2₎(64) = 6.0000 (because 2⁶ = 64).',
     faqs: [
       {
-        q: 'Why is Base = 1 rejected as invalid?',
-        a: 'Because 1 raised to any power always equals 1 (and ln(1) = 0 causes division by zero), a base-1 logarithm cannot represent other numbers.',
+        q: 'Why is base 1 not allowed in logarithms?',
+        a: 'Raising 1 to any power always gives 1, and ln(1) = 0 creates division by zero in the change-of-base formula.',
       },
       {
-        q: 'Why can Number never be zero or negative in real logarithms?',
-        a: 'Raising any positive base to any real exponent always gives a positive value, never hitting 0 or negative numbers.',
+        q: 'Why is base-2 logarithm so common in computer science?',
+        a: 'log₂(N) tells you how many binary bits or tree comparisons are required to represent or search N items.',
       },
       {
-        q: 'How is base-2 logarithm useful in computer science?',
-        a: 'log₂(N) tells you how many bits or binary tree levels are needed to index N distinct states—for example, log₂(256) = 8 bits.',
+        q: 'Can I enter a decimal base like 2.71828?',
+        a: 'Yes, any positive base other than 1—integer or decimal—computes accurately.',
       },
     ],
   },
 
   'math-perm-comb': {
+    seoTitle: `Calculate Permutations nPr and Combinations | ${SITE_NAME}`,
+    metaDescription:
+      'Count ordered arrangements and unordered subsets—calculate permutations nPr and combinations nCr from n and r instantly.',
+    introDescription:
+      'Whether you are computing lottery odds, forming project committees, or ranking race podiums, you often need to calculate permutations nPr and combinations nCr side by side. Enter total available items n and selected items r to evaluate both nPr (where order matters) and nCr (where order does not matter). Comparing the two figures side by side makes probability and combinatorics coursework much clearer.',
     howToUseSteps: [
       'Enter the full pool size of distinct items in Total Items (n) (default 10).',
       'Enter how many items you are selecting in Chosen Items (r), keeping r ≤ n (default 3).',
@@ -667,21 +797,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering Total Items (n) = 10 and Chosen Items (r) = 3 calculates 10! / 7! = 10 × 9 × 8 = nPr = 720 ordered rankings and 720 / 3! = nCr = 120 unordered committees.',
     faqs: [
       {
-        q: 'When should I look at nPr instead of nCr?',
-        a: 'Choose nPr when sequence matters—such as ranking 1st, 2nd, and 3rd medals or PIN codes—and nCr when selecting an unranked team or lottery ticket.',
+        q: 'How do I know whether a word problem needs nPr or nCr?',
+        a: 'Use nPr when order matters (passwords, podium ranks) and nCr when order does not matter (teams, card hands, committees).',
       },
       {
-        q: 'Why is nCr always smaller than or equal to nPr?',
-        a: 'Every combination of r items can be ordered in r! ways, so nPr = r! × nCr.',
+        q: 'Why is nPr always larger than or equal to nCr?',
+        a: 'Each subset of r items can be arranged in r! ways, making nPr equal to r! × nCr.',
       },
       {
-        q: 'What happens if Chosen Items (r) is greater than Total Items (n)?',
-        a: 'You cannot pick more distinct items than exist in the pool, so validation prompts you to keep n ≥ r ≥ 0.',
+        q: 'What happens if chosen items r exceeds total items n?',
+        a: 'You cannot pick more unique items than exist in the pool, so r must stay less than or equal to n.',
       },
     ],
   },
 
   'math-prime-factor': {
+    seoTitle: `Find Prime Factorization of Any Number | ${SITE_NAME}`,
+    metaDescription:
+      'Break down composite integers into prime building blocks—find prime factorization of any number greater than 1 instantly.',
+    introDescription:
+      'Simplifying large fractions, solving cryptography exercises, and finding lowest common multiples all get easier when you find prime factorization of any number in one step. Enter any whole integer greater than 1 to see its unique chain of prime divisors multiplied together, along with the total factor count. Every composite integer breaks down cleanly into prime building blocks by the Fundamental Theorem of Arithmetic.',
     howToUseSteps: [
       'Enter any composite or prime integer greater than 1 in the Number to Factorize field (default 360).',
       'Inspect the Prime Factors chain printed with multiplication signs in the Calculated Result box.',
@@ -694,21 +829,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Factoring Number to Factorize = 360 divides out three 2s (360 → 180 → 90 → 45), two 3s (45 → 15 → 5), and one 5, outputting Prime Factors: 2 × 2 × 2 × 3 × 3 × 5 (Total prime factors count: 6).',
     faqs: [
       {
-        q: 'How can prime factorization help find LCM and GCD quickly?',
-        a: 'Multiplying shared primes between two factorizations gives GCD, while taking the highest power of every prime gives LCM.',
+        q: 'What appears if I enter a prime number like 97?',
+        a: 'A prime integer has no smaller prime divisors, so it outputs 97 itself with a total factor count of 1.',
       },
       {
-        q: 'What does the output show if I enter a prime integer like 97?',
-        a: 'Because 97 has no smaller prime factors, the result outputs Prime Factors: 97 with a factor count of 1.',
+        q: 'Why cannot the number 1 be prime factorized?',
+        a: '1 is neither prime nor composite, so unique prime factorization begins at integer 2.',
       },
       {
-        q: 'Why must Number to Factorize be strictly greater than 1?',
-        a: 'The integer 1 is neither prime nor composite, so unique prime factorization applies strictly to integers ≥ 2.',
+        q: 'How do prime factors help find GCD and LCM?',
+        a: 'Multiplying shared primes gives the GCD, while combining the highest power of every prime gives the LCM.',
       },
     ],
   },
 
   'math-fraction-arithmetic': {
+    seoTitle: `Simplify and Calculate Fraction Operations | ${SITE_NAME}`,
+    metaDescription:
+      'Learn how to simplify and calculate fraction operations (+, -, ×, ÷) while inspecting both the unsimplified and final reduced ratios.',
+    introDescription:
+      'Students checking step-by-step math homework often want to simplify and calculate fraction operations while still seeing the intermediate unsimplified fraction before reduction. Enter both fractions and select addition, subtraction, multiplication, or division. The result banner shows your simplified lowest-terms ratio and decimal value, while the line underneath displays the unsimplified common-denominator ratio so you can verify your hand calculations and spot sign mistakes quickly.',
     howToUseSteps: [
       'Enter your first fraction using Fraction 1 Numerator and Fraction 1 Denominator (avoiding zero denominators).',
       'Select Addition (+), Subtraction (-), Multiplication (×), or Division (÷) from the Operation list.',
@@ -721,21 +861,26 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Computing Fraction 1 (1/2) with Addition (+) and Fraction 2 (1/4) forms Unsimplified: 6/8 and reduces by GCD(6, 8) = 2 to output 3/4 (0.7500).',
     faqs: [
       {
-        q: 'Why does the secondary display preserve the Unsimplified fraction?',
-        a: 'Showing Unsimplified: 6/8 lets students verify their manual cross-multiplication step before dividing by the GCD.',
+        q: 'Why does the output show the unsimplified fraction underneath?',
+        a: 'Seeing the unsimplified step like 6/8 lets you check your cross-multiplication before reducing to 3/4.',
       },
       {
-        q: 'What error check runs if I divide by 0/4?',
-        a: 'Because dividing by a fraction whose numerator is zero means dividing by zero, the calculator prevents the operation safely.',
+        q: 'What happens if fraction subtraction yields a negative value?',
+        a: 'When the second fraction is larger than the first, the reduced numerator keeps a negative sign such as -1/4.',
       },
       {
-        q: 'How do negative numerators affect fraction subtraction?',
-        a: 'If Fraction 1 is smaller than Fraction 2 during subtraction, the simplified numerator carries a negative sign cleanly (e.g., -1/4).',
+        q: 'What if I try dividing by a fraction whose numerator is 0?',
+        a: 'Dividing by 0/4 means dividing by zero, which triggers a safe error message instead of an invalid ratio.',
       },
     ],
   },
 
   'math-base-conv': {
+    seoTitle: `Convert Decimal to Binary Octal and Hex | ${SITE_NAME}`,
+    metaDescription:
+      'Programming or subnetting? Convert decimal to binary octal and hex instantaneously with standard 0b, 0o, and 0x prefixes.',
+    introDescription:
+      'Computer science students, network engineers, and embedded developers frequently need to convert decimal to binary octal and hex when inspecting bitmasks, RGB colors, or IPv4 octets. Type any non-negative base-10 integer to read its Binary (0b), Hexadecimal (0x), and Octal (0o) representations together in one place. Testing milestones like 15, 64, 255, or 1024 makes bit-width boundaries and byte limits clear right away.',
     howToUseSteps: [
       'Type any non-negative whole number into the Decimal Number box (default 255).',
       'Read the Binary representation prefixed with 0b in the main Calculated Result banner.',
@@ -748,16 +893,16 @@ export const mathSeoFullMap: Record<string, MathCalculatorSeoEntry> = {
       'Entering Decimal Number = 255 divides repeatedly by 2, 8, and 16 to output Binary: 0b11111111 alongside Hex: 0xFF | Octal: 0o377.',
     faqs: [
       {
-        q: 'Why are 0b, 0o, and 0x prefixes displayed before the digits?',
-        a: 'Those standard programming prefixes distinguish Binary (0b), Octal (0o), and Hexadecimal (0x) values from ordinary base-10 numbers.',
+        q: 'What do the 0b, 0o, and 0x prefixes stand for?',
+        a: 'In programming, 0b marks binary (base 2), 0o marks octal (base 8), and 0x marks hexadecimal (base 16).',
       },
       {
-        q: 'Why do hex values use letters A through F alongside 0 through 9?',
-        a: 'Base-16 needs sixteen unique single-character symbols per digit place, so A=10, B=11, C=12, D=13, E=14, and F=15.',
+        q: 'Why does hexadecimal use letters A through F?',
+        a: 'Base-16 needs sixteen single-character digits per place, so A through F represent values 10 through 15.',
       },
       {
-        q: 'Why is 255 such a common number in networking and graphics?',
-        a: 'Eight binary bits (11111111₂ = FF₁₆) hold 256 values from 0 to 255, matching one byte, RGB color channels, and IPv4 octets.',
+        q: 'Why does 255 equal 11111111 in binary and FF in hex?',
+        a: 'Eight binary bits hold 256 values from 0 to 255, making 255 the maximum value of a single byte or RGB color channel.',
       },
     ],
   },

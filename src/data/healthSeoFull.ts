@@ -3,6 +3,7 @@ import { SITE_NAME } from '../config/site';
 export interface HealthCalculatorSeoEntry {
   seoTitle: string;
   metaDescription: string;
+  introDescription: string;
   howToUseSteps: string[];
   formulaExplanation: string;
   practicalExample: string;
@@ -12,9 +13,11 @@ export interface HealthCalculatorSeoEntry {
 
 export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   'health-bmi-calc': {
-    seoTitle: `Free BMI Calculator – Body Mass Index & Weight Status | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Body Mass Index BMI | ${SITE_NAME}`,
     metaDescription:
-      'Check your Body Mass Index score and weight classification in metric or imperial units using our free BMI Calculator.',
+      'Learn how to calculate body mass index BMI using metric or imperial weight and height to check standard adult weight categories.',
+    introDescription:
+      'Screening whether your weight sits inside a healthy proportion for your height starts with knowing how to calculate body mass index BMI accurately. Choose either metric kilograms and centimeters or imperial pounds and inches, then enter your current weight and standing height. You will get your numerical BMI score alongside standard World Health Organization bands so you can track long-term fitness trends alongside waist measurements.',
     howToUseSteps: [
       'Pick Metric (kg, cm) or Imperial (lb, in) inside the Unit System selector.',
       'Enter body mass in the Weight (kg or lb) field.',
@@ -26,16 +29,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Selecting Unit System = Metric (kg, cm) with Weight (kg or lb) = 70 and Height (cm or inches) = 175 computes 70 / 1.75² = 22.9 (Normal weight).',
     faqs: [
       {
-        q: 'Can BMI overestimate body fat in strength athletes or bodybuilders?',
-        a: 'Yes—because BMI cannot tell dense skeletal muscle apart from adipose tissue, muscular athletes sometimes score above 25 despite low body fat.',
+        q: 'Can BMI overestimate fat in muscular athletes?',
+        a: 'Yes, because BMI does not separate dense muscle tissue from body fat, strength athletes often score higher despite low body fat.',
       },
       {
-        q: 'Why does the imperial BMI equation multiply by 703?',
-        a: 'The constant 703 converts pounds per square inch directly into standard kilograms per square meter units.',
+        q: 'Why does the imperial BMI formula multiply by 703?',
+        a: 'The 703 factor converts pounds per square inch directly into standard kilograms per square meter.',
       },
       {
-        q: 'Are BMI cutoffs evaluated differently for children and teenagers?',
-        a: 'Yes, pediatricians plot child BMI onto age-and-sex percentile growth charts rather than using adult thresholds.',
+        q: 'Do children use the same BMI ranges as adults?',
+        a: 'No, pediatric BMI relies on age- and sex-specific growth percentiles rather than fixed adult cutoffs.',
       },
     ],
     medicalDisclaimer:
@@ -43,9 +46,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-water-calc': {
-    seoTitle: `Free Daily Water Intake Calculator – Liters & Ounces | ${SITE_NAME}`,
+    seoTitle: `How Much Water to Drink Daily by Weight | ${SITE_NAME}`,
     metaDescription:
-      'Calculate daily hydration needs in liters and fluid ounces from weight and exercise habits with our free Daily Water Intake Calculator.',
+      'Find out how much water to drink daily by weight and exercise habits, shown clearly in both liters and fluid ounces.',
+    introDescription:
+      'Staying properly hydrated supports energy levels, digestion, and workout recovery, making it helpful to know how much water to drink daily by weight. Enter your current body mass in kilograms and pick whether your typical day is sedentary, moderately active, or intensely athletic. The calculator converts your fluid requirements into both liters and fluid ounces so you can pace water intake steadily from morning until evening.',
     howToUseSteps: [
       'Enter your body mass inside the Weight (kg) field.',
       'Select Light / Sedentary, Moderate Exercise, or High / Athlete in Activity Level.',
@@ -57,16 +62,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'A person with Weight (kg) = 70 selecting Activity Level = Moderate Exercise computes (70 × 35 × 1.15) / 1000 = 2.82 Liters (95 fl oz) per day.',
     faqs: [
       {
-        q: 'Do tea, soup, and water-rich fruits count toward daily fluid needs?',
-        a: 'Plain water is ideal, though herbal teas, milk, broth, and watery produce contribute meaningfully toward overall daily hydration.',
+        q: 'Do herbal tea, broth, and watery fruits count toward hydration?',
+        a: 'Plain water is best, though unsweetened teas, milk, soups, and moisture-rich fruits contribute meaningfully to total daily fluids.',
       },
       {
-        q: 'Should athletes increase fluids further during hot Pakistani summers?',
-        a: 'High heat and humidity raise sweat rates rapidly, so sip extra water and electrolytes whenever training outdoors.',
+        q: 'Should outdoor workouts in hot weather raise fluid intake?',
+        a: 'Yes, heat and heavy sweating increase fluid loss, so sipping extra water and electrolytes during summer training helps prevent dehydration.',
       },
       {
-        q: 'Is it best to drink the entire daily target in two big servings?',
-        a: 'Spacing intake steadily across waking hours absorbs far more effectively than chugging large volumes at once.',
+        q: 'Is spacing water across the day better than drinking huge amounts at once?',
+        a: 'Steady sipping throughout waking hours allows better absorption than drinking large volumes in a short window.',
       },
     ],
     medicalDisclaimer:
@@ -74,9 +79,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-ideal-weight': {
-    seoTitle: `Free Ideal Weight Calculator – Devine Formula (kg & lbs) | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Ideal Body Weight for Height | ${SITE_NAME}`,
     metaDescription:
-      'Estimate healthy reference body weight in kilograms and pounds using height and gender with our free Ideal Weight Calculator.',
+      'Learn how to calculate ideal body weight for height and gender using the Devine equation, shown in both kilograms and pounds.',
+    introDescription:
+      'Setting a realistic fitness milestone often starts with learning how to calculate ideal body weight for height using a standard reference formula. Choose male or female and enter your standing height in centimeters to estimate your baseline weight according to the Devine equation. Viewing results in both kilograms and pounds gives you a practical midpoint benchmark that you can adapt for bone frame and muscle mass.',
     howToUseSteps: [
       'Select Male or Female in the Gender dropdown.',
       'Enter your height in centimeters inside Height (cm).',
@@ -88,16 +95,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Choosing Gender = Male and Height (cm) = 175 (68.9 inches, or 8.9 inches above 5 feet) outputs 50 + (2.3 × 8.9) = 70.5 kg (155.3 lbs).',
     faqs: [
       {
-        q: 'Does the Devine Ideal Weight formula adjust for wide or narrow bone frames?',
-        a: 'No, treat the calculated figure as a midpoint reference within roughly a ±10% healthy range depending on frame size and muscle mass.',
+        q: 'Does the Devine formula adjust for wide or narrow body frames?',
+        a: 'No, treat the result as a midpoint reference within roughly a 10% healthy range based on frame size and lean muscle.',
       },
       {
-        q: 'What happens if Height (cm) is shorter than 152.4 cm (5 feet)?',
-        a: 'The equation holds the extra-inches term at zero so baseline estimates never drop abruptly for shorter adults.',
+        q: 'Why does the estimate differ slightly between men and women at the same height?',
+        a: 'Men typically carry slightly higher average bone density and skeletal muscle mass per inch of height.',
       },
       {
-        q: 'Why is the Female baseline 45.5 kg compared to 50 kg for Male?',
-        a: 'Men typically carry slightly higher bone mineral density and lean muscle mass per unit height on average.',
+        q: 'What if someone is shorter than 5 feet tall?',
+        a: 'The formula keeps the extra-inches adjustment at zero so estimates do not drop sharply for shorter adults.',
       },
     ],
     medicalDisclaimer:
@@ -105,9 +112,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-calorie-needs': {
-    seoTitle: `Free Calorie Needs Calculator – TDEE & BMR Energy | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Daily Calorie Needs TDEE | ${SITE_NAME}`,
     metaDescription:
-      'Find your daily maintenance calories (TDEE) and resting BMR using the Mifflin-St Jeor equation with our free Calorie Needs Calculator.',
+      'See how to calculate daily calorie needs TDEE and resting BMR from age, height, weight, and weekly activity level.',
+    introDescription:
+      'Whether you want to maintain weight, lose body fat, or build muscle, knowing how to calculate daily calorie needs TDEE gives you a dependable starting target. Enter your gender, weight, height, age, and weekly exercise routine to compute both resting Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure. Having your true maintenance calorie burn prevents guesswork when planning meals.',
     howToUseSteps: [
       'Pick Male or Female in the Gender selector to apply the right metabolic constants.',
       'Fill in Weight (kg), Height (cm), and Age (years) accurately.',
@@ -119,16 +128,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'A 30-year-old Male with Weight (kg) = 75, Height (cm) = 178, and Activity Multiplier = Lightly active (1.375) computes BMR: 1718 kcal and maintenance TDEE of 2362 kcal / day.',
     faqs: [
       {
-        q: 'How should I adjust TDEE if my goal is fat loss or lean muscle gain?',
-        a: 'Subtract roughly 300–500 kcal daily below TDEE for gradual fat loss, or add 250–350 kcal above TDEE for lean weight gain.',
+        q: 'How should I adjust maintenance TDEE for gradual fat loss?',
+        a: 'Subtracting roughly 300 to 500 calories per day supports steady fat loss while keeping energy and training strength stable.',
       },
       {
-        q: 'Which Activity Multiplier suits a desk worker who walks 30 minutes daily?',
-        a: 'Lightly active (1.375) usually reflects a seated office job paired with light daily walks or 1–3 moderate gym sessions.',
+        q: 'Which activity level fits a desk worker who walks 30 minutes daily?',
+        a: 'Lightly active usually fits a seated job paired with daily brisk walks or one to three light workouts weekly.',
       },
       {
-        q: 'Does TDEE drop slightly as you lose weight or get older?',
-        a: 'Yes—recalculate every 4–5 kg lost because carrying less mass burns fewer calories during movement and rest.',
+        q: 'How often should I recalculate daily calorie needs?',
+        a: 'Recalculate after losing or gaining 4 to 5 kilograms because a lighter or heavier body burns a different amount of energy.',
       },
     ],
     medicalDisclaimer:
@@ -136,9 +145,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-body-fat': {
-    seoTitle: `Free Body Fat Percentage Calculator – US Navy Tape Method | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Body Fat Percentage at Home | ${SITE_NAME}`,
     metaDescription:
-      'Estimate body fat percentage at home from neck, waist, and height measurements using our free Body Fat Percentage Calculator.',
+      'Discover how to calculate body fat percentage at home with a simple tape measure using height, neck, and waist measurements.',
+    introDescription:
+      'Tracking physique changes beyond what the bathroom scale shows is easier once you learn how to calculate body fat percentage at home with a soft tape measure. Select your gender and enter your height alongside relaxed neck and waist circumferences in centimeters. Using the US Navy tape method avoids daily water-weight swings that often skew smart scales and helps track real fat loss.',
     howToUseSteps: [
       'Pick Male or Female inside Gender before entering US Navy tape measurements.',
       'Measure standing stature in Height (cm) and collar perimeter in Neck Circumference (cm).',
@@ -150,16 +161,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'For Gender = Male with Height (cm) = 175, Neck Circumference (cm) = 38, and Waist Circumference (cm) = 85, the US Navy log formula outputs 16.9% Body Fat.',
     faqs: [
       {
-        q: 'Where exactly should I wrap the tape for Waist Circumference (cm) and Neck Circumference (cm)?',
-        a: 'Measure waist horizontally right across the belly button after exhaling gently, and measure neck just below the Adam’s apple.',
+        q: 'Where should the measuring tape sit for waist and neck measurements?',
+        a: 'Measure waist horizontally across the navel after a relaxed exhale, and wrap the neck tape just below the Adam’s apple.',
       },
       {
-        q: 'How accurate is the US Navy method compared to smart scales?',
-        a: 'Tape-based circumference tracking avoids hydration swings that distort bioelectrical impedance bathroom scales, typically landing within ±2%–4%.',
+        q: 'How does the US Navy tape method compare to smart body-fat scales?',
+        a: 'Tape measurements stay consistent across hydration changes, whereas smart scale readings often fluctuate with water and meal timing.',
       },
       {
-        q: 'Why should measurements stay relaxed without sucking in the stomach?',
-        a: 'Pulling in the abdomen artificially shrinks Waist Circumference (cm) and skews trend comparisons week to week.',
+        q: 'Why should you avoid pulling your stomach in while measuring?',
+        a: 'Sucking in your abdomen lowers waist girth artificially and makes week-to-week body-fat tracking unreliable.',
       },
     ],
     medicalDisclaimer:
@@ -167,9 +178,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-due-date': {
-    seoTitle: `Free Pregnancy Due Date Calculator – Naegele’s Rule | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Pregnancy Due Date from LMP | ${SITE_NAME}`,
     metaDescription:
-      'Estimate expected delivery date from your last menstrual period using Naegele’s rule with our free Pregnancy Due Date Calculator.',
+      'Learn how to calculate pregnancy due date from LMP using the standard 280-day Naegele’s rule calendar estimate.',
+    introDescription:
+      'Expectant parents preparing for early prenatal checkups often start by checking how to calculate pregnancy due date from LMP before their first ultrasound appointment. Enter the first day of your last menstrual period in YYYY-MM-DD format to project the standard 40-week (280-day) delivery date. Knowing your estimated calendar timeline early helps families organize trimester milestones while waiting for clinical dating confirmation.',
     howToUseSteps: [
       'Enter the cycle start date inside First Day of Last Menstrual Period (YYYY-MM-DD).',
       'Verify the 4-digit year, 2-digit month, and 2-digit day match ISO format.',
@@ -181,16 +194,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Entering First Day of Last Menstrual Period (YYYY-MM-DD) = 2026-01-15 adds 280 days to project an estimated due date of Thu Oct 22 2026.',
     faqs: [
       {
-        q: 'What percentage of babies arrive on the exact projected due date?',
-        a: 'Only around 4%–5% deliver on the precise day, while most spontaneous full-term births occur between weeks 38 and 41.',
+        q: 'How often do babies arrive on the exact calculated due date?',
+        a: 'Only about 4% to 5% arrive on the exact day, while most full-term births happen naturally between weeks 38 and 41.',
       },
       {
-        q: 'How might irregular 35-day cycles shift the estimate?',
-        a: 'Longer menstrual cycles delay ovulation by about a week, so ultrasound crown-rump dating often refines the due date.',
+        q: 'Can longer or irregular cycles change the estimated date?',
+        a: 'Yes, longer cycles usually delay ovulation, so an early prenatal ultrasound often adjusts the due date more precisely.',
       },
       {
-        q: 'Why does gestation count 40 weeks from LMP instead of conception?',
-        a: 'Most pregnancies begin roughly two weeks after LMP, yet LMP offers a clear observable starting date.',
+        q: 'Why does pregnancy count 40 weeks from LMP rather than conception?',
+        a: 'The last menstrual period gives a clear observable date, typically about two weeks before ovulation and conception.',
       },
     ],
     medicalDisclaimer:
@@ -198,9 +211,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-hr-zone': {
-    seoTitle: `Free Heart Rate Zone Calculator – Fat Burn & Cardio BPM | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Cardio Heart Rate Zones | ${SITE_NAME}`,
     metaDescription:
-      'Compute maximum heart rate plus fat-burn and cardio beats-per-minute training zones using our free Heart Rate Zone Calculator.',
+      'Find out how to calculate cardio heart rate zones from your age, showing peak max BPM alongside fat-burn and cardio ranges.',
+    introDescription:
+      'Structuring treadmill walks, cycling rides, or outdoor runs around safe effort levels starts with knowing how to calculate cardio heart rate zones for your age. Enter your age in years to estimate your peak maximum heart rate along with moderate Fat Burn (60%–70%) and vigorous Cardio (70%–85%) beats-per-minute brackets. Training inside targeted BPM zones keeps aerobic workouts productive without overtraining.',
     howToUseSteps: [
       'Type your current age in years inside the Age (years) box.',
       'Check estimated peak Max HR in beats per minute.',
@@ -212,16 +227,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Entering Age (years) = 32 yields Max HR: 188 bpm, placing Fat Burn Zone at 113–132 bpm and Cardio Zone at 132–160 bpm.',
     faqs: [
       {
-        q: 'Does staying in the Cardio Zone still burn total body fat?',
-        a: 'Yes—higher-intensity Cardio Zone workouts burn substantially more total calories per minute while building aerobic VO2 fitness.',
+        q: 'Does training in the Cardio Zone still burn body fat?',
+        a: 'Yes, higher-intensity cardio burns more total calories per minute while improving cardiovascular stamina and heart health.',
       },
       {
-        q: 'Can beta-blockers or blood pressure medications alter heart rate zones?',
-        a: 'Certain cardiovascular drugs blunt pulse rise during exercise, making perceived exertion scales safer than generic BPM targets.',
+        q: 'Can blood pressure medicine affect target heart rate zones?',
+        a: 'Medications such as beta-blockers lower exercise pulse, so ask your doctor about using perceived effort instead of BPM.',
       },
       {
-        q: 'When should a runner exceed 85% of Max HR?',
-        a: 'Trained runners briefly enter 85%–95% anaerobic zones during structured short sprint intervals with recovery walks.',
+        q: 'When do runners go above 85% of maximum heart rate?',
+        a: 'Experienced athletes briefly enter 85% to 95% peak zones during short sprint intervals with rest breaks.',
       },
     ],
     medicalDisclaimer:
@@ -229,9 +244,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-steps-calories': {
-    seoTitle: `Free Steps to Calories Calculator – Daily Walking Burn | ${SITE_NAME}`,
+    seoTitle: `How Many Calories Burned Walking Steps | ${SITE_NAME}`,
     metaDescription:
-      'Convert daily pedometer step counts and body weight into estimated calories burned with our free Steps to Calories Calculator.',
+      'Check how many calories burned walking steps from your daily step count and body weight in kilograms for easy fitness tracking.',
+    introDescription:
+      'Turning daily smartwatch or phone pedometer numbers into meaningful fitness feedback gets simple when you check how many calories burned walking steps produce for your exact body size. Enter total steps walked today along with your weight in kilograms to calculate estimated energy burned. Seeing real calorie expenditure across 5,000, 8,000, or 10,000 daily steps rewards consistent everyday walking habits.',
     howToUseSteps: [
       'Type total recorded daily steps into Number of Steps.',
       'Enter your body weight in kilograms inside Weight (kg).',
@@ -243,16 +260,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Walking Number of Steps = 10000 at Weight (kg) = 70 burns 10,000 × 0.00057 × 70 = 399 kcal burned.',
     faqs: [
       {
-        q: 'Do uphill hikes or brisk jogging burn more than flat walking for the same step count?',
-        a: 'Yes—steep inclines and faster running strides raise oxygen demand and burn noticeably more calories per step.',
+        q: 'Do steep hills or running burn more per step than flat walking?',
+        a: 'Yes, inclines, brisk stairs, and running strides demand higher muscular effort and burn extra calories per step.',
       },
       {
-        q: 'About how many kilometers do 10,000 steps cover?',
-        a: 'At an average 0.75-meter stride, 10,000 steps equal roughly 7.5 kilometers (about 4.7 miles) of walking.',
+        q: 'Roughly how far is 10,000 steps in kilometers?',
+        a: 'At a typical adult stride length, 10,000 steps cover around 7 to 8 kilometers (roughly 4.5 to 5 miles).',
       },
       {
-        q: 'Why does a heavier person burn more calories over identical Number of Steps?',
-        a: 'Moving greater body mass forward with each stride requires higher muscular work and energy expenditure.',
+        q: 'Why does body weight change calories burned for identical step counts?',
+        a: 'Carrying greater body mass forward with each stride requires more energy per kilometer walked.',
       },
     ],
     medicalDisclaimer:
@@ -260,9 +277,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-macros': {
-    seoTitle: `Free Macronutrients (Macros) Calculator – Protein, Carbs & Fat | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Daily Macros for Fitness | ${SITE_NAME}`,
     metaDescription:
-      'Split daily calorie targets into exact grams of protein, carbohydrates, and fats with our free Macronutrients (Macros) Calculator.',
+      'Learn how to calculate daily macros for fitness by splitting your calorie budget into exact grams of protein, carbs, and fats.',
+    introDescription:
+      'Meal prepping for weight loss, endurance sports, or strength training is far easier once you know how to calculate daily macros for fitness around your calorie goal. Enter your target daily calories and select Balanced, Low Carb, or High Protein / Muscle Gain ratios. You immediately get gram targets for protein, carbohydrates, and dietary fats ready for any nutrition tracking app.',
     howToUseSteps: [
       'Enter your target energy intake in Daily Calorie Target (kcal).',
       'Choose Balanced (40/30/30), Low Carb (20/40/40), or High Protein / Muscle Gain (50/30/20) under Fitness Goal.',
@@ -274,16 +293,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Setting Daily Calorie Target (kcal) = 2200 with Fitness Goal = Balanced (40% Carbs, 30% Protein, 30% Fat) computes Protein: 165g | Carbs: 220g | Fats: 73g.',
     faqs: [
       {
-        q: 'Which Fitness Goal suits athletes focused on hypertrophy and gym recovery?',
-        a: 'High Protein / Muscle Gain supplies ample carbohydrates (50%) to fuel heavy lifts while keeping protein at 30% for tissue repair.',
+        q: 'Which macro split suits muscle building and strength workouts?',
+        a: 'The High Protein / Muscle Gain ratio pairs 30% protein with 50% carbohydrates to fuel intense gym sessions and recovery.',
       },
       {
-        q: 'Why are Fat grams lower than Carb and Protein grams at equal percentages?',
-        a: 'Dietary fat packs 9 calories per gram—more than double the 4 calories per gram inside protein and carbs.',
+        q: 'Why are daily fat grams smaller than protein and carb grams?',
+        a: 'Dietary fat provides 9 calories per gram, more than twice the 4 calories per gram in protein and carbohydrates.',
       },
       {
-        q: 'Should dietary fiber count inside daily Carbohydrate grams?',
-        a: 'Standard macro tracking counts total label carbs unless following strict net-carb ketogenic protocols.',
+        q: 'Should dietary fiber be counted inside daily carbohydrate grams?',
+        a: 'General macro plans count total label carbohydrates unless you specifically follow net-carb ketogenic tracking.',
       },
     ],
     medicalDisclaimer:
@@ -291,9 +310,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-protein-intake': {
-    seoTitle: `Free Daily Protein Intake Calculator – Grams per Day | ${SITE_NAME}`,
+    seoTitle: `How Much Protein per Day by Body Weight | ${SITE_NAME}`,
     metaDescription:
-      'Compute optimal daily dietary protein grams from body weight and workout intensity using our free Daily Protein Intake Calculator.',
+      'Find out how much protein per day by body weight and workout intensity you need in grams to support muscle and recovery.',
+    introDescription:
+      'Hitting daily nutrition targets without under-eating protein starts with checking how much protein per day by body weight matches your weekly training schedule. Enter your current weight in kilograms and choose between sedentary maintenance, moderate fitness, or heavy strength training multipliers. Seeing your exact daily gram goal makes it simple to divide protein servings evenly across breakfast, lunch, dinner, and snacks.',
     howToUseSteps: [
       'Type your current weight in kilograms inside Weight (kg).',
       'Pick Sedentary (1.2g / kg), Moderate Exercise (1.6g / kg), or Heavy Strength Training (2.2g / kg) under Training Intensity.',
@@ -305,16 +326,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Someone with Weight (kg) = 75 choosing Training Intensity = Moderate Exercise / Fitness (1.6g / kg) computes 75 × 1.6 = 120 grams / day.',
     faqs: [
       {
-        q: 'Do people with obesity use total Weight (kg) or lean target weight?',
-        a: 'When carrying substantial excess body fat, basing protein multipliers on target healthy weight prevents unrealistically high gram goals.',
+        q: 'Should people carrying extra body fat base protein on goal weight?',
+        a: 'Using healthy target weight instead of current scale weight avoids unrealistically high protein targets when body fat is high.',
       },
       {
-        q: 'How can I hit 120 grams / day from everyday meals?',
-        a: 'Spread 30–35 grams across three meals plus one snack using eggs, chicken breast, fish, Greek yogurt, lentils, and whey.',
+        q: 'How can someone reach 120 grams of protein comfortably each day?',
+        a: 'Spread 30 to 35 grams across three meals plus a snack using eggs, poultry, fish, lentils, Greek yogurt, or tofu.',
       },
       {
-        q: 'Does cooking meat change its raw protein count?',
-        a: 'Water evaporates during grilling or boiling so weight shrinks, yet total protein grams inside that portion stay essentially unchanged.',
+        q: 'Does cooking chicken or beef reduce its protein grams?',
+        a: 'Cooking removes water weight so the portion shrinks, yet total protein grams inside that cut stay nearly identical.',
       },
     ],
     medicalDisclaimer:
@@ -322,9 +343,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-bmr-calc': {
-    seoTitle: `Free BMR (Basal Metabolic Rate) Calculator – Resting Burn | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Basal Metabolic Rate BMR | ${SITE_NAME}`,
     metaDescription:
-      'Find how many calories your body burns daily at complete rest with our free BMR (Basal Metabolic Rate) Calculator.',
+      'See how to calculate basal metabolic rate BMR using the Mifflin-St Jeor formula to measure calories burned at complete rest.',
+    introDescription:
+      'Understanding your body’s baseline energy requirements begins with knowing how to calculate basal metabolic rate BMR using the Mifflin-St Jeor equation. Enter your gender, body weight in kilograms, height in centimeters, and age in years to find out how many calories your organs burn daily at total rest. Knowing BMR helps dieters avoid overly aggressive calorie cuts that cause fatigue.',
     howToUseSteps: [
       'Set Gender to Male or Female for the Mifflin-St Jeor resting burn equation.',
       'Record your current Weight (kg) and standing Height (cm) in the numeric boxes.',
@@ -336,16 +359,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'A 28-year-old Male with Weight (kg) = 70 and Height (cm) = 172 yields (700 + 1,075 − 140 + 5) = 1640 kcal / day at complete rest.',
     faqs: [
       {
-        q: 'Should anyone diet below their resting BMR (Basal Metabolic Rate)?',
-        a: 'Eating consistently below resting BMR risks muscle loss, fatigue, and nutrient deficiencies unless supervised closely by a physician.',
+        q: 'Is it safe to eat fewer calories than my resting BMR?',
+        a: 'Consistently eating below BMR can trigger fatigue, nutrient gaps, and muscle loss unless monitored directly by a doctor.',
       },
       {
-        q: 'How is BMR different from TDEE?',
-        a: 'BMR covers coma-like resting organ burn only, whereas TDEE multiplies BMR by daily walking, chores, and gym workouts.',
+        q: 'What is the difference between BMR and TDEE?',
+        a: 'BMR covers resting organ function alone, whereas TDEE adds calories burned through walking, work, and workouts.',
       },
       {
-        q: 'Why does BMR decline slightly with each decade of Age (years)?',
-        a: 'Resting metabolic rate edges down naturally by ~5 kcal per year as hormone levels shift and lean muscle gradually decreases.',
+        q: 'Why does resting metabolic rate slowly decrease with age?',
+        a: 'Metabolic burn dips gradually as hormone levels change and lean muscle mass tends to decline over decades.',
       },
     ],
     medicalDisclaimer:
@@ -353,9 +376,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-fat-burn-hr': {
-    seoTitle: `Free Fat Burning Heart Rate Zone Calculator – 60–70% BPM | ${SITE_NAME}`,
+    seoTitle: `How to Find Fat Burning Heart Rate Zone | ${SITE_NAME}`,
     metaDescription:
-      'Calculate your ideal 60%–70% steady-state fat oxidation pulse zone in BPM with our free Fat Burning Heart Rate Zone Calculator.',
+      'Discover how to find fat burning heart rate zone (60%–70% max BPM) from your age for sustainable steady-state cardio workouts.',
+    introDescription:
+      'Planning longer, joint-friendly walks or cycling workouts is simple once you know how to find fat burning heart rate zone targets tailored to your age. Enter your current age in years to view your 60%–70% moderate aerobic BPM window alongside your estimated maximum pulse. Keeping steady-state cardio inside this comfortable zone builds endurance without exhausting your legs before strength days.',
     howToUseSteps: [
       'Enter your chronological age in Age (years).',
       'Read your 60%–70% target BPM interval in the primary display.',
@@ -367,16 +392,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'For Age (years) = 30 (Max HR = 190 bpm), multiplying by 0.60 and 0.70 gives a steady-state fat-burning target of 114 - 133 bpm.',
     faqs: [
       {
-        q: 'Which workouts stay naturally inside the 60%–70% zone?',
-        a: 'Brisk incline treadmill walking, easy cycling, light elliptical pacing, and conversational jogging usually sit squarely in 60%–70% BPM.',
+        q: 'What exercises keep you comfortably inside the 60%–70% pulse zone?',
+        a: 'Brisk incline walking, light cycling, rowing, and easy jogging typically hold your heart rate right inside this moderate band.',
       },
       {
-        q: 'Why is this zone easier to sustain for 45 to 60 minutes?',
-        a: 'Moderate pulse intensity stresses joints lightly and allows conversational breathing, enabling longer overall calorie-burning sessions.',
+        q: 'Why is the fat-burning zone easier to sustain for 45 minutes?',
+        a: 'Lower cardiovascular strain lets you breathe comfortably and recover quickly, making longer weekly sessions achievable.',
       },
       {
-        q: 'Do faster HIIT workouts still reduce body fat even above 70% BPM?',
-        a: 'Yes—total daily calorie deficit drives overall fat loss regardless of whether calories burn from fat or glycogen during the workout.',
+        q: 'Do intense interval workouts still help you lose fat?',
+        a: 'Yes, overall fat loss depends on total daily calorie balance, whether workouts burn mostly fat or carbohydrates during exercise.',
       },
     ],
     medicalDisclaimer:
@@ -384,9 +409,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-whtr': {
-    seoTitle: `Free Waist-to-Height Ratio (WHtR) Calculator – Central Fat Risk | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Waist to Height Ratio | ${SITE_NAME}`,
     metaDescription:
-      'Screen central abdominal fat risk by comparing waist size to height using our free Waist-to-Height Ratio (WHtR) Calculator.',
+      'Learn how to calculate waist to height ratio to screen central abdominal fat risk against the simple 0.50 health benchmark.',
+    introDescription:
+      'Many health researchers recommend checking midsection proportions alongside scale weight, which starts with knowing how to calculate waist to height ratio accurately at home. Measure your waist at belly-button level and enter your standing height in centimeters to generate your WHtR score immediately. Keeping your waist under half your height (below 0.50) offers a quick visual benchmark across different adult body builds.',
     howToUseSteps: [
       'Measure belly-button waist girth inside Waist Circumference (cm).',
       'Type standing height into Height (cm).',
@@ -398,16 +425,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Dividing Waist Circumference (cm) = 82 by Height (cm) = 175 yields 82 / 175 = 0.47 (Healthy / Normal).',
     faqs: [
       {
-        q: 'Why is the "keep your waist under half your height" rule so widely recommended?',
-        a: 'A WHtR below 0.50 correlates strongly with lower cardiometabolic risk across diverse ethnicities and both sexes.',
+        q: 'Why is keeping your waist below half your height widely recommended?',
+        a: 'Scores under 0.50 generally reflect lower visceral abdominal fat around internal organs across diverse adult populations.',
       },
       {
-        q: 'Can I enter inches instead of centimeters in both boxes?',
-        a: 'Yes—because WHtR is a unitless ratio, using inches in both Waist Circumference and Height yields the exact same ratio.',
+        q: 'Can I measure waist and height in inches instead of centimeters?',
+        a: 'Yes, as long as both inputs share the exact same unit, the final waist-to-height ratio stays identical.',
       },
       {
-        q: 'Why might someone have a normal BMI yet an elevated WHtR?',
-        a: 'Low muscle mass paired with visceral midsection fat ("skinny fat") often shows up clearly in WHtR even when BMI looks normal.',
+        q: 'Can someone have a normal BMI but a high waist-to-height ratio?',
+        a: 'Yes, low muscle mass combined with extra midsection weight can raise WHtR even when BMI looks normal.',
       },
     ],
     medicalDisclaimer:
@@ -415,9 +442,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-calorie-deficit': {
-    seoTitle: `Free Calorie Deficit for Weight Loss Calculator – Safe Daily Intake | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Calorie Deficit for Fat Loss | ${SITE_NAME}`,
     metaDescription:
-      'Compute daily fat-loss calorie targets from maintenance TDEE and weekly pace with our free Calorie Deficit for Weight Loss Calculator.',
+      'See how to calculate calorie deficit for fat loss from maintenance TDEE and weekly pace with a built-in 1,200 kcal floor.',
+    introDescription:
+      'Designing a sustainable weight-loss nutrition plan starts with knowing how to calculate calorie deficit for fat loss without starving your metabolism. Enter your daily maintenance calories (TDEE) and select either a moderate 0.5 kg per week pace or a steeper 1.0 kg per week target. The calculator subtracts the corresponding daily calorie gap while holding a safe 1,200 kcal minimum floor.',
     howToUseSteps: [
       'Type your maintenance burn into Current Maintenance Calories (TDEE).',
       'Pick 0.5 kg per week (550 kcal deficit) or 1.0 kg per week (1100 kcal deficit) under Target Weekly Weight Loss.',
@@ -429,16 +458,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Setting Current Maintenance Calories (TDEE) = 2500 with Target Weekly Weight Loss = 0.5 kg per week (Moderate - 550 kcal deficit) outputs 1950 kcal / day.',
     faqs: [
       {
-        q: 'Why does the calculator stop Target Calories from dropping below 1,200 kcal?',
-        a: 'Very-low-calorie diets under 1,200 kcal risk micronutrient shortfalls, gallstones, and muscle loss without clinical supervision.',
+        q: 'Why does the target never drop below 1,200 calories per day?',
+        a: 'Very-low-calorie diets below 1,200 kcal increase the risk of muscle loss, fatigue, and micronutrient deficiencies without medical supervision.',
       },
       {
-        q: 'Is 0.5 kg per week usually easier to maintain than 1.0 kg per week?',
-        a: 'Yes—a moderate 550 kcal deficit controls hunger better, preserves gym strength, and prevents rebound weight regain.',
+        q: 'Is losing 0.5 kg per week easier to stick with than 1.0 kg per week?',
+        a: 'Yes, a moderate 550-calorie deficit controls hunger better and preserves workout performance over longer periods.',
       },
       {
-        q: 'Where do I find my Current Maintenance Calories (TDEE)?',
-        a: 'Calculate your baseline TDEE first using the Calorie Needs Calculator in this category and copy that number here.',
+        q: 'Where do I get my current maintenance TDEE number?',
+        a: 'Use the Calorie Needs Calculator first with your age, height, weight, and activity level, then copy your TDEE here.',
       },
     ],
     medicalDisclaimer:
@@ -446,9 +475,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-sleep-calc': {
-    seoTitle: `Free Sleep Duration & Sleep Cycles Calculator – Bedtime Planner | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Sleep Cycles and Bedtime | ${SITE_NAME}`,
     metaDescription:
-      'Find ideal bedtimes aligned with 90-minute sleep cycles for your morning alarm with our free Sleep Duration & Sleep Cycles Calculator.',
+      'Learn how to calculate sleep cycles and bedtime from your morning alarm so you wake up refreshed between 90-minute cycles.',
+    introDescription:
+      'Waking up groggy even after spending hours in bed often comes from interrupting deep sleep, so knowing how to calculate sleep cycles and bedtime helps you time rest smarter. Enter your morning wake-up alarm in 24-hour format to see recommended lights-out times for 6 cycles (9 hours), 5 cycles (7.5 hours), or 4 cycles (6 hours), including a 15-minute buffer to fall asleep.',
     howToUseSteps: [
       'Enter your morning alarm in 24-hour format inside Target Wake-up Time (HH:MM 24hr).',
       'Check suggested bedtimes for 6 full cycles (9h) and 5 full cycles (7.5h).',
@@ -460,16 +491,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Setting Target Wake-up Time (HH:MM 24hr) = 06:30 recommends going to bed at 21:15 for 6 Cycles (9h), 22:45 for 5 Cycles (7.5h), or 00:15 for 4 Cycles (6h).',
     faqs: [
       {
-        q: 'Why subtract 15 extra minutes before starting the 90-minute cycle count?',
-        a: 'Most healthy adults take around 10 to 20 minutes after turning off lights to drift into stage-1 sleep.',
+        q: 'Why does the planner subtract an extra 15 minutes before sleep cycles begin?',
+        a: 'Most adults take roughly 10 to 20 minutes after lying down in a dark room to drift into light sleep.',
       },
       {
-        q: 'How many 90-minute cycles do most adults need nightly?',
-        a: 'Five full cycles (7.5 hours of actual sleep) or six cycles (9 hours) fit the 7–9 hour nightly adult sleep guideline.',
+        q: 'How many 90-minute sleep cycles should adults aim for?',
+        a: 'Five or six complete cycles provide 7.5 to 9 hours of actual sleep, matching standard adult rest guidelines.',
       },
       {
-        q: 'Must Target Wake-up Time (HH:MM 24hr) use 24-hour clock format like 06:30?',
-        a: 'Yes—use leading zeros in 24-hour notation (such as 06:30 for 6:30 AM or 14:00 for 2:00 PM) so time subtraction parses accurately.',
+        q: 'Do I need to type the alarm in 24-hour format?',
+        a: 'Yes, use 24-hour notation such as 06:30 for morning or 14:00 for afternoon naps so the clock subtracts cleanly.',
       },
     ],
     medicalDisclaimer:
@@ -477,9 +508,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-caffeine-limit': {
-    seoTitle: `Free Caffeine Intake Safety Limit Calculator – Daily Milligrams | ${SITE_NAME}`,
+    seoTitle: `How Much Caffeine per Day Is Safe by Weight | ${SITE_NAME}`,
     metaDescription:
-      'Find your safe maximum daily milligrams of caffeine and equivalent coffee cups by body weight with our free Caffeine Intake Safety Limit Calculator.',
+      'Check how much caffeine per day is safe by weight in milligrams and equivalent coffee cups under standard 400 mg adult guidelines.',
+    introDescription:
+      'Balancing morning coffee, afternoon tea, and gym pre-workouts without causing jittery sleep starts with checking how much caffeine per day is safe by weight. Enter your weight in kilograms to calculate your daily milligram ceiling alongside the approximate number of brewed coffee cups, capped strictly at 400 mg for healthy adults. Tracking total milligrams prevents accidental overload from multiple beverages.',
     howToUseSteps: [
       'Enter your body weight in kilograms into Weight (kg).',
       'Read your daily caffeine ceiling in milligrams.',
@@ -491,16 +524,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Typing Weight (kg) = 70 computes 70 × 5.7 = 399 mg / day, equal to Approx. 4.2 standard cups of coffee.',
     faqs: [
       {
-        q: 'Why does the caffeine limit cap strictly at 400 mg even above 70 kg?',
-        a: 'FDA guidance caps total safe adult caffeine at 400 mg daily regardless of heavier body weight to minimize palpitations and jitteriness.',
+        q: 'Why does the safe daily caffeine limit cap at 400 mg for heavier adults?',
+        a: 'Health authorities cap general adult intake at 400 mg daily to limit rapid heartbeat, anxiety, and disrupted sleep.',
       },
       {
-        q: 'Should pregnant individuals follow a lower limit than 400 mg?',
-        a: 'Yes—obstetric organizations typically advise limiting pregnancy caffeine below 200 mg daily rather than the general adult ceiling.',
+        q: 'Should pregnant women keep caffeine lower than 400 mg?',
+        a: 'Yes, obstetric guidelines generally advise staying under 200 mg of caffeine per day during pregnancy.',
       },
       {
-        q: 'Does Pakistani chai or green tea count toward Max Caffeine?',
-        a: 'Yes, an average cup of strong black chai holds ~40–60 mg of caffeine and green tea holds ~25–35 mg.',
+        q: 'Do black tea, green tea, and sodas count toward the daily limit?',
+        a: 'Yes, count all caffeinated teas, colas, energy drinks, chocolate, and pre-workout supplements together.',
       },
     ],
     medicalDisclaimer:
@@ -508,9 +541,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-target-weight-timeline': {
-    seoTitle: `Free Target Weight Loss Timeline Calculator – Goal Weeks & Months | ${SITE_NAME}`,
+    seoTitle: `How Long to Reach Target Weight Loss Goal | ${SITE_NAME}`,
     metaDescription:
-      'Project how many weeks and months are needed to reach your goal weight at a realistic weekly pace with our free Target Weight Loss Timeline Calculator.',
+      'Estimate how long to reach target weight loss goal in weeks and months based on starting weight, goal weight, and weekly pace.',
+    introDescription:
+      'Staying motivated during a multi-month transformation gets easier when you know how long to reach target weight loss goal at a steady pace. Enter your current weight, your healthy target weight, and expected weekly loss in kilograms to see your projected timeline in both weeks and months. Setting realistic weekly expectations prevents burnout from crash dieting and keeps progress measurable.',
     howToUseSteps: [
       'Type starting body mass into Current Weight (kg).',
       'Enter your healthy goal weight inside Target Weight (kg).',
@@ -522,16 +557,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Moving from Current Weight (kg) = 82 to Target Weight (kg) = 72 (10.0 kg gap) at Expected Weekly Loss (kg) = 0.5 projects 20.0 weeks (~4.6 months).',
     faqs: [
       {
-        q: 'What Expected Weekly Loss (kg) pace helps preserve muscle mass?',
-        a: 'Losing 0.5 kg to 0.75 kg weekly (~0.5%–1% of body weight) minimizes fatigue and muscle breakdown while keeping habits sustainable.',
+        q: 'What weekly weight-loss pace helps protect lean muscle?',
+        a: 'Aiming for 0.5 to 0.75 kg per week keeps energy steady and reduces muscle breakdown compared with extreme deficits.',
       },
       {
-        q: 'Why does scale weight fluctuate slightly from day to day along the timeline?',
-        a: 'Salty meals, carbohydrate glycogen, workout soreness, and hydration shift scale readings by 0.5–1.5 kg temporarily without changing fat.',
+        q: 'Why does scale weight bounce up or down day by day?',
+        a: 'Salty meals, carbohydrate storage, soreness, and hydration cause temporary water shifts that mask steady fat loss.',
       },
       {
-        q: 'Can I also use this tool to timeline slow lean weight gain?',
-        a: 'Yes—enter a Target Weight (kg) higher than Current Weight (kg) and put your weekly gain rate (e.g., 0.25 kg) in Expected Weekly Loss (kg).',
+        q: 'Can I use this timeline planner for gradual muscle weight gain?',
+        a: 'Yes, enter a goal weight higher than your current weight and input your target weekly gain rate.',
       },
     ],
     medicalDisclaimer:
@@ -539,9 +574,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-one-rep-max': {
-    seoTitle: `Free One Rep Max (1RM) Strength Calculator – Epley Lift Max | ${SITE_NAME}`,
+    seoTitle: `How to Calculate One Rep Max 1RM Weight | ${SITE_NAME}`,
     metaDescription:
-      'Estimate your maximum single-rep barbell lift from submaximal sets using the Epley formula with our free One Rep Max (1RM) Strength Calculator.',
+      'Learn how to calculate one rep max 1RM weight safely from moderate rep sets using the Epley strength formula.',
+    introDescription:
+      'Programming barbell squats, bench presses, or deadlifts around percentage training blocks starts with knowing how to calculate one rep max 1RM weight safely without attempting risky maximal singles. Enter the total weight lifted in kilograms and clean repetitions completed on a challenging gym set. Using the Epley formula gives strength athletes a dependable 1RM benchmark for tracking progressive overload across weeks.',
     howToUseSteps: [
       'Enter barbell or dumbbell load lifted inside Weight Lifted (kg).',
       'Type clean completed repetitions into Repetitions Performed.',
@@ -553,16 +590,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Squatting Weight Lifted (kg) = 80 for Repetitions Performed = 8 computes 80 × (1 + 8 / 30) = 101 kg Estimated 1RM.',
     faqs: [
       {
-        q: 'At which rep range is the Epley 1RM estimate most reliable?',
-        a: 'Predictions stay sharpest between 2 and 10 clean reps; high-rep sets of 15–20+ introduce muscular endurance bias.',
+        q: 'Which rep range gives the most accurate Epley 1RM estimate?',
+        a: 'Sets of 2 to 10 controlled reps predict 1RM closely, while sets above 15 reps reflect endurance more than peak strength.',
       },
       {
-        q: 'How can I program training percentages once I know Estimated 1RM?',
-        a: 'Multiply Estimated 1RM by 0.70–0.80 for muscle-building sets of 6–10 reps, or 0.85–0.92 for heavy strength triples.',
+        q: 'Should the barbell weight count inside total weight lifted?',
+        a: 'Yes, always add the barbell (usually 20 kg) plus every plate loaded on both sides.',
       },
       {
-        q: 'Does Weight Lifted (kg) include the weight of the barbell itself?',
-        a: 'Yes—count the 20 kg Olympic barbell plus all loaded weight plates on both ends.',
+        q: 'How do lifters turn estimated 1RM into working set weights?',
+        a: 'Many programs assign 70% to 80% of 1RM for 6–10 hypertrophy reps or 85% to 92% for heavy strength sets.',
       },
     ],
     medicalDisclaimer:
@@ -570,9 +607,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-blood-pressure': {
-    seoTitle: `Free Blood Pressure Category Checker Calculator – AHA Stages | ${SITE_NAME}`,
+    seoTitle: `How to Check Blood Pressure Reading Chart | ${SITE_NAME}`,
     metaDescription:
-      'Classify systolic and diastolic blood pressure readings according to AHA ranges with our free Blood Pressure Category Checker Calculator.',
+      'See how to check blood pressure reading chart categories from systolic and diastolic mmHg numbers under AHA guidelines.',
+    introDescription:
+      'Interpreting home arm-cuff measurements accurately gets much clearer once you know how to check blood pressure reading chart thresholds used by major cardiology groups. Enter your upper systolic pressure and lower diastolic pressure in mmHg to display the matching American Heart Association category immediately. Logging calm morning readings across several days gives useful context to share at your next checkup.',
     howToUseSteps: [
       'Type the upper cuff number into Systolic (Upper mmHg).',
       'Enter the lower cuff number into Diastolic (Lower mmHg).',
@@ -584,16 +623,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Entering Systolic (Upper mmHg) = 120 and Diastolic (Lower mmHg) = 80 classifies as High Blood Pressure (Stage 1) because Diastolic reaches 80 mmHg under strict AHA thresholds.',
     faqs: [
       {
-        q: 'Why does 120/80 mmHg display High Blood Pressure (Stage 1) instead of Normal?',
-        a: 'AHA guidelines define Normal strictly as under 120 AND under 80; hitting exactly 80 diastolic crosses into Stage 1.',
+        q: 'Why does 120/80 mmHg show Stage 1 instead of Normal?',
+        a: 'AHA rules classify Normal strictly below 120 systolic and below 80 diastolic, so reaching 80 diastolic enters Stage 1.',
       },
       {
-        q: 'How should I sit before checking Systolic and Diastolic readings?',
-        a: 'Rest quietly for 5 minutes with feet flat on the floor, back supported, and cuff arm resting at heart level.',
+        q: 'How should I prepare before taking a home cuff reading?',
+        a: 'Sit quietly for five minutes with feet flat, back supported, and the cuffed arm resting comfortably at heart height.',
       },
       {
-        q: 'Does one single high reading mean chronic hypertension?',
-        a: 'Stress, caffeine, or walking can spike numbers briefly—log readings across several calm mornings for a physician.',
+        q: 'Does a single high cuff reading always mean chronic hypertension?',
+        a: 'Stress, caffeine, or recent activity can elevate numbers briefly, so track multiple calm readings for a doctor to review.',
       },
     ],
     medicalDisclaimer:
@@ -601,9 +640,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-lean-body-mass': {
-    seoTitle: `Free Lean Body Mass (LBM) Calculator – Boer Formula | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Lean Body Mass from Weight | ${SITE_NAME}`,
     metaDescription:
-      'Separate fat-free lean mass from estimated fat weight using the clinical Boer formula with our free Lean Body Mass (LBM) Calculator.',
+      'Learn how to calculate lean body mass from weight and height using the Boer equation to separate fat-free mass from fat.',
+    introDescription:
+      'Estimating your fat-free tissue without calipers or full-body scans starts with learning how to calculate lean body mass from weight and standing height cleanly. Choose your gender and enter weight in kilograms alongside height in centimeters to compute Lean Mass and estimated Fat Mass via the clinical Boer equation. Tracking lean mass helps athletes plan smarter protein intake and body-recomposition targets.',
     howToUseSteps: [
       'Select Male or Female under Gender so the Boer lean-mass coefficients apply properly.',
       'Type your body mass in Weight (kg) and height in Height (cm) to separate lean tissue from fat.',
@@ -615,16 +656,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'A Male with Weight (kg) = 75 and Height (cm) = 178 computes (0.407 × 75) + (0.267 × 178) − 19.2 = 58.9 kg Lean Mass (Fat Mass: 16.1 kg).',
     faqs: [
       {
-        q: 'Why does Lean Body Mass include water and bone as well as muscle?',
-        a: 'By clinical definition, LBM equals total body weight minus essential and stored fat mass, so organs, skeleton, and fluids are included.',
+        q: 'Why does lean body mass include bones and organs besides muscle?',
+        a: 'Clinical lean body mass covers everything in the body except stored and essential fat, including bone, skin, organs, and fluids.',
       },
       {
-        q: 'Can strength athletes use LBM to set protein goals?',
-        a: 'Yes—anchoring ~2 g of protein per kg of Lean Mass works well for lean-mass preservation during weight loss.',
+        q: 'Can lifters use lean body mass to set daily protein intake?',
+        a: 'Yes, aiming for around 2 grams of protein per kilogram of lean mass works well during fat-loss phases.',
       },
       {
-        q: 'How does the Boer method differ from the US Navy Body Fat calculator?',
-        a: 'Boer relies strictly on weight and height averages, whereas US Navy factors in actual waist and neck circumferences.',
+        q: 'How does the Boer method differ from tape-based body fat formulas?',
+        a: 'Boer estimates averages purely from height and weight, while tape methods also measure actual waist and neck girths.',
       },
     ],
     medicalDisclaimer:
@@ -632,9 +673,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-bac-estimator': {
-    seoTitle: `Free BAC (Blood Alcohol Concentration) Estimator Calculator | ${SITE_NAME}`,
+    seoTitle: `How to Estimate Blood Alcohol Level BAC | ${SITE_NAME}`,
     metaDescription:
-      'Estimate blood alcohol percentage from drinks consumed, elapsed hours, and body weight with our free BAC Estimator Calculator.',
+      'See how to estimate blood alcohol level BAC from standard drinks consumed, elapsed hours, gender, and body weight.',
+    introDescription:
+      'Understanding how alcohol absorbs and clears over an evening gets much clearer when you know how to estimate blood alcohol level BAC using the Widmark formula. Select gender, enter body weight in kilograms, add the number of standard drinks consumed, and specify hours elapsed since the first drink. Viewing the estimated percentage highlights clearly why spacing drinks and waiting matters.',
     howToUseSteps: [
       'Select Male or Female inside the Gender field.',
       'Enter body mass in Weight (kg) and count in Standard Drinks Consumed.',
@@ -646,16 +689,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'A Male weighing Weight (kg) = 75 having Standard Drinks Consumed = 3 over Hours Since First Drink = 2 calculates 0.052% BAC.',
     faqs: [
       {
-        q: 'Why is the distribution factor r lower for Female (0.55) than Male (0.68)?',
-        a: 'Women generally have a slightly lower percentage of total body water per kilogram, concentrating alcohol in slightly higher blood levels.',
+        q: 'Why does the Widmark formula use different constants for men and women?',
+        a: 'Women generally have a slightly lower proportion of total body water per kilogram, producing higher blood alcohol concentration per drink.',
       },
       {
-        q: 'Does drinking black coffee speed up liver alcohol clearance above 0.015% per hour?',
-        a: 'No—caffeine only masks drowsiness; only elapsed time lets liver enzymes metabolize alcohol from the bloodstream.',
+        q: 'Can coffee or cold showers lower blood alcohol concentration faster?',
+        a: 'No, stimulants only mask sleepiness; only time allows the liver to metabolize alcohol out of the bloodstream.',
       },
       {
-        q: 'Can someone feel impaired below the 0.08% legal driving threshold?',
-        a: 'Yes—coordination, reaction speed, and judgment already deteriorate noticeably at 0.02% to 0.05% BAC.',
+        q: 'Can judgment and reaction time suffer below 0.08% BAC?',
+        a: 'Yes, coordination, focus, and driving reflexes begin declining noticeably even between 0.02% and 0.05% BAC.',
       },
     ],
     medicalDisclaimer:
@@ -663,9 +706,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-smoking-cost': {
-    seoTitle: `Free Smoking Cost & Health Impact Calculator – PKR Savings | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Cigarette Cost over Years | ${SITE_NAME}`,
     metaDescription:
-      'Calculate cumulative money spent on cigarettes over years in PKR to motivate quitting with our free Smoking Cost & Health Impact Calculator.',
+      'Find out how to calculate cigarette cost over years from daily packs and pack price to see total savings from quitting.',
+    introDescription:
+      'Small daily purchases add up dramatically across decades, making it eye-opening to learn how to calculate cigarette cost over years before buying your next pack. Enter the average packs smoked daily, local price per pack, and total years smoking to calculate cumulative money spent. Seeing the full multi-year financial savings alongside early cardiovascular recovery gives a strong practical boost toward quitting.',
     howToUseSteps: [
       'Enter daily consumption into Packs Smoked per Day.',
       'Type local pack retail price inside Price per Pack (PKR).',
@@ -677,16 +722,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Smoking Packs Smoked per Day = 1 at Price per Pack (PKR) = 350 across Years Smoking = 5 adds up to PKR 638,750 Spent.',
     faqs: [
       {
-        q: 'How do I enter half a pack (10 cigarettes) per day?',
-        a: 'Enter 0.5 in Packs Smoked per Day to compute expenditure for 10 cigarettes daily accurately.',
+        q: 'How do I calculate half a pack per day?',
+        a: 'Enter 0.5 in daily packs to measure the cost of smoking roughly 10 cigarettes each day.',
       },
       {
-        q: 'How soon do cardiovascular benefits begin after quitting cigarettes?',
-        a: 'Heart rate and carbon monoxide levels begin normalizing within 24 hours, while lung function and circulation improve noticeably over weeks.',
+        q: 'How quickly does health start recovering after quitting smoking?',
+        a: 'Blood oxygen and heart rate improve within a day, while circulation and breathing capacity recover noticeably within weeks.',
       },
       {
-        q: 'Does this total include rising cigarette tax inflation over past years?',
-        a: 'It projects straight at today’s Price per Pack (PKR), showing what keeping that habit costs going forward.',
+        q: 'Does this estimate include past inflation in cigarette prices?',
+        a: 'It calculates directly at current pack pricing, showing what maintaining that habit costs moving forward.',
       },
     ],
     medicalDisclaimer:
@@ -694,9 +739,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-running-pace': {
-    seoTitle: `Free Running Pace & Speed Calculator – min/km & km/h | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Running Pace Min per Km | ${SITE_NAME}`,
     metaDescription:
-      'Compute split running pace in minutes per kilometer and average speed in km/h with our free Running Pace & Speed Calculator.',
+      'Learn how to calculate running pace min per km and average speed in km/h from total distance and workout time.',
+    introDescription:
+      'Pacing a 5K race, half-marathon, or morning neighborhood jog gets much easier once you know how to calculate running pace min per km from your stopwatch time. Enter distance covered in kilometers and total elapsed minutes to view both your exact min/km split pace and average speed in km/h. Testing target splits beforehand helps prevent starting too fast early in a race.',
     howToUseSteps: [
       'Enter route length in Distance (Kilometers).',
       'Type total workout duration into Total Time (Minutes).',
@@ -708,16 +755,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Running Distance (Kilometers) = 5 in Total Time (Minutes) = 28 yields a split pace of 5:36 min/km and Average Speed: 10.7 km/h.',
     faqs: [
       {
-        q: 'What pace is needed to break 25 minutes in a 5K race?',
-        a: 'Running 5 km in 25 minutes requires holding an even 5:00 min/km pace (12.0 km/h average speed).',
+        q: 'What split pace runs 5 kilometers under 25 minutes?',
+        a: 'Finishing 5 km in 25 minutes requires maintaining a steady 5:00 min/km pace, or 12.0 km/h average speed.',
       },
       {
-        q: 'Can walkers use Distance (Kilometers) and Total Time (Minutes) too?',
-        a: 'Yes—a brisk 5 km walk in 50 minutes calculates cleanly to a 10:00 min/km pace (6.0 km/h).',
+        q: 'Can brisk walkers use this pace calculator too?',
+        a: 'Yes, walking 5 km in 50 minutes calculates cleanly to a 10:00 min/km pace (6.0 km/h).',
       },
       {
-        q: 'How do I estimate 10K finish time from my 5K pace?',
-        a: 'Multiply your steady Pace (min/km) by 10, adding roughly 1–2 minutes for fatigue over the longer distance.',
+        q: 'How can I estimate a 10K time from a 5K split?',
+        a: 'Double your 5K time and add a slight buffer—typically 1 to 3 minutes—for pacing fatigue over longer distance.',
       },
     ],
     medicalDisclaimer:
@@ -725,9 +772,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-karvonen-hr': {
-    seoTitle: `Free Target Heart Rate (Karvonen Formula) Calculator – Training BPM | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Karvonen Target Heart Rate | ${SITE_NAME}`,
     metaDescription:
-      'Calculate personal cardio training BPM from resting pulse and heart reserve with our free Target Heart Rate (Karvonen Formula) Calculator.',
+      'See how to calculate Karvonen target heart rate using resting pulse, age, and workout intensity for tailored cardio zones.',
+    introDescription:
+      'Runners and cyclists with lower resting pulses often get inaccurate targets from basic age formulas, making it smart to learn how to calculate Karvonen target heart rate. Enter your age, morning resting heart rate in BPM, and desired training intensity percentage. Because Karvonen scales across your usable Heart Rate Reserve, it customizes cardio training BPM specifically to your cardiovascular fitness.',
     howToUseSteps: [
       'Type your age in years inside Age (years).',
       'Enter morning waking pulse inside Resting Heart Rate (bpm).',
@@ -739,16 +788,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'An athlete with Age (years) = 30 (Max HR: 190 bpm) and Resting Heart Rate (bpm) = 65 training at Target Intensity (%) = 70% calculates [(190 − 65) × 0.70] + 65 = 153 bpm.',
     faqs: [
       {
-        q: 'When should I measure Resting Heart Rate (bpm) for accuracy?',
-        a: 'Count your wrist pulse or check a fitness watch immediately upon waking before standing up or drinking coffee.',
+        q: 'When is the best time to measure resting heart rate?',
+        a: 'Check your pulse or fitness watch right after waking up while still lying calmly in bed before coffee or moving.',
       },
       {
-        q: 'Why does Karvonen output a higher BPM than multiplying Max HR by 70%?',
-        a: 'Because Karvonen measures effort strictly across usable Heart Rate Reserve above resting pulse rather than down to zero BPM.',
+        q: 'Why does Karvonen give a higher BPM than multiplying Max HR by 70%?',
+        a: 'Karvonen applies intensity across your Heart Rate Reserve above resting pulse rather than counting down to zero BPM.',
       },
       {
-        q: 'What Target Intensity (%) ranges correspond to aerobic vs tempo sessions?',
-        a: 'Easy recovery sits at 55%–65%, steady aerobic base at 65%–75%, and tempo lactate workouts at 80%–88% Karvonen reserve.',
+        q: 'What Karvonen intensity fits easy recovery versus tempo runs?',
+        a: 'Recovery sessions usually sit around 55% to 65%, aerobic base at 65% to 75%, and hard tempo runs at 80% to 88%.',
       },
     ],
     medicalDisclaimer:
@@ -756,9 +805,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-bsa': {
-    seoTitle: `Free Body Surface Area (BSA) Calculator – Mosteller m² | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Body Surface Area BSA | ${SITE_NAME}`,
     metaDescription:
-      'Compute human Body Surface Area in square meters using the Mosteller equation from weight and height with our free Body Surface Area (BSA) Calculator.',
+      'Discover how to calculate body surface area BSA in square meters from weight and height using the Mosteller formula.',
+    introDescription:
+      'Physiology students and researchers frequently reference external skin surface area alongside body mass, so learning how to calculate body surface area BSA is both practical and straightforward. Enter your body weight in kilograms and standing height in centimeters to compute BSA in square meters using the Mosteller square-root formula. Standard adult BSA generally averages around 1.7 to 1.9 square meters.',
     howToUseSteps: [
       'Enter body mass in kilograms inside Weight (kg).',
       'Type standing height in centimeters inside Height (cm).',
@@ -770,16 +821,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Entering Weight (kg) = 70 and Height (cm) = 175 computes √[(175 × 70) / 3600] = √3.4028 = 1.84 m².',
     faqs: [
       {
-        q: 'What is the typical average adult Body Surface Area?',
-        a: 'Reference physiology standards commonly quote around 1.7 m² for women and 1.9 m² for men.',
+        q: 'What is a typical adult Body Surface Area in square meters?',
+        a: 'Physiology textbooks commonly reference average adult BSA near 1.7 m² for women and 1.9 m² for men.',
       },
       {
-        q: 'Why is the Mosteller equation favored over Du Bois?',
-        a: 'Mosteller delivers virtually identical m² figures to Du Bois while using an intuitive square-root equation easy to verify.',
+        q: 'Why is the Mosteller BSA formula so widely used?',
+        a: 'It yields results almost identical to older multi-step equations while using one clean square-root step.',
       },
       {
-        q: 'Can BSA change when Weight (kg) increases or decreases?',
-        a: 'Yes—BSA scales proportionally with square-root changes in body mass even when adult height stays fixed.',
+        q: 'Does losing or gaining weight change Body Surface Area?',
+        a: 'Yes, BSA adjusts smoothly whenever body weight changes even though adult height stays constant.',
       },
     ],
     medicalDisclaimer:
@@ -787,9 +838,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-whr': {
-    seoTitle: `Free Waist-to-Hip Ratio (WHR) Calculator – Body Shape Risk | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Waist to Hip Ratio WHR | ${SITE_NAME}`,
     metaDescription:
-      'Evaluate body fat distribution and metabolic risk by comparing waist and hip measurements with our free Waist-to-Hip Ratio (WHR) Calculator.',
+      'Learn how to calculate waist to hip ratio WHR from waist and hip measurements to check fat distribution and risk brackets.',
+    introDescription:
+      'Checking where your body stores extra weight gives helpful context beyond scale readings, making it useful to know how to calculate waist to hip ratio WHR. Wrap a tape measure around your narrowest waist and widest hip circumference in centimeters, then enter both values. Dividing waist by hip identifies whether fat distribution leans central or lower-body against standard risk benchmarks.',
     howToUseSteps: [
       'Measure narrowest natural torso perimeter into Waist Circumference (cm).',
       'Measure widest gluteal perimeter inside Hip Circumference (cm).',
@@ -801,16 +854,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Measuring Waist Circumference (cm) = 82 and Hip Circumference (cm) = 100 calculates WHR = 0.82 (Low Risk).',
     faqs: [
       {
-        q: 'Where should the measuring tape sit for Hip Circumference (cm)?',
-        a: 'Wrap the tape level horizontally around the widest protrusion of the buttocks with feet standing together.',
+        q: 'Where exactly should I place the tape for hip circumference?',
+        a: 'Wrap the measuring tape horizontally around the widest part of the hips and buttocks while standing relaxed.',
       },
       {
-        q: 'Do WHO cutoffs differ slightly between men and women?',
-        a: 'Yes—WHO defines abdominal risk at WHR ≥ 0.90 for men and ≥ 0.85 for women; this tool applies a conservative 0.85 Low Risk boundary.',
+        q: 'Do WHO waist-to-hip cutoffs vary for men and women?',
+        a: 'Yes, WHO flags elevated risk above 0.90 for men and 0.85 for women, while this checker uses a conservative 0.85 threshold.',
       },
       {
-        q: 'Can I measure both circumferences in inches instead of cm?',
-        a: 'Yes—providing both Waist Circumference and Hip Circumference in the same unit produces the identical WHR decimal.',
+        q: 'Can both waist and hip values be entered in inches?',
+        a: 'Yes, entering both measurements in inches produces the exact same unitless WHR ratio.',
       },
     ],
     medicalDisclaimer:
@@ -818,9 +871,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-water-target': {
-    seoTitle: `Free Daily Water Intake Target Calculator – ml/kg Hydration | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Daily Water Intake Target | ${SITE_NAME}`,
     metaDescription:
-      'Determine daily drinking water targets in liters and milliliters using weight-based ml/kg multipliers with our free Daily Water Intake Target Calculator.',
+      'Find out how to calculate daily water intake target in liters and milliliters using weight-based ml/kg hydration multipliers.',
+    introDescription:
+      'Athletes and busy professionals tracking exact fluid goals in milliliters rely on knowing how to calculate daily water intake target by body weight and daily exercise tier. Enter your weight in kilograms and choose Sedentary (35 ml/kg), Moderate Exercise (40 ml/kg), or Heavy Exercise (50 ml/kg). Seeing both exact milliliters and liters helps match hydration closely to gym sweat loss.',
     howToUseSteps: [
       'Enter your weight in kilograms inside Body Weight (kg).',
       'Pick Sedentary (Low), Moderate Exercise, or Heavy Exercise / Athlete in Activity Level.',
@@ -832,16 +887,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'An athlete with Body Weight (kg) = 80 selecting Activity Level = Heavy Exercise / Athlete multiplies 80 × 50 = 4,000 ml, yielding 4.00 Liters (4000 ml) / day.',
     faqs: [
       {
-        q: 'How many 250 ml drinking glasses equal 4.00 Liters?',
-        a: 'Dividing 4,000 ml by 250 ml equals 16 standard drinking glasses spaced across the day.',
+        q: 'How many 250 ml glasses equal a 3-liter water target?',
+        a: 'Three liters (3,000 ml) equal 12 standard 250 ml glasses spaced evenly between morning and evening.',
       },
       {
-        q: 'Is clear or pale straw urine a simple check alongside milliliter targets?',
-        a: 'Yes—light straw-colored urine usually signals adequate hydration, whereas dark amber signals a need to drink more fluids.',
+        q: 'How can you tell quickly if daily hydration is on track?',
+        a: 'Pale straw-colored urine usually signals good hydration, while dark yellow suggests drinking more water.',
       },
       {
-        q: 'Can drinking excessive water too rapidly pose risks?',
-        a: 'Yes—consuming huge liters within an hour without electrolytes can dilute blood sodium (hyponatremia), so sip steadily.',
+        q: 'Can drinking excessive plain water very rapidly be harmful?',
+        a: 'Yes, forcing huge volumes in under an hour without electrolytes can dilute blood sodium, so drink steadily.',
       },
     ],
     medicalDisclaimer:
@@ -849,9 +904,11 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
   },
 
   'health-body-fat-mass': {
-    seoTitle: `Free Body Fat Mass & Lean Body Mass Calculator – Weight Split | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Body Fat and Lean Mass Kg | ${SITE_NAME}`,
     metaDescription:
-      'Break total body weight into fat kilograms and fat-free lean kilograms from body fat % with our free Body Fat Mass & Lean Body Mass Calculator.',
+      'See how to calculate body fat and lean mass kg from total scale weight and body fat percentage to track fitness recomposition.',
+    introDescription:
+      'Measuring gym progress accurately requires knowing how to calculate body fat and lean mass kg whenever your scale weight shifts. Enter your total body weight in kilograms alongside your measured or estimated body fat percentage. Splitting total weight into exact Fat Mass and Lean Mass kilograms proves whether fat loss diets are stripping unwanted fat while preserving hard-earned muscle tissue.',
     howToUseSteps: [
       'Type your current scale weight inside Total Weight (kg).',
       'Enter measured or estimated body fat inside Body Fat Percentage (%).',
@@ -863,16 +920,16 @@ export const healthSeoFullMap: Record<string, HealthCalculatorSeoEntry> = {
       'Someone with Total Weight (kg) = 75 and Body Fat Percentage (%) = 20% splits into Fat Mass: 15.0 kg | Lean Mass: 60.0 kg.',
     faqs: [
       {
-        q: 'How can I tell if weight loss is coming from fat rather than muscle?',
-        a: 'Recalculate monthly—if Fat Mass drops steadily while Lean Mass holds steady near 60 kg, your strength and protein plan is preserving muscle.',
+        q: 'How do I check whether weight loss comes from fat rather than muscle?',
+        a: 'Track monthly—if fat mass drops steadily while lean mass stays nearly level, your strength and protein intake are protecting muscle.',
       },
       {
-        q: 'Why can two people weighing 75 kg look completely different?',
-        a: 'At 75 kg, carrying 64 kg Lean Mass and 15% fat looks far leaner and tighter than carrying 52 kg Lean Mass and 30% fat.',
+        q: 'Why can two people at the same scale weight look very different?',
+        a: 'Higher lean muscle mass occupies less volume per kilogram than body fat, creating a noticeably leaner athletic build.',
       },
       {
-        q: 'What if I want to drop from 20% to 15% body fat while keeping Lean Mass = 60 kg?',
-        a: 'Divide 60 kg by (1 − 0.15) = 70.6 kg target Total Weight, meaning roughly 4.4 kg of pure fat loss.',
+        q: 'How can I estimate target weight at a lower body fat percentage?',
+        a: 'Divide your current lean mass kilograms by one minus your goal body fat decimal.',
       },
     ],
     medicalDisclaimer:

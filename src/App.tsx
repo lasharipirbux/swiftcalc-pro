@@ -6,15 +6,11 @@ import { BrandLogo } from './components/BrandLogo';
 import { Sidebar } from './components/Sidebar';
 import { FavoritesModal } from './components/FavoritesModal';
 import { HistoryModal } from './components/HistoryModal';
-
-const CalculatorView = lazy(() =>
-  import('./components/CalculatorView').then((m) => ({ default: m.CalculatorView }))
-);
 import { StaticPage } from './components/StaticPages';
 import { SeoHead, StaticPageId } from './components/SeoHead';
 import { getCalculatorSlug, findCalculatorBySlug } from './utils/slugs';
 import { SITE_NAME, SUPPORT_EMAIL } from './config/site';
-import { CurrencyCode, CURRENCY_STORAGE_KEY, getInitialCurrency } from './utils/currency';
+import { CurrencyCode, getInitialCurrency, saveCurrencyPreference } from './utils/currency';
 import {
   ArrowRight,
   ArrowDown,
@@ -28,7 +24,6 @@ import {
   Home,
   HeartPulse,
   Calendar,
-  RefreshCw,
   Zap,
   GraduationCap,
   Cpu,
@@ -41,6 +36,10 @@ import {
   Moon,
   Mail,
 } from 'lucide-react';
+
+const CalculatorView = lazy(() =>
+  import('./components/CalculatorView').then((m) => ({ default: m.CalculatorView }))
+);
 
 const POPULAR_CALCULATOR_IDS = [
   'basic-calc',
@@ -81,7 +80,7 @@ export default function App() {
   // Favorites & History state with localStorage
   const [favorites, setFavorites] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('calcvault_favorites');
+      const saved = localStorage.getItem('calcnaseeb_favorites');
       return saved ? JSON.parse(saved) : ['basic-calc', 'loan-calc', 'health-bmi-calc'];
     } catch {
       return ['basic-calc', 'loan-calc'];
@@ -90,7 +89,7 @@ export default function App() {
 
   const [history, setHistory] = useState<CalculationHistoryItem[]>(() => {
     try {
-      const saved = localStorage.getItem('calcvault_history');
+      const saved = localStorage.getItem('calcnaseeb_history');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -99,7 +98,7 @@ export default function App() {
 
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     try {
-      return localStorage.getItem('calcvault_theme') === 'dark';
+      return localStorage.getItem('calcnaseeb_theme') === 'dark';
     } catch {
       return false;
     }
@@ -165,19 +164,19 @@ export default function App() {
   // Update localStorage and Dark Mode
   useEffect(() => {
     try {
-      localStorage.setItem('calcvault_favorites', JSON.stringify(favorites));
+      localStorage.setItem('calcnaseeb_favorites', JSON.stringify(favorites));
     } catch {}
   }, [favorites]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('calcvault_history', JSON.stringify(history));
+      localStorage.setItem('calcnaseeb_history', JSON.stringify(history));
     } catch {}
   }, [history]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('calcvault_theme', darkMode ? 'dark' : 'light');
+      localStorage.setItem('calcnaseeb_theme', darkMode ? 'dark' : 'light');
       if (darkMode) {
         document.documentElement.classList.add('dark');
       } else {
@@ -186,11 +185,10 @@ export default function App() {
     } catch {}
   }, [darkMode]);
 
-  useEffect(() => {
-    try {
-      localStorage.setItem(CURRENCY_STORAGE_KEY, currency);
-    } catch {}
-  }, [currency]);
+  const handleChangeCurrency = (nextCurrency: CurrencyCode) => {
+    setCurrency(nextCurrency);
+    saveCurrencyPreference(nextCurrency);
+  };
 
   const navigateTo = (path: string) => {
     window.history.pushState({}, '', path);
@@ -270,8 +268,6 @@ export default function App() {
         return <HeartPulse className="w-5 h-5" />;
       case 'Calendar':
         return <Calendar className="w-5 h-5" />;
-      case 'RefreshCw':
-        return <RefreshCw className="w-5 h-5" />;
       case 'Zap':
         return <Zap className="w-5 h-5" />;
       case 'GraduationCap':
@@ -320,11 +316,9 @@ export default function App() {
         onLogoClick={handleBackToHome}
         onOpenFavorites={() => setIsFavoritesOpen(true)}
         onOpenHistory={() => setIsHistoryOpen(true)}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
         hideSearch={isHomePage}
         currency={currency}
-        onChangeCurrency={setCurrency}
+        onChangeCurrency={handleChangeCurrency}
       />
 
       {/* Main Container */}
@@ -438,6 +432,68 @@ export default function App() {
                     );
                   })}
                 </div>
+
+                {selectedCategory === 'datetime' && (
+                  <article className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+                    <section className="space-y-2.5">
+                      <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                        What Date &amp; Time Calculators Do
+                      </h2>
+                      <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                        Our Date &amp; Time calculators handle everyday calendar, scheduling, and elapsed-time math without manual counting or timezone mistakes. Whether you need to find your exact age in years, months, and days, measure the gap between two calendar dates, or add and subtract days from a project deadline, each tool runs instant calendar-aware calculations in your browser. You can also count weekday-only working days, convert global time zones, plan cross-city meetings, check leap years, look up ISO week numbers, and convert Unix epoch timestamps for software debugging. Every calculation accounts for varying month lengths and leap-year February dates automatically, giving students, developers, HR teams, and travelers fast, reliable answers.
+                      </p>
+                    </section>
+
+                    <section className="space-y-2.5">
+                      <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                        How to Use These Calculators
+                      </h2>
+                      <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                        Browse the Date &amp; Time grid above and select any tool that matches your task. Enter your starting date, target date, clock hours, or number of days using the standard format shown inside each input label, such as YYYY-MM-DD or HH:MM. Results update immediately below the inputs along with secondary breakdowns like total weeks, hours, or business days. To switch tasks quickly, pick another calculator from the grid, save frequent tools with the star icon, or revisit recent runs in History. All calculations run locally in your browser with zero sign-up required.
+                      </p>
+                    </section>
+
+                    <section className="space-y-3">
+                      <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                        Frequently Asked Questions
+                      </h2>
+                      <div className="flex flex-col gap-3">
+                        <div className="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+                          <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-1.5">
+                            What date format should I enter in these calculators?
+                          </h3>
+                          <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                            Most date fields use the standard YYYY-MM-DD format, such as 2026-11-28, while time inputs accept 24-hour HH:MM or HH:MM:SS values for accurate results.
+                          </p>
+                        </div>
+                        <div className="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+                          <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-1.5">
+                            Do the date and age tools account for leap years?
+                          </h3>
+                          <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                            Yes. Calendar calculators automatically include February 29 in leap years and adjust for 28-, 30-, and 31-day months when computing exact durations.
+                          </p>
+                        </div>
+                        <div className="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+                          <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-1.5">
+                            How do working days calculators handle weekends?
+                          </h3>
+                          <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                            Working Days and Add Business Days tools exclude Saturdays and Sundays by default, letting you measure Monday-through-Friday schedules cleanly.
+                          </p>
+                        </div>
+                        <div className="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+                          <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-1.5">
+                            Are my entered dates or timestamps stored on a server?
+                          </h3>
+                          <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                            No. Every Date &amp; Time calculation runs directly in your browser, and only optional History or Favorites entries stay on your device.
+                          </p>
+                        </div>
+                      </div>
+                    </section>
+                  </article>
+                )}
               </div>
             </div>
           </div>

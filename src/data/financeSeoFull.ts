@@ -3,6 +3,7 @@ import { SITE_NAME } from '../config/site';
 export interface FinanceCalculatorSeoEntry {
   seoTitle: string;
   metaDescription: string;
+  introDescription: string;
   howToUseSteps: string[];
   formulaExplanation: string;
   practicalExample: string;
@@ -11,9 +12,11 @@ export interface FinanceCalculatorSeoEntry {
 
 export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
   'loan-calc': {
-    seoTitle: `Free Loan & EMI Calculator – Monthly Payments & Total Cost | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Monthly Loan EMI Payment | ${SITE_NAME}`,
     metaDescription:
-      'Estimate monthly loan installments, interest costs, and total repayment in dollars with our free Loan & EMI Calculator.',
+      'Learn how to calculate monthly loan EMI payment and total repayment cost across any interest rate and loan duration in years.',
+    introDescription:
+      'Before signing a personal, business, or auto financing agreement, knowing how to calculate monthly loan EMI payment helps you judge whether an installment fits comfortably inside your budget. Enter the principal borrowed, quoted annual interest rate, and loan tenure in years to compute your fixed monthly payment and total cumulative payout. Testing a shorter term or lower rate immediately shows how much interest you can save over the full schedule.',
     howToUseSteps: [
       'Type the total borrowed sum into the Loan Amount ($) box.',
       'Enter the lender’s quoted yearly rate inside the Annual Interest Rate (%) field.',
@@ -26,24 +29,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Borrowing Loan Amount ($) = $300,000 at Annual Interest Rate (%) = 6.5% over Loan Term (Years) = 30 years (360 months, r = 0.0054167) yields a monthly EMI of $1,896.20 / month and a Total Payment of $682,633.47.',
     faqs: [
       {
-        q: 'How does switching from a 30-year to a 15-year Loan Term (Years) affect total interest?',
-        a: 'Shortening the term raises the monthly EMI slightly while cutting total interest paid across the life of the loan by more than half.',
+        q: 'How does shortening a loan from 30 years to 15 years change total cost?',
+        a: 'A shorter term raises the monthly payment moderately while cutting lifetime interest paid by well over half.',
       },
       {
-        q: 'What does the calculator display if Annual Interest Rate (%) is set to 0?',
-        a: 'With zero interest, the tool bypasses compounding and divides Loan Amount ($) evenly across total months.',
+        q: 'Does this loan payment estimate include lender origination fees?',
+        a: 'No, it calculates pure principal and interest amortization so you can compare baseline bank quotes fairly.',
       },
       {
-        q: 'Does this EMI estimate include property taxes or origination fees?',
-        a: 'No, it models pure principal and interest amortization so you can compare baseline loan offers accurately.',
+        q: 'What happens if the annual interest rate is 0%?',
+        a: 'At 0% interest, the principal simply divides evenly across the total number of monthly installments.',
       },
     ],
   },
 
   'compound-interest': {
-    seoTitle: `Free Compound Interest Calculator – Growth With Contributions | ${SITE_NAME}`,
+    seoTitle: `Compound Interest With Monthly Contributions | ${SITE_NAME}`,
     metaDescription:
-      'Project long-term investment growth from starting principal and monthly deposits using our free Compound Interest Calculator.',
+      'Project long-term savings growth using compound interest with monthly contributions, starting principal, and annual yield rate.',
+    introDescription:
+      'Building meaningful wealth over 10, 20, or 30 years relies heavily on compound interest with monthly contributions rather than one-time deposits alone. Enter your initial balance, expected annual return percentage, investment timeframe in years, and monthly deposit amount. Because each month’s interest earns returns in future months alongside fresh contributions, you can quickly see how small recurring savings snowballs into a substantial nest egg.',
     howToUseSteps: [
       'Enter your starting deposit in the Principal ($) field.',
       'Input your expected annual yield inside the Interest Rate (%) box.',
@@ -56,24 +61,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Investing Principal ($) = $15,000 at Interest Rate (%) = 8.5% for Years = 15 with Monthly Contribution ($) = $300 compounds across 180 months to a final balance of $162,744.50, including Interest: $93,744.50.',
     faqs: [
       {
-        q: 'Are Monthly Contribution ($) deposits credited at the start or end of each month?',
-        a: 'They are added at the beginning of each month before monthly interest is applied, slightly boosting long-term returns.',
+        q: 'Why does earned interest accelerate so much during the later years?',
+        a: 'In later years, returns compound not only on new deposits but also on decades of previously accumulated profit.',
       },
       {
-        q: 'Why does Interest grow faster in later years than in early years?',
-        a: 'Because each subsequent year earns percentage returns on both newly added cash and all previously accumulated interest.',
+        q: 'Can I project a one-time lump sum without monthly deposits?',
+        a: 'Yes, set the monthly contribution field to 0 to isolate pure compounding on your starting deposit.',
       },
       {
-        q: 'Can I evaluate a lump-sum investment without recurring deposits?',
-        a: 'Yes, simply type 0 into Monthly Contribution ($) to isolate pure compounding on your initial Principal ($).',
+        q: 'Are monthly contributions assumed at the start or end of each month?',
+        a: 'Monthly deposits are credited at the beginning of each month before that month’s interest is calculated.',
       },
     ],
   },
 
   'mortgage-calc': {
-    seoTitle: `Free Mortgage Calculator – Home Loan Payment Estimator | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Monthly Mortgage Payment | ${SITE_NAME}`,
     metaDescription:
-      'Compute monthly home mortgage installments after down payment deductions with this free Mortgage Calculator.',
+      'Learn how to calculate monthly mortgage payment after down payment deductions across 15-, 20-, or 30-year home loan terms.',
+    introDescription:
+      'House hunting gets much clearer when you know how to calculate monthly mortgage payment figures before speaking with a loan officer. Type the property price, your upfront cash down payment, the quoted annual interest rate, and the loan term in years. The calculator subtracts your down payment automatically to show the net financed loan amount alongside your fixed monthly principal-and-interest payment.',
     howToUseSteps: [
       'Enter the property purchase price in the Home Price ($) input.',
       'Type your upfront cash contribution into the Down Payment ($) field.',
@@ -86,24 +93,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Buying a Home Price ($) = $450,000 property with Down Payment ($) = $90,000 leaves Loan Amount: $360,000; at Rate (%) = 6% over Years = 30, the monthly mortgage payment equals $2,158.38 / mo.',
     faqs: [
       {
-        q: 'What happens if Down Payment ($) exceeds Home Price ($)?',
-        a: 'The financed principal floors cleanly at $0 so the monthly mortgage payment never drops into negative numbers.',
+        q: 'Why do homebuyers aim for a 20% down payment?',
+        a: 'Putting 20% down lowers your financed balance to 80% of home value, which trims monthly payments and often removes mortgage insurance.',
       },
       {
-        q: 'Why do lenders emphasize putting at least 20% down on Home Price ($)?',
-        a: 'A 20% Down Payment reduces the financed Loan Amount to 80% of property value, commonly avoiding private mortgage insurance.',
+        q: 'Should I budget extra for property taxes and home insurance?',
+        a: 'Yes, add estimated monthly property taxes, homeowner insurance, and HOA dues on top of this principal-and-interest figure.',
       },
       {
-        q: 'Should escrow for homeowners insurance be added separately?',
-        a: 'Yes, add estimated monthly property tax and insurance on top of the principal-and-interest figure shown here.',
+        q: 'What happens if my down payment equals or exceeds the home price?',
+        a: 'The loan principal stops at zero so your monthly mortgage payment stays at zero.',
       },
     ],
   },
 
   'roi-calc': {
-    seoTitle: `Free ROI (Return on Investment) Calculator – Net Return % | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Return on Investment ROI | ${SITE_NAME}`,
     metaDescription:
-      'Measure percentage gain and net dollar profit from any capital outlay with our free ROI (Return on Investment) Calculator.',
+      'Discover how to calculate return on investment ROI and net profit percentage from any initial cost and ending value.',
+    introDescription:
+      'Comparing a marketing campaign, a stock trade, or a small business equipment purchase starts with knowing how to calculate return on investment ROI on a common percentage scale. Enter your total capital invested alongside the final amount returned. Within a second, you see both raw net profit and the percentage ROI so investments of completely different sizes can be evaluated side by side.',
     howToUseSteps: [
       'Type your total upfront capital cost into the Invested ($) field.',
       'Enter the ending sale or payout value inside the Returned ($) box.',
@@ -115,24 +124,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Putting Invested ($) = $10,000 into a project that yields Returned ($) = $14,500 delivers Net Profit: $4,500 and an overall ROI of (4,500 / 10,000) × 100 = 45.00%.',
     faqs: [
       {
-        q: 'Can ROI turn negative when Returned ($) is smaller than Invested ($)?',
-        a: 'Yes, if ending proceeds fall short of initial cost, both Net Profit and ROI display negative values indicating a loss.',
+        q: 'What does a negative ROI percentage indicate?',
+        a: 'A negative ROI means the amount returned fell below your initial investment, resulting in a net financial loss.',
       },
       {
-        q: 'Does simple ROI account for how many years an asset was held?',
-        a: 'No, standard ROI measures total cumulative return regardless of holding duration; use CAGR when comparing multi-year timelines.',
+        q: 'Does simple ROI factor in how many years I held the asset?',
+        a: 'No, standard ROI measures total gain from start to finish; use CAGR when comparing multi-year investments over different timelines.',
       },
       {
-        q: 'Should brokerage commissions be included inside Invested ($)?',
-        a: 'Including acquisition fees in Invested ($) gives a truer net profitability reading after transaction costs.',
+        q: 'Should transaction fees be included in the Invested amount?',
+        a: 'Yes, adding brokerage fees or closing costs into your invested cost gives a more realistic net return.',
       },
     ],
   },
 
   'sales-tax': {
-    seoTitle: `Free Sales Tax & VAT Calculator – Checkout Price Breakdown | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Sales Tax and Total Price | ${SITE_NAME}`,
     metaDescription:
-      'Calculate added sales tax or VAT and final retail checkout price quickly with our free Sales Tax & VAT Calculator.',
+      'Learn how to calculate sales tax and total price at checkout for US retail purchases, GST invoices, and European VAT.',
+    introDescription:
+      'Whether you are pricing a retail invoice or double-checking a store receipt, knowing how to calculate sales tax and total price prevents checkout surprises. Type the pre-tax item price and your local sales tax, GST, or VAT percentage rate. The calculator displays the final tax-inclusive total alongside the standalone tax surcharge rounded cleanly to two decimal places for quick accounting.',
     howToUseSteps: [
       'Type the pre-tax item subtotal into the Original Price ($) field.',
       'Enter the applicable local percentage in the Tax Rate (%) input.',
@@ -144,24 +155,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Applying Tax Rate (%) = 8.25% to an Original Price ($) = $85.00 item produces Tax: $7.01 and a final checkout Total: $92.01.',
     faqs: [
       {
-        q: 'Can this tool compute both US sales tax and European/UK VAT?',
-        a: 'Yes, any percentage consumption tax added on top of a pre-tax Original Price ($) follows the exact same multiplier.',
+        q: 'Does this work for both US sales tax and VAT or GST?',
+        a: 'Yes, any percentage tax added on top of a net pre-tax subtotal calculates identically.',
       },
       {
-        q: 'How are fractional cents handled in the final Total?',
-        a: 'Both the Total price and Tax breakdown round to two decimal places matching standard currency billing.',
+        q: 'What if my city charges separate state and county taxes?',
+        a: 'Add the state, county, and city percentages together into one combined rate before entering Tax Rate (%).',
       },
       {
-        q: 'What should I enter if multiple local levies apply together?',
-        a: 'Sum state, county, and municipal percentages into a single combined Tax Rate (%) figure before calculating.',
+        q: 'How are decimal fractions rounded in the final price?',
+        a: 'Both the added tax and final checkout price round neatly to two decimal places.',
       },
     ],
   },
 
   'tip-calc': {
-    seoTitle: `Free Tip & Bill Split Calculator – Per-Person Restaurant Split | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Tip and Split a Bill | ${SITE_NAME}`,
     metaDescription:
-      'Compute gratuity and split restaurant checks evenly per diner using this free Tip & Bill Split Calculator.',
+      'Need to know how to calculate tip and split a bill fairly at restaurants? Compute gratuity and equal per-person shares fast.',
+    introDescription:
+      'Wrapping up a group dinner is much smoother when everyone sees how to calculate tip and split a bill evenly without passing around a phone calculator. Type the pre-tip bill amount, select or enter your gratuity percentage, and set how many people are sharing the check. You get both the exact amount each diner owes and the combined grand total including tip.',
     howToUseSteps: [
       'Type the pre-tip restaurant receipt amount into the Bill ($) field.',
       'Enter your chosen gratuity percentage inside the Tip % box.',
@@ -174,24 +187,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'A Bill ($) = $95.50 dinner with Tip % = 20% adds $19.10 gratuity for Total: $114.60, which splits across People = 3 diners at $38.20 / person.',
     faqs: [
       {
-        q: 'What happens if someone enters 0 in the People box?',
-        a: 'The denominator safely defaults to at least 1 diner so division-by-zero never occurs.',
+        q: 'Should restaurant tips be calculated before or after sales tax?',
+        a: 'Standard dining etiquette bases gratuity on the pre-tax subtotal, though you can enter either bill total here.',
       },
       {
-        q: 'Should Tip % be calculated on the pre-tax or post-tax Bill ($)?',
-        a: 'Etiquette typically bases gratuity on the pre-tax food and drink subtotal, though either figure can be typed into Bill ($).',
+        q: 'Can I split a shared grocery or taxi bill with 0% tip?',
+        a: 'Yes, set Tip % to 0 to divide the exact bill amount evenly across your group.',
       },
       {
-        q: 'Can I calculate a zero-tip even split for shared groceries?',
-        a: 'Yes, entering 0 in Tip % divides the exact Bill ($) figure evenly among the number of People.',
+        q: 'What happens if someone leaves the People count at 0?',
+        a: 'The calculation automatically treats the group as at least 1 person so no division error happens.',
       },
     ],
   },
 
   'loan-emi-months': {
-    seoTitle: `Free Loan EMI Calculator (Months) – PKR Monthly Installment | ${SITE_NAME}`,
+    seoTitle: `Calculate Loan EMI for Exact Months Online | ${SITE_NAME}`,
     metaDescription:
-      'Calculate PKR monthly loan payments across exact month tenures using our free Loan EMI Calculator (Months).',
+      'Easily calculate loan EMI for exact months online—ideal for 18-, 24-, or 36-month personal loans and appliance plans.',
+    introDescription:
+      'Many personal loans, motorcycle installments, and electronics financing plans are quoted in exact months rather than full years, making it essential to calculate loan EMI for exact months online accurately. Enter the borrowed amount, annual interest rate, and exact number of monthly installments such as 18, 24, or 36 months. You see both your fixed monthly payment and total cumulative repayment right away.',
     howToUseSteps: [
       'Enter the principal rupee amount in the Loan Amount (PKR) box.',
       'Type the bank’s yearly markup percentage into Annual Interest Rate (%).',
@@ -205,23 +220,25 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
     faqs: [
       {
         q: 'How is this different from a year-based loan calculator?',
-        a: 'Term in Months accepts exact durations like 18, 24, or 36 months directly without converting months into fractional years.',
+        a: 'It accepts exact tenures like 18 or 30 months directly without converting months into decimal years.',
       },
       {
-        q: 'Why is the monthly installment rounded to the nearest whole rupee?',
-        a: 'Pakistani rupee loan schedules typically settle in whole PKR amounts without paisa fractions.',
+        q: 'Can I model a 0% markup retail installment plan?',
+        a: 'Yes, entering 0 for the interest rate divides your borrowed sum evenly across the chosen months.',
       },
       {
-        q: 'Does a 0% installment plan work in Term in Months?',
-        a: 'Yes, setting Annual Interest Rate (%) to 0 divides Loan Amount (PKR) cleanly by Term in Months.',
+        q: 'Why does total payment exceed the borrowed principal?',
+        a: 'Total payment combines your original principal plus all monthly interest charged over the repayment period.',
       },
     ],
   },
 
   'simple-interest': {
-    seoTitle: `Free Simple Interest Calculator – Non-Compounding PKR Yield | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Simple Interest on a Loan | ${SITE_NAME}`,
     metaDescription:
-      'Compute flat non-compounding interest and maturity total quickly with our free Simple Interest Calculator.',
+      'See how to calculate simple interest on a loan or short-term deposit without compounding, viewing total interest and maturity payout.',
+    introDescription:
+      'Short-term bridge loans, private promissory notes, and certain savings certificates avoid compounding altogether, so knowing how to calculate simple interest on a loan keeps repayment math transparent. Enter your starting principal, annual interest rate, and duration in years. Because interest accrues only on the original principal each year, you get an instant breakdown of flat interest earned and total maturity amount.',
     howToUseSteps: [
       'Enter the starting rupee sum inside Principal Amount (PKR).',
       'Fill in the flat yearly percentage in Annual Interest Rate (%).',
@@ -234,24 +251,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Placing Principal Amount (PKR) = 100,000 at Annual Interest Rate (%) = 10% for Time (Years) = 3 generates PKR 30,000 in interest and Total Amount: PKR 130,000.',
     faqs: [
       {
-        q: 'When is simple interest used instead of compound interest?',
-        a: 'Short-term promissory notes, treasury bills, and flat-rate personal loans frequently accrue simple interest rather than compounding.',
+        q: 'How does simple interest differ from compound interest?',
+        a: 'Simple interest charges percentage returns strictly on the original principal, whereas compound interest also earns interest on prior interest.',
       },
       {
-        q: 'Can I enter fractional durations in Time (Years) such as 0.5 or 1.5?',
-        a: 'Yes, entering 0.5 computes half-year simple interest and 1.5 computes 18 months accurately.',
+        q: 'Can I enter 6 months or 18 months into Time in Years?',
+        a: 'Yes, use decimals—enter 0.5 for 6 months or 1.5 for 18 months.',
       },
       {
-        q: 'Does interest double when Time (Years) doubles?',
-        a: 'Yes, because there is no compounding curve, simple interest scales in direct linear proportion to Time (Years).',
+        q: 'Does doubling the time double simple interest?',
+        a: 'Yes, simple interest grows in a straight linear line directly proportional to the time period.',
       },
     ],
   },
 
   'compound-interest-freq': {
-    seoTitle: `Free Compound Interest Frequency Calculator – Monthly & Yearly | ${SITE_NAME}`,
+    seoTitle: `Compare Monthly vs Annual Compound Interest | ${SITE_NAME}`,
     metaDescription:
-      'Compare monthly, quarterly, and annual compounding returns in PKR using our free Compound Interest Frequency Calculator.',
+      'See how compounding intervals change returns—compare monthly vs annual compound interest or quarterly payouts on lump sums.',
+    introDescription:
+      'Two savings accounts advertising the same annual rate can still pay different returns, which is why investors compare monthly vs annual compound interest before locking in funds. Type your initial lump-sum deposit, nominal annual rate, and investment years, then switch the compounding selector between monthly, quarterly, and annually. Watching the interest earned jump as frequency rises reveals the true value of more frequent compounding.',
     howToUseSteps: [
       'Type your initial rupee investment into the Principal (PKR) field.',
       'Enter the nominal yearly rate in Annual Interest Rate (%).',
@@ -264,24 +283,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Investing Principal (PKR) = 200,000 at Annual Interest Rate (%) = 9% for Time (Years) = 5 under Monthly (12 times/yr) Compounding Frequency grows to PKR 313,136, yielding Interest Earned: PKR 113,136.',
     faqs: [
       {
-        q: 'How much difference does Monthly vs Annually Compounding Frequency make?',
-        a: 'Monthly compounding produces a higher effective annual yield because interest starts earning return every 30 days instead of waiting all year.',
+        q: 'Why does monthly compounding pay more than annual compounding at the same rate?',
+        a: 'Monthly compounding credits profit 12 times a year, allowing earlier months’ earnings to start compounding immediately.',
       },
       {
-        q: 'Does this tool include recurring monthly additions?',
-        a: 'No, it measures lump-sum growth on Principal (PKR) so you can isolate the exact effect of Compounding Frequency.',
+        q: 'Does this calculator add recurring monthly deposits?',
+        a: 'No, it keeps principal constant so you can see the pure impact of compounding intervals cleanly.',
       },
       {
-        q: 'Which banks or accounts typically credit profits quarterly?',
-        a: 'Many corporate savings schemes and term deposit payouts use Quarterly (4 times/yr) profit distribution.',
+        q: 'When is quarterly compounding commonly used?',
+        a: 'Many corporate bonds, treasury schemes, and high-yield term accounts credit interest four times per year.',
       },
     ],
   },
 
   'savings-goal-calc': {
-    seoTitle: `Free Savings Goal Calculator – Monthly Target Plan | ${SITE_NAME}`,
+    seoTitle: `How Much to Save Monthly to Reach a Goal | ${SITE_NAME}`,
     metaDescription:
-      'Find how much to save monthly in PKR to hit any financial milestone with our free Savings Goal Calculator.',
+      'Find out how much to save monthly to reach a goal—whether for a wedding, down payment, or emergency fund—with expected returns.',
+    introDescription:
+      'Working backward from a milestone like a car purchase, wedding budget, or home down payment tells you how much to save monthly to reach a goal on time. Enter your target cash figure, the number of months until your deadline, and your expected annual return rate. You immediately see both the required monthly deposit and total cash contributed out of pocket versus compound growth.',
     howToUseSteps: [
       'Enter your desired rupee milestone in the Target Amount (PKR) box.',
       'Specify your deadline in Months to Reach Goal.',
@@ -294,24 +315,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Reaching Target Amount (PKR) = 1,000,000 in Months to Reach Goal = 24 at Expected Annual Return (%) = 7% requires saving PKR 38,939 / month (contributing PKR 934,542 cash while compound profit covers the remaining PKR 65,458).',
     faqs: [
       {
-        q: 'Why is Total Saved less than Target Amount (PKR) when Expected Annual Return (%) is positive?',
-        a: 'Earned compound return bridges the gap between your out-of-pocket monthly deposits and the final Target Amount.',
+        q: 'Why is Total Saved smaller than my Target Amount when returns are above 0%?',
+        a: 'Compound interest earned along the way fills the gap between your out-of-pocket monthly deposits and your goal.',
       },
       {
-        q: 'Can I calculate plain cash saving without bank profit?',
-        a: 'Yes, entering 0 in Expected Annual Return (%) divides Target Amount (PKR) evenly by Months to Reach Goal.',
+        q: 'Can I calculate a plain zero-interest cash savings plan?',
+        a: 'Yes, enter 0 in Expected Annual Return (%) to divide your target goal evenly across your chosen months.',
       },
       {
-        q: 'What happens if I enter 0 for Months to Reach Goal?',
-        a: 'The calculator prompts that Months must exceed zero so division errors never appear.',
+        q: 'What if I want to reach the goal in 3 years instead of 24 months?',
+        a: 'Simply convert years into months (3 × 12 = 36) and enter 36 into the timeline box.',
       },
     ],
   },
 
   'salary-breakdown-calc': {
-    seoTitle: `Free Salary Breakdown Calculator – Yearly, Daily & Hourly PKR | ${SITE_NAME}`,
+    seoTitle: `Convert Monthly Salary to Daily Hourly Pay | ${SITE_NAME}`,
     metaDescription:
-      'Convert monthly PKR salary into annual, daily, and hourly pay rates using our free Salary Breakdown Calculator.',
+      'Compare job offers and freelance rates—convert monthly salary to daily hourly pay and annualized yearly income instantly.',
+    introDescription:
+      'Evaluating two competing job offers with different shift schedules is much easier when you convert monthly salary to daily hourly pay right away. Enter your monthly salary, working days per month (such as 22 for five-day weeks or 26 for six-day weeks), and daily shift hours. Seeing annualized yearly income alongside daily and hourly rates reveals whether longer shifts actually lower your true hourly compensation.',
     howToUseSteps: [
       'Type your gross monthly pay in the Monthly Salary (PKR) field.',
       'Enter your schedule’s working days inside Working Days per Month.',
@@ -324,24 +347,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'A Monthly Salary (PKR) = 150,000 package across Working Days per Month = 22 and Working Hours per Day = 8 equals PKR 1,800,000 / year, Daily: PKR 6,818, and Hourly: PKR 852.',
     faqs: [
       {
-        q: 'Should I adjust Working Days per Month if I work 6 days a week?',
-        a: 'Yes, 5-day corporate weeks typically use 22 working days per month, whereas 6-day schedules usually use 26 days.',
+        q: 'Should I use 22 or 26 working days per month?',
+        a: 'Use 22 days for standard Monday-to-Friday corporate schedules, or 26 days if your workplace operates six days a week.',
       },
       {
-        q: 'Does this breakdown deduct income tax automatically?',
-        a: 'No, it converts whatever figure you enter in Monthly Salary (PKR)—enter net take-home pay if you prefer post-tax hourly rates.',
+        q: 'Does this breakdown subtract income tax?',
+        a: 'No, it converts whichever figure you type in—enter your net take-home pay if you want post-tax hourly rates.',
       },
       {
-        q: 'Why is hourly rate useful for salaried workers?',
-        a: 'Comparing hourly pay reveals whether a slightly higher monthly offer requiring 10-hour shifts actually pays less per hour.',
+        q: 'How does calculating hourly rate help when comparing job offers?',
+        a: 'A slightly higher monthly salary requiring 10-hour days often pays less per hour than a lower salary with 8-hour days.',
       },
     ],
   },
 
   'discount-sale-calc': {
-    seoTitle: `Free Discount and Sale Price Calculator – Savings & Markdown | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Sale Price After Discount | ${SITE_NAME}`,
     metaDescription:
-      'Compute markdown savings and final discounted PKR price instantly with our free Discount and Sale Price Calculator.',
+      'Shopping seasonal sales? Learn how to calculate sale price after discount and exact money saved before reaching checkout.',
+    introDescription:
+      'During seasonal clearance events and online flash sales, knowing how to calculate sale price after discount helps you compare real savings before heading to the register. Type the original tag price and the advertised percentage off. Instantly you see both the final payable sale price and the exact dollar or rupee discount taken off, making multi-item shopping budgets quick to check.',
     howToUseSteps: [
       'Enter the listed tag amount in the Original Price (PKR) input.',
       'Type the promotional markdown rate into Discount Percentage (%).',
@@ -353,24 +378,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Taking Discount Percentage (%) = 25% off an Original Price (PKR) = 5,000 jacket saves PKR 1,250 and leaves a final payable price of PKR 3,750.',
     faqs: [
       {
-        q: 'How do I calculate two stacked discounts like 20% plus an extra 10%?',
-        a: 'Compute the first discount first, then type that reduced result back into Original Price (PKR) and apply the extra 10%.',
+        q: 'How do I calculate stacked store discounts like 20% plus an extra 10%?',
+        a: 'Find the price after the first 20% off, then type that reduced price back in and apply the extra 10%.',
       },
       {
-        q: 'Can Discount Percentage (%) accept fractional percentages like 12.5%?',
-        a: 'Yes, decimals such as 7.5 or 12.5 evaluate accurately to the exact rupee markdown.',
+        q: 'Can I enter decimal discounts such as 12.5% or 7.5%?',
+        a: 'Yes, fractional percentage discounts calculate accurately without rounding down.',
       },
       {
-        q: 'Does the final sale price include GST or sales tax?',
-        a: 'No, this reflects the discounted pre-tax item price before any store-level tax additions.',
+        q: 'Does the sale price shown include sales tax or GST?',
+        a: 'No, the result shows the discounted pre-tax item cost prior to any store-level taxes.',
       },
     ],
   },
 
   'manual-currency-conv': {
-    seoTitle: `Free Manual Currency Conversion Calculator – Custom FX Rate | ${SITE_NAME}`,
+    seoTitle: `Convert Currency With a Custom Exchange Rate | ${SITE_NAME}`,
     metaDescription:
-      'Convert PKR to USD, EUR, SAR, or AED using your exact exchange rate with our free Manual Currency Conversion Calculator.',
+      'Skip generic averages—convert currency with a custom exchange rate quoted by your bank, remittance app, or local money changer.',
+    introDescription:
+      'Generic online currency feeds rarely match the spread charged by bank wire desks, credit cards, or local money changers, which is why travelers convert currency with a custom exchange rate before trading cash. Enter the amount you want to convert and your dealer’s exact rate per 1 unit. Using the real quoted rate gives you a dead-on payout estimate with zero hidden spread surprises.',
     howToUseSteps: [
       'Enter the rupee sum you plan to exchange in the Amount in PKR field.',
       'Type your dealer or bank’s quoted rate into Exchange Rate (Foreign Currency per 1 PKR).',
@@ -382,24 +409,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Converting Amount in PKR = 50,000 at Exchange Rate (Foreign Currency per 1 PKR) = 0.0036 outputs 180.00 Foreign Units (1 PKR = 0.0036 Foreign Currency).',
     faqs: [
       {
-        q: 'Why do I enter Exchange Rate manually instead of using a static feed?',
-        a: 'Manual entry lets you plug in the exact open-market, interbank, or card FX rate your bank actually charges you.',
+        q: 'How do I enter the rate if USD is quoted as 278 per dollar?',
+        a: 'Divide 1 by 278 (around 0.0036) to get the foreign units per 1 base unit rate.',
       },
       {
-        q: 'How do I get Exchange Rate (Foreign Currency per 1 PKR) if USD is quoted as 278 PKR?',
-        a: 'Divide 1 by the rupee-per-dollar quote (for example, 1 / 278 = 0.0036) and enter that decimal rate.',
+        q: 'Why enter a custom rate instead of relying on an automatic feed?',
+        a: 'Automated mid-market rates exclude bank fees and dealer spreads, whereas custom entry reflects what you actually receive.',
       },
       {
-        q: 'Can I also convert PKR to Saudi Riyals or UAE Dirhams here?',
-        a: 'Yes, multiply by whatever foreign units equal 1 PKR for SAR, AED, GBP, EUR, or any currency.',
+        q: 'Can this convert to Euro, British Pound, Dirham, or Riyal?',
+        a: 'Yes, it works for any currency pair as long as you supply the per-unit conversion rate.',
       },
     ],
   },
 
   'profit-margin-calc': {
-    seoTitle: `Free Business Profit Margin Calculator – Gross Margin % | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Gross Profit Margin Percent | ${SITE_NAME}`,
     metaDescription:
-      'Calculate gross profit and percentage margin from revenue and COGS using our free Business Profit Margin Calculator.',
+      'Price products accurately—learn how to calculate gross profit margin percent and total gross profit from sales revenue and COGS.',
+    introDescription:
+      'E-commerce sellers, retail shops, and manufacturers rely on knowing how to calculate gross profit margin percent so prices comfortably cover inventory and operating overhead. Enter your total sales revenue alongside your direct Cost of Goods Sold (COGS). Immediately you get both the raw gross profit earned and the margin percentage out of revenue, making it simple to audit winning products and thin-margin SKUs.',
     howToUseSteps: [
       'Enter total sales income inside the Total Revenue (PKR) field.',
       'Input direct product or service costs in Cost of Goods Sold - COGS (PKR).',
@@ -411,24 +440,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Recording Total Revenue (PKR) = 250,000 against Cost of Goods Sold - COGS (PKR) = 160,000 yields Gross Profit: PKR 90,000 and a 36.00% Profit Margin.',
     faqs: [
       {
-        q: 'How does Profit Margin differ from markup percentage?',
-        a: 'Margin divides profit by Total Revenue (PKR), whereas markup divides profit by COGS—so margin is always smaller than markup.',
+        q: 'What is the difference between profit margin and markup?',
+        a: 'Profit margin divides profit by selling revenue, whereas markup divides profit by cost—so a 50% markup equals a 33.3% margin.',
       },
       {
-        q: 'What should go into Cost of Goods Sold - COGS (PKR)?',
-        a: 'Include wholesale inventory cost, raw materials, packaging, and direct manufacturing labor, excluding office rent or marketing.',
+        q: 'Which expenses belong inside Cost of Goods Sold (COGS)?',
+        a: 'Include wholesale inventory, raw materials, packaging, and direct production labor, leaving out rent and marketing.',
       },
       {
-        q: 'What happens when COGS exceeds Total Revenue (PKR)?',
-        a: 'Both Gross Profit and Profit Margin turn negative, signaling that items are selling below direct cost.',
+        q: 'What does a negative profit margin mean?',
+        a: 'A negative margin warns that direct unit costs exceed selling revenue, meaning each sale loses money.',
       },
     ],
   },
 
   'finance-fbr-tax': {
-    seoTitle: `Free Pakistan Income Tax Slabs Calculator (FBR) – Salary Tax | ${SITE_NAME}`,
+    seoTitle: `Calculate Pakistan FBR Salary Income Tax | ${SITE_NAME}`,
     metaDescription:
-      'Estimate annual and monthly salary tax under progressive brackets with our free Pakistan Income Tax Slabs Calculator (FBR).',
+      'Check annual and monthly payroll deductions—calculate Pakistan FBR salary income tax across progressive PKR tax slabs.',
+    introDescription:
+      'Salaried professionals and HR departments in Pakistan need a quick way to calculate Pakistan FBR salary income tax and verify monthly payroll withholding. Enter your gross annual taxable salary in PKR to apply progressive marginal brackets automatically. Because higher slab percentages apply only to income above each bracket threshold rather than your entire paycheck, you get an accurate yearly tax total and monthly deduction.',
     howToUseSteps: [
       'Type your gross taxable yearly pay into Annual Taxable Salary (PKR).',
       'Check the total yearly FBR tax liability in the main readout.',
@@ -440,24 +471,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'On an Annual Taxable Salary (PKR) = 1,800,000 (bracket PKR 1.2M–2.2M), tax equals PKR 30,000 + (1,800,000 − 1,200,000) × 15% = PKR 120,000 / year, or Monthly Tax Deduction: PKR 10,000.',
     faqs: [
       {
-        q: 'Does crossing into a higher FBR slab tax my entire salary at the higher rate?',
-        a: 'No, progressive slabs apply the higher percentage only to the salary slice above that bracket threshold.',
+        q: 'Does entering a higher FBR slab tax my entire salary at the top rate?',
+        a: 'No, progressive slabs apply the higher percentage only to the portion of income exceeding each bracket floor.',
       },
       {
-        q: 'Should I enter monthly pay or 12 months combined in Annual Taxable Salary (PKR)?',
-        a: 'Multiply your taxable monthly salary by 12 (plus taxable bonuses) and enter the full annual figure.',
+        q: 'Up to what annual salary is Pakistani income tax zero?',
+        a: 'Annual taxable salaries up to PKR 600,000 stay exempt at PKR 0 income tax under these slabs.',
       },
       {
-        q: 'Up to what annual income is salaried tax zero under these FBR brackets?',
-        a: 'Annual Taxable Salary (PKR) up to PKR 600,000 remains completely exempt at PKR 0 tax.',
+        q: 'Should I enter monthly pay or 12 months combined?',
+        a: 'Multiply your monthly taxable salary by 12 and include taxable annual bonuses for an accurate yearly figure.',
       },
     ],
   },
 
   'finance-car-lease': {
-    seoTitle: `Free Car Lease / Auto Installment Calculator – PKR Auto Loan | ${SITE_NAME}`,
+    seoTitle: `Calculate Monthly Car Lease Installment | ${SITE_NAME}`,
     metaDescription:
-      'Estimate monthly auto lease installments after equity down payment in PKR with our free Car Lease / Auto Installment Calculator.',
+      'Plan auto financing—calculate monthly car lease installment after your down payment across bank markup rates and lease years.',
+    introDescription:
+      'Shopping at a dealership or comparing Islamic and conventional bank auto plans starts when you calculate monthly car lease installment amounts in advance. Enter the car’s invoice price, your upfront equity down payment, the bank’s quoted annual markup rate, and the lease tenure in years. Adjusting the down payment immediately reveals how extra upfront cash lowers your financed amount and monthly budget.',
     howToUseSteps: [
       'Enter the vehicle invoice amount inside Car Price (PKR).',
       'Type your upfront equity deposit into Down Payment (PKR).',
@@ -470,24 +503,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Financing a Car Price (PKR) = 4,500,000 vehicle with Down Payment (PKR) = 1,350,000 leaves Total Financed Amount: PKR 3,150,000; at Annual Markup Rate (%) = 18% over Lease Tenure (Years) = 3, the payment is PKR 113,880 / month.',
     faqs: [
       {
-        q: 'Does the monthly installment include comprehensive car tracker and insurance?',
-        a: 'No, banks typically bill annual comprehensive insurance and tracker fees separately on top of the principal-plus-markup installment.',
+        q: 'Are car insurance and tracker fees included in the monthly installment?',
+        a: 'No, banks usually add comprehensive insurance and GPS tracker charges separately on top of the base vehicle installment.',
       },
       {
-        q: 'What happens to monthly installments if I increase Down Payment (PKR)?',
-        a: 'Every extra rupee put down reduces the Total Financed Amount directly and trims both monthly installments and total markup.',
+        q: 'How much does a bigger down payment help?',
+        a: 'Increasing your upfront deposit shrinks the financed principal directly, cutting both monthly payments and total markup.',
       },
       {
-        q: 'Are 0% dealership installment campaigns supported?',
-        a: 'Yes, setting Annual Markup Rate (%) to 0 divides the remaining financed balance evenly across months.',
+        q: 'Can I test a 0% dealership installment offer?',
+        a: 'Yes, entering 0 for the markup rate splits the financed balance evenly over your lease months.',
       },
     ],
   },
 
   'finance-home-loan': {
-    seoTitle: `Free Home Loan / House Financing Calculator – PKR Monthly EMI | ${SITE_NAME}`,
+    seoTitle: `Calculate Monthly House Loan EMI Payment | ${SITE_NAME}`,
     metaDescription:
-      'Plan house construction or purchase repayments in PKR with our free Home Loan / House Financing Calculator.',
+      'Plan house purchase or construction financing—calculate monthly house loan EMI payment and total long-term repayment easily.',
+    introDescription:
+      'Whether you are buying a ready house or financing residential construction, knowing how to calculate monthly house loan EMI payment keeps long-term budgets realistic. Enter the net financing amount borrowed from the bank, annual profit or interest rate, and repayment term in years. Comparing 10-, 15-, and 20-year horizons side by side shows the trade-off between affordable monthly installments and total financing cost.',
     howToUseSteps: [
       'Type the approved bank financing principal into Financing Amount (PKR).',
       'Enter the bank’s yearly financing charge in Annual Profit Rate (%).',
@@ -499,24 +534,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Taking Financing Amount (PKR) = 10,000,000 at Annual Profit Rate (%) = 15% over Term (Years) = 15 (180 months) produces an installment of PKR 139,959 / month and Total Payment: PKR 25,192,568.',
     faqs: [
       {
-        q: 'Should I put the house market price or the bank loan sum in Financing Amount (PKR)?',
-        a: 'Enter only the financed portion borrowed from the bank after subtracting your own cash down payment.',
+        q: 'Should I enter the full house price or only the bank loan amount?',
+        a: 'Enter only the bank-financed amount after subtracting your own cash down payment.',
       },
       {
-        q: 'Why is Total Payment so much higher over a 15-year or 20-year Term (Years)?',
-        a: 'Longer tenures keep principal outstanding for more years, multiplying cumulative profit paid even though monthly payments look lower.',
+        q: 'Why does a 20-year term cost much more overall than a 10-year term?',
+        a: 'Stretching repayment over 20 years keeps debt outstanding twice as long, multiplying cumulative profit paid.',
       },
       {
-        q: 'Does this apply equally to conventional mortgages and Islamic diminishing musharakah?',
-        a: 'Yes, both structures follow equivalent monthly payment math for any fixed quoted Annual Profit Rate (%).',
+        q: 'Does this math apply to Islamic diminishing musharakah home finance?',
+        a: 'Yes, diminishing musharakah monthly payments follow equivalent amortization math for any quoted annual profit rate.',
       },
     ],
   },
 
   'finance-mutual-fund': {
-    seoTitle: `Free Mutual Fund Investment Return Calculator – SIP Wealth | ${SITE_NAME}`,
+    seoTitle: `Calculate Mutual Fund SIP and Lump Sum Return | ${SITE_NAME}`,
     metaDescription:
-      'Forecast mutual fund lump-sum and monthly SIP returns in PKR using our free Mutual Fund Investment Return Calculator.',
+      'Forecast wealth growth—calculate mutual fund SIP and lump sum return with total deposits and net investment profit.',
+    introDescription:
+      'Investing consistently in money-market, income, or equity mutual funds becomes tangible when you calculate mutual fund SIP and lump sum return together over multiple years. Enter your starting lump sum (or zero for pure monthly investing), monthly SIP contribution, expected annual yield, and holding horizon in years. Seeing total capital invested right beside final wealth highlights how powerfully compounding rewards patience.',
     howToUseSteps: [
       'Type any starting lump sum into Initial Investment (PKR).',
       'Enter your recurring systematic deposit in Monthly SIP Contribution (PKR).',
@@ -529,24 +566,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Starting with Initial Investment (PKR) = 100,000 plus Monthly SIP Contribution (PKR) = 20,000 at Expected Annual Return (%) = 18% over Investment Horizon (Years) = 5 grows Total Invested: PKR 1,300,000 to PKR 2,197,479 (Profit: PKR 897,479).',
     faqs: [
       {
-        q: 'Can I model a pure Monthly SIP Contribution (PKR) with zero upfront lump sum?',
-        a: 'Yes, set Initial Investment (PKR) to 0 to forecast wealth built strictly from monthly SIP deposits.',
+        q: 'Can I project a monthly SIP plan without any starting lump sum?',
+        a: 'Yes, leave the initial investment at 0 to forecast wealth built strictly through regular monthly deposits.',
       },
       {
-        q: 'Are mutual fund returns guaranteed to hit Expected Annual Return (%) every month?',
-        a: 'Money-market funds stay fairly steady, while equity funds fluctuate—use conservative long-term averages for planning.',
+        q: 'Are mutual fund annual returns fixed or variable?',
+        a: 'Cash and money-market funds stay steady, while equity funds fluctuate—use realistic long-term average yields.',
       },
       {
-        q: 'Does this output subtract front-end load or capital gains tax?',
-        a: 'No, it calculates gross compounded wealth before fund-specific sales loads or applicable capital gains withholding.',
+        q: 'Does this deduct sales load or capital gains tax?',
+        a: 'No, it calculates gross compounded returns before fund front-end fees or applicable withholding taxes.',
       },
     ],
   },
 
   'finance-fixed-deposit': {
-    seoTitle: `Free Fixed Deposit Profit Calculator – PKR Term Maturity | ${SITE_NAME}`,
+    seoTitle: `Calculate Fixed Deposit Maturity and Profit | ${SITE_NAME}`,
     metaDescription:
-      'Compute term deposit profit and maturity payout in PKR with our free Fixed Deposit Profit Calculator.',
+      'Check term deposit returns—calculate fixed deposit maturity and profit across 3-, 6-, 12-, or 36-month certificate tenures.',
+    introDescription:
+      'Before locking cash into a bank certificate or term deposit receipt, savers often want to calculate fixed deposit maturity and profit for exact month lock-ins. Enter your deposit principal, the bank’s quoted annual profit rate, and the tenure in months such as 3, 6, or 12. You get both gross profit earned during the lock-in period and the combined maturity payout returned at term end.',
     howToUseSteps: [
       'Enter your locked principal rupee sum inside Deposit Amount (PKR).',
       'Type the bank’s annual certificate rate into Annual Profit Rate (%).',
@@ -558,24 +597,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Locking Deposit Amount (PKR) = 500,000 at Annual Profit Rate (%) = 14% for Tenure (Months) = 12 earns Total Profit Earned: PKR 70,000 and pays out PKR 570,000 at maturity.',
     faqs: [
       {
-        q: 'Can I check short-term 3-month or 6-month TDR certificates?',
-        a: 'Yes, simply enter 3 or 6 in Tenure (Months) and the calculator scales annual profit proportionally.',
+        q: 'Can I calculate short-term 3-month or 6-month deposits?',
+        a: 'Yes, entering 3 or 6 months scales the annual profit rate proportionally to the exact lock-in period.',
       },
       {
-        q: 'Is tax deducted from Total Profit Earned by Pakistani banks?',
-        a: 'Banks withhold applicable profit-on-debt tax at payout (lower for filers than non-filers) on top of gross profit shown.',
+        q: 'Does this fixed deposit calculation compound monthly?',
+        a: 'No, standard maturity term deposits use flat pro-rated simple profit paid out alongside principal at maturity.',
       },
       {
-        q: 'Does Fixed Deposit Profit compound monthly inside this tool?',
-        a: 'No, standard maturity TDRs calculate flat simple yield for the selected Tenure (Months).',
+        q: 'Will banks deduct withholding tax from my maturity profit?',
+        a: 'Yes, banks typically deduct applicable withholding tax on profit at payout based on your tax filer status.',
       },
     ],
   },
 
   'finance-national-savings': {
-    seoTitle: `Free National Savings Profit Calculator – Monthly PKR Payout | ${SITE_NAME}`,
+    seoTitle: `Calculate National Savings Monthly Profit | ${SITE_NAME}`,
     metaDescription:
-      'Estimate monthly and yearly certificate payouts in PKR using our free National Savings Profit Calculator.',
+      'Estimate passive monthly income—calculate National Savings monthly profit and annual return for Behbood and income certificates.',
+    introDescription:
+      'Retirees, pensioners, and income-focused savers frequently calculate National Savings monthly profit to plan household budgets around regular certificate payouts. Enter your total certificate investment amount and the prevailing annual return rate. Without touching your principal, the calculator divides annual yield cleanly into 12 equal monthly payouts so you know exactly how much cash arrives each month and over a full year.',
     howToUseSteps: [
       'Type your certificate principal into the Investment Amount (PKR) box.',
       'Enter the prevailing scheme rate in Annual Return Rate (%).',
@@ -587,24 +628,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Placing Investment Amount (PKR) = 1,000,000 at Annual Return Rate (%) = 15.5% pays Monthly Profit of PKR 12,917 / month and Annual Profit: PKR 155,000.',
     faqs: [
       {
-        q: 'Which National Savings certificates pay out monthly like this calculator?',
-        a: 'Behbood Savings Certificates, Pensioners Benefit Accounts, and Regular Income Certificates distribute profit monthly.',
+        q: 'Which certificates pay monthly profit like this?',
+        a: 'Behbood Savings Certificates, Pensioners Benefit Accounts, and Regular Income Certificates distribute payouts monthly.',
       },
       {
-        q: 'Does Monthly Profit change if I reinvest profits elsewhere?',
-        a: 'Monthly payout remains constant on Investment Amount (PKR) unless scheme rates revise upon renewal.',
+        q: 'Does my monthly profit change during the certificate tenure?',
+        a: 'Your monthly payout stays fixed at the rate locked when purchasing the certificate until maturity or encashment.',
       },
       {
-        q: 'Are withholding tax or Zakat deducted from National Savings profit?',
-        a: 'Standard certificates may face tax/Zakat depending on filer status and exemption rules, whereas Behbood enjoys special tax rules up to statutory caps.',
+        q: 'Are withholding tax or Zakat deducted from payouts?',
+        a: 'Tax and Zakat rules depend on the specific scheme and your filer or exemption status under official regulations.',
       },
     ],
   },
 
   'finance-gold-val': {
-    seoTitle: `Free Gold Price & Weight Calculator – Tola & Grams to PKR | ${SITE_NAME}`,
+    seoTitle: `Calculate Gold Price by Tola and Grams | ${SITE_NAME}`,
     metaDescription:
-      'Value gold jewelry or bullion across Tola and grams in PKR using our free Gold Price & Weight Calculator.',
+      'Value jewelry and bullion fast—calculate gold price by tola and grams in PKR using exact 11.664g sarafa market weights.',
+    introDescription:
+      'Buying wedding jewelry or checking bullion resale worth in Pakistan requires knowing how to calculate gold price by tola and grams accurately. Enter your gold weight in whole tolas alongside any extra grams (or zero tolas if weighing strictly in grams) and today’s per-tola market rate in PKR. Using the exact 11.664-gram tola standard converts mixed weights into total grams and instant cash value.',
     howToUseSteps: [
       'Enter whole tola units inside the Gold Weight (Tola) field.',
       'Add leftover gram weight in the Additional Grams box (or leave 0).',
@@ -616,24 +659,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Valuing Gold Weight (Tola) = 2 plus Additional Grams = 5 at Current Rate per Tola (PKR) = 250,000 combines to Total Weight: 28.33 grams worth PKR 607,167.',
     faqs: [
       {
-        q: 'How many grams equal 1 Tola in Pakistani bullion markets?',
-        a: 'One standard Pakistani Tola equals exactly 11.664 grams (while 10 grams equals roughly 0.857 Tola).',
+        q: 'How many grams are in one Pakistani Tola?',
+        a: 'One standard Pakistani Tola equals exactly 11.664 grams.',
       },
       {
-        q: 'How do I value gold measured only in grams?',
-        a: 'Enter 0 in Gold Weight (Tola), put your full weight in Additional Grams, and enter the 24K or 22K Rate per Tola (PKR).',
+        q: 'How can I price gold jewelry weighed only in grams?',
+        a: 'Enter 0 in the Tola box, type the gram weight into Additional Grams, and enter the current per-tola rate.',
       },
       {
-        q: 'Does this include jeweler making charges (mazdoori)?',
-        a: 'No, it calculates pure bullion metal value so you can separate gold melt worth from crafting fees.',
+        q: 'Does this gold valuation include jeweler making charges?',
+        a: 'No, it calculates pure metal worth so you can separate gold bullion value from craftsmanship fees.',
       },
     ],
   },
 
   'finance-cash-counter': {
-    seoTitle: `Free Currency Denomination Cash Counter Calculator – PKR Notes | ${SITE_NAME}`,
+    seoTitle: `Count PKR Currency Notes and Bundles Online | ${SITE_NAME}`,
     metaDescription:
-      'Tally bundles of 5000, 1000, 500, and 100 rupee banknotes fast with our free Currency Denomination Cash Counter.',
+      'Speed up cash drawer closing—count PKR currency notes and bundles online across 5000, 1000, 500, and 100 rupee denominations.',
+    introDescription:
+      'Shopkeepers closing evening registers, cashiers preparing bank deposits, and event organizers tallying collections can count PKR currency notes and bundles online without miskeying zeros or losing track midway. Enter the physical note counts for 5,000, 1,000, 500, and 100 rupee notes in each field. Each denomination multiplies automatically and sums into your exact grand cash total right inside your browser with zero data saved externally.',
     howToUseSteps: [
       'Enter your count of five-thousand rupee notes into 5000 PKR Notes.',
       'Type bundle quantities into 1000 PKR Notes and 500 PKR Notes.',
@@ -645,24 +690,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Counting 5000 PKR Notes = 10 (50,000), 1000 PKR Notes = 25 (25,000), 500 PKR Notes = 20 (10,000), and 100 PKR Notes = 50 (5,000) totals PKR 90,000.',
     faqs: [
       {
-        q: 'What should I enter if I have zero notes of a certain denomination?',
-        a: 'Type 0 in that denomination’s box so it contributes zero to the total sum.',
+        q: 'How much cash is in one 100-note packet of each denomination?',
+        a: 'A 100-note bundle equals PKR 500,000 in 5000s, PKR 100,000 in 1000s, PKR 50,000 in 500s, and PKR 10,000 in 100s.',
       },
       {
-        q: 'How much does one standard bank bundle of 100 notes equal for each field?',
-        a: '100 notes equal PKR 500,000 for 5000 PKR Notes, PKR 100,000 for 1000 PKR Notes, PKR 50,000 for 500 PKR Notes, and PKR 10,000 for 100 PKR Notes.',
+        q: 'What should I put if I have none of a specific note?',
+        a: 'Leave or type 0 in that denomination’s box so it adds zero to the total.',
       },
       {
-        q: 'Are any counted cash figures saved on external servers?',
-        a: 'No, every note tally executes privately inside your browser with zero server transmission.',
+        q: 'Are my cash counts uploaded or stored online?',
+        a: 'No, everything calculates privately on your device inside the browser.',
       },
     ],
   },
 
   'finance-inflation': {
-    seoTitle: `Free Inflation Impact Calculator – Future Cost in PKR | ${SITE_NAME}`,
+    seoTitle: `Calculate How Inflation Affects Future Cost | ${SITE_NAME}`,
     metaDescription:
-      'See how yearly inflation raises future living costs in PKR using our free Inflation Impact Calculator.',
+      'Protect purchasing power—calculate how inflation affects future cost of living, tuition, and long-term savings goals.',
+    introDescription:
+      'Planning long-term household budgets or university tuition funds requires you to calculate how inflation affects future cost over five, ten, or twenty years. Enter what an expense costs today, your expected annual inflation rate, and the number of years ahead. Because price increases compound annually on top of earlier hikes, you immediately see how much more cash you will need later to maintain identical purchasing power.',
     howToUseSteps: [
       'Enter today’s expense or cash amount in the Current Amount (PKR) field.',
       'Type the expected yearly price rise inside Annual Inflation Rate (%).',
@@ -674,24 +721,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'An expense of Current Amount (PKR) = 100,000 facing Annual Inflation Rate (%) = 12% over Years = 5 rises to an equivalent future cost of PKR 176,234.',
     faqs: [
       {
-        q: 'Why do expenses rise faster than linear multiplication over 5 or 10 years?',
-        a: 'Each year’s percentage increase applies on top of already inflated prices from previous years, creating exponential compounding.',
+        q: 'Why do prices grow faster than simple multiplication over 10 years?',
+        a: 'Each year’s percentage price increase builds on top of already inflated prices from previous years.',
       },
       {
-        q: 'What does this mean if my savings yield less than Annual Inflation Rate (%)?',
-        a: 'Whenever investment returns trail inflation, your money loses real purchasing power even though the account balance rises.',
+        q: 'What happens if my bank interest rate is lower than inflation?',
+        a: 'Your savings lose real buying power over time even though the account balance looks slightly bigger.',
       },
       {
-        q: 'Can I estimate college tuition inflation separately from general groceries?',
-        a: 'Yes, simply enter your sector-specific cost trend into Annual Inflation Rate (%).',
+        q: 'Can I model healthcare or education inflation separately from groceries?',
+        a: 'Yes, simply enter the annual inflation percentage specific to whichever expense category you are planning.',
       },
     ],
   },
 
   'finance-cagr': {
-    seoTitle: `Free Compound Annual Growth Rate (CAGR) Calculator – Annual Yield | ${SITE_NAME}`,
+    seoTitle: `How to Calculate CAGR Compound Annual Growth | ${SITE_NAME}`,
     metaDescription:
-      'Compute smoothed annual investment growth rate between start and end values with our free Compound Annual Growth Rate (CAGR) Calculator.',
+      'Measure smoothed multi-year returns—learn how to calculate CAGR compound annual growth from initial value, final value, and years.',
+    introDescription:
+      'Stock portfolios, business revenue, and real estate prices bounce up and down every year, so analysts learn how to calculate CAGR compound annual growth to summarize performance cleanly. Enter your starting value, ending value, and holding duration in years. CAGR smooths uneven ups and downs into one consistent annual percentage rate so completely different multi-year investments can be compared fairly.',
     howToUseSteps: [
       'Enter your starting investment or revenue sum in Initial Value (PKR).',
       'Type the ending portfolio or asset value inside Final Value (PKR).',
@@ -703,24 +752,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Growing an investment from Initial Value (PKR) = 100,000 to Final Value (PKR) = 250,000 over Time (Years) = 4 produces 25.74% CAGR per year.',
     faqs: [
       {
-        q: 'Why must Initial Value (PKR) and Time (Years) both exceed zero?',
-        a: 'Dividing by zero initial capital or raising to an infinite 1/0 exponent is mathematically undefined.',
+        q: 'Why is CAGR better than dividing total percentage return by years?',
+        a: 'Simple division ignores annual compounding and significantly exaggerates the true yearly growth rate on multi-year gains.',
       },
       {
-        q: 'Does CAGR change if the asset dropped in year 2 before recovering in year 4?',
-        a: 'No, CAGR measures only the smoothed geometric average linking start to finish regardless of intermediate volatility.',
+        q: 'Does CAGR show whether an investment dropped sharply in middle years?',
+        a: 'No, CAGR measures only the smoothed geometric average from starting value to ending value.',
       },
       {
-        q: 'How is CAGR better than dividing total return by Time (Years)?',
-        a: 'Simple division ignores annual compounding and significantly overstates true annualized growth on multi-year gains.',
+        q: 'Why must starting value and years both be greater than zero?',
+        a: 'Zero initial capital or zero years creates division by zero, which has no finite annual rate.',
       },
     ],
   },
 
   'finance-retirement': {
-    seoTitle: `Free Retirement Nest Egg Calculator – PKR Corpus Planner | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Retirement Nest Egg Savings | ${SITE_NAME}`,
     metaDescription:
-      'Project your long-term retirement fund from existing savings and monthly deposits with our free Retirement Nest Egg Calculator.',
+      'Plan financial independence—learn how to calculate retirement nest egg savings from current balance, monthly savings, and returns.',
+    introDescription:
+      'Mapping out when you can comfortably stop working starts when you know how to calculate retirement nest egg savings over your remaining career. Enter what you have already saved, your monthly retirement contribution, your projected annual return percentage, and years left until retirement. Testing an extra five years or slightly higher monthly deposit shows right away how compounding builds long-term financial independence.',
     howToUseSteps: [
       'Type your existing retirement balance inside Current Savings (PKR).',
       'Enter how much you contribute each month in Monthly Saving (PKR).',
@@ -733,24 +784,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Starting with Current Savings (PKR) = 2,000,000, adding Monthly Saving (PKR) = 50,000 at Annual Return Rate (%) = 15% over Years to Retirement = 20 accumulates a nest egg of PKR 115,228,736.',
     faqs: [
       {
-        q: 'How dramatically does starting 5 years earlier affect the final nest egg?',
-        a: 'Because compounding is heaviest in the final years, adding 5 extra years often nearly doubles the ending retirement balance.',
+        q: 'Should I include my employer’s provident fund match in monthly savings?',
+        a: 'Yes, add both your personal deduction and your employer’s monthly match together for an accurate forecast.',
       },
       {
-        q: 'Should I adjust my target nest egg for inflation?',
-        a: 'Yes, you can subtract expected inflation from Annual Return Rate (%) to project your corpus in today’s purchasing power.',
+        q: 'How can I adjust the projected nest egg for inflation?',
+        a: 'Subtract expected annual inflation from your return rate to view your future retirement balance in today’s purchasing power.',
       },
       {
-        q: 'Can this include employer provident fund matching?',
-        a: 'Yes, combine both your deduction and your employer’s monthly match inside Monthly Saving (PKR).',
+        q: 'How big a difference does retiring 5 years later make?',
+        a: 'Because compounding is strongest in the final years, five extra years of growth can substantially boost your ending corpus.',
       },
     ],
   },
 
   'fin-net-worth': {
-    seoTitle: `Free Net Worth Calculator – Assets Minus Liabilities (PKR) | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Personal Net Worth Online | ${SITE_NAME}`,
     metaDescription:
-      'Measure true personal wealth by subtracting debts from total assets in PKR using our free Net Worth Calculator.',
+      'Track true wealth—learn how to calculate personal net worth online by subtracting total liabilities and debts from total assets.',
+    introDescription:
+      'Income alone does not show your overall financial health, which is why financial planners teach how to calculate personal net worth online regularly. Add up cash, savings, retirement accounts, investments, and property market value as total assets, then enter mortgages, auto loans, student debt, and credit card balances as total liabilities. Tracking this single number quarterly shows clearly whether wealth is climbing.',
     howToUseSteps: [
       'Sum your cash, investments, gold, and real estate into Total Assets (PKR).',
       'Add mortgages, car leases, credit cards, and loans inside Total Liabilities & Debts (PKR).',
@@ -762,24 +815,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Holding Total Assets (PKR) = 15,000,000 against Total Liabilities & Debts (PKR) = 3,000,000 yields a Net Worth of PKR 12,000,000.',
     faqs: [
       {
-        q: 'Should I enter the full market value of a financed house under Total Assets (PKR)?',
-        a: 'Yes—list the property’s fair market price in Total Assets (PKR) and put the remaining unpaid loan balance in Total Liabilities & Debts (PKR).',
+        q: 'How should I include a mortgaged home in my net worth?',
+        a: 'Put the home’s current market value in Total Assets and put the remaining unpaid loan balance in Total Liabilities.',
       },
       {
-        q: 'What does a negative Net Worth mean?',
-        a: 'It means Total Liabilities & Debts currently exceed Total Assets, which is common early in careers or after taking student or business loans.',
+        q: 'Is it normal to have a negative net worth early in a career?',
+        a: 'Yes, recent graduates or new business owners often carry loans that exceed early savings before paying them down.',
       },
       {
-        q: 'How frequently should individuals recalculate their Net Worth?',
-        a: 'Reviewing quarterly or twice a year tracks whether savings growth and debt paydown are moving you forward.',
+        q: 'How often should I check my net worth?',
+        a: 'Recalculating every quarter or twice a year is ideal for tracking debt reduction and investment growth.',
       },
     ],
   },
 
   'fin-dividend-yield': {
-    seoTitle: `Free Dividend Yield & Annual Payout Calculator – Stock Return | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Stock Dividend Yield Percent | ${SITE_NAME}`,
     metaDescription:
-      'Compute annual cash dividend yield percentage on shares in PKR using our free Dividend Yield & Annual Payout Calculator.',
+      'Compare income stocks—learn how to calculate stock dividend yield percent from share price and annual cash dividend per share.',
+    introDescription:
+      'Income investors comparing utility stocks, REITs, or bank shares against fixed-income savings accounts rely on knowing how to calculate stock dividend yield percent accurately. Enter the stock’s current market share price alongside its total annual cash dividend per share. The calculator divides yearly payout by share price so you can immediately spot steady dividend payers and compare cash yields across companies.',
     howToUseSteps: [
       'Enter the current share market price inside Stock Price per Share (PKR).',
       'Type total yearly cash dividends per share in Annual Dividend per Share (PKR).',
@@ -791,24 +846,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'A stock trading at Stock Price per Share (PKR) = 150 that pays Annual Dividend per Share (PKR) = 12 offers an 8.00% Dividend Yield (Annual return of PKR 12 per share).',
     faqs: [
       {
-        q: 'What happens if a company pays quarterly or semi-annual dividends instead of one annual payout?',
-        a: 'Add all four quarterly or two semi-annual cash payouts together and enter their full-year sum in Annual Dividend per Share (PKR).',
+        q: 'What if a company pays dividends quarterly instead of once a year?',
+        a: 'Add all four quarterly cash payouts together (or multiply the latest quarterly payout by 4) for the annual dividend input.',
       },
       {
-        q: 'Why does Dividend Yield rise when Stock Price per Share (PKR) falls?',
-        a: 'Because share price sits in the denominator, a lower stock price produces a higher yield assuming the cash dividend holds steady.',
+        q: 'Why does dividend yield jump when a stock price drops?',
+        a: 'Because share price sits in the denominator, a lower price yields a higher percentage if the cash dividend stays steady.',
       },
       {
-        q: 'Does Dividend Yield include share price appreciation?',
-        a: 'No, it measures cash income yield only—total stock return combines dividend yield plus capital price gains.',
+        q: 'Does dividend yield measure stock price appreciation?',
+        a: 'No, it tracks cash dividend income only; total return equals dividend yield plus share price gains or losses.',
       },
     ],
   },
 
   'fin-debt-payoff': {
-    seoTitle: `Free Debt Payoff Estimator (Snowball vs Avalanche) Calculator | ${SITE_NAME}`,
+    seoTitle: `Estimate Months to Pay Off Debt Faster | ${SITE_NAME}`,
     metaDescription:
-      'Estimate months needed to clear debts with extra monthly payments in PKR using our free Debt Payoff Estimator Calculator.',
+      'Build a debt-free plan—estimate months to pay off debt faster by adding extra monthly payments toward loans and balances.',
+    introDescription:
+      'Putting extra cash toward high-interest loans feels much more motivating when you can estimate months to pay off debt faster before adjusting your monthly budget. Enter your combined debt balance, weighted average interest rate, and any extra monthly payment above the base installment. Seeing the projected months to zero balance shows right away how even modest extra payments shave time and interest off your payoff.',
     howToUseSteps: [
       'Enter your combined unpaid loans or card balances in Total Debt Balance (PKR).',
       'Type your weighted borrowing rate inside Average Interest Rate (%).',
@@ -821,24 +878,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Clearing Total Debt Balance (PKR) = 500,000 at Average Interest Rate (%) = 20% with Extra Monthly Payment (PKR) = 25,000 creates a total monthly installment of PKR 50,000 and pays off the debt in ~12 Months to Payoff.',
     faqs: [
       {
-        q: 'What is the difference between Debt Snowball and Debt Avalanche?',
-        a: 'Snowball targets the smallest balance first for psychological wins, while Avalanche targets the highest interest rate first to minimize total interest paid.',
+        q: 'Should I pay off the smallest balance first (Snowball) or highest rate first (Avalanche)?',
+        a: 'Avalanche saves the most interest mathematically, whereas Snowball clears small accounts sooner for quick motivation.',
       },
       {
-        q: 'Why does adding Extra Monthly Payment (PKR) cut payoff months so quickly?',
-        a: 'Every extra rupee reduces principal immediately, shrinking next month’s interest charge and accelerating balance elimination.',
+        q: 'Why do extra monthly payments cut payoff time so fast?',
+        a: 'Extra cash goes straight toward principal, reducing next month’s interest charge and freeing more of every future payment.',
       },
       {
-        q: 'What triggers the warning that monthly payment is too low to cover interest?',
-        a: 'If monthly accrued interest exceeds or equals the total monthly installment, principal never shrinks and the debt cannot amortize.',
+        q: 'What if my monthly payment does not cover accrued monthly interest?',
+        a: 'The balance will never reach zero unless total monthly payments exceed monthly interest charges.',
       },
     ],
   },
 
   'fin-usa-401k': {
-    seoTitle: `Free 401(k) Retirement Calculator – Match & Growth | ${SITE_NAME}`,
+    seoTitle: `Calculate 401k Growth With Employer Match | ${SITE_NAME}`,
     metaDescription:
-      'Project your 401(k) balance with salary contributions, employer matching, and compound returns using our free 401(k) Retirement Calculator.',
+      'Plan workplace retirement—calculate 401k growth with employer match, salary deferrals, and compound investment returns.',
+    introDescription:
+      'Maximizing your workplace retirement plan begins when you calculate 401k growth with employer match across your working years. Enter your current 401(k) balance, annual salary, employee contribution percentage, company match rate, expected return, and years until retirement. Checking how an extra one or two percent contribution boosts ending wealth makes it easy to capture every dollar of free employer matching.',
     howToUseSteps: [
       'Type your existing account savings into Current 401(k) Balance ($).',
       'Enter your yearly pre-tax pay in Annual Salary ($) alongside Your Contribution (%) and Employer Match (% of Salary).',
@@ -850,24 +909,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Starting with Current 401(k) Balance ($) = $35,000, Annual Salary ($) = $80,000, Your Contribution (%) = 8%, Employer Match (% of Salary) = 4%, Expected Annual Return (%) = 7%, and Years to Retirement = 25 builds $852,227 (from $160,000 employee contributions, $80,000 employer match, and $577,227 growth).',
     faqs: [
       {
-        q: 'Should Employer Match (% of Salary) reflect only what my company actually contributes?',
-        a: 'Yes—enter the effective percentage of your salary your employer adds after applying their matching formula and vesting rules.',
+        q: 'How should I enter an employer match like 50% up to 6% of salary?',
+        a: 'Enter the effective salary match percentage—matching 50% up to 6% equals a 3% employer match if you contribute at least 6%.',
       },
       {
-        q: 'Does the 401(k) Retirement Calculator enforce annual IRS contribution ceilings automatically?',
-        a: 'No fixed dollar cap is hard-coded, allowing you to enter any contribution percentage and verify official IRS limits separately.',
+        q: 'Does this 401(k) tool enforce annual IRS contribution limits?',
+        a: 'No fixed federal cap is hard-coded, so verify current IRS annual contribution ceilings on official IRS sources.',
       },
       {
-        q: 'Why does changing Years to Retirement affect the final balance so dramatically?',
-        a: 'Compounding accelerates during later decades when investment returns earn returns on prior decades of employee and employer deposits.',
+        q: 'Why does employer matching make such a huge difference over 25 years?',
+        a: 'Employer match dollars double your invested savings immediately and compound alongside your own deferrals for decades.',
       },
     ],
   },
 
   'fin-usa-student-loan': {
-    seoTitle: `Free Student Loan Payoff Calculator – Extra Payment Plan | ${SITE_NAME}`,
+    seoTitle: `How to Pay Off Student Loans Faster Online | ${SITE_NAME}`,
     metaDescription:
-      'See payoff months and interest saved from extra monthly payments on college debt with our free Student Loan Payoff Calculator.',
+      'See payoff dates and interest saved—learn how to pay off student loans faster online by adding extra monthly principal payments.',
+    introDescription:
+      'Graduates balancing career budgets and college debt often search how to pay off student loans faster online without sacrificing daily essentials. Enter your remaining loan balance, annual APR, required monthly payment, and any extra monthly principal contribution you can afford. Right away you see how many months are shaved off your schedule and how many thousands of dollars in interest you avoid.',
     howToUseSteps: [
       'Enter your remaining debt in Loan Balance ($) and borrowing cost in Interest Rate (APR %).',
       'Type your required installment into Monthly Payment ($).',
@@ -879,24 +940,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Paying Loan Balance ($) = $35,000 at Interest Rate (APR %) = 5.5% with Monthly Payment ($) = $400 and Extra Monthly Payment ($) = $100 clears the loan in 85 Months (7.1 yrs), costing $7,303 in total interest while saving $2,532 versus paying $400 alone.',
     faqs: [
       {
-        q: 'How does Extra Monthly Payment ($) reduce total student loan interest?',
-        a: 'Extra dollars apply directly to principal each month, leaving a smaller balance for next month’s interest accrual.',
+        q: 'Do extra monthly payments reduce principal immediately?',
+        a: 'Yes, assuming your loan servicer applies extra funds directly to principal, it shrinks future interest charges every month.',
       },
       {
-        q: 'Can I set Extra Monthly Payment ($) to 0 to check my standard payoff timeline?',
-        a: 'Yes—entering 0 shows the baseline payoff duration and full interest cost under your regular Monthly Payment ($).',
+        q: 'Can I set Extra Monthly Payment to 0 to see my regular payoff timeline?',
+        a: 'Yes, entering 0 shows your baseline payoff months and total interest under standard payments.',
       },
       {
-        q: 'What if my Monthly Payment ($) plus Extra Monthly Payment ($) is below monthly interest?',
-        a: 'Negative amortization occurs when payment does not cover accrued interest, so the tool prompts you to raise the payment amount.',
+        q: 'What if my total payment is lower than monthly interest?',
+        a: 'Your balance would grow instead of shrinking, so monthly payments must exceed accrued monthly interest.',
       },
     ],
   },
 
   'fin-usa-credit-card': {
-    seoTitle: `Free Credit Card Payoff Calculator – APR & Interest | ${SITE_NAME}`,
+    seoTitle: `How Long to Pay Off Credit Card Balance | ${SITE_NAME}`,
     metaDescription:
-      'Find how many months and total interest it takes to eliminate card balances with our free Credit Card Payoff Calculator.',
+      'Find out how long to pay off credit card balance and total APR interest paid when sticking to a fixed monthly payment.',
+    introDescription:
+      'Carrying revolving balances at 20%+ APR makes it critical to check how long to pay off credit card balance under your current budget. Type your statement balance, credit card APR, and the fixed monthly payment you plan to make while pausing new card charges. Seeing exact payoff months alongside cumulative interest paid shows why raising monthly payments even slightly saves substantial money.',
     howToUseSteps: [
       'Type your current statement amount owed into Credit Card Balance ($).',
       'Enter your annual borrowing percentage in Credit Card APR (%).',
@@ -908,24 +971,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Paying off Credit Card Balance ($) = $6,000 at Credit Card APR (%) = 21.5% using Monthly Payment ($) = $250 takes 32 Months (2.7 yrs), incurring $1,914 in total interest and $7,914 total paid.',
     faqs: [
       {
-        q: 'Why does Credit Card APR (%) have such a large effect on total paid?',
-        a: 'Revolving card APRs often exceed 20%, meaning a large share of small monthly payments goes straight to interest instead of principal.',
+        q: 'Why does credit card debt take so long to clear with minimum payments?',
+        a: 'At 20%+ APR, minimum payments barely cover monthly interest charges, leaving almost nothing to shrink principal.',
       },
       {
-        q: 'What happens if I only pay enough to match monthly interest charges?',
-        a: 'Your Credit Card Balance ($) never shrinks, so the calculator informs you that Monthly Payment ($) must exceed monthly interest.',
+        q: 'Does this timeline assume no new card purchases are added?',
+        a: 'Yes, keeping new charges off the card lets every fixed monthly payment reduce your balance steadily.',
       },
       {
-        q: 'Does this assume no new purchases are added to the card while paying it off?',
-        a: 'Yes—stopping new card spending ensures every fixed Monthly Payment ($) steadily drives your balance toward zero.',
+        q: 'What happens if my planned payment is below monthly interest?',
+        a: 'The calculator alerts you to increase your monthly payment because principal cannot decrease otherwise.',
       },
     ],
   },
 
   'fin-usa-roth-vs-trad-ira': {
-    seoTitle: `Free Roth IRA vs Traditional IRA Growth Calculator – Tax | ${SITE_NAME}`,
+    seoTitle: `Compare Roth IRA vs Traditional IRA Growth | ${SITE_NAME}`,
     metaDescription:
-      'Compare after-tax retirement wealth between Roth and Traditional IRAs using custom tax rates with our free calculator.',
+      'Choose the right retirement tax strategy—compare Roth IRA vs Traditional IRA growth after current and retirement tax rates.',
+    introDescription:
+      'Deciding whether to pay taxes today or in retirement gets much easier when you compare Roth IRA vs Traditional IRA growth using your own personal tax rates. Enter your starting balance, annual contribution, expected investment return, years invested, current marginal tax bracket, and expected retirement tax bracket. The side-by-side projection reveals which account leaves you with greater after-tax spendable retirement wealth over time.',
     howToUseSteps: [
       'Enter your existing account amount in Starting Balance ($) and planned yearly deposit in Annual Contribution ($).',
       'Adjust Expected Annual Return (%) and Years Invested for your retirement horizon.',
@@ -937,24 +1002,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'With Starting Balance ($) = $10,000, Annual Contribution ($) = $7,000, Expected Annual Return (%) = 7%, Years Invested = 25, Current Tax Rate (%) = 22%, and Expected Retirement Tax Rate (%) = 18%, Traditional IRA finishes ahead by $21,120 ($432,968 vs $411,848 after tax).',
     faqs: [
       {
-        q: 'When does a Roth IRA beat a Traditional IRA in this comparison?',
-        a: 'Whenever Expected Retirement Tax Rate (%) exceeds Current Tax Rate (%), paying tax upfront on a Roth leaves more spendable income later.',
+        q: 'When does a Roth IRA beat a Traditional IRA mathematically?',
+        a: 'Whenever your expected tax rate in retirement is higher than your tax rate today, a Roth IRA delivers higher after-tax wealth.',
       },
       {
-        q: 'What if Current Tax Rate (%) and Expected Retirement Tax Rate (%) are identical?',
-        a: 'When tax rates match at contribution and withdrawal, both accounts yield identical after-tax retirement wealth.',
+        q: 'What if my current and retirement tax rates turn out identical?',
+        a: 'Under identical tax rates, both Roth and Traditional IRAs yield the exact same after-tax balance.',
       },
       {
-        q: 'Are IRS income phaseouts or annual IRA contribution caps hard-coded?',
-        a: 'No—you control every dollar and tax percentage directly and should confirm current IRS eligibility rules separately.',
+        q: 'Are annual IRS IRA limits or income phaseouts built in?',
+        a: 'No fixed federal limits are hard-coded; always confirm current contribution caps and eligibility rules with official IRS guidelines.',
       },
     ],
   },
 
   'fin-usa-529-college-savings': {
-    seoTitle: `Free 529 College Savings Calculator – Tuition Fund Plan | ${SITE_NAME}`,
+    seoTitle: `Calculate 529 College Savings Plan Growth | ${SITE_NAME}`,
     metaDescription:
-      'Estimate tax-advantaged 529 education savings growth and potential state tax savings with our free 529 College Savings Calculator.',
+      'Plan tuition early—calculate 529 college savings plan growth with monthly deposits, compounding returns, and state tax savings.',
+    introDescription:
+      'Parents and grandparents preparing for future tuition bills can calculate 529 college savings plan growth many years before college enrollment begins. Enter your current 529 balance, monthly contribution, expected annual return, years until college, and your state’s tax benefit rate if applicable. Seeing total deposits, tax-advantaged investment growth, and estimated state tax savings together helps keep family education funding goals right on schedule.',
     howToUseSteps: [
       'Type any existing education account funds into Current 529 Balance ($).',
       'Enter recurring deposits in Monthly Contribution ($) alongside Expected Annual Return (%) and Years Until College.',
@@ -966,24 +1033,26 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'Funding Current 529 Balance ($) = $5,000 with Monthly Contribution ($) = $300 at Expected Annual Return (%) = 6.5% over Years Until College = 12 and State Tax Benefit Rate (%) = 4% grows to $76,419 ($48,200 contributed, $28,219 growth, and $1,728 estimated state tax savings).',
     faqs: [
       {
-        q: 'What should I type in State Tax Benefit Rate (%) if my state has no income tax?',
-        a: 'Enter 0 in State Tax Benefit Rate (%)—the 529 balance projection still reflects tax-free investment compounding.',
+        q: 'What should I enter if my state has no income tax or 529 deduction?',
+        a: 'Set State Tax Benefit Rate (%) to 0; your projected balance still reflects tax-free investment growth.',
       },
       {
-        q: 'Does the 529 College Savings Calculator impose a state-specific deduction cap?',
-        a: 'No fixed cap is assumed; adjust Monthly Contribution ($) and State Tax Benefit Rate (%) to match your state plan’s rules.',
+        q: 'Does this include state-specific deduction dollar caps?',
+        a: 'No fixed state cap is enforced here, so check your specific state 529 plan rules for annual deduction ceilings.',
       },
       {
-        q: 'How early should families start contributing to a 529 education fund?',
-        a: 'Starting even 10 to 18 years early allows market growth to cover a substantial portion of tuition bills.',
+        q: 'How much does starting when a child is young help?',
+        a: 'Starting 12 to 18 years before college allows investment earnings to cover a substantial share of future tuition costs.',
       },
     ],
   },
 
   'fin-usa-emergency-fund': {
-    seoTitle: `Free Emergency Fund Calculator – Safety Net Goal | ${SITE_NAME}`,
+    seoTitle: `How Big Should My Emergency Fund Be | ${SITE_NAME}`,
     metaDescription:
-      'Determine your recommended emergency savings target and months needed to fund it with our free Emergency Fund Calculator.',
+      'Find out how big should my emergency fund be based on essential monthly living costs and how many months it takes to save.',
+    introDescription:
+      'Knowing how big should my emergency fund be protects your household against sudden job loss, medical bills, or urgent home repairs without turning to high-interest credit cards. Sum your essential monthly expenses—rent or mortgage, groceries, utilities, insurance, and minimum debt payments—and select 3 to 9 months of coverage. Adding your current savings and monthly saving rate reveals your exact timeline to full security.',
     howToUseSteps: [
       'Sum rent, groceries, utilities, insurance, and minimum debt bills inside Monthly Essential Expenses ($).',
       'Choose how many months of cushion you want in Target Months of Coverage (commonly 3 to 6 months).',
@@ -995,16 +1064,16 @@ export const financeSeoFullMap: Record<string, FinanceCalculatorSeoEntry> = {
       'With Monthly Essential Expenses ($) = $4,000, Target Months of Coverage = 6, Current Emergency Savings ($) = $8,000, and Monthly Contribution ($) = $500, your Target Fund is $24,000 with $16,000 remaining—taking 32 months to reach your goal.',
     faqs: [
       {
-        q: 'Should non-essential dining or vacation spending be included in Monthly Essential Expenses ($)?',
-        a: 'No—include only must-pay living essentials like housing, food, utilities, healthcare, transportation, and minimum debt payments.',
+        q: 'Should discretionary entertainment or travel go into Monthly Essential Expenses?',
+        a: 'No, include only non-negotiable living bills like housing, food, utilities, healthcare, transportation, and minimum debt payments.',
       },
       {
-        q: 'When should Target Months of Coverage be closer to 6 or 9 months instead of 3?',
-        a: 'Single-income households, commission earners, and self-employed workers typically hold 6+ months for greater job-transition security.',
+        q: 'When is a 6-month fund better than a 3-month fund?',
+        a: 'Single-income households, freelancers, and commission earners usually target 6 to 9 months for stronger job-loss protection.',
       },
       {
-        q: 'Where should emergency savings be kept once accumulated?',
-        a: 'Most planners hold emergency reserves in liquid, FDIC-insured high-yield savings or money market accounts rather than volatile stocks.',
+        q: 'Where is the safest place to park emergency savings?',
+        a: 'Keep emergency cash in an accessible, insured high-yield savings or money market account rather than volatile investments.',
       },
     ],
   },

@@ -222,6 +222,82 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
                           </option>
                         ))}
                       </select>
+                    ) : inp.type === 'date' ? (
+                      (() => {
+                        const currentValue = String(inputValues[inp.id] ?? inp.defaultValue ?? '');
+                        const now = new Date();
+                        const currentYear = now.getFullYear();
+                        const todayIso = `${currentYear}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+                        const minYear = 1900;
+                        const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(currentValue);
+                        const parsedYear = match ? Number(match[1]) : NaN;
+                        const selectedYear =
+                          Number.isFinite(parsedYear) && parsedYear >= minYear && parsedYear <= currentYear
+                            ? String(parsedYear)
+                            : '';
+
+                        const handleYearChange = (nextYearStr: string) => {
+                          if (!nextYearStr) return;
+                          const nextYear = Number(nextYearStr);
+                          if (!Number.isFinite(nextYear)) return;
+                          setInputValues((prev) => {
+                            const prevVal = String(prev[inp.id] ?? inp.defaultValue ?? '');
+                            const prevMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(prevVal);
+                            const fallbackParts = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(inp.defaultValue ?? ''));
+                            const monthNum = prevMatch ? Number(prevMatch[2]) : fallbackParts ? Number(fallbackParts[2]) : 1;
+                            const dayNum = prevMatch ? Number(prevMatch[3]) : fallbackParts ? Number(fallbackParts[3]) : 1;
+                            const maxDayInMonth = new Date(nextYear, monthNum, 0).getDate();
+                            const clampedDay = Math.min(dayNum, maxDayInMonth);
+                            let nextDate = `${nextYear}-${String(monthNum).padStart(2, '0')}-${String(clampedDay).padStart(2, '0')}`;
+                            if (nextDate > todayIso) {
+                              nextDate = todayIso;
+                            }
+                            const dateEl = document.getElementById(`input-${inp.id}`) as HTMLInputElement | null;
+                            if (dateEl && dateEl.value !== nextDate) {
+                              dateEl.value = nextDate;
+                            }
+                            return { ...prev, [inp.id]: nextDate };
+                          });
+                        };
+
+                        const yearOptions: number[] = [];
+                        for (let y = currentYear; y >= minYear; y--) {
+                          yearOptions.push(y);
+                        }
+
+                        return (
+                          <div className="flex flex-col sm:flex-row gap-2.5">
+                            <div className="relative flex-1">
+                              <input
+                                id={`input-${inp.id}`}
+                                type="date"
+                                min={`${minYear}-01-01`}
+                                max={todayIso}
+                                value={currentValue}
+                                onChange={(e) => handleChange(inp.id, e.target.value)}
+                                onInput={(e) => handleChange(inp.id, (e.target as HTMLInputElement).value)}
+                                className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-900 dark:text-white font-mono tabular-nums focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all shadow-sm dark:[color-scheme:dark] cursor-pointer"
+                              />
+                            </div>
+                            <select
+                              aria-label="Select year"
+                              title="Quick select year"
+                              value={selectedYear}
+                              onChange={(e) => handleYearChange(e.target.value)}
+                              className="sm:w-36 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono tabular-nums text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all shadow-sm cursor-pointer"
+                            >
+                              <option value="" disabled>
+                                Year
+                              </option>
+                              {yearOptions.map((y) => (
+                                <option key={y} value={String(y)}>
+                                  {y}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        );
+                      })()
                     ) : (
                       <div className="relative">
                         <input
@@ -346,9 +422,22 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
 
         </div>
 
+        {calculator.categoryId === 'health' && (
+          <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
+            This is for general information only, not medical advice.
+          </p>
+        )}
+
         {/* Structured Educational Content */}
         <article className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-7 text-left text-slate-700 dark:text-slate-300">
-          
+          {(calculator.categoryId === 'datetime' || calculator.categoryId === 'math' || calculator.categoryId === 'finance' || calculator.categoryId === 'business' || calculator.categoryId === 'health' || calculator.categoryId === 'electrical' || calculator.categoryId === 'engineering' || calculator.categoryId === 'realestate' || calculator.categoryId === 'cooking' || calculator.categoryId === 'statistics' || calculator.categoryId === 'tech') && seoContent.intro && (
+            <section className="space-y-2.5">
+              <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                {seoContent.intro}
+              </p>
+            </section>
+          )}
+
           {/* Section 1: How to Use This Calculator */}
           <section className="space-y-3">
             <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">

@@ -1,10 +1,4 @@
 import { CalculatorItem } from '../types';
-import { SeoContent, financeBusinessSeoMap } from '../data/seoFinanceBusiness';
-import { constructionHealthSeoMap } from '../data/seoConstructionHealth';
-import { datetimeElectricalSeoMap } from '../data/seoDatetimeElectrical';
-import { educationEngineeringSeoMap } from '../data/seoEducationEngineering';
-import { realestateAutomotiveSeoMap } from '../data/seoRealestateAutomotive';
-import { cookingStatisticsSeoMap } from '../data/seoCookingStatistics';
 import { datetimeSeoFullMap } from '../data/datetimeSeoFull';
 import { mathSeoFullMap } from '../data/mathSeoFull';
 import { financeSeoFullMap } from '../data/financeSeoFull';
@@ -21,34 +15,20 @@ import { statisticsSeoFullMap } from '../data/statisticsSeoFull';
 import { internetSeoFullMap } from '../data/internetSeoFull';
 import { formatCalculatorResult } from './formatResult';
 import { safeCalculate } from './safeCalculate';
-import { SITE_NAME } from '../config/site';
+
+export interface SeoContent {
+  intro: string;
+  howItWorks: string;
+  workedExample: string;
+  whoUses: string;
+  faqs: { q: string; a: string }[];
+  medicalDisclaimer?: string;
+}
 
 export interface StructuredCalculatorSeo extends SeoContent {
   howToUseSteps: string[];
   formulaExplanation: string;
   practicalExample: string;
-}
-
-const allSeoMap: Record<string, SeoContent> = {
-  ...financeBusinessSeoMap,
-  ...constructionHealthSeoMap,
-  ...datetimeElectricalSeoMap,
-  ...educationEngineeringSeoMap,
-  ...realestateAutomotiveSeoMap,
-  ...cookingStatisticsSeoMap,
-};
-
-function countWords(text: string): number {
-  const trimmed = text.trim();
-  if (!trimmed) return 0;
-  return trimmed.split(/\s+/).length;
-}
-
-function truncateToWordBudget(text: string, maxWords: number): string {
-  const words = text.trim().split(/\s+/);
-  if (words.length <= maxWords) return text.trim();
-  const sliced = words.slice(0, maxWords).join(' ').replace(/[,;:\s]+$/, '');
-  return /[.!?]$/.test(sliced) ? sliced : `${sliced}.`;
 }
 
 /**
@@ -77,6 +57,9 @@ export function buildCalculatorTitle(calculator: CalculatorItem): string {
   if (calculator.categoryId === 'datetime' && datetimeSeoFullMap[calculator.id]) {
     return datetimeSeoFullMap[calculator.id].seoTitle;
   }
+  if (calculator.categoryId === 'math' && mathSeoFullMap[calculator.id]) {
+    return mathSeoFullMap[calculator.id].seoTitle;
+  }
   if (calculator.categoryId === 'finance' && financeSeoFullMap[calculator.id]) {
     return financeSeoFullMap[calculator.id].seoTitle;
   }
@@ -98,7 +81,7 @@ export function buildCalculatorTitle(calculator: CalculatorItem): string {
   if (calculator.categoryId === 'engineering' && engineeringSeoFullMap[calculator.id]) {
     return engineeringSeoFullMap[calculator.id].seoTitle;
   }
-  if ((calculator.categoryId === 'realestate' || calculator.categoryId === 'commercial') && realestateSeoFullMap[calculator.id]) {
+  if (calculator.categoryId === 'realestate' && realestateSeoFullMap[calculator.id]) {
     return realestateSeoFullMap[calculator.id].seoTitle;
   }
   if (calculator.categoryId === 'automotive' && automotiveSeoFullMap[calculator.id]) {
@@ -124,6 +107,9 @@ export function buildCalculatorMetaDescription(calculator: CalculatorItem): stri
   if (calculator.categoryId === 'datetime' && datetimeSeoFullMap[calculator.id]) {
     return datetimeSeoFullMap[calculator.id].metaDescription;
   }
+  if (calculator.categoryId === 'math' && mathSeoFullMap[calculator.id]) {
+    return mathSeoFullMap[calculator.id].metaDescription;
+  }
   if (calculator.categoryId === 'finance' && financeSeoFullMap[calculator.id]) {
     return financeSeoFullMap[calculator.id].metaDescription;
   }
@@ -145,7 +131,7 @@ export function buildCalculatorMetaDescription(calculator: CalculatorItem): stri
   if (calculator.categoryId === 'engineering' && engineeringSeoFullMap[calculator.id]) {
     return engineeringSeoFullMap[calculator.id].metaDescription;
   }
-  if ((calculator.categoryId === 'realestate' || calculator.categoryId === 'commercial') && realestateSeoFullMap[calculator.id]) {
+  if (calculator.categoryId === 'realestate' && realestateSeoFullMap[calculator.id]) {
     return realestateSeoFullMap[calculator.id].metaDescription;
   }
   if (calculator.categoryId === 'automotive' && automotiveSeoFullMap[calculator.id]) {
@@ -209,13 +195,12 @@ function buildHowToUseSteps(calculator: CalculatorItem): string[] {
  */
 export function getCalculatorSeoContent(
   calculator: CalculatorItem,
-  categoryName: string,
-  curatedSeo?: SeoContent
+  categoryName: string
 ): StructuredCalculatorSeo {
   if (calculator.categoryId === 'datetime' && datetimeSeoFullMap[calculator.id]) {
     const dt = datetimeSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: dt.introDescription,
       howItWorks: dt.formulaExplanation,
       workedExample: dt.practicalExample,
       howToUseSteps: dt.howToUseSteps,
@@ -229,7 +214,7 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'math' && mathSeoFullMap[calculator.id]) {
     const m = mathSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: m.introDescription,
       howItWorks: m.formulaExplanation,
       workedExample: m.practicalExample,
       howToUseSteps: m.howToUseSteps,
@@ -243,7 +228,7 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'finance' && financeSeoFullMap[calculator.id]) {
     const fin = financeSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: fin.introDescription,
       howItWorks: fin.formulaExplanation,
       workedExample: fin.practicalExample,
       howToUseSteps: fin.howToUseSteps,
@@ -257,7 +242,7 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'business' && businessSeoFullMap[calculator.id]) {
     const biz = businessSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: biz.introDescription,
       howItWorks: biz.formulaExplanation,
       workedExample: biz.practicalExample,
       howToUseSteps: biz.howToUseSteps,
@@ -285,7 +270,7 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'health' && healthSeoFullMap[calculator.id]) {
     const h = healthSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: h.introDescription,
       howItWorks: h.formulaExplanation,
       workedExample: h.practicalExample,
       howToUseSteps: h.howToUseSteps,
@@ -300,7 +285,7 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'electrical' && electricalSeoFullMap[calculator.id]) {
     const el = electricalSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: el.introDescription,
       howItWorks: el.formulaExplanation,
       workedExample: el.practicalExample,
       howToUseSteps: el.howToUseSteps,
@@ -329,7 +314,7 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'engineering' && engineeringSeoFullMap[calculator.id]) {
     const eng = engineeringSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: eng.introDescription,
       howItWorks: eng.formulaExplanation,
       workedExample: eng.practicalExample,
       howToUseSteps: eng.howToUseSteps,
@@ -340,10 +325,10 @@ export function getCalculatorSeoContent(
     };
   }
 
-  if ((calculator.categoryId === 'realestate' || calculator.categoryId === 'commercial') && realestateSeoFullMap[calculator.id]) {
+  if (calculator.categoryId === 'realestate' && realestateSeoFullMap[calculator.id]) {
     const re = realestateSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: re.introDescription,
       howItWorks: re.formulaExplanation,
       workedExample: re.practicalExample,
       howToUseSteps: re.howToUseSteps,
@@ -371,7 +356,7 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'cooking' && cookingSeoFullMap[calculator.id]) {
     const ck = cookingSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: ck.introDescription,
       howItWorks: ck.formulaExplanation,
       workedExample: ck.practicalExample,
       howToUseSteps: ck.howToUseSteps,
@@ -385,7 +370,7 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'statistics' && statisticsSeoFullMap[calculator.id]) {
     const st = statisticsSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: st.introDescription,
       howItWorks: st.formulaExplanation,
       workedExample: st.practicalExample,
       howToUseSteps: st.howToUseSteps,
@@ -399,7 +384,7 @@ export function getCalculatorSeoContent(
   if (calculator.categoryId === 'tech' && internetSeoFullMap[calculator.id]) {
     const it = internetSeoFullMap[calculator.id];
     return {
-      intro: '',
+      intro: it.introDescription,
       howItWorks: it.formulaExplanation,
       workedExample: it.practicalExample,
       howToUseSteps: it.howToUseSteps,
@@ -410,11 +395,9 @@ export function getCalculatorSeoContent(
     };
   }
 
-  const sourceSeo = curatedSeo ?? allSeoMap[calculator.id];
   const inputLabels = calculator.inputs.map((inp) => inp.label).join(', ');
   const topic = extractTopicPhrase(calculator);
 
-  // Evaluate exact default inputs using safeCalculate
   const defaultInputs: Record<string, any> = {};
   calculator.inputs.forEach((inp) => {
     defaultInputs[inp.id] = inp.defaultValue;
@@ -431,28 +414,19 @@ export function getCalculatorSeoContent(
     .join(', ');
 
   const howToUseSteps = buildHowToUseSteps(calculator);
+  const intro = `The free online ${calculator.name} in our ${categoryName} collection helps you determine ${topic} quickly and reliably without manual math or complex spreadsheets. Every calculation runs instantaneously inside your browser with clear formatting and real-time updates as you adjust inputs.`;
 
-  // Base narrative sections (curated when available, richly generated otherwise)
-  const intro = sourceSeo?.intro
-    ? sourceSeo.intro
-    : `The free online ${calculator.name} in our ${categoryName} collection helps you determine ${topic} quickly and reliably without manual math or complex spreadsheets. Every calculation runs instantaneously inside your browser with clear formatting and real-time updates as you adjust inputs.`;
+  const formulaExplanation = `${intro} ${
+    defaultOut.formula
+      ? `This tool applies the standard ${categoryName.toLowerCase()} formula (${defaultOut.formula}) to process your entered values (${inputLabels}) with consistent precision.`
+      : `This tool evaluates your entered values (${inputLabels}) using established ${categoryName.toLowerCase()} equations for accurate, repeatable output.`
+  } Ideal for students, professionals, planners, and everyday users comparing scenarios.`;
 
-  let formulaExplanation = sourceSeo
-    ? `${intro} ${sourceSeo.howItWorks}${sourceSeo.whoUses ? ` ${sourceSeo.whoUses}` : ''}`
-    : `${intro} ${
-        defaultOut.formula
-          ? `This tool applies the standard ${categoryName.toLowerCase()} formula (${defaultOut.formula}) to process your entered values (${inputLabels}) with consistent precision.`
-          : `This tool evaluates your entered values (${inputLabels}) using established ${categoryName.toLowerCase()} equations for accurate, repeatable output.`
-      } Ideal for students, professionals, planners, and everyday users comparing scenarios.`;
+  const practicalExample = `Suppose you want to evaluate ${calculator.name} using sample values where ${inputSummary}. Entering those inputs directly into the calculator yields a primary result of ${formattedDefaultResult}${
+    formattedSecondaryDefault ? ` along with ${formattedSecondaryDefault}` : ''
+  }. Adjusting any individual parameter immediately updates the final output so you can test alternatives side by side.`;
 
-  let practicalExample = sourceSeo?.workedExample
-    ? sourceSeo.workedExample
-    : `Suppose you want to evaluate ${calculator.name} using sample values where ${inputSummary}. Entering those inputs directly into the calculator yields a primary result of ${formattedDefaultResult}${
-        formattedSecondaryDefault ? ` along with ${formattedSecondaryDefault}` : ''
-      }. Adjusting any individual parameter immediately updates the final output so you can test alternatives side by side.`;
-
-  // Build 3-4 FAQs
-  const baseFaqs = sourceSeo?.faqs ? [...sourceSeo.faqs] : [
+  const faqs = [
     {
       q: `How does the ${calculator.name} compute its result?`,
       a: defaultOut.formula
@@ -469,72 +443,6 @@ export function getCalculatorSeoContent(
     },
   ];
 
-  // Ensure strictly 3-4 FAQs (3 if curated only had <=3, 4 if curated had 4 or extra needed)
-  while (baseFaqs.length < 3) {
-    if (baseFaqs.length === 1) {
-      baseFaqs.push({
-        q: `What inputs do I need for the ${calculator.name}?`,
-        a: `Enter ${inputLabels} into the labeled fields above. Pre-filled defaults demonstrate a realistic sample scenario right out of the box.`,
-      });
-    } else {
-      baseFaqs.push({
-        q: `Is the ${calculator.name} free and private to use?`,
-        a: `Yes. Every calculator on ${SITE_NAME} executes locally in your browser with no account required, keeping your data fast and private.`,
-      });
-    }
-  }
-  const faqs = baseFaqs.slice(0, 4);
-
-  // Add a 4th FAQ when under minimum target to guarantee 250-400 words across the 4 sections
-  const computeTotalWords = () =>
-    countWords(
-      [
-        howToUseSteps.join(' '),
-        formulaExplanation,
-        practicalExample,
-        faqs.map((f) => `${f.q} ${f.a}`).join(' '),
-        sourceSeo?.medicalDisclaimer || '',
-      ].join(' ')
-    );
-
-  if (computeTotalWords() < 268 && faqs.length < 4) {
-    faqs.push({
-      q: `Can I use the ${calculator.name} on mobile devices and reset sample inputs?`,
-      a: `Yes. The layout adapts cleanly to phones, tablets, and desktops, and you can tap "Reset Defaults" anytime to restore the starter values or "Copy Result" to save your formatted output.`,
-    });
-  }
-
-  // Enrich if still below 268 body words (guarantees >= 255 words across every calculator)
-  if (computeTotalWords() < 268) {
-    formulaExplanation = `${formulaExplanation} Reviewing the calculated figure alongside the live step-by-step breakdown helps verify assumptions, double-check unit consistency (${
-      calculator.inputs
-        .filter((i) => i.unit)
-        .map((i) => i.unit)
-        .join(', ') || 'standard units'
-    }), and avoid manual rounding mistakes in practical estimates.`;
-  }
-
-  if (computeTotalWords() < 268) {
-    practicalExample = `${practicalExample} Notice how changing one input at a time clarifies sensitivity and helps confirm that your final estimate makes sense for your real-world ${categoryName.toLowerCase()} planning or coursework.`;
-  }
-
-  // Keep cleanly under 350 raw body words (guarantees <= 395 words even with section headings and Q:/A: prefixes)
-  if (computeTotalWords() > 350) {
-    if (faqs.length === 4 && computeTotalWords() > 362) {
-      faqs.pop();
-    }
-    const nonFormulaWords = countWords(
-      [
-        howToUseSteps.join(' '),
-        practicalExample,
-        faqs.map((f) => `${f.q} ${f.a}`).join(' '),
-        sourceSeo?.medicalDisclaimer || '',
-      ].join(' ')
-    );
-    const maxFormulaWords = Math.max(45, 342 - nonFormulaWords);
-    formulaExplanation = truncateToWordBudget(formulaExplanation, maxFormulaWords);
-  }
-
   return {
     intro,
     howItWorks: formulaExplanation,
@@ -543,7 +451,6 @@ export function getCalculatorSeoContent(
     formulaExplanation,
     practicalExample,
     faqs,
-    whoUses: sourceSeo?.whoUses || `Ideal for students, professionals, and everyday ${categoryName.toLowerCase()} planning.`,
-    medicalDisclaimer: sourceSeo?.medicalDisclaimer,
+    whoUses: `Ideal for students, professionals, and everyday ${categoryName.toLowerCase()} planning.`,
   };
 }

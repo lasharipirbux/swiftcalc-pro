@@ -3,6 +3,7 @@ import { SITE_NAME } from '../config/site';
 export interface BusinessCalculatorSeoEntry {
   seoTitle: string;
   metaDescription: string;
+  introDescription: string;
   howToUseSteps: string[];
   formulaExplanation: string;
   practicalExample: string;
@@ -11,9 +12,11 @@ export interface BusinessCalculatorSeoEntry {
 
 export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
   'business-break-even': {
-    seoTitle: `Free Break-even Point Calculator – Unit Volume & Revenue | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Break Even Point in Units | ${SITE_NAME}`,
     metaDescription:
-      'Find exact unit sales and PKR revenue needed to cover fixed and variable costs with our free Break-even Point Calculator.',
+      'Learn how to calculate break even point in units and revenue so you know exact sales volume needed to cover fixed and unit costs.',
+    introDescription:
+      'Launching a product or reviewing monthly store overhead starts with knowing how to calculate break even point in units before committing fresh capital. Enter your recurring fixed expenses such as rent and payroll, your customer selling price, and direct manufacturing or wholesale cost per item. The calculator outputs the exact unit volume and total sales revenue needed to stop losing money and begin generating profit, letting founders stress-test pricing changes safely.',
     howToUseSteps: [
       'Enter monthly rent, salaries, and overhead in Fixed Costs (PKR).',
       'Type your customer selling price in Price per Unit (PKR).',
@@ -26,24 +29,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Running a workshop with Fixed Costs (PKR) = 150,000, Price per Unit (PKR) = 1,200, and Cost per Unit (PKR) = 700 yields a PKR 500 margin per item, requiring 300 units and Break-Even Revenue: PKR 360,000.',
     faqs: [
       {
-        q: 'Why does a warning appear if Cost per Unit (PKR) equals or exceeds Price per Unit (PKR)?',
-        a: 'Every sale loses or breaks even on direct unit costs, making it mathematically impossible to ever recover Fixed Costs (PKR).',
+        q: 'What happens if unit cost is higher than selling price?',
+        a: 'Every item sold loses money directly, so fixed overhead can never be recovered without raising prices or cutting costs.',
       },
       {
-        q: 'Why are Break-Even Units rounded up to a whole integer?',
-        a: 'Physical merchandise sells in whole units, so rounding up guarantees your overhead is fully covered.',
+        q: 'Why does the result round up to a whole unit?',
+        a: 'Physical merchandise sells in complete pieces, so rounding up ensures total overhead is fully covered.',
       },
       {
-        q: 'How can a business lower its break-even threshold quickly?',
-        a: 'Either trim recurring Fixed Costs (PKR), raise Price per Unit (PKR), or negotiate lower supplier Cost per Unit (PKR).',
+        q: 'How can a small business lower its break-even volume?',
+        a: 'Reducing monthly rent or fixed payroll, raising retail prices, or negotiating cheaper supplier rates lowers the threshold.',
       },
     ],
   },
 
   'product-markup-calc': {
-    seoTitle: `Free Markup Calculator – Retail Selling Price from Cost | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Markup Percentage on Cost | ${SITE_NAME}`,
     metaDescription:
-      'Compute retail selling price and rupee profit from wholesale unit cost using our free Markup Calculator.',
+      'See how to calculate markup percentage on cost to set retail prices and check gross profit per unit across wholesale merchandise.',
+    introDescription:
+      'Setting profitable retail tags across a growing store catalog is much simpler once you see how to calculate markup percentage on cost accurately. Type your wholesale purchase price or landed production cost alongside your desired percentage add-on to generate the final selling price and gross profit per unit. Testing different markup tiers helps shopkeepers, ecommerce sellers, and distributors protect healthy margins while keeping shelf prices competitive.',
     howToUseSteps: [
       'Type your wholesale purchase or production cost inside Cost Price (PKR).',
       'Enter your target add-on rate in the Markup Percentage (%) field.',
@@ -55,24 +60,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Adding Markup Percentage (%) = 40% to a garment with Cost Price (PKR) = 2,500 produces a selling price of PKR 3,500 and Gross Profit: PKR 1,000.',
     faqs: [
       {
-        q: 'Does a 40% markup equal a 40% profit margin?',
-        a: 'No, a 40% markup on PKR 2,500 yields PKR 1,000 profit on a PKR 3,500 price, which equals a 28.57% profit margin.',
+        q: 'Is a 50% markup the same as a 50% profit margin?',
+        a: 'No, a 50% markup on a $100 item sets a $150 selling price, which equals a 33.33% profit margin.',
       },
       {
-        q: 'Can Markup Percentage (%) exceed 100% for luxury or custom goods?',
-        a: 'Yes, entering 150% doubles cost plus adds another half, pricing items at 2.5× Cost Price (PKR).',
+        q: 'Can markup rates go above 100% on boutique goods?',
+        a: 'Yes, entering 150% multiplies cost by 2.5, which is common in jewelry, apparel, and specialty items.',
       },
       {
-        q: 'Should inbound freight be added into Cost Price (PKR) before marking up?',
-        a: 'Yes, including landed shipping inside Cost Price (PKR) ensures gross profit is not eroded by delivery bills.',
+        q: 'Should shipping fees go into unit cost before applying markup?',
+        a: 'Yes, including inbound freight inside unit cost stops delivery charges from silently eating your gross profit.',
       },
     ],
   },
 
   'business-roi-calc': {
-    seoTitle: `Free ROI Calculator – Business Project Return % | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Business ROI Percentage | ${SITE_NAME}`,
     metaDescription:
-      'Evaluate business campaign or equipment return percentage from net profit and outlay with our free ROI Calculator.',
+      'Discover how to calculate business ROI percentage from net profit and total capital invested across campaigns, equipment, or stores.',
+    introDescription:
+      'Comparing an ad campaign against new workshop machinery requires knowing how to calculate business ROI percentage on a shared financial scale. Enter the cumulative net profit generated after direct expenses alongside the total capital invested in the initiative, including equipment, setup fees, and launch stock. Viewing the exact percentage return makes it straightforward for owners and managers to rank competing proposals and deploy limited cash wisely.',
     howToUseSteps: [
       'Enter cumulative gain earned after expenses in Net Profit (PKR).',
       'Type the total capital committed inside Total Investment (PKR).',
@@ -84,24 +91,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Generating Net Profit (PKR) = 400,000 from Total Investment (PKR) = 2,000,000 delivers (400,000 / 2,000,000) × 100 = 20.00% ROI.',
     faqs: [
       {
-        q: 'What counts as Net Profit (PKR) versus total sales revenue?',
-        a: 'Subtract equipment upkeep, labor, ad spend, and cost of goods first so Net Profit reflects pure bottom-line gain.',
+        q: 'Should gross revenue or net profit go into the ROI calculation?',
+        a: 'Always use net profit after subtracting operating expenses and product costs so returns are not overstated.',
       },
       {
-        q: 'What ROI result appears if Total Investment (PKR) is entered as 0?',
-        a: 'The ratio safely returns 0.00% ROI instead of throwing a division-by-zero error.',
+        q: 'Does project ROI account for how many years a venture takes?',
+        a: 'Simple ROI measures total percentage return only, so pair it with payback period for multi-year timelines.',
       },
       {
-        q: 'Should working capital tied up in stock go into Total Investment (PKR)?',
-        a: 'Yes, counting initial inventory alongside setup costs reflects true capital efficiency.',
+        q: 'Should initial stock count inside total investment?',
+        a: 'Yes, adding working capital tied up in inventory reflects true capital efficiency.',
       },
     ],
   },
 
   'sales-commission-calc': {
-    seoTitle: `Free Commission Calculator – Sales Rep Payout in PKR | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Sales Commission Payout | ${SITE_NAME}`,
     metaDescription:
-      'Calculate sales rep commission payouts from revenue volume and percentage rate with our free Commission Calculator.',
+      'Find out how to calculate sales commission payout from closed deal volume and agreed commission percentage rates in seconds.',
+    introDescription:
+      'Managing variable pay for account executives, real estate agents, or affiliate partners becomes effortless when you know how to calculate sales commission payout reliably. Enter total closed sales volume for the week or month alongside the contracted commission percentage rate to compute exact earnings owed. Reviewing payout numbers beforehand keeps compensation plans transparent for finance teams and motivates sales reps with clear targets.',
     howToUseSteps: [
       'Type closed deal volume or monthly bookings into Total Sales (PKR).',
       'Enter the agreed payout rate inside Commission Rate (%).',
@@ -113,24 +122,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Closing Total Sales (PKR) = 800,000 at Commission Rate (%) = 7.5% earns a rep payout of PKR 60,000.',
     faqs: [
       {
-        q: 'Should Total Sales (PKR) be entered before or after sales tax / GST?',
-        a: 'Most compensation plans base Commission Rate (%) on net pre-tax invoice totals excluding GST and shipping.',
+        q: 'Are sales commissions usually based on pre-tax or post-tax totals?',
+        a: 'Most agreements calculate commission on net pre-tax revenue excluding government sales tax and shipping fees.',
       },
       {
-        q: 'How do I calculate tiered commissions like 5% on base sales and 10% on bonus sales?',
-        a: 'Run each sales tier separately with its matching Commission Rate (%) and add the resulting payouts.',
+        q: 'How can I calculate a split-tier commission structure?',
+        a: 'Compute each sales bracket separately with its own rate and sum the resulting payouts.',
       },
       {
-        q: 'Are fractional rates like 2.25% supported in Commission Rate (%)?',
-        a: 'Yes, decimal commission percentages compute cleanly down to exact rupee payouts.',
+        q: 'Can decimal commission rates like 3.25% be used?',
+        a: 'Yes, fractional percentage rates work accurately for affiliate, brokerage, and wholesale tiers.',
       },
     ],
   },
 
   'cost-per-unit-calc': {
-    seoTitle: `Free Cost per Unit Calculator – Production Batch Average | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Production Cost per Unit | ${SITE_NAME}`,
     metaDescription:
-      'Determine average manufacturing cost per single unit from batch expenses using our free Cost per Unit Calculator.',
+      'Learn how to calculate production cost per unit from total batch expenses and finished output to set accurate wholesale pricing.',
+    introDescription:
+      'Factories, bakeries, and independent makers need to know how to calculate production cost per unit before quoting wholesale buyers or setting minimum order quantities. Add together raw materials, packaging, direct labor, and allocated workshop overhead for a complete production run, then divide by finished sellable units. Comparing unit cost across small and large manufacturing batches immediately reveals real economies of scale and healthier profit margins.',
     howToUseSteps: [
       'Combine materials, labor, and batch factory overhead inside Total Production Cost (PKR).',
       'Enter finished output quantity into Number of Units Produced.',
@@ -142,24 +153,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Spending Total Production Cost (PKR) = 500,000 to manufacture Number of Units Produced = 2,000 results in PKR 250.00 / unit.',
     faqs: [
       {
-        q: 'Should defective or scrapped pieces be included in Number of Units Produced?',
-        a: 'Count only sellable finished units so Total Production Cost (PKR) accurately absorbs spoilage into good units.',
+        q: 'Should damaged or rejected pieces be counted in total units produced?',
+        a: 'Divide only by sellable good units so spoilage costs are properly absorbed into remaining inventory.',
       },
       {
-        q: 'Why does Cost per Unit fall when factory batch size expands?',
-        a: 'Fixed machine setup and supervisor costs spread across more units, lowering average unit cost.',
+        q: 'Why does cost per unit drop when batch size increases?',
+        a: 'Fixed machine setup and supervisory expenses spread across a larger run, reducing overhead per piece.',
       },
       {
-        q: 'What happens if Number of Units Produced is zero?',
-        a: 'The tool warns that units must exceed zero rather than displaying an invalid infinite result.',
+        q: 'What costs belong in total production outlay?',
+        a: 'Include raw ingredients, packaging, factory labor, utilities, and allocated workshop overhead.',
       },
     ],
   },
 
   'sales-target-calc': {
-    seoTitle: `Free Sales Target Calculator – Daily Revenue Quota | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Daily Sales Target Online | ${SITE_NAME}`,
     metaDescription:
-      'Break monthly or quarterly PKR revenue goals into daily quotas with our free Sales Target Calculator.',
+      'See how to calculate daily sales target online by dividing monthly or quarterly revenue quotas across active store working days.',
+    introDescription:
+      'Turning an ambitious monthly or quarterly revenue goal into clear daily momentum begins with knowing how to calculate daily sales target online for your storefront or outbound team. Enter your total period revenue quota and the exact count of active operating days after excluding weekends or closed holidays. Tracking a concrete daily benchmark helps managers spot shortfalls early and adjust promotions before month-end.',
     howToUseSteps: [
       'Type your overall monthly or campaign goal into Sales Target (PKR).',
       'Enter actual operating days inside Working Days in Period.',
@@ -171,24 +184,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Achieving Sales Target (PKR) = 3,000,000 across Working Days in Period = 25 requires generating PKR 120,000 / day.',
     faqs: [
       {
-        q: 'Should Sundays and gazetted holidays be excluded from Working Days in Period?',
-        a: 'Yes, count only days your storefront, showroom, or outbound sales desk actively closes orders.',
+        q: 'Should closed weekends and public holidays be removed from working days?',
+        a: 'Yes, enter only days when your store or sales reps are actively taking customer orders.',
       },
       {
-        q: 'How can I recalculate mid-month if we are behind quota?',
-        a: 'Enter the remaining unpaid gap in Sales Target (PKR) and the remaining days left in Working Days in Period.',
+        q: 'How do I update the daily pace halfway through a month?',
+        a: 'Input the remaining revenue gap as your target and divide by the selling days left.',
       },
       {
-        q: 'Can retail branches track weekly targets instead of monthly?',
-        a: 'Yes, simply put your weekly goal in Sales Target (PKR) and 5, 6, or 7 days in Working Days in Period.',
+        q: 'Can this tool calculate weekly branch quotas too?',
+        a: 'Yes, enter a weekly revenue goal and use 5, 6, or 7 working days.',
       },
     ],
   },
 
   'inventory-reorder-calc': {
-    seoTitle: `Free Inventory Reorder Point Calculator – Stock Restock Level | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Inventory Reorder Point | ${SITE_NAME}`,
     metaDescription:
-      'Avoid stockouts by computing exact SKU reorder triggers from daily sales and lead time with our free Inventory Reorder Point Calculator.',
+      'Learn how to calculate inventory reorder point using daily unit sales, vendor lead time, and safety stock to prevent stockouts.',
+    introDescription:
+      'Keeping best-selling products available without overcrowding warehouse shelves depends on knowing how to calculate inventory reorder point accurately. Enter average daily unit sales, supplier shipping and processing lead time in days, and your chosen safety stock cushion. Getting the exact unit threshold tells purchasing teams precisely when to submit the next purchase order so new stock arrives before shelves run empty.',
     howToUseSteps: [
       'Type average units sold daily inside Average Daily Sales (Units).',
       'Enter vendor delivery turnaround in Supplier Lead Time (Days).',
@@ -200,24 +215,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Selling Average Daily Sales (Units) = 45 with Supplier Lead Time (Days) = 10 creates Lead Time Demand: 450 units; adding Safety Stock (Units) = 150 sets your trigger at 600 units.',
     faqs: [
       {
-        q: 'How much Safety Stock (Units) should small retailers carry?',
-        a: 'Many warehouses hold 3 to 7 days of Average Daily Sales as Safety Stock to cushion customs or courier delays.',
+        q: 'How many days of safety stock should a warehouse hold?',
+        a: 'Most retailers keep 3 to 7 days of average sales on hand to absorb shipping or customs delays.',
       },
       {
-        q: 'What if Supplier Lead Time (Days) varies between 8 and 14 days?',
-        a: 'Using the conservative upper bound of 14 days protects popular SKUs from running out mid-transit.',
+        q: 'Which delivery lead time should I use if vendor times fluctuate?',
+        a: 'Using the slower end of normal delivery times protects fast-moving items from running out.',
       },
       {
-        q: 'Does Reorder Point tell me how many units to order?',
-        a: 'Reorder Point signals when to place the purchase order; pair it with EOQ to choose optimal batch size.',
+        q: 'Does reorder point decide order quantity as well?',
+        a: 'No, reorder point signals when to buy; use Economic Order Quantity to choose the ideal batch size.',
       },
     ],
   },
 
   'overtime-pay-calc': {
-    seoTitle: `Free Overtime Pay Calculator – Extra Hours Wage in PKR | ${SITE_NAME}`,
+    seoTitle: `Calculate Overtime Pay from Hourly Rate | ${SITE_NAME}`,
     metaDescription:
-      'Compute employee overtime wages from hourly pay, extra hours, and multiplier using our free Overtime Pay Calculator.',
+      'Find out how to calculate overtime pay from hourly rate, extra hours worked, and overtime multiplier for accurate payroll.',
+    introDescription:
+      'Running fair, error-free payroll during busy retail seasons or tight project deadlines is much faster when you calculate overtime pay from hourly rate automatically. Enter an employee’s standard base hourly wage, total extra overtime hours logged during the week, and the applicable pay multiplier such as 1.5x or 2.0x. Isolating extra-shift earnings clearly helps HR teams prepare accurate payslips without tedious manual spreadsheet mistakes.',
     howToUseSteps: [
       'Enter the employee’s base wage in Regular Hourly Rate (PKR).',
       'Type total extra hours worked into Overtime Hours Worked.',
@@ -229,24 +246,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Paying Regular Hourly Rate (PKR) = 800 for Overtime Hours Worked = 15 at Overtime Multiplier (e.g. 1.5) = 1.5x computes 800 × 15 × 1.5 = PKR 18,000.',
     faqs: [
       {
-        q: 'When should I enter 2.0 instead of 1.5 in Overtime Multiplier (e.g. 1.5)?',
-        a: 'Standard weekday overtime typically pays 1.5x, whereas weekend or public holiday shifts often qualify for double time (2.0x).',
+        q: 'When do employers use a 2.0 multiplier instead of 1.5?',
+        a: 'Standard weekday overtime usually pays 1.5x, while public holidays or rest days often qualify for double time.',
       },
       {
-        q: 'Does this output show combined monthly pay or overtime earnings only?',
-        a: 'It isolates pure Overtime Pay so payroll managers can add it cleanly as a separate line item on payslips.',
+        q: 'How do I find an hourly rate for a salaried worker?',
+        a: 'Divide monthly base pay by regular contracted monthly hours, typically 160 to 173.3 hours.',
       },
       {
-        q: 'How do salaried staff get a Regular Hourly Rate (PKR)?',
-        a: 'Divide monthly basic salary by standard monthly contracted hours (commonly 160 to 208 hours).',
+        q: 'Does the result include regular base wages or only overtime?',
+        a: 'It isolates pure overtime earnings so you can add it as a separate payroll line.',
       },
     ],
   },
 
   'business-profit-margin-calc': {
-    seoTitle: `Free Profit Margin Calculator – Gross Margin % & Profit | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Gross Profit Margin Online | ${SITE_NAME}`,
     metaDescription:
-      'Measure business gross margin percentage and rupee profit from revenue and COGS with our free Profit Margin Calculator.',
+      'Discover how to calculate gross profit margin online from total sales revenue and cost of goods sold for sharper pricing.',
+    introDescription:
+      'Understanding how much of every sales dollar remains after direct merchandise costs starts with learning how to calculate gross profit margin online. Enter total sales revenue alongside Cost of Goods Sold (COGS) to inspect both your gross profit figure and percentage margin side by side. Monitoring margin shifts quarterly helps merchants catch rising supplier prices or excessive discounting before cash reserves shrink.',
     howToUseSteps: [
       'Type gross sales proceeds into the Total Revenue (PKR) box.',
       'Enter direct inventory or production outlays in Cost of Goods Sold - COGS (PKR).',
@@ -258,24 +277,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Generating Total Revenue (PKR) = 500,000 with Cost of Goods Sold - COGS (PKR) = 300,000 produces Gross Profit: PKR 200,000 and a 40.00% Profit Margin.',
     faqs: [
       {
-        q: 'Why can Profit Margin never reach or exceed 100% when COGS is positive?',
-        a: 'Because Cost of Goods Sold - COGS (PKR) consumes part of revenue, margin always stays strictly below 100% unless direct cost is zero.',
+        q: 'Should store rent and ad spend go into cost of goods sold?',
+        a: 'No, COGS covers direct product and manufacturing costs only, while rent and ads belong in net profit.',
       },
       {
-        q: 'Should office rent and marketing ads go into Cost of Goods Sold - COGS (PKR)?',
-        a: 'No—COGS tracks direct inventory or manufacturing costs only, while rent and ads belong in Net Profit calculations.',
+        q: 'What gross profit margin range is typical for retail?',
+        a: 'Groceries often operate at 15% to 25%, whereas apparel, beauty, and software frequently reach 50% or higher.',
       },
       {
-        q: 'What healthy Profit Margin do retail stores target?',
-        a: 'Grocery and electronics often run 15%–25%, while apparel, cosmetics, and software commonly achieve 45%–80% margins.',
+        q: 'Why is gross margin always below 100% when COGS is positive?',
+        a: 'Because direct product costs take a share of revenue, profit can never equal the full selling price.',
       },
     ],
   },
 
   'business-discount-calc': {
-    seoTitle: `Free Discount Calculator – Store Markdown & Customer Savings | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Sale Discount Price Online | ${SITE_NAME}`,
     metaDescription:
-      'Calculate promotional markdown prices and customer PKR savings fast with our free Discount Calculator.',
+      'See how to calculate sale discount price online and show exact customer savings on promotional quotes and store price tags.',
+    introDescription:
+      'Preparing seasonal store promotions, clearance racks, or bulk B2B client quotes is quick when you know how to calculate sale discount price online before printing tags. Type the original list price and promotional discount percentage to view the final checkout price and exact customer savings immediately. Double-checking discounted prices against wholesale cost ensures markdown campaigns drive volume without erasing profit.',
     howToUseSteps: [
       'Type the regular catalog tag into Original Price (PKR).',
       'Enter your campaign reduction inside Discount Percentage (%).',
@@ -287,24 +308,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Applying Discount Percentage (%) = 20% on Original Price (PKR) = 10,000 generates You Save: PKR 2,000 (20% off) and a final sale price of PKR 8,000.',
     faqs: [
       {
-        q: 'How can store owners avoid eroding margins during Discount Percentage (%) promotions?',
-        a: 'Verify that the reduced sale price still stays comfortably above unit Cost Price plus overhead.',
+        q: 'How do stores make sure seasonal sales do not lose money?',
+        a: 'Verify that the discounted sale price stays well above landed wholesale cost plus payment fees.',
       },
       {
-        q: 'Can wholesalers enter bulk trade discounts like 35% here?',
-        a: 'Yes, any percentage markdown from 1% up to 99% evaluates instantaneously.',
+        q: 'Can wholesale teams calculate trade discounts like 35% off?',
+        a: 'Yes, any percentage markdown from small promos to deep clearance works instantaneously.',
       },
       {
-        q: 'Does Discount Percentage (%) handle decimals such as 17.5%?',
-        a: 'Yes, decimal discounts compute exact rupee savings without rounding errors.',
+        q: 'Are fractional discounts such as 12.5% supported?',
+        a: 'Yes, decimal discount rates calculate exact savings without rounding distortion.',
       },
     ],
   },
 
   'business-sales-tax-calc': {
-    seoTitle: `Free Sales Tax / GST Calculator – B2B Invoice Tax in PKR | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Sales Tax and GST Total | ${SITE_NAME}`,
     metaDescription:
-      'Compute GST amount and tax-inclusive invoice totals in PKR with our free Sales Tax / GST Calculator.',
+      'Learn how to calculate sales tax and GST total from invoice subtotals and statutory tax rates for clean billing.',
+    introDescription:
+      'Drafting compliant customer bills and vendor estimates requires knowing how to calculate sales tax and GST total accurately on every taxable order you issue. Enter your pre-tax invoice subtotal and the applicable tax rate percentage to view the standalone tax charge alongside the gross payable amount. Separating tax cleanly on printed receipts and PDFs simplifies monthly tax filings and input credit claims for your clients.',
     howToUseSteps: [
       'Enter your pre-tax invoice value inside Subtotal Amount (PKR).',
       'Type the applicable statutory rate into Sales Tax / GST Rate (%).',
@@ -316,24 +339,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Billing Subtotal Amount (PKR) = 25,000 at Sales Tax / GST Rate (%) = 18% calculates Tax Amount: PKR 4,500 @ 18% and a gross total of PKR 29,500.',
     faqs: [
       {
-        q: 'Which standard Sales Tax / GST Rate (%) rates apply across Pakistan?',
-        a: 'General sales tax on goods is commonly 18%, while provincial services GST varies around 13%–16% depending on province and sector.',
+        q: 'Why list sales tax separately from the subtotal on invoices?',
+        a: 'Business buyers need the standalone tax amount to claim input tax credits on their tax returns.',
       },
       {
-        q: 'Why must Tax Amount be shown separately from Subtotal Amount (PKR)?',
-        a: 'Registered businesses need the standalone GST line to claim input tax adjustments on monthly tax returns.',
+        q: 'Can I verify a zero-rated export bill here?',
+        a: 'Yes, entering a 0% tax rate outputs zero tax and leaves the invoice subtotal unchanged.',
       },
       {
-        q: 'Can I calculate a zero-rated export invoice?',
-        a: 'Yes, entering 0 in Sales Tax / GST Rate (%) outputs PKR 0 tax and leaves Subtotal unchanged.',
+        q: 'Does this work for state sales tax, VAT, and GST?',
+        a: 'Yes, the percentage calculation applies identically to any value-added or sales tax rate.',
       },
     ],
   },
 
   'business-salary-to-hourly': {
-    seoTitle: `Free Salary to Hourly Calculator – Equivalent PKR Hourly Rate | ${SITE_NAME}`,
+    seoTitle: `How to Convert Monthly Salary to Hourly Rate | ${SITE_NAME}`,
     metaDescription:
-      'Convert monthly PKR compensation into an hourly contractor or payroll rate with our free Salary to Hourly Calculator.',
+      'Find out how to convert monthly salary to hourly rate using total monthly shift hours for retainers, payroll, and client billing.',
+    introDescription:
+      'Benchmarking freelance contractor quotes against full-time payroll costs starts with learning how to convert monthly salary to hourly rate cleanly and accurately. Enter gross monthly pay and total contracted working hours per month to find the exact hourly wage equivalent for any role. Agencies, staffing firms, and project managers also rely on this quick conversion to price billable client hours and check retainer profitability.',
     howToUseSteps: [
       'Enter monthly gross compensation inside Monthly Salary (PKR).',
       'Input total monthly shift hours inside Working Hours per Month.',
@@ -345,24 +370,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Dividing Monthly Salary (PKR) = 120,000 across Working Hours per Month = 160 outputs an hourly pay rate of PKR 750.00 / hour.',
     faqs: [
       {
-        q: 'How many Working Hours per Month represent a standard 40-hour week?',
-        a: 'Forty hours across four weeks equals 160 hours, whereas multiplying 52 weeks × 40 hours ÷ 12 months averages 173.33 hours.',
+        q: 'How many monthly hours correspond to a 40-hour workweek?',
+        a: 'Four weeks equal 160 hours, while averaging 52 weeks across 12 months yields about 173.33 hours per month.',
       },
       {
-        q: 'What if someone works 48 hours a week in a 6-day office?',
-        a: 'Enter roughly 192 to 208 in Working Hours per Month to reflect the longer workweek.',
+        q: 'What should I enter for a 6-day workweek at 48 hours weekly?',
+        a: 'Use around 192 to 208 monthly working hours to match the longer schedule.',
       },
       {
-        q: 'What happens if Working Hours per Month is set to 0?',
-        a: 'A safety guard alerts that working hours must exceed zero instead of showing infinity.',
+        q: 'Why do agencies check effective hourly rate on retainers?',
+        a: 'Comparing retainer pay against actual team hours reveals whether an account is underpriced.',
       },
     ],
   },
 
   'business-invoice-total': {
-    seoTitle: `Free Invoice Total Calculator – Subtotal, Tax & Shipping | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Invoice Total with Tax | ${SITE_NAME}`,
     metaDescription:
-      'Calculate grand client invoice totals combining item subtotal, tax rate, and delivery charges with our free Invoice Total Calculator.',
+      'Learn how to calculate invoice total with tax and delivery fees combined so client bills balance down to the last cent.',
+    introDescription:
+      'Sending clear, dispute-free customer statements is straightforward once you know how to calculate invoice total with tax and delivery fees combined accurately. Enter your merchandise or service subtotal, applied sales tax percentage, and flat courier or handling charge to compute the exact balance owed by the client. Double-checking every invoice total before exporting PDFs avoids embarrassing billing revisions and keeps cash collections moving smoothly.',
     howToUseSteps: [
       'Type total line-item product charges into Items Subtotal (PKR).',
       'Enter the applied tax percentage inside Tax Rate (%).',
@@ -374,24 +401,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Invoicing Items Subtotal (PKR) = 75,000 with Tax Rate (%) = 16% (Tax: PKR 12,000) plus Shipping / Delivery Fee (PKR) = 1,500 produces a grand total of PKR 88,500.',
     faqs: [
       {
-        q: 'Does Tax Rate (%) apply to Shipping / Delivery Fee (PKR) in this formula?',
-        a: 'No, percentage tax applies strictly to Items Subtotal (PKR), and Shipping / Delivery Fee adds afterward as a pass-through charge.',
+        q: 'Is sales tax applied to the shipping fee in this calculator?',
+        a: 'No, tax is calculated on the items subtotal first, and shipping is added afterward as a pass-through fee.',
       },
       {
-        q: 'How do I prepare a free-shipping invoice?',
-        a: 'Simply enter 0 inside Shipping / Delivery Fee (PKR) so only subtotal plus tax are billed.',
+        q: 'How do I bill an order that qualifies for free delivery?',
+        a: 'Leave the shipping fee at zero so only your subtotal and tax are totaled.',
       },
       {
-        q: 'Can service agencies bill retainers using this invoice tool?',
-        a: 'Yes, put monthly retainer fees into Items Subtotal (PKR), provincial service tax into Tax Rate (%), and 0 for shipping.',
+        q: 'Can consulting agencies use this for monthly client invoices?',
+        a: 'Yes, put your service retainer in subtotal, local service tax in tax rate, and zero for shipping.',
       },
     ],
   },
 
   'business-cash-flow': {
-    seoTitle: `Free Cash Flow Calculator – Net Operating Surplus & Deficit | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Net Business Cash Flow | ${SITE_NAME}`,
     metaDescription:
-      'Track net cash surplus or shortfall by comparing inflows against outflows in PKR with our free Cash Flow Calculator.',
+      'See how to calculate net business cash flow by comparing cash inflows against operating outflows to spot surpluses or deficits.',
+    introDescription:
+      'Even profitable companies face cash crunches when client payments arrive late, making it vital to know how to calculate net business cash flow every single month. Enter total cash collected from customers and capital receipts alongside rent, payroll, inventory restocks, and loan outflows. Seeing instantly whether an operating period closes in surplus or deficit protects day-to-day liquidity, payroll reliability, and supplier trust.',
     howToUseSteps: [
       'Total all customer receipts and capital inflows inside Total Cash Inflows (PKR).',
       'Sum rent, payroll, supplier bills, and debt outlays into Total Cash Outflows (PKR).',
@@ -403,24 +432,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Collecting Total Cash Inflows (PKR) = 1,200,000 against Total Cash Outflows (PKR) = 850,000 yields PKR 350,000 (Positive Net Cash Flow (Surplus)).',
     faqs: [
       {
-        q: 'Can a business show Net Profit yet experience negative Cash Flow?',
-        a: 'Yes—if customers buy on 60-day credit or too much cash sits tied up in unsold inventory, cash outflow outpaces cash receipts.',
+        q: 'Can a profitable business still suffer negative cash flow?',
+        a: 'Yes, if clients pay late on credit or cash is locked in slow inventory, cash outflows can exceed receipts.',
       },
       {
-        q: 'Should non-cash depreciation be included in Total Cash Outflows (PKR)?',
-        a: 'No, include only actual cash payments leaving bank accounts or registers during the period.',
+        q: 'Should non-cash depreciation be entered under cash outflows?',
+        a: 'No, count only real money leaving bank accounts and cash registers during the period.',
       },
       {
-        q: 'Should loan repayments go inside Total Cash Outflows (PKR)?',
-        a: 'Yes, counting scheduled principal and markup outlays gives an accurate picture of true net cash remaining.',
+        q: 'Do loan principal repayments count as cash outflows?',
+        a: 'Yes, including both principal and interest payments reflects true remaining cash.',
       },
     ],
   },
 
   'business-net-profit': {
-    seoTitle: `Free Net Profit Calculator – Bottom-Line Earnings & Margin | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Net Profit and Margin | ${SITE_NAME}`,
     metaDescription:
-      'Calculate bottom-line PKR earnings and net profit margin after deducting all business expenses with our free Net Profit Calculator.',
+      'Discover how to calculate net profit and margin after deducting COGS, payroll, rent, and taxes from total business revenue.',
+    introDescription:
+      'Measuring true bottom-line business health requires knowing how to calculate net profit and margin once every single operating bill and tax obligation is settled. Enter total sales revenue earned during the month, quarter, or year alongside combined expenses covering inventory cost, wages, rent, marketing, utilities, and taxes. Tracking net margin across quarters reveals whether top-line growth actually translates into lasting owner earnings.',
     howToUseSteps: [
       'Enter total company sales into the Total Revenue (PKR) field.',
       'Combine COGS, payroll, rent, utilities, and taxes into Total Expenses (PKR).',
@@ -432,24 +463,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Earning Total Revenue (PKR) = 2,000,000 against Total Expenses (PKR) = 1,300,000 generates Net Profit of PKR 700,000 and Net Profit Margin: 35.00%.',
     faqs: [
       {
-        q: 'How does Net Profit differ from Gross Profit?',
-        a: 'Gross Profit subtracts only direct product cost (COGS), whereas Net Profit deducts rent, marketing, salaries, utilities, and interest as well.',
+        q: 'What separates net profit from gross profit?',
+        a: 'Gross profit subtracts only direct product costs, whereas net profit also deducts payroll, rent, marketing, interest, and taxes.',
       },
       {
-        q: 'What if Total Expenses (PKR) surpass Total Revenue (PKR)?',
-        a: 'Both rupee profit and Net Profit Margin turn negative, indicating an operating net loss for the period.',
+        q: 'What is a healthy net profit margin for small businesses?',
+        a: 'Many established retail and service firms aim for 10% to 20% net margin after all expenses.',
       },
       {
-        q: 'What is considered a strong Net Profit Margin for small businesses?',
-        a: 'Across most retail and service trades, sustaining a 10% to 20% Net Profit Margin signals healthy financial discipline.',
+        q: 'What happens when total expenses exceed total revenue?',
+        a: 'Both dollar earnings and net margin turn negative, signaling an operating loss for that period.',
       },
     ],
   },
 
   'biz-operating-margin': {
-    seoTitle: `Free Operating Margin Calculator – EBIT Core Profitability % | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Operating Profit Margin | ${SITE_NAME}`,
     metaDescription:
-      'Assess core operational efficiency from EBIT and revenue in PKR using our free Operating Margin Calculator.',
+      'Learn how to calculate operating profit margin using EBIT and total revenue to evaluate core operational profitability.',
+    introDescription:
+      'Financial analysts and business owners rely on operational efficiency metrics to judge store or factory performance, so knowing how to calculate operating profit margin is essential for growth planning. Enter operating income (EBIT) earned before interest and taxes alongside total sales revenue for the period. Separating core daily operations from debt financing and local tax structures makes benchmarking against industry competitors much cleaner.',
     howToUseSteps: [
       'Type earnings before interest and taxes into Operating Income / EBIT (PKR).',
       'Enter gross top-line sales inside Total Revenue (PKR).',
@@ -461,24 +494,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Reporting Operating Income / EBIT (PKR) = 400,000 on Total Revenue (PKR) = 2,000,000 results in a 20.00% Operating Margin.',
     faqs: [
       {
-        q: 'Why exclude interest and taxes from Operating Income / EBIT (PKR)?',
-        a: 'Excluding debt interest and tax rates lets analysts compare core store or factory efficiency fairly across leveraged and debt-free competitors.',
+        q: 'Why does operating margin exclude interest and taxes?',
+        a: 'Removing debt costs and tax differences lets you compare core efficiency fairly across debt-free and leveraged competitors.',
       },
       {
-        q: 'How is Operating Income / EBIT (PKR) derived from Gross Profit?',
-        a: 'Subtract selling, general, administrative expenses, and depreciation from Gross Profit to get EBIT.',
+        q: 'How is EBIT calculated from gross profit?',
+        a: 'Subtract selling, general, administrative costs, and depreciation from gross profit to reach operating income.',
       },
       {
-        q: 'What triggers an input validation message in Total Revenue (PKR)?',
-        a: 'Revenue must be greater than 0 because margin percentages divide directly by Total Revenue (PKR).',
+        q: 'What causes operating margin to shrink when sales grow?',
+        a: 'Rising overhead expenses, extra payroll, or heavier marketing spend can outpace top-line revenue growth.',
       },
     ],
   },
 
   'biz-ebitda': {
-    seoTitle: `Free EBITDA Calculator – Operating Cash Earnings in PKR | ${SITE_NAME}`,
+    seoTitle: `How to Calculate EBITDA from Net Income | ${SITE_NAME}`,
     metaDescription:
-      'Compute EBITDA by adding interest, taxes, depreciation, and amortization back to net income with our free EBITDA Calculator.',
+      'See how to calculate EBITDA from net income by adding back interest, taxes, depreciation, and amortization for business valuation.',
+    introDescription:
+      'Preparing for a business acquisition, investor pitch, or commercial bank loan often starts with knowing how to calculate EBITDA from net income accurately before sharing financial statements. Enter bottom-line accounting net income plus interest expense, income taxes, and non-cash depreciation and amortization charges. Adding those items back highlights core operating cash-generating strength across companies carrying very different tax profiles and debt levels.',
     howToUseSteps: [
       'Enter bottom-line accounting profit into Net Income (PKR).',
       'Add financing charges inside Interest Expense (PKR) and tax bills in Tax Expense (PKR).',
@@ -490,24 +525,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Adding Net Income (PKR) = 800,000, Interest Expense (PKR) = 100,000, Tax Expense (PKR) = 150,000, and Depreciation & Amortization (PKR) = 80,000 outputs EBITDA = PKR 1,130,000.',
     faqs: [
       {
-        q: 'Why do buyers and investors value companies using EBITDA multiples?',
-        a: 'EBITDA strips out capital structure and non-cash accounting depreciation, making cash profitability easier to compare across firms.',
+        q: 'Why do buyers value businesses using EBITDA multiples?',
+        a: 'It removes financing and accounting depreciation differences so buyers can compare core earning power.',
       },
       {
-        q: 'Where do I find Depreciation & Amortization (PKR)?',
-        a: 'Check operating expense notes on your income statement or cash flow statement where equipment depreciation and intangible amortization appear.',
+        q: 'Is EBITDA identical to free cash flow?',
+        a: 'No, EBITDA ignores capital expenditures for replacing equipment and shifts in working capital.',
       },
       {
-        q: 'Does EBITDA equal free cash flow available to spend?',
-        a: 'Not quite—EBITDA excludes capital expenditures (CapEx) needed to replace aging machinery and working capital shifts.',
+        q: 'Where are depreciation and amortization amounts listed?',
+        a: 'You can find them in the operating expense breakdown on your income statement or cash flow report.',
       },
     ],
   },
 
   'biz-cac': {
-    seoTitle: `Free Customer Acquisition Cost (CAC) Calculator – Ad Efficiency | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Customer Acquisition Cost | ${SITE_NAME}`,
     metaDescription:
-      'Calculate average PKR cost to win each paying customer from marketing spend with our free Customer Acquisition Cost (CAC) Calculator.',
+      'Find out how to calculate customer acquisition cost from ad spend, sales salaries, and newly acquired paying customers.',
+    introDescription:
+      'Scaling paid advertising profitably requires knowing how to calculate customer acquisition cost across every marketing channel your team runs each month. Combine ad spend, creative production, agency retainers, and sales team commissions, then divide by the number of new paying customers won during that exact timeframe. Comparing acquisition cost directly against customer lifetime value prevents growing companies from buying unprofitable top-line sales.',
     howToUseSteps: [
       'Combine ad spend, agency fees, and sales payroll into Total Marketing & Sales Spend (PKR).',
       'Enter paying signups won during that campaign in New Customers Acquired.',
@@ -519,24 +556,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Spending Total Marketing & Sales Spend (PKR) = 250,000 to win New Customers Acquired = 500 results in a CAC of PKR 500 per customer.',
     faqs: [
       {
-        q: 'Should New Customers Acquired count website visitors, leads, or paying buyers?',
-        a: 'Count only paying customers so CAC accurately reflects real revenue-generating conversions rather than unmonetized clicks.',
+        q: 'Should free leads count in new customers acquired?',
+        a: 'Count only paying customers so acquisition cost measures real revenue conversions rather than unpaid clicks.',
       },
       {
-        q: 'What is a healthy ratio between Customer Lifetime Value and CAC?',
-        a: 'Most SaaS and e-commerce operators aim for LTV to be at least 3× CAC to cover overhead and retain strong unit profits.',
+        q: 'What LTV to CAC ratio do SaaS and ecommerce teams target?',
+        a: 'Most operators aim for customer lifetime value to reach at least three times acquisition cost.',
       },
       {
-        q: 'Should sales team salaries go inside Total Marketing & Sales Spend (PKR)?',
-        a: 'Yes, include ad budgets, creative production, CRM software, and sales commissions for a fully loaded CAC.',
+        q: 'Should sales commissions be included in marketing spend?',
+        a: 'Yes, combining ad spend, creative costs, CRM tools, and sales payroll yields an accurate fully loaded CAC.',
       },
     ],
   },
 
   'biz-ltv': {
-    seoTitle: `Free Customer Lifetime Value (LTV) Calculator – Retention Revenue | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Customer Lifetime Value LTV | ${SITE_NAME}`,
     metaDescription:
-      'Estimate cumulative PKR revenue per subscriber or repeat buyer using our free Customer Lifetime Value (LTV) Calculator.',
+      'Learn how to calculate customer lifetime value LTV from average purchase size, annual buying frequency, and retention lifespan.',
+    introDescription:
+      'Subscription brands and repeat-order stores set smarter growth budgets when they know how to calculate customer lifetime value LTV reliably before scaling campaigns. Enter average order value, typical yearly purchases per customer, and average retention lifespan measured in years. Seeing cumulative revenue per buyer clarifies exactly how much your marketing team can afford to spend winning new accounts without squeezing long-term store margins.',
     howToUseSteps: [
       'Type average order value inside Average Purchase Value (PKR).',
       'Enter yearly repeat order count into Purchases per Year.',
@@ -548,24 +587,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'An account with Average Purchase Value (PKR) = 5,000 buying Purchases per Year = 4 over Customer Lifespan (Years) = 3 generates PKR 20,000 annually and a cumulative LTV of PKR 60,000.',
     faqs: [
       {
-        q: 'How can subscription brands estimate Customer Lifespan (Years)?',
-        a: 'Divide 1 by your annual churn rate—for example, a 25% yearly churn corresponds to a 4-year average Customer Lifespan.',
+        q: 'How can subscription businesses estimate average customer lifespan?',
+        a: 'Divide 1 by your annual churn rate—for example, 20% yearly churn equals a 5-year average lifespan.',
       },
       {
-        q: 'Does increasing Purchases per Year raise LTV faster than cutting prices?',
-        a: 'Yes—boosting repeat purchase cadence from 4 to 5 orders per year lifts lifetime value by 25% without hurting unit price.',
+        q: 'Should gross profit margin be applied to LTV before setting ad bids?',
+        a: 'Yes, multiplying revenue LTV by gross margin ensures ad budgets stay aligned with real profit.',
       },
       {
-        q: 'Should gross margin be applied to LTV when setting marketing budgets?',
-        a: 'Yes, multiplying revenue-based LTV by your gross profit margin prevents overspending on low-margin products.',
+        q: 'What improves customer lifetime value most reliably?',
+        a: 'Raising repeat order frequency and reducing early cancellations compound revenue without extra ad spend.',
       },
     ],
   },
 
   'biz-working-capital': {
-    seoTitle: `Free Working Capital Calculator – Short-Term Liquidity | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Net Working Capital Ratio | ${SITE_NAME}`,
     metaDescription:
-      'Check short-term liquidity and Current Ratio from assets and liabilities in PKR with our free Working Capital Calculator.',
+      'See how to calculate net working capital ratio and dollar cushion from current assets and short-term business liabilities.',
+    introDescription:
+      'Checking whether your business can comfortably cover payroll, rent, and supplier invoices over the next twelve months starts with knowing how to calculate net working capital ratio accurately. Enter total current assets such as cash, customer receivables, and stock alongside total current liabilities due within a year. Reviewing both net working capital and your Current Ratio flags short-term cash strain early.',
     howToUseSteps: [
       'Enter cash, inventory, and receivables inside Total Current Assets (PKR).',
       'Input payables, short-term credit lines, and accrued bills into Total Current Liabilities (PKR).',
@@ -577,24 +618,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Holding Total Current Assets (PKR) = 3,500,000 against Total Current Liabilities (PKR) = 2,100,000 yields Working Capital of PKR 1,400,000 and Current Ratio: 1.67.',
     faqs: [
       {
-        q: 'What Current Ratio range signals healthy short-term solvency?',
-        a: 'A Current Ratio between 1.5 and 2.5 generally indicates comfortable liquidity without letting excessive cash sit idle.',
+        q: 'What current ratio usually reflects healthy liquidity?',
+        a: 'A ratio between 1.5 and 2.5 typically shows solid bill coverage without leaving excessive cash idle.',
       },
       {
-        q: 'Why exclude long-term factory machinery from Total Current Assets (PKR)?',
-        a: 'Fixed assets cannot be converted into cash quickly inside one operating cycle to settle immediate vendor payables.',
+        q: 'Why are buildings and machinery excluded from current assets?',
+        a: 'Long-term fixed assets cannot be liquidated quickly within one operating cycle to pay upcoming bills.',
       },
       {
-        q: 'What does negative Working Capital indicate?',
-        a: 'Immediate liabilities exceed current assets, warning of potential cash crunches unless inventory turns over extremely fast.',
+        q: 'What does negative working capital mean for a company?',
+        a: 'Short-term obligations exceed near-term assets, signaling cash strain unless inventory sells very rapidly.',
       },
     ],
   },
 
   'biz-quick-ratio': {
-    seoTitle: `Free Quick Ratio / Acid-Test Ratio Calculator – Liquid Coverage | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Quick Acid Test Ratio | ${SITE_NAME}`,
     metaDescription:
-      'Test instant debt coverage excluding inventory using cash and receivables with our free Quick Ratio / Acid-Test Ratio Calculator.',
+      'Discover how to calculate quick acid test ratio using cash and receivables against current liabilities, excluding slow inventory.',
+    introDescription:
+      'Bankers and financial controllers look beyond warehouse stock when stress-testing immediate business liquidity, so knowing how to calculate quick acid test ratio is vital for credit reviews. Enter cash and marketable securities, collectible accounts receivable, and short-term current liabilities falling due within twelve months. Leaving out slow-moving inventory shows clearly whether near-cash assets alone can satisfy urgent creditor bills on time.',
     howToUseSteps: [
       'Type liquid balances into Cash & Marketable Securities (PKR).',
       'Enter collectible customer invoices inside Accounts Receivable (PKR).',
@@ -606,24 +649,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Combining Cash & Marketable Securities (PKR) = 1,200,000 and Accounts Receivable (PKR) = 800,000 against Current Liabilities (PKR) = 1,500,000 gives (2,000,000 / 1,500,000) = 1.33 Quick Ratio (Healthy Liquidity).',
     faqs: [
       {
-        q: 'Why does the Acid-Test Ratio omit warehouse inventory?',
-        a: 'Stock may take months to sell or require heavy discounting during a cash crunch, whereas cash and receivables convert fast.',
+        q: 'Why does the acid-test ratio leave out warehouse inventory?',
+        a: 'Inventory may take months to sell or require heavy markdowns during a slowdown, unlike cash and invoices.',
       },
       {
-        q: 'Is a Quick Ratio below 1.0 always dangerous?',
-        a: 'Supermarkets and fast-cash retailers sometimes operate safely below 1.0, though manufacturers typically prefer 1.0 or higher.',
+        q: 'Is a quick ratio under 1.0 always a red flag?',
+        a: 'High-turnover grocery stores sometimes run safely below 1.0, while manufacturers generally target 1.0 or higher.',
       },
       {
-        q: 'Should overdue uncollectible invoices stay inside Accounts Receivable (PKR)?',
-        a: 'Remove doubtful bad debts from Accounts Receivable (PKR) so your Quick Ratio does not look artificially strong.',
+        q: 'Should overdue bad debts stay in accounts receivable?',
+        a: 'Exclude doubtful uncollectible invoices so your quick ratio does not overstate true liquidity.',
       },
     ],
   },
 
   'biz-debt-to-equity': {
-    seoTitle: `Free Debt-to-Equity Ratio Calculator – Capital Leverage | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Debt to Equity Ratio | ${SITE_NAME}`,
     metaDescription:
-      'Evaluate business financial leverage comparing liabilities to shareholder equity with our free Debt-to-Equity Ratio Calculator.',
+      'Learn how to calculate debt to equity ratio from total liabilities and shareholder equity to measure business financial leverage.',
+    introDescription:
+      'Evaluating balance-sheet risk before applying for commercial credit or bringing on equity partners requires knowing how to calculate debt to equity ratio cleanly and consistently. Enter total company liabilities alongside shareholder equity to measure how heavily operations rely on borrowed money versus owner capital. Tracking leverage ratios over time helps leadership balance rapid expansion speed against financial resilience during slower quarters.',
     howToUseSteps: [
       'Enter combined short- and long-term debts into Total Liabilities (PKR).',
       'Type owner paid-in capital and retained earnings inside Total Shareholder Equity (PKR).',
@@ -635,24 +680,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Carrying Total Liabilities (PKR) = 5,000,000 alongside Total Shareholder Equity (PKR) = 7,500,000 yields 0.67 D/E Ratio.',
     faqs: [
       {
-        q: 'What D/E Ratio do commercial banks generally prefer for SME loans?',
-        a: 'Many banks look favorably on D/E Ratios below 1.5, though capital-intensive utilities and manufacturing plants often run higher.',
+        q: 'What debt-to-equity ratio do commercial banks prefer?',
+        a: 'Many SME lenders prefer ratios under 1.5, though capital-heavy manufacturing and utilities often operate higher.',
       },
       {
-        q: 'Can Total Shareholder Equity (PKR) ever be zero or negative?',
-        a: 'Accumulated losses can push equity negative, in which case the calculator requires equity above zero before computing leverage.',
+        q: 'How can a company lower its debt-to-equity ratio?',
+        a: 'Paying down bank debt, retaining earnings instead of distributing dividends, or raising fresh equity lowers leverage.',
       },
       {
-        q: 'How can a company reduce an elevated D/E Ratio?',
-        a: 'Retaining profits rather than paying dividends, repaying bank loans, or injecting fresh owner equity lowers leverage.',
+        q: 'Does total liabilities include both short-term bills and long-term loans?',
+        a: 'Yes, include accounts payable, credit lines, leases, and long-term debt for full balance-sheet leverage.',
       },
     ],
   },
 
   'biz-employee-turnover': {
-    seoTitle: `Free Employee Turnover Rate Calculator – Staff Attrition % | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Employee Turnover Rate | ${SITE_NAME}`,
     metaDescription:
-      'Measure workforce attrition percentage from departures and average headcount using our free Employee Turnover Rate Calculator.',
+      'See how to calculate employee turnover rate percentage from staff departures and average headcount for HR retention tracking.',
+    introDescription:
+      'Tracking workforce stability across departments, retail stores, and quarters gets far easier when HR managers know how to calculate employee turnover rate accurately throughout the year. Enter the total number of employees who left during the selected period alongside your average headcount across that timeframe. Spotting rising attrition early helps leadership fix onboarding, scheduling, or compensation gaps before recruiting expenses climb sharply.',
     howToUseSteps: [
       'Enter total resignations and terminations inside Employees Left During Period.',
       'Type mean headcount across that timeframe in Average Number of Employees.',
@@ -664,24 +711,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Experiencing Employees Left During Period = 6 within a team of Average Number of Employees = 50 yields (6 / 50) × 100 = 12.0% Turnover Rate.',
     faqs: [
       {
-        q: 'How do I calculate Average Number of Employees for the year?',
-        a: 'Add starting headcount and ending headcount and divide by two (or average monthly payroll headcounts).',
+        q: 'How do I compute average headcount across a full year?',
+        a: 'Add beginning and ending employee counts and divide by two, or average your twelve monthly payroll counts.',
       },
       {
-        q: 'Should involuntary terminations count inside Employees Left During Period?',
-        a: 'Yes, overall turnover includes both voluntary resignations and layoffs so leadership sees total workforce churn.',
+        q: 'Should involuntary layoffs count alongside voluntary resignations?',
+        a: 'Yes, overall turnover includes every departure so management sees total staffing churn.',
       },
       {
-        q: 'How do I annualize a quarterly Turnover Rate?',
-        a: 'Multiply a single quarter’s turnover percentage by 4—or enter full 12-month departures directly.',
+        q: 'How do you convert a quarterly turnover rate into an annual rate?',
+        a: 'Multiply a single quarter’s turnover percentage by four, or run full 12-month departures directly.',
       },
     ],
   },
 
   'biz-payback-period': {
-    seoTitle: `Free Payback Period Calculator – Capital Recovery Years | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Investment Payback Period | ${SITE_NAME}`,
     metaDescription:
-      'Determine years required to recover initial project investment from yearly cash inflows with our free Payback Period Calculator.',
+      'Find out how to calculate investment payback period in years from initial project outlay and steady annual net cash inflows.',
+    introDescription:
+      'Deciding whether to purchase new workshop machinery, launch a franchise, or install solar panels starts with knowing how to calculate investment payback period in years. Enter your upfront capital expenditure and projected annual net cash inflow to see exactly how long it takes to break even on cash. Shorter payback periods restore liquidity sooner and reduce exposure to market shifts.',
     howToUseSteps: [
       'Enter upfront project or machine cost inside Initial Investment (PKR).',
       'Type steady yearly net cash returns into Annual Cash Inflow (PKR).',
@@ -693,24 +742,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Deploying Initial Investment (PKR) = 3,000,000 into equipment generating Annual Cash Inflow (PKR) = 750,000 recovers cost in 4.0 years.',
     faqs: [
       {
-        q: 'Does simple Payback Period discount future cash flows for inflation or interest?',
-        a: 'No, standard Payback Period uses undiscounted nominal inflows; pair it with ROI or NPV for long-horizon projects.',
+        q: 'Does payback period adjust future cash flows for inflation or interest?',
+        a: 'No, basic payback uses undiscounted cash inflows, so pair it with ROI for long-term investments.',
       },
       {
-        q: 'What if a machine generates zero or negative Annual Cash Inflow (PKR)?',
-        a: 'The tool stops with a clear prompt because negative cash flows never recover an Initial Investment.',
+        q: 'Why do cash-constrained firms prioritize shorter payback periods?',
+        a: 'Faster recovery returns cash to the bank account sooner, reducing exposure to market downturns.',
       },
       {
-        q: 'How do managers use Payback Period when picking between two upgrades?',
-        a: 'When cash budgets are tight, owners favor the upgrade with the shorter Payback Period to recover liquidity faster.',
+        q: 'What if an investment earns different cash amounts each year?',
+        a: 'Use the expected average annual cash inflow here for a quick baseline payback estimate.',
       },
     ],
   },
 
   'biz-eoq': {
-    seoTitle: `Free Economic Order Quantity (EOQ) Calculator – Optimal Batch | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Economic Order Quantity | ${SITE_NAME}`,
     metaDescription:
-      'Find optimal purchase order batch size balancing ordering fees and warehouse holding costs with our free Economic Order Quantity (EOQ) Calculator.',
+      'Learn how to calculate economic order quantity balancing annual demand, purchase order fees, and warehouse holding costs.',
+    introDescription:
+      'Purchasing managers cut total inventory expenses substantially once they know how to calculate economic order quantity for core stock items. Enter annual unit demand, fixed shipping and admin fees per purchase order, and yearly warehouse holding cost per unit. Computing the mathematical sweet spot avoids paying excessive shipping fees on tiny orders while preventing cash from sitting idle in bloated storage.',
     howToUseSteps: [
       'Enter total units sold per year inside Annual Demand (Units - D).',
       'Type fixed shipping, PO, and admin fees per shipment in Ordering Cost per Order (PKR - S).',
@@ -722,24 +773,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'With Annual Demand (Units - D) = 10,000, Ordering Cost per Order (PKR - S) = 2,500, and Holding Cost per Unit per Year (PKR - H) = 50, √[(2 × 10,000 × 2,500) / 50] = √1,000,000 outputs an optimal batch of 1,000 units.',
     faqs: [
       {
-        q: 'How many orders per year does an EOQ of 1,000 units imply here?',
-        a: 'Dividing Annual Demand (10,000) by EOQ (1,000) means placing 10 evenly spaced orders annually.',
+        q: 'How do I find how many purchase orders to place per year?',
+        a: 'Divide annual unit demand by your EOQ result to see the optimal number of annual shipments.',
       },
       {
-        q: 'What costs belong in Holding Cost per Unit per Year (PKR - H)?',
-        a: 'Include warehouse shelf rent, spoilage risk, inventory insurance, and the opportunity cost of capital locked in stock.',
+        q: 'Which expenses count toward annual holding cost per unit?',
+        a: 'Include warehouse rent, stock insurance, obsolescence risk, and interest on cash tied up in inventory.',
       },
       {
-        q: 'Does EOQ handle bulk supplier price breaks automatically?',
-        a: 'Classic EOQ assumes constant unit pricing, so compare EOQ total cost against discounted bulk tiers separately.',
+        q: 'Does EOQ automatically factor in bulk supplier discounts?',
+        a: 'Standard EOQ assumes steady unit prices, so compare EOQ cost separately against discounted bulk tiers.',
       },
     ],
   },
 
   'biz-clv': {
-    seoTitle: `Free Customer Lifetime Value (CLV) Calculator – Store Loyalty | ${SITE_NAME}`,
+    seoTitle: `Calculate Retail Customer Lifetime Value CLV | ${SITE_NAME}`,
     metaDescription:
-      'Forecast total PKR spend from loyal retail shoppers using purchase size, frequency, and lifespan with our free Customer Lifetime Value (CLV) Calculator.',
+      'Discover how to calculate retail customer lifetime value CLV from average checkout size, yearly trips, and shopper retention.',
+    introDescription:
+      'Boutiques, clinics, and local franchises design stronger loyalty programs when they calculate retail customer lifetime value CLV across regular returning patrons. Enter average checkout spend, annual store visits, and typical retention lifespan in years to project both yearly spend and cumulative customer value. Investing in repeat buyer retention almost always delivers higher returns than constantly chasing one-time discount shoppers with paid ads.',
     howToUseSteps: [
       'Input typical basket checkout value inside Average Purchase Value (PKR).',
       'Enter yearly shopping trips per customer in Purchases per Year.',
@@ -751,24 +804,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Suppose a loyal clinic or boutique patron spends Average Purchase Value (PKR) = 8,000 across Purchases per Year = 6 for Customer Lifespan (Years) = 4, delivering PKR 48,000 per year and a total CLV of PKR 192,000.',
     faqs: [
       {
-        q: 'Why check Annual customer spend alongside lifetime CLV?',
-        a: 'Annual customer spend aligns directly with yearly cash flow budgeting, whereas CLV guides long-term loyalty rewards.',
+        q: 'Why check annual customer spend alongside cumulative CLV?',
+        a: 'Annual spend aligns directly with yearly revenue forecasts, while multi-year CLV guides loyalty incentives.',
       },
       {
-        q: 'What lifts CLV fastest for brick-and-mortar retail stores?',
-        a: 'Cross-selling add-ons raises Average Purchase Value (PKR), while loyalty cards encourage more Purchases per Year.',
+        q: 'What boosts retail CLV fastest without raising ad spend?',
+        a: 'Bundling add-on items raises average basket value while membership perks increase yearly visits.',
       },
       {
-        q: 'Can CLV vary significantly across VIP versus casual buyer segments?',
-        a: 'Yes—segmenting VIP repeat shoppers separately from seasonal discount buyers produces much sharper forecasts.',
+        q: 'Should VIP shoppers be calculated separately from casual buyers?',
+        a: 'Yes, segmenting top repeat customers from seasonal visitors produces far sharper marketing targets.',
       },
     ],
   },
 
   'biz-churn-rate': {
-    seoTitle: `Free Customer Churn Rate Calculator – Monthly Attrition % | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Monthly Customer Churn Rate | ${SITE_NAME}`,
     metaDescription:
-      'Track subscription or client loss percentage from churned accounts using our free Customer Churn Rate Calculator.',
+      'See how to calculate monthly customer churn rate from lost accounts and starting subscribers to protect recurring revenue.',
+    introDescription:
+      'Subscription platforms and service retainers protect compounding revenue growth by knowing how to calculate monthly customer churn rate consistently at every billing close. Enter the number of accounts canceled during the month alongside total active customers on day one of that period. Even a one-percent reduction in monthly attrition extends average subscriber lifespan significantly and lifts long-term profitability across cohorts.',
     howToUseSteps: [
       'Type total canceled accounts inside Customers Lost During Period.',
       'Enter active subscriber count at day one in Customers at Start of Period.',
@@ -780,24 +835,26 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Losing Customers Lost During Period = 15 out of Customers at Start of Period = 250 active accounts produces (15 / 250) × 100 = 6.00% Churn Rate.',
     faqs: [
       {
-        q: 'Should brand-new signups gained mid-month be added into Customers at Start of Period?',
-        a: 'No, standard logo churn keeps only accounts active on day one in the denominator so new acquisitions do not mask cancellations.',
+        q: 'Should new customers added mid-month be included in starting customers?',
+        a: 'No, keep only day-one active subscribers in the denominator so new sales do not disguise cancellations.',
       },
       {
-        q: 'What monthly Churn Rate is typical for B2B software subscriptions?',
-        a: 'Healthy B2B SaaS businesses usually keep monthly churn around 1% to 3%, whereas consumer apps often experience higher rates.',
+        q: 'What monthly churn rate is considered healthy for B2B software?',
+        a: 'Strong B2B SaaS businesses often keep monthly churn around 1% to 3%, while consumer plans tend to run higher.',
       },
       {
-        q: 'How does Churn Rate connect to retention rate?',
-        a: 'Retention Rate simply equals 100% minus Churn Rate—so a 6% churn translates to 94% customer retention.',
+        q: 'How does churn rate relate to customer retention rate?',
+        a: 'Retention rate equals 100% minus churn rate, so 5% monthly churn means 95% retention.',
       },
     ],
   },
 
   'biz-inventory-turnover': {
-    seoTitle: `Free Inventory Turnover Ratio Calculator – Stock Turns & Days | ${SITE_NAME}`,
+    seoTitle: `How to Calculate Inventory Turnover Ratio | ${SITE_NAME}`,
     metaDescription:
-      'Measure annual stock turns and days to sell inventory in PKR with our free Inventory Turnover Ratio Calculator.',
+      'Learn how to calculate inventory turnover ratio and average days to sell stock using annual COGS and average inventory value.',
+    introDescription:
+      'Freeing trapped cash sitting inside warehouse aisles begins with learning how to calculate inventory turnover ratio across your major product lines. Enter annual Cost of Goods Sold alongside average stock value held on hand to compute yearly inventory turns and average days required to clear stock. Faster inventory turns lower storage expenses, shrink spoilage losses, and keep seasonal merchandise moving smoothly.',
     howToUseSteps: [
       'Enter annual wholesale product cost inside Cost of Goods Sold (COGS in PKR).',
       'Type typical stock value held on hand into Average Inventory Value (PKR).',
@@ -809,16 +866,16 @@ export const businessSeoFullMap: Record<string, BusinessCalculatorSeoEntry> = {
       'Recording Cost of Goods Sold (COGS in PKR) = 12,000,000 with Average Inventory Value (PKR) = 2,000,000 yields 6.00 Turns / Year, meaning stock sells in ~60.8 days.',
     faqs: [
       {
-        q: 'Why must Inventory Turnover use COGS rather than retail sales revenue?',
-        a: 'Because Average Inventory Value (PKR) sits on balance sheets at wholesale cost, using retail sales would inflate turns artificially by your markup.',
+        q: 'Why use COGS instead of retail sales when calculating inventory turns?',
+        a: 'Inventory is valued on balance sheets at wholesale cost, so using retail sales would inflate turns artificially.',
       },
       {
-        q: 'How do I compute Average Inventory Value (PKR)?',
-        a: 'Add opening warehouse inventory plus closing inventory and divide by two (or average quarterly stock counts).',
+        q: 'How is average inventory value usually calculated?',
+        a: 'Add opening and ending inventory values and divide by two, or average monthly stock balances.',
       },
       {
-        q: 'Can an excessively high Inventory Turnover Ratio ever hurt a business?',
-        a: 'Yes, turns that are too high compared with industry norms often mean holding thin stock and suffering frequent stockouts.',
+        q: 'Can an unusually high inventory turnover ratio ever signal a problem?',
+        a: 'Yes, excessively high turns may mean holding too little safety stock and losing sales to frequent stockouts.',
       },
     ],
   },

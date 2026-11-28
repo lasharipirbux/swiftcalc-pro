@@ -3,7 +3,7 @@ import { Category } from '../types';
 import { getAllCalculators } from '../data/calculatorsData';
 import { 
   Calculator, DollarSign, Briefcase, Home, HeartPulse, 
-  Calendar, RefreshCw, Zap, GraduationCap, Cpu, Building, 
+  Calendar, Zap, GraduationCap, Cpu, Building, 
   Car, Utensils, BarChart3, Wifi, Layers
 } from 'lucide-react';
 
@@ -28,7 +28,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
       case 'Home': return <Home className="w-4 h-4" />;
       case 'HeartPulse': return <HeartPulse className="w-4 h-4" />;
       case 'Calendar': return <Calendar className="w-4 h-4" />;
-      case 'RefreshCw': return <RefreshCw className="w-4 h-4" />;
       case 'Zap': return <Zap className="w-4 h-4" />;
       case 'GraduationCap': return <GraduationCap className="w-4 h-4" />;
       case 'Cpu': return <Cpu className="w-4 h-4" />;

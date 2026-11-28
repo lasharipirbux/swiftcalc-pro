@@ -1,4 +1,4 @@
-import { Category } from "../../types";
+import type { Category } from "../../types.ts";
 
 export const datetimeCategory: Category = {
     id: 'datetime',
@@ -13,7 +13,7 @@ export const datetimeCategory: Category = {
         categoryId: 'datetime',
         description: 'Calculate exact age in years, months, and days from date of birth.',
         inputs: [
-          { id: 'dob', label: 'Date of Birth (YYYY-MM-DD)', type: 'text', defaultValue: '1995-06-15' }
+          { id: 'dob', label: 'Date of Birth', type: 'date', defaultValue: '1995-06-15' }
         ],
         calculate: (vals) => {
           const birth = new Date(String(vals.dob));

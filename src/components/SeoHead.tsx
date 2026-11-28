@@ -66,9 +66,6 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
       }
       canonicalLink.setAttribute('href', canonical);
 
-      document.getElementById('calculator-json-ld')?.remove();
-      document.getElementById('faq-json-ld')?.remove();
-
       let schemaTag = document.getElementById('calcnaseeb-json-ld');
       if (graphNodes.length > 0) {
         const payload = {

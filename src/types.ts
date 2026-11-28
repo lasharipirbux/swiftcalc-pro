@@ -7,7 +7,7 @@ export interface CalculatorItem {
   inputs: {
     id: string;
     label: string;
-    type: 'number' | 'text' | 'select' | 'range';
+    type: 'number' | 'text' | 'select' | 'range' | 'date';
     defaultValue: number | string;
     options?: { label: string; value: string | number }[];
     min?: number;

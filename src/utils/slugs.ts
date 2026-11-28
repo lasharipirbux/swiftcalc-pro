@@ -15,7 +15,15 @@ export const findCalculatorBySlug = (
   slug: string,
   allCalculators: CalculatorItem[]
 ): CalculatorItem | undefined => {
-  const normalized = (slug.startsWith('/') ? slug : `/${slug}`).replace(/\/+$/, '');
+  let decoded = slug;
+  try {
+    decoded = decodeURIComponent(slug);
+  } catch {
+    decoded = slug;
+  }
+  const normalized = (decoded.startsWith('/') ? decoded : `/${decoded}`)
+    .replace(/\/+$/, '')
+    .toLowerCase();
   const withoutPrefix = normalized.startsWith('/calculator/')
     ? normalized.slice('/calculator/'.length)
     : normalized.slice(1);

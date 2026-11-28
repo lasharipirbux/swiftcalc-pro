@@ -13,10 +13,11 @@ export default defineConfig(() => {
   const totalCalculators = getAllCalculators().length;
   const totalCategories = categories.length;
   return {
+    base: '/',
     plugins: [
       react(),
       tailwindcss(),
-      VitePWA({
+      ...VitePWA({
         registerType: 'autoUpdate',
         injectRegister: null,
         manifestFilename: 'manifest.webmanifest',
@@ -30,7 +31,7 @@ export default defineConfig(() => {
         manifest: false,
         workbox: {
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
-          globIgnores: ['**/sitemap.xml', '**/robots.txt', '**/_headers'],
+          globIgnores: ['**/sitemap.xml', '**/robots.txt', '**/_headers', '**/_redirects', '**/.htaccess'],
           navigateFallback: '/index.html',
           navigateFallbackDenylist: [
             /^\/sitemap\.xml$/i,
@@ -43,14 +44,30 @@ export default defineConfig(() => {
           skipWaiting: true,
         },
         devOptions: {
-          enabled: process.env.DISABLE_HMR !== 'true',
-          type: 'module',
+          enabled: false,
         },
-      }),
+      }).filter((plugin) => plugin.name !== 'vite-plugin-pwa:dev-sw'),
       // Injects dynamic calculator/category counts and canonical URL into index.html and manifest.webmanifest.
       {
         name: 'sync-site-url-in-html',
         configureServer(server) {
+          server.middlewares.use('/@vite-plugin-pwa/pwa-entry-point-loaded', (_req, res) => {
+            res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+            res.setHeader('Cache-Control', 'no-store');
+            res.end('export default function registerDevSW() {}\n');
+          });
+          server.middlewares.use((req, res, next) => {
+            const reqPath = (req.url || '').split('?')[0];
+            if (reqPath === '/sw.js' || reqPath === '/dev-sw.js') {
+              res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+              res.setHeader('Cache-Control', 'no-store');
+              res.end(
+                "self.addEventListener('install',()=>self.skipWaiting());self.addEventListener('activate',(e)=>{e.waitUntil(caches.keys().then((ks)=>Promise.all(ks.map((k)=>caches.delete(k)))).then(()=>self.registration.unregister()));});\n"
+              );
+              return;
+            }
+            next();
+          });
           server.middlewares.use('/manifest.webmanifest', (_req, res, next) => {
             const manifestPath = path.resolve(import.meta.dirname, 'public/manifest.webmanifest');
             if (!fs.existsSync(manifestPath)) return next();
@@ -110,6 +127,46 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname, '.'),
+      },
+    },
+    build: {
+      rolldownOptions: {
+        output: {
+          codeSplitting: {
+            groups: [
+              {
+                name: 'vendor',
+                test: /node_modules\/(react|react-dom|scheduler|lucide-react)\//,
+                priority: 20,
+              },
+              {
+                name: 'calculators-group-a',
+                test: /src\/data\/categories\/(math|finance|business|construction|health|datetime|electrical)\.ts$/,
+                priority: 15,
+              },
+              {
+                name: 'calculators-group-b',
+                test: /src\/data\/categories\/(education|engineering|realestate|automotive|cooking|statistics|tech)\.ts$/,
+                priority: 15,
+              },
+              {
+                name: 'seo-group-a',
+                test: /src\/data\/(math|finance|business|construction|health)SeoFull\.ts$/,
+                priority: 10,
+              },
+              {
+                name: 'seo-group-b',
+                test: /src\/data\/(datetime|electrical|education|engineering|realestate)SeoFull\.ts$/,
+                priority: 10,
+              },
+              {
+                name: 'seo-group-c',
+                test: /src\/data\/(automotive|cooking|statistics|internet)SeoFull\.ts$/,
+                priority: 10,
+              },
+            ],
+          },
+        },
       },
     },
     server: {

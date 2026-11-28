@@ -1,4 +1,4 @@
-import { Category } from "../../types";
+import type { Category } from "../../types.ts";
 
 export const educationCategory: Category = {
     id: 'education',
