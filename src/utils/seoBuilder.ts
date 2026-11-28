@@ -5,6 +5,20 @@ import { datetimeElectricalSeoMap } from '../data/seoDatetimeElectrical';
 import { educationEngineeringSeoMap } from '../data/seoEducationEngineering';
 import { realestateAutomotiveSeoMap } from '../data/seoRealestateAutomotive';
 import { cookingStatisticsSeoMap } from '../data/seoCookingStatistics';
+import { datetimeSeoFullMap } from '../data/datetimeSeoFull';
+import { mathSeoFullMap } from '../data/mathSeoFull';
+import { financeSeoFullMap } from '../data/financeSeoFull';
+import { businessSeoFullMap } from '../data/businessSeoFull';
+import { constructionSeoFullMap } from '../data/constructionSeoFull';
+import { healthSeoFullMap } from '../data/healthSeoFull';
+import { electricalSeoFullMap } from '../data/electricalSeoFull';
+import { educationSeoFullMap } from '../data/educationSeoFull';
+import { engineeringSeoFullMap } from '../data/engineeringSeoFull';
+import { realestateSeoFullMap } from '../data/realestateSeoFull';
+import { automotiveSeoFullMap } from '../data/automotiveSeoFull';
+import { cookingSeoFullMap } from '../data/cookingSeoFull';
+import { statisticsSeoFullMap } from '../data/statisticsSeoFull';
+import { internetSeoFullMap } from '../data/internetSeoFull';
 import { formatCalculatorResult } from './formatResult';
 import { safeCalculate } from './safeCalculate';
 import { SITE_NAME } from '../config/site';
@@ -57,20 +71,101 @@ function extractTopicPhrase(calculator: CalculatorItem): string {
 
 /**
  * High-intent long-tail SEO title format:
- * "Free [Calculator Name] Online – Fast & Accurate Calculator"
+ * Date & Time uses dedicated per-page unique titles; all other categories stay unchanged.
  */
 export function buildCalculatorTitle(calculator: CalculatorItem): string {
+  if (calculator.categoryId === 'datetime' && datetimeSeoFullMap[calculator.id]) {
+    return datetimeSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'finance' && financeSeoFullMap[calculator.id]) {
+    return financeSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'business' && businessSeoFullMap[calculator.id]) {
+    return businessSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'construction' && constructionSeoFullMap[calculator.id]) {
+    return constructionSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'health' && healthSeoFullMap[calculator.id]) {
+    return healthSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'electrical' && electricalSeoFullMap[calculator.id]) {
+    return electricalSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'education' && educationSeoFullMap[calculator.id]) {
+    return educationSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'engineering' && engineeringSeoFullMap[calculator.id]) {
+    return engineeringSeoFullMap[calculator.id].seoTitle;
+  }
+  if ((calculator.categoryId === 'realestate' || calculator.categoryId === 'commercial') && realestateSeoFullMap[calculator.id]) {
+    return realestateSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'automotive' && automotiveSeoFullMap[calculator.id]) {
+    return automotiveSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'cooking' && cookingSeoFullMap[calculator.id]) {
+    return cookingSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'statistics' && statisticsSeoFullMap[calculator.id]) {
+    return statisticsSeoFullMap[calculator.id].seoTitle;
+  }
+  if (calculator.categoryId === 'tech' && internetSeoFullMap[calculator.id]) {
+    return internetSeoFullMap[calculator.id].seoTitle;
+  }
   return `Free ${calculator.name} Online – Fast & Accurate Calculator`;
 }
 
 /**
  * High-intent long-tail SEO meta description format:
- * "Calculate [topic/result] instantly with our free online [Calculator Name].
- *  Includes step-by-step formula, examples, and accurate results with no signup."
+ * Date & Time, Finance & Money, Business, Construction, and Health & Fitness use dedicated unique descriptions (< 155 chars); all other categories stay unchanged.
  */
 export function buildCalculatorMetaDescription(calculator: CalculatorItem): string {
+  if (calculator.categoryId === 'datetime' && datetimeSeoFullMap[calculator.id]) {
+    return datetimeSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'finance' && financeSeoFullMap[calculator.id]) {
+    return financeSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'business' && businessSeoFullMap[calculator.id]) {
+    return businessSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'construction' && constructionSeoFullMap[calculator.id]) {
+    return constructionSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'health' && healthSeoFullMap[calculator.id]) {
+    return healthSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'electrical' && electricalSeoFullMap[calculator.id]) {
+    return electricalSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'education' && educationSeoFullMap[calculator.id]) {
+    return educationSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'engineering' && engineeringSeoFullMap[calculator.id]) {
+    return engineeringSeoFullMap[calculator.id].metaDescription;
+  }
+  if ((calculator.categoryId === 'realestate' || calculator.categoryId === 'commercial') && realestateSeoFullMap[calculator.id]) {
+    return realestateSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'automotive' && automotiveSeoFullMap[calculator.id]) {
+    return automotiveSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'cooking' && cookingSeoFullMap[calculator.id]) {
+    return cookingSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'statistics' && statisticsSeoFullMap[calculator.id]) {
+    return statisticsSeoFullMap[calculator.id].metaDescription;
+  }
+  if (calculator.categoryId === 'tech' && internetSeoFullMap[calculator.id]) {
+    return internetSeoFullMap[calculator.id].metaDescription;
+  }
   const topic = extractTopicPhrase(calculator);
-  return `Calculate ${topic} instantly with our free online ${calculator.name}. Includes step-by-step formula, examples, and accurate results with no signup.`;
+  const full = `Calculate ${topic} with our free ${calculator.name}. Includes formula, worked example, and instant results.`;
+  if (full.length < 155) return full;
+  const medium = `Free ${calculator.name}: calculate ${topic} with formula, example, and instant results.`;
+  if (medium.length < 155) return medium;
+  return `Free ${calculator.name} with step-by-step formula, worked example, and accurate instant results.`;
 }
 
 function buildHowToUseSteps(calculator: CalculatorItem): string[] {
@@ -117,6 +212,204 @@ export function getCalculatorSeoContent(
   categoryName: string,
   curatedSeo?: SeoContent
 ): StructuredCalculatorSeo {
+  if (calculator.categoryId === 'datetime' && datetimeSeoFullMap[calculator.id]) {
+    const dt = datetimeSeoFullMap[calculator.id];
+    return {
+      intro: dt.intro,
+      howItWorks: dt.formulaExplained,
+      workedExample: dt.practicalExample,
+      howToUseSteps: dt.howToUseSteps,
+      formulaExplanation: dt.formulaExplained,
+      practicalExample: dt.practicalExample,
+      faqs: dt.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'math' && mathSeoFullMap[calculator.id]) {
+    const m = mathSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: m.formulaExplanation,
+      workedExample: m.practicalExample,
+      howToUseSteps: m.howToUseSteps,
+      formulaExplanation: m.formulaExplanation,
+      practicalExample: m.practicalExample,
+      faqs: m.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'finance' && financeSeoFullMap[calculator.id]) {
+    const fin = financeSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: fin.formulaExplanation,
+      workedExample: fin.practicalExample,
+      howToUseSteps: fin.howToUseSteps,
+      formulaExplanation: fin.formulaExplanation,
+      practicalExample: fin.practicalExample,
+      faqs: fin.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'business' && businessSeoFullMap[calculator.id]) {
+    const biz = businessSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: biz.formulaExplanation,
+      workedExample: biz.practicalExample,
+      howToUseSteps: biz.howToUseSteps,
+      formulaExplanation: biz.formulaExplanation,
+      practicalExample: biz.practicalExample,
+      faqs: biz.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'construction' && constructionSeoFullMap[calculator.id]) {
+    const con = constructionSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: con.formulaExplanation,
+      workedExample: con.practicalExample,
+      howToUseSteps: con.howToUseSteps,
+      formulaExplanation: con.formulaExplanation,
+      practicalExample: con.practicalExample,
+      faqs: con.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'health' && healthSeoFullMap[calculator.id]) {
+    const h = healthSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: h.formulaExplanation,
+      workedExample: h.practicalExample,
+      howToUseSteps: h.howToUseSteps,
+      formulaExplanation: h.formulaExplanation,
+      practicalExample: h.practicalExample,
+      faqs: h.faqs,
+      whoUses: '',
+      medicalDisclaimer: h.medicalDisclaimer,
+    };
+  }
+
+  if (calculator.categoryId === 'electrical' && electricalSeoFullMap[calculator.id]) {
+    const el = electricalSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: el.formulaExplanation,
+      workedExample: el.practicalExample,
+      howToUseSteps: el.howToUseSteps,
+      formulaExplanation: el.formulaExplanation,
+      practicalExample: el.practicalExample,
+      faqs: el.faqs,
+      whoUses: '',
+      medicalDisclaimer: el.safetyNote,
+    };
+  }
+
+  if (calculator.categoryId === 'education' && educationSeoFullMap[calculator.id]) {
+    const ed = educationSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: ed.formulaExplanation,
+      workedExample: ed.practicalExample,
+      howToUseSteps: ed.howToUseSteps,
+      formulaExplanation: ed.formulaExplanation,
+      practicalExample: ed.practicalExample,
+      faqs: ed.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'engineering' && engineeringSeoFullMap[calculator.id]) {
+    const eng = engineeringSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: eng.formulaExplanation,
+      workedExample: eng.practicalExample,
+      howToUseSteps: eng.howToUseSteps,
+      formulaExplanation: eng.formulaExplanation,
+      practicalExample: eng.practicalExample,
+      faqs: eng.faqs,
+      whoUses: '',
+    };
+  }
+
+  if ((calculator.categoryId === 'realestate' || calculator.categoryId === 'commercial') && realestateSeoFullMap[calculator.id]) {
+    const re = realestateSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: re.formulaExplanation,
+      workedExample: re.practicalExample,
+      howToUseSteps: re.howToUseSteps,
+      formulaExplanation: re.formulaExplanation,
+      practicalExample: re.practicalExample,
+      faqs: re.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'automotive' && automotiveSeoFullMap[calculator.id]) {
+    const au = automotiveSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: au.formulaExplanation,
+      workedExample: au.practicalExample,
+      howToUseSteps: au.howToUseSteps,
+      formulaExplanation: au.formulaExplanation,
+      practicalExample: au.practicalExample,
+      faqs: au.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'cooking' && cookingSeoFullMap[calculator.id]) {
+    const ck = cookingSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: ck.formulaExplanation,
+      workedExample: ck.practicalExample,
+      howToUseSteps: ck.howToUseSteps,
+      formulaExplanation: ck.formulaExplanation,
+      practicalExample: ck.practicalExample,
+      faqs: ck.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'statistics' && statisticsSeoFullMap[calculator.id]) {
+    const st = statisticsSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: st.formulaExplanation,
+      workedExample: st.practicalExample,
+      howToUseSteps: st.howToUseSteps,
+      formulaExplanation: st.formulaExplanation,
+      practicalExample: st.practicalExample,
+      faqs: st.faqs,
+      whoUses: '',
+    };
+  }
+
+  if (calculator.categoryId === 'tech' && internetSeoFullMap[calculator.id]) {
+    const it = internetSeoFullMap[calculator.id];
+    return {
+      intro: '',
+      howItWorks: it.formulaExplanation,
+      workedExample: it.practicalExample,
+      howToUseSteps: it.howToUseSteps,
+      formulaExplanation: it.formulaExplanation,
+      practicalExample: it.practicalExample,
+      faqs: it.faqs,
+      whoUses: '',
+    };
+  }
+
   const sourceSeo = curatedSeo ?? allSeoMap[calculator.id];
   const inputLabels = calculator.inputs.map((inp) => inp.label).join(', ');
   const topic = extractTopicPhrase(calculator);

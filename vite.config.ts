@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-import { SITE_URL } from './src/config/site';
+import { SITE_URL } from './src/config/site.ts';
 
 export default defineConfig(() => {
   const cleanSiteUrl = SITE_URL.replace(/\/+$/, '');
@@ -42,8 +42,8 @@ export default defineConfig(() => {
           if (error) {
             return;
           }
-          const distDir = path.resolve(__dirname, 'dist');
-          const srcAssets = path.resolve(__dirname, 'src/assets');
+          const distDir = path.resolve(import.meta.dirname, 'dist');
+          const srcAssets = path.resolve(import.meta.dirname, 'src/assets');
           const distAssets = path.resolve(distDir, 'src/assets');
           if (fs.existsSync(distDir) && fs.existsSync(srcAssets)) {
             fs.cpSync(srcAssets, distAssets, {recursive: true, force: true});
@@ -53,7 +53,7 @@ export default defineConfig(() => {
     ],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(import.meta.dirname, '.'),
       },
     },
     server: {

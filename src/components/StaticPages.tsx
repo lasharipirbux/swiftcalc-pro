@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Shield, Mail, FileText, Info, AlertTriangle, Send, CheckCircle2 } from 'lucide-react';
-import { SITE_NAME } from '../config/site';
+import { SITE_NAME, SUPPORT_EMAIL } from '../config/site';
 
 interface StaticPageProps {
   page: 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer';
   onBack: () => void;
 }
-
-const SUPPORT_EMAIL = 'lasharipirbux@gmail.com';
 
 export const StaticPage: React.FC<StaticPageProps> = ({ page, onBack }) => {
   const [contactName, setContactName] = useState('');
@@ -91,20 +89,27 @@ export const StaticPage: React.FC<StaticPageProps> = ({ page, onBack }) => {
             </p>
 
             {/* Working Direct Email Card */}
-            <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 space-y-2">
+            <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 space-y-3">
               <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Direct Email Support
               </p>
-              <p>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <a
-                  href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(`${SITE_NAME} Inquiry`)}`}
+                  href={`mailto:${SUPPORT_EMAIL}`}
                   className="text-base font-bold text-emerald-600 dark:text-emerald-400 hover:underline font-mono break-all"
                 >
                   {SUPPORT_EMAIL}
                 </a>
-              </p>
+                <a
+                  href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(`${SITE_NAME} Inquiry`)}`}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shrink-0"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>Email Us</span>
+                </a>
+              </div>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                We typically review and respond to all inquiries within 24–48 business hours.
+                We usually reply within 1-2 days.
               </p>
             </div>
 

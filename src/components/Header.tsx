@@ -141,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="block text-sm sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-none">
               {SITE_NAME}
             </span>
-            <p className="hidden xs:block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
+            <p className="hidden sm:block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
               {totalCount}+ Professional Calculators
             </p>
           </div>

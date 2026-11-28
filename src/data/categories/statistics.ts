@@ -292,7 +292,6 @@ export const statisticsCategory: Category = {
           if (e <= 0) return { result: 'Margin of error must be > 0' };
           const z = 1.96; // 95% confidence
           const p = 0.5;
-          const numerator = (Z2: number, N: number, p: number) => Z2 * p * (1 - p) * N;
           const ss = (Math.pow(z, 2) * p * (1 - p) * N) / (Math.pow(e, 2) * (N - 1) + Math.pow(z, 2) * p * (1 - p));
           return {
             result: `Required Sample Size: ${Math.ceil(ss)}`,

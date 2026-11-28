@@ -1,25 +1,27 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef, lazy, Suspense } from 'react';
 import { categories, getAllCalculators } from './data/calculatorsData';
 import { CalculatorItem, CalculationHistoryItem } from './types';
 import { Header } from './components/Header';
 import { BrandLogo } from './components/BrandLogo';
 import { Sidebar } from './components/Sidebar';
-import { CalculatorView } from './components/CalculatorView';
 import { FavoritesModal } from './components/FavoritesModal';
 import { HistoryModal } from './components/HistoryModal';
+
+const CalculatorView = lazy(() =>
+  import('./components/CalculatorView').then((m) => ({ default: m.CalculatorView }))
+);
 import { StaticPage } from './components/StaticPages';
 import { SeoHead, StaticPageId } from './components/SeoHead';
 import { getCalculatorSlug, findCalculatorBySlug } from './utils/slugs';
-import { searchCalculators } from './utils/search';
-import { SITE_NAME } from './config/site';
+import { SITE_NAME, SUPPORT_EMAIL } from './config/site';
 import {
   ArrowRight,
+  ArrowDown,
   ArrowUp,
   ArrowLeft,
   Star,
   Layers,
   Calculator as CalcIcon,
-  Search,
   DollarSign,
   Briefcase,
   Home,
@@ -36,6 +38,7 @@ import {
   Wifi,
   Sun,
   Moon,
+  Mail,
 } from 'lucide-react';
 
 const POPULAR_CALCULATOR_IDS = [
@@ -72,13 +75,7 @@ export default function App() {
     return null;
   });
   const [searchQuery, setSearchQuery] = useState('');
-
-  // Hero search state on landing page
-  const [heroSearchQuery, setHeroSearchQuery] = useState('');
-  const [isHeroDropdownOpen, setIsHeroDropdownOpen] = useState(false);
-  const [heroHighlightedIndex, setHeroHighlightedIndex] = useState<number>(-1);
-  const heroSearchRef = useRef<HTMLDivElement>(null);
-  const heroInputRef = useRef<HTMLInputElement>(null);
+  const categoriesRef = useRef<HTMLElement>(null);
 
   // Favorites & History state with localStorage
   const [favorites, setFavorites] = useState<string[]>(() => {
@@ -121,21 +118,6 @@ export default function App() {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Close hero dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (heroSearchRef.current && !heroSearchRef.current.contains(e.target as Node)) {
-        setIsHeroDropdownOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    setHeroHighlightedIndex(-1);
-  }, [heroSearchQuery]);
 
   // Determine active calculator based on currentPath
   const activeCalculator = useMemo(() => {
@@ -208,8 +190,6 @@ export default function App() {
   };
 
   const handleSelectCalculator = (calc: CalculatorItem) => {
-    setIsHeroDropdownOpen(false);
-    setHeroSearchQuery('');
     const slug = getCalculatorSlug(calc);
     navigateTo(slug);
   };
@@ -217,7 +197,6 @@ export default function App() {
   const handleSelectCategory = (catId: string | null) => {
     setSelectedCategory(catId);
     setSearchQuery('');
-    setHeroSearchQuery('');
     if (catId) {
       navigateTo(`/category/${catId}`);
     } else {
@@ -228,15 +207,12 @@ export default function App() {
   const handleBackToHome = () => {
     setSelectedCategory(null);
     setSearchQuery('');
-    setHeroSearchQuery('');
     navigateTo('/');
   };
 
-  // Hero search live results
-  const heroLiveResults = useMemo(() => {
-    if (!heroSearchQuery.trim()) return [];
-    return searchCalculators(heroSearchQuery, allCalculators, categories, null);
-  }, [heroSearchQuery, allCalculators]);
+  const handleScrollToCategories = () => {
+    categoriesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   // Category page calculators
   const categoryCalculators = useMemo(() => {
@@ -308,40 +284,11 @@ export default function App() {
     }
   };
 
-  const handleHeroKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!isHeroDropdownOpen || !heroSearchQuery.trim()) return;
-
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      if (heroLiveResults.length > 0) {
-        setHeroHighlightedIndex((prev) => (prev + 1) % heroLiveResults.length);
-      }
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      if (heroLiveResults.length > 0) {
-        setHeroHighlightedIndex((prev) => (prev <= 0 ? heroLiveResults.length - 1 : prev - 1));
-      }
-    } else if (e.key === 'Enter') {
-      if (heroLiveResults.length > 0) {
-        e.preventDefault();
-        const target =
-          heroHighlightedIndex >= 0 ? heroLiveResults[heroHighlightedIndex] : heroLiveResults[0];
-        if (target) {
-          handleSelectCalculator(target.calculator);
-        }
-      }
-    } else if (e.key === 'Escape') {
-      setIsHeroDropdownOpen(false);
-      heroInputRef.current?.blur();
-    }
-  };
-
   const staticPageId: StaticPageId | null = ['/about', '/contact', '/privacy', '/terms', '/disclaimer'].includes(currentPath)
     ? (currentPath.replace('/', '') as StaticPageId)
     : null;
   const isHomePage = currentPath === '/';
   const isNotFound = !isHomePage && !staticPageId && !activeCalculator && !selectedCategory;
-  const showHeroDropdown = isHeroDropdownOpen && heroSearchQuery.trim().length > 0;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
@@ -378,15 +325,23 @@ export default function App() {
             onBack={handleBackToHome}
           />
         ) : activeCalculator ? (
-          <CalculatorView
-            calculator={activeCalculator}
-            categoryName={getCategoryName(activeCalculator.categoryId)}
-            onBack={handleBackToHome}
-            isFavorite={favorites.includes(activeCalculator.id)}
-            onToggleFavorite={handleToggleFavorite}
-            onSaveHistory={handleSaveHistory}
-            onSelectCalculator={handleSelectCalculator}
-          />
+          <Suspense
+            fallback={
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 text-center text-sm text-slate-500 dark:text-slate-400">
+                Loading calculator...
+              </div>
+            }
+          >
+            <CalculatorView
+              calculator={activeCalculator}
+              categoryName={getCategoryName(activeCalculator.categoryId)}
+              onBack={handleBackToHome}
+              isFavorite={favorites.includes(activeCalculator.id)}
+              onToggleFavorite={handleToggleFavorite}
+              onSaveHistory={handleSaveHistory}
+              onSelectCalculator={handleSelectCalculator}
+            />
+          </Suspense>
         ) : selectedCategory ? (
           /* Category View (Lists calculators in the chosen category + Sidebar) */
           <div className="space-y-6">
@@ -499,116 +454,36 @@ export default function App() {
           </div>
         ) : (
           /* Home Landing Page */
-          <div className="space-y-14 pb-4">
+          <div className="space-y-16 pb-4">
             
-            {/* 1) Hero Section */}
-            <section className="relative rounded-3xl bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 text-white px-5 py-12 sm:px-10 sm:py-16 shadow-xl border border-emerald-700/50">
-              <div className="max-w-3xl mx-auto text-center space-y-4">
-                <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            {/* 1) Full-Screen Hero Section (~90vh, centered, no search bar) */}
+            <section className="relative min-h-[90vh] flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 text-white px-6 py-16 sm:px-12 shadow-xl border border-emerald-700/50">
+              <div className="max-w-3xl mx-auto text-center space-y-6">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                   400+ Free Online Calculators
                 </h1>
-                <p className="text-sm sm:text-base text-emerald-100/90 max-w-xl mx-auto">
+                <p className="text-sm sm:text-lg text-emerald-100/90 max-w-2xl mx-auto leading-relaxed">
                   Instant, accurate calculators for finance, real estate, construction, health, education, and everyday math.
                 </p>
 
-                {/* Large Search Bar with Live Dropdown */}
-                <div ref={heroSearchRef} className="relative max-w-2xl mx-auto pt-3 text-left">
-                  <div className="relative">
-                    <Search className="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" />
-                    <input
-                      ref={heroInputRef}
-                      type="text"
-                      value={heroSearchQuery}
-                      onFocus={() => setIsHeroDropdownOpen(true)}
-                      onChange={(e) => {
-                        setHeroSearchQuery(e.target.value);
-                        setIsHeroDropdownOpen(true);
-                      }}
-                      onKeyDown={handleHeroKeyDown}
-                      placeholder="Search any calculator (e.g. math, emi, bmi, marla, percent)..."
-                      aria-label="Search all calculators"
-                      aria-expanded={showHeroDropdown}
-                      aria-autocomplete="list"
-                      className="w-full bg-white dark:bg-slate-900 border-2 border-emerald-500/40 focus:border-amber-400 rounded-2xl pl-12 sm:pl-14 pr-20 py-3.5 sm:py-4 text-sm sm:text-base text-slate-900 dark:text-white placeholder-slate-400 shadow-lg focus:outline-none transition-all"
-                    />
-                    {heroSearchQuery && (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setHeroSearchQuery('');
-                          setIsHeroDropdownOpen(false);
-                          heroInputRef.current?.focus();
-                        }}
-                        className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg transition-colors"
-                      >
-                        Clear
-                      </button>
-                    )}
-                  </div>
-
-                  {/* Hero Live Results Dropdown */}
-                  {showHeroDropdown && (
-                    <div
-                      role="listbox"
-                      className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl overflow-hidden z-40"
-                    >
-                      {heroLiveResults.length === 0 ? (
-                        <div className="p-6 text-center">
-                          <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                            No calculator found
-                          </p>
-                          <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                            Try searching by calculator name, category, or keyword (e.g., "math", "emi", "bmi", "marla", "percent").
-                          </p>
-                        </div>
-                      ) : (
-                        <>
-                          <div className="px-4 py-2.5 bg-slate-50 dark:bg-slate-800/70 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
-                            <span>Matching Calculators</span>
-                            <span className="text-emerald-600 dark:text-emerald-400 tabular-nums">
-                              {heroLiveResults.length} {heroLiveResults.length === 1 ? 'result' : 'results'}
-                            </span>
-                          </div>
-                          <div className="max-h-80 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800/70">
-                            {heroLiveResults.map(({ calculator, categoryName }, idx) => {
-                              const isHighlighted = idx === heroHighlightedIndex;
-                              return (
-                                <button
-                                  key={calculator.id}
-                                  type="button"
-                                  role="option"
-                                  aria-selected={isHighlighted}
-                                  onClick={() => handleSelectCalculator(calculator)}
-                                  onMouseEnter={() => setHeroHighlightedIndex(idx)}
-                                  className={`w-full text-left px-4 py-3 flex items-center justify-between gap-3 transition-colors ${
-                                    isHighlighted
-                                      ? 'bg-emerald-50 dark:bg-emerald-950/50'
-                                      : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
-                                  }`}
-                                >
-                                  <div className="min-w-0 flex-1">
-                                    <p className="text-sm font-semibold text-slate-900 dark:text-white truncate">
-                                      {calculator.name}
-                                    </p>
-                                    <span className="inline-block mt-0.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-                                      {categoryName}
-                                    </span>
-                                  </div>
-                                  <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500 shrink-0" />
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </>
-                      )}
-                    </div>
-                  )}
+                <div className="pt-2 flex flex-col items-center gap-3.5">
+                  <button
+                    type="button"
+                    onClick={handleScrollToCategories}
+                    className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-amber-400 hover:bg-amber-300 active:scale-[0.99] text-emerald-950 font-bold text-base sm:text-lg shadow-lg shadow-amber-500/20 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-emerald-900"
+                  >
+                    <span>Start Calculating</span>
+                    <ArrowDown className="w-5 h-5" />
+                  </button>
+                  <p className="text-xs sm:text-sm font-medium text-emerald-100/80 tracking-wide">
+                    Free &bull; No login &bull; Works on mobile
+                  </p>
                 </div>
               </div>
             </section>
 
-            {/* 2) 14 Category Cards Grid */}
-            <section className="space-y-5">
+            {/* 2) 14 Category Cards Grid (below the hero / first screen) */}
+            <section ref={categoriesRef} id="browse-categories" className="space-y-5 scroll-mt-24">
               <div className="flex items-baseline justify-between gap-4">
                 <div>
                   <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
@@ -729,44 +604,45 @@ export default function App() {
 
       {/* Footer */}
       <footer className="bg-[#0F172A] border-t border-slate-800 pt-12 pb-24 sm:py-12 mt-14 text-center text-xs text-[#94A3B8]">
-        <div className="max-w-7xl mx-auto px-4 sm:pr-16 flex flex-col sm:flex-row items-center justify-between gap-5">
-          <div className="flex items-center gap-2.5 cursor-pointer group" onClick={handleBackToHome}>
-            <BrandLogo className="w-7 h-7" />
-            <span className="font-bold text-[#E2E8F0] group-hover:text-emerald-400 transition-colors">{SITE_NAME}</span>
-            <span className="text-[#94A3B8]">· {allCalculators.length}+ Free Online Calculators Portal</span>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:pr-16 flex flex-col gap-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
+            <div className="flex items-center gap-2.5 cursor-pointer group" onClick={handleBackToHome}>
+              <BrandLogo className="w-7 h-7" />
+              <span className="font-bold text-[#E2E8F0] group-hover:text-emerald-400 transition-colors">{SITE_NAME}</span>
+              <span className="text-[#94A3B8]">· {allCalculators.length}+ Free Online Calculators Portal</span>
+            </div>
 
-          <nav aria-label="Footer navigation" className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 font-medium">
-            <a
-              href="/about"
-              onClick={(e) => {
-                e.preventDefault();
-                navigateTo('/about');
-              }}
-              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
-            >
-              About Us
-            </a>
-            <a
-              href="/contact"
-              onClick={(e) => {
-                e.preventDefault();
-                navigateTo('/contact');
-              }}
-              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
-            >
-              Contact Us
-            </a>
-            <a
-              href="/privacy"
-              onClick={(e) => {
-                e.preventDefault();
-                navigateTo('/privacy');
-              }}
-              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
-            >
-              Privacy Policy
-            </a>
+            <nav aria-label="Footer navigation" className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 font-medium">
+              <a
+                href="/about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('/about');
+                }}
+                className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
+              >
+                About Us
+              </a>
+              <a
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('/contact');
+                }}
+                className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
+              >
+                Contact Us
+              </a>
+              <a
+                href="/privacy"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('/privacy');
+                }}
+                className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
+              >
+                Privacy Policy
+              </a>
               <a
                 href="/terms"
                 onClick={(e) => {
@@ -777,28 +653,40 @@ export default function App() {
               >
                 Terms &amp; Conditions
               </a>
-            <a
-              href="/disclaimer"
-              onClick={(e) => {
-                e.preventDefault();
-                navigateTo('/disclaimer');
-              }}
-              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
-            >
-              Disclaimer
-            </a>
-            <button
-              type="button"
-              onClick={() => setDarkMode(!darkMode)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/60 text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
-              title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            >
-              {darkMode ? <Sun className="w-3.5 h-3.5 text-emerald-400" /> : <Moon className="w-3.5 h-3.5 text-emerald-400" />}
-              <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
-            </button>
-          </nav>
+              <a
+                href="/disclaimer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('/disclaimer');
+                }}
+                className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
+              >
+                Disclaimer
+              </a>
+              <button
+                type="button"
+                onClick={() => setDarkMode(!darkMode)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/60 text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors"
+                title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              >
+                {darkMode ? <Sun className="w-3.5 h-3.5 text-emerald-400" /> : <Moon className="w-3.5 h-3.5 text-emerald-400" />}
+                <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
+              </button>
+            </nav>
 
-          <p className="text-[#94A3B8]">© {new Date().getFullYear()} {SITE_NAME} · By Naseeb. All rights reserved.</p>
+            <p className="text-[#94A3B8]">© {new Date().getFullYear()} {SITE_NAME} · By Naseeb. All rights reserved.</p>
+          </div>
+
+          <div className="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-1.5 text-xs text-[#94A3B8]">
+            <Mail className="w-3.5 h-3.5 text-emerald-400 shrink-0" aria-hidden="true" />
+            <span>Contact:</span>
+            <a
+              href={`mailto:${SUPPORT_EMAIL}`}
+              className="text-[#E2E8F0] hover:text-emerald-400 active:text-emerald-400 transition-colors font-medium break-all"
+            >
+              {SUPPORT_EMAIL}
+            </a>
+          </div>
         </div>
       </footer>
 

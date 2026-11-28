@@ -7,3 +7,4 @@
  */
 export const SITE_URL = '';
 export const SITE_NAME = 'CalcNaseeb';
+export const SUPPORT_EMAIL = 'ranknaseebhelp@gmail.com';

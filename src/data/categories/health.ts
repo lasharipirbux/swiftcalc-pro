@@ -531,7 +531,6 @@ export const healthCategory: Category = {
           { id: 'hours', label: 'Hours Since First Drink', type: 'number', defaultValue: 2 }
         ],
         calculate: (vals) => {
-          const w = Number(vals.weightKg) * 2.20462; // to lbs
           const d = Number(vals.drinks);
           const hrs = Number(vals.hours);
           const r = vals.gender === 'male' ? 0.68 : 0.55;

@@ -1,6 +1,6 @@
 {
-  "name": "CalcVault Pro",
-  "description": "The Ultimate Multi-Category Calculator Web Portal with 400+ Professional Calculators Across 15 Major Categories.",
+  "name": "CalcNaseeb",
+  "description": "The Ultimate Multi-Category Calculator Web Portal with 400+ Professional Calculators Across 14 Major Categories.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

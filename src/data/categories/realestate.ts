@@ -445,7 +445,7 @@ export const realestateCategory: Category = {
       {
         id: 're-commercial-valuation',
         name: 'Commercial Property Valuation Calculator',
-        categoryId: 'commercial',
+        categoryId: 'realestate',
         description: 'Estimate commercial property value using income capitalization approach.',
         inputs: [
           { id: 'annualRevenue', label: 'Gross Annual Rental Income (PKR)', type: 'number', defaultValue: 3000000 },
@@ -516,7 +516,6 @@ export const realestateCategory: Category = {
           { id: 'rate', label: 'Annual Markup Rate (%)', type: 'number', defaultValue: 16 }
         ],
         calculate: (vals) => {
-          const bal = Number(vals.loanBalance);
           const extra = Number(vals.extraPayment);
           const r = Number(vals.rate) / 100;
           // Approximate annual interest saved by extra payment

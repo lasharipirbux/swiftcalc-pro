@@ -300,7 +300,6 @@ export const constructionCategory: Category = {
         calculate: (vals) => {
           const r = Number(vals.residents);
           const cuFtNeeded = r * 25; // approx 25 cu ft per person capacity
-          const cuMeters = cuFtNeeded / 35.315;
           const liters = cuFtNeeded * 28.3168;
           return {
             result: `${Math.round(cuFtNeeded)} cu ft (${Math.round(liters).toLocaleString()} Liters)`,

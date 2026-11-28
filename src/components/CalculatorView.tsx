@@ -315,77 +315,145 @@ export const CalculatorView: React.FC<CalculatorViewProps> = ({
 
         </div>
 
-        {/* Structured Educational Content (250–400 words across 4 clear sections) */}
-        <article className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-7 text-left text-slate-700 dark:text-slate-300">
-          
-          {/* Section 1: How to Use This Calculator */}
-          <section className="space-y-3">
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-              How to Use This Calculator
-            </h2>
-            <ol className="space-y-2 text-xs sm:text-sm leading-relaxed pl-5 list-decimal text-slate-600 dark:text-slate-300">
-              {seoContent.howToUseSteps.map((step, idx) => (
-                <li key={idx} className="pl-1">
-                  {step}
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          {/* Section 2: Formula & Explanation */}
-          <section className="space-y-2.5">
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-              Formula &amp; Explanation
-            </h2>
+        {/* Structured Educational Content */}
+        {calculator.categoryId === 'datetime' ? (
+          <article className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-7 text-left text-slate-700 dark:text-slate-300">
+            {/* 1. Short Intro (2-3 sentences) */}
             <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              {seoContent.formulaExplanation}
+              {seoContent.intro}
             </p>
-          </section>
 
-          {/* Section 3: Practical Example */}
-          <section className="space-y-2.5">
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-              Practical Example
-            </h2>
-            <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5">
-              <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                {seoContent.practicalExample}
+            {/* 2. Formula Explained */}
+            <section className="space-y-2.5">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                Formula Explained
+              </h2>
+              <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                {seoContent.formulaExplanation}
               </p>
-            </div>
-          </section>
+            </section>
 
-          {/* Section 4: Frequently Asked Questions (3-4 FAQs) */}
-          <section className="space-y-3">
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-              Frequently Asked Questions
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-              {seoContent.faqs.map((faq, idx) => (
-                <div key={idx} className="h-full flex flex-col justify-start text-left bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">
-                    Q: {faq.q}
-                  </h3>
-                  <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">
-                    A: {faq.a}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
+            {/* 3. Practical Example */}
+            <section className="space-y-2.5">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                Practical Example
+              </h2>
+              <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5">
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  {seoContent.practicalExample}
+                </p>
+              </div>
+            </section>
 
-          {seoContent.medicalDisclaimer && (
-            <div className="py-2.5 px-4 bg-amber-50/70 dark:bg-amber-950/20 rounded-xl border border-amber-200 dark:border-amber-900/50 text-xs font-medium text-amber-800 dark:text-amber-300 text-left">
-              {seoContent.medicalDisclaimer}
-            </div>
-          )}
-        </article>
+            {/* 4. How to Use This Calculator (3-4 steps) */}
+            <section className="space-y-3">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                How to Use This Calculator
+              </h2>
+              <ol className="space-y-2 text-xs sm:text-sm leading-relaxed pl-5 list-decimal text-slate-600 dark:text-slate-300">
+                {seoContent.howToUseSteps.map((step, idx) => (
+                  <li key={idx} className="pl-1">
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            {/* 5. Frequently Asked Questions (3-4 FAQs) */}
+            <section className="space-y-3">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                Frequently Asked Questions
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+                {seoContent.faqs.map((faq, idx) => (
+                  <div key={idx} className="h-full flex flex-col justify-start text-left bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">
+                      Q: {faq.q}
+                    </h3>
+                    <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">
+                      A: {faq.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </article>
+        ) : (
+          <article className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-7 text-left text-slate-700 dark:text-slate-300">
+            
+            {/* Section 1: How to Use This Calculator */}
+            <section className="space-y-3">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                How to Use This Calculator
+              </h2>
+              <ol className="space-y-2 text-xs sm:text-sm leading-relaxed pl-5 list-decimal text-slate-600 dark:text-slate-300">
+                {seoContent.howToUseSteps.map((step, idx) => (
+                  <li key={idx} className="pl-1">
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            {/* Section 2: Formula & Explanation */}
+            <section className="space-y-2.5">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                Formula &amp; Explanation
+              </h2>
+              <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                {seoContent.formulaExplanation}
+              </p>
+            </section>
+
+            {/* Section 3: Practical Example */}
+            <section className="space-y-2.5">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                Practical Example
+              </h2>
+              <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5">
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  {seoContent.practicalExample}
+                </p>
+              </div>
+            </section>
+
+            {/* Section 4: Frequently Asked Questions (3-4 FAQs) */}
+            <section className="space-y-3">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                Frequently Asked Questions
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+                {seoContent.faqs.map((faq, idx) => (
+                  <div key={idx} className="h-full flex flex-col justify-start text-left bg-slate-50 dark:bg-slate-800/40 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white mb-2 text-left">
+                      Q: {faq.q}
+                    </h3>
+                    <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400 text-left">
+                      A: {faq.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {seoContent.medicalDisclaimer && (
+              <div className="py-2.5 px-4 bg-amber-50/70 dark:bg-amber-950/20 rounded-xl border border-amber-200 dark:border-amber-900/50 text-xs font-medium text-amber-800 dark:text-amber-300 text-left">
+                {seoContent.medicalDisclaimer}
+              </div>
+            )}
+          </article>
+        )}
 
         {/* Related Calculators Section (6 crawlable internal links from the same category) */}
         {relatedCalculators.length > 0 && (
           <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800">
             <h2 className="text-sm font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
               <Layers className="w-4 h-4 text-emerald-600" />
-              <span>Related {categoryName} Calculators</span>
+              <span>
+                {calculator.categoryId === 'datetime'
+                  ? 'Related Calculators'
+                  : `Related ${categoryName} Calculators`}
+              </span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {relatedCalculators.map((rel) => {
