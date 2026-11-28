@@ -12,15 +12,24 @@ export default defineConfig(() => {
     plugins: [
       react(),
       tailwindcss(),
-      // Ensures index.html canonical, og:url, and JSON-LD URLs stay automatically synced
-      // with SITE_URL in src/config/site.ts whenever the domain is updated.
+      // Injects canonical link post-asset-resolution (avoiding Vite treating href="/" as a directory asset)
+      // and automatically prepends SITE_URL from src/config/site.ts once a custom domain is configured.
       {
         name: 'sync-site-url-in-html',
-        transformIndexHtml(html: string): string {
-          return html.replaceAll(
-            'https://swiftcalc-pro.lasharipirbux.workers.dev',
-            cleanSiteUrl
-          );
+        transformIndexHtml: {
+          order: 'post',
+          handler(html: string): string {
+            let out = html.replace(
+              '<!-- canonical-link -->',
+              `<link rel="canonical" href="${cleanSiteUrl}/" />`
+            );
+            if (!cleanSiteUrl) return out;
+            return out
+              .replace('<meta property="og:url" content="/" />', `<meta property="og:url" content="${cleanSiteUrl}/" />`)
+              .replaceAll('"@id": "/#', `"@id": "${cleanSiteUrl}/#`)
+              .replaceAll('"url": "/"', `"url": "${cleanSiteUrl}/"`)
+              .replaceAll('"target": "/?q=', `"target": "${cleanSiteUrl}/?q=`);
+          },
         },
       },
       // Copies src/assets into dist/ so root-relative URLs like

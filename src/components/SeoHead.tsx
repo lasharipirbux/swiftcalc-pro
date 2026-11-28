@@ -283,7 +283,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
     document.getElementById('calculator-json-ld')?.remove();
     document.getElementById('faq-json-ld')?.remove();
 
-    let schemaTag = document.getElementById('calcvault-json-ld');
+    let schemaTag = document.getElementById('calcnaseeb-json-ld');
     if (graphNodes.length > 0) {
       const payload = {
         '@context': 'https://schema.org',
@@ -291,7 +291,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
       };
       if (!schemaTag) {
         schemaTag = document.createElement('script');
-        schemaTag.id = 'calcvault-json-ld';
+        schemaTag.id = 'calcnaseeb-json-ld';
         schemaTag.setAttribute('type', 'application/ld+json');
         document.head.appendChild(schemaTag);
       }

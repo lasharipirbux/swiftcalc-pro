@@ -7,6 +7,7 @@ import { realestateAutomotiveSeoMap } from '../data/seoRealestateAutomotive';
 import { cookingStatisticsSeoMap } from '../data/seoCookingStatistics';
 import { formatCalculatorResult } from './formatResult';
 import { safeCalculate } from './safeCalculate';
+import { SITE_NAME } from '../config/site';
 
 export interface StructuredCalculatorSeo extends SeoContent {
   howToUseSteps: string[];
@@ -185,7 +186,7 @@ export function getCalculatorSeoContent(
     } else {
       baseFaqs.push({
         q: `Is the ${calculator.name} free and private to use?`,
-        a: `Yes. Every calculator on CalcVault Pro executes locally in your browser with no account required, keeping your data fast and private.`,
+        a: `Yes. Every calculator on ${SITE_NAME} executes locally in your browser with no account required, keeping your data fast and private.`,
       });
     }
   }

@@ -732,7 +732,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:pr-16 flex flex-col sm:flex-row items-center justify-between gap-5">
           <div className="flex items-center gap-2.5 cursor-pointer group" onClick={handleBackToHome}>
             <BrandLogo className="w-7 h-7" />
-            <span className="font-bold text-[#E2E8F0] group-hover:text-emerald-400 transition-colors">CalcVault Pro</span>
+            <span className="font-bold text-[#E2E8F0] group-hover:text-emerald-400 transition-colors">{SITE_NAME}</span>
             <span className="text-[#94A3B8]">· {allCalculators.length}+ Free Online Calculators Portal</span>
           </div>
 
@@ -798,7 +798,7 @@ export default function App() {
             </button>
           </nav>
 
-          <p className="text-[#94A3B8]">© {new Date().getFullYear()} CalcVault Pro · By Naseeb. All rights reserved.</p>
+          <p className="text-[#94A3B8]">© {new Date().getFullYear()} {SITE_NAME} · By Naseeb. All rights reserved.</p>
         </div>
       </footer>
 

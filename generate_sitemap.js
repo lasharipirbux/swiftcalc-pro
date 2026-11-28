@@ -58,6 +58,6 @@ Sitemap: ${domain}/sitemap.xml
 
 fs.writeFileSync('./public/robots.txt', robots);
 
-console.log(`Sitemap generated for ${domain} with total pages:`, entries.length);
+console.log(`Sitemap generated (${domain || 'relative URLs'}) with total pages:`, entries.length);
 console.log('First 6 entries:');
 entries.slice(0, 6).forEach((e, i) => console.log(`${i + 1}: ${e.loc}`));

@@ -1,8 +1,9 @@
 /**
  * Centralized site configuration.
- * When you connect your custom domain later, update SITE_URL here
- * (no trailing slash) and run `npm run build` — canonical tags,
- * Open Graph URLs, JSON-LD, sitemap.xml, and robots.txt all update automatically.
+ * Leave SITE_URL empty ('') to keep canonical, Open Graph, JSON-LD,
+ * sitemap.xml, and robots.txt URLs relative until your custom domain is ready.
+ * When connecting a custom domain later, set SITE_URL (e.g. 'https://yourdomain.com',
+ * no trailing slash) and run `npm run build`.
  */
-export const SITE_URL = 'https://swiftcalc-pro.lasharipirbux.workers.dev';
-export const SITE_NAME = 'CalcVault Pro';
+export const SITE_URL = '';
+export const SITE_NAME = 'CalcNaseeb';

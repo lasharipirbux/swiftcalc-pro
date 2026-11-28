@@ -4,6 +4,7 @@ import { categories, getAllCalculators } from '../data/calculatorsData';
 import { CalculatorItem } from '../types';
 import { searchCalculators } from '../utils/search';
 import { BrandLogo } from './BrandLogo';
+import { SITE_NAME } from '../config/site';
 
 interface HeaderProps {
   searchQuery: string;
@@ -138,7 +139,7 @@ export const Header: React.FC<HeaderProps> = ({
           <BrandLogo className="w-9 h-9 sm:w-10 sm:h-10" />
           <div>
             <span className="block text-sm sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-none">
-              CalcVault Pro
+              {SITE_NAME}
             </span>
             <p className="hidden xs:block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
               {totalCount}+ Professional Calculators
